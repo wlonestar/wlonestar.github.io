@@ -1,0 +1,539 @@
+<!DOCTYPE html>
+<html lang='zh' ><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+
+<title>『计算机组成与设计：软件硬件接口』 1 计算机概要技术 | LoneStar&#39;s blog</title>
+
+<meta name="generator" content="Hugo Eureka 0.8.4" />
+<link rel="stylesheet" href="https://blog.wangjialei.xyz/css/eureka.min.css">
+<script defer src="https://blog.wangjialei.xyz/js/eureka.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/styles/stackoverflow-light.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/highlight.min.js"
+   crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/languages/light.min.js"
+     crossorigin></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js"
+   integrity="sha256-uNYoXefWRqv&#43;PsIF/OflNmwtKM4lStn9yrz2gVl6ymo="  crossorigin></script>
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+   integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3&#43;Aro6EYUG4&#43;cU&#43;KJWu/X"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" 
+  integrity="sha384-g7c&#43;Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI&#43;sEnkvrMWph2EDg4"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+   integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC&#43;Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/mermaid@8.9.2/dist/mermaid.min.js" 
+  integrity="sha256-Zmpaaj&#43;GXFsPF5WdPArSrnW3b30dovldeKsW00xBVwE="  crossorigin></script>
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="https://blog.wangjialei.xyz/images/favicon_huce974d41c22b18f52c9ea90a63a4b2a6_21741_32x32_fill_box_center_3.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://blog.wangjialei.xyz/images/favicon_huce974d41c22b18f52c9ea90a63a4b2a6_21741_180x180_fill_box_center_3.png">
+
+<meta name="description"
+  content="计算机组成与设计学习笔记">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"文章",
+      "item":"https://blog.wangjialei.xyz/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"『计算机组成与设计：软件硬件接口』 1 计算机概要技术",
+      "item":"https://blog.wangjialei.xyz/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E4%B8%8E%E8%AE%BE%E8%AE%A1%E8%BD%AF%E4%BB%B6%E7%A1%AC%E4%BB%B6%E6%8E%A5%E5%8F%A3-1-%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%A6%82%E8%A6%81%E6%8A%80%E6%9C%AF/"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://blog.wangjialei.xyz/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E4%B8%8E%E8%AE%BE%E8%AE%A1%E8%BD%AF%E4%BB%B6%E7%A1%AC%E4%BB%B6%E6%8E%A5%E5%8F%A3-1-%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%A6%82%E8%A6%81%E6%8A%80%E6%9C%AF/"
+    },
+    "headline": "『计算机组成与设计：软件硬件接口』 1 计算机概要技术 | LoneStar\u0027s blog",
+    "image": "https://mypic-1305118058.cos.ap-hongkong.myqcloud.com/img/Snipaste_2022-04-09_21-33-08.png",
+    "datePublished": "2022-05-05T10:58:48+08:00",
+    "dateModified": "2022-05-05T10:58:48+08:00",
+    "wordCount":  242 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "lonestar",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://blog.wangjialei.xyz/images/favicon.png"
+        }
+        },
+    "description": "计算机组成与设计学习笔记"
+}
+</script><meta property="og:title" content="『计算机组成与设计：软件硬件接口』 1 计算机概要技术 | LoneStar&#39;s blog" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="https://blog.wangjialei.xyz/images/favicon.png">
+
+
+<meta property="og:url" content="https://blog.wangjialei.xyz/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E4%B8%8E%E8%AE%BE%E8%AE%A1%E8%BD%AF%E4%BB%B6%E7%A1%AC%E4%BB%B6%E6%8E%A5%E5%8F%A3-1-%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%A6%82%E8%A6%81%E6%8A%80%E6%9C%AF/" />
+
+
+
+<meta property="og:description" content="计算机组成与设计学习笔记" />
+
+
+
+<meta property="og:locale" content="zh" />
+
+
+
+
+<meta property="og:site_name" content="LoneStar&#39;s blog" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2022-05-05T10:58:48&#43;08:00" />
+
+
+<meta property="article:modified_time" content="2022-05-05T10:58:48&#43;08:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+<meta property="article:tag" content="计算机组成原理" />
+
+<meta property="article:tag" content="硬件" />
+
+
+
+
+
+
+
+
+
+<meta property="og:see_also" content="https://blog.wangjialei.xyz/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E4%B8%8E%E8%AE%BE%E8%AE%A1%E8%BD%AF%E4%BB%B6%E7%A1%AC%E4%BB%B6%E6%8E%A5%E5%8F%A3-2-%E6%8C%87%E4%BB%A4%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E8%AF%AD%E8%A8%80/" />
+
+
+
+
+
+
+
+<body class="flex flex-col min-h-screen">
+  <header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
+    <div class="w-full max-w-screen-xl mx-auto"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="/" class="mr-6 text-primary-text text-xl font-bold">LoneStar&#39;s blog</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  selected-menu-item  mr-4">文章</a>
+            <a href="/categories/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">分类</a>
+            <a href="/tags/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">标签</a>
+            <a href="/series/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">系列</a>
+            <a href="/#about" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">关于</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">浅色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">深色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">自动</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+</div>
+  </header>
+  <main class="flex-grow pt-16">
+    <div class="pl-scrollbar">
+      <div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
+
+
+<div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12">
+    <div
+        class="col-span-2  lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
+        <h1 class="font-bold text-3xl text-primary-text">『计算机组成与设计：软件硬件接口』 1 计算机概要技术</h1>
+        <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2022-05-05</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>2分钟阅读时长</span>
+    </div>
+    
+    
+    <div class="mr-6 my-2">
+        <i class="fas fa-folder mr-1"></i>
+        
+        <a href="https://blog.wangjialei.xyz/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="hover:text-eureka">学习笔记</a>
+        
+    </div>
+    
+
+    
+    <div class="mr-6 my-2">
+        <i class="fas fa-th-list mr-1"></i>
+        
+        <a href="https://blog.wangjialei.xyz/series/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E4%B8%8E%E8%AE%BE%E8%AE%A1/" class="hover:text-eureka">计算机组成与设计</a>
+        
+    </div>
+    
+</div>
+        
+        
+        
+        <div class="my-4">
+            <img src="https://mypic-1305118058.cos.ap-hongkong.myqcloud.com/img/Snipaste_2022-04-09_21-33-08.png" class="w-full" alt="Featured Image">
+        </div>
+        
+
+        <div class="content">
+            <ul>
+<li>
+<p><strong>个人计算机（Personal Computer, PC）</strong>：用于个人使用的计算机，通常包含图形显示器。键盘和鼠标等。</p>
+</li>
+<li>
+<p><strong>服务器（server）</strong>：用于为多用户运行大型程序的计算机，通常由多个用户并行使用，并且一般通过网络访问。</p>
+</li>
+<li>
+<p><strong>超级计算机（supercomputer）</strong>：具有最高性能和最高成本的一类计算机，一般配置为服务器，需要花费数于 万甚至数亿美元。</p>
+</li>
+<li>
+<p><strong>terabyte</strong>: 一般简写作 TB, 原始定义为 1099511627776 (2^40) 宇节，但有些通信和辅助存储系统将其重新定义为 1 000 000 000 000 (10^12) 字节。为了避免混淆，使用术语 tebibyte (TiB) 表示 2^40 字节，而 terahyte 指 10^12 字节。</p>
+</li>
+<li>
+<p><strong>嵌入式计算机（embedded computer）</strong>：嵌入到其他设备中的计算机，一般运行预定义的一个或者一组应用程序。</p>
+</li>
+<li>
+<p><strong>个人移动设备（Personal Mobile Device, PMD）</strong>：连接到网络上的小型无线设备。PMD 由电池供电，通过下载 App 的方式安装软件。智能手机和平板电脑是典型的 PMD 。</p>
+</li>
+<li>
+<p><strong>云计算（cloud computing）</strong>：在网络上提供服务的大服务器集群，一些运营商根据应用需求出租不同数量的服务器。</p>
+</li>
+<li>
+<p><strong>软件即服务（Software as s Service, SaaS）</strong>：在网络上以服务的方式提供软件和数据。其运行方式通常不是在本地设备上运行所有的二进制代码，而是通过诸如运行在本地客户端的浏览器等小程序登录到远程服务器上执行。典型的例子是 Web 搜索和社交网络。</p>
+</li>
+<li>
+<p><strong>多核微处理器（multicore microprocesssor）</strong>：在一块集成电路上包含多个处理器(“核”)的微处理器 。</p>
+</li>
+<li>
+<p><strong>计算机系统结构中的 8 个伟大思想</strong>：</p>
+</li>
+</ul>
+<ol>
+<li>
+<p>面向摩尔定律的设计</p>
+</li>
+<li>
+<p>使用抽象简化设计</p>
+</li>
+<li>
+<p>加速大概率事件</p>
+</li>
+<li>
+<p>通过并行提高性能</p>
+</li>
+<li>
+<p>通过流水线提高性能</p>
+</li>
+<li>
+<p>通过预测提高性能</p>
+</li>
+<li>
+<p>存储器层次</p>
+</li>
+<li>
+<p>通过冗余提高可靠性</p>
+</li>
+</ol>
+<ul>
+<li>
+<p><strong>系统软件（systems software）</strong>：提供常用服务的软件，包括操作系统、编译程序、加载程序和汇编程序等。</p>
+</li>
+<li>
+<p><strong>操作系统（operating system）</strong>：为了使程序更好地在计算机上运行而管理计算机资源的监控程序</p>
+</li>
+<li>
+<p><strong>编译程序（compiler）</strong>：将高级语言翻译为计算机所能识别的机器语言的程序。</p>
+</li>
+<li>
+<p><strong>二进制位（binary digit）</strong>：也称为位。 基数为 2 的数字中的 0 或 1，它是信息的基本组成元素。</p>
+</li>
+<li>
+<p><strong>指令（instruction）</strong>：计算机硬件所能理解并服从的命令。</p>
+</li>
+<li>
+<p><strong>汇编程序（assembler）</strong>：将指令由助记符形式翻译成二进制形式的程序。</p>
+</li>
+<li>
+<p><strong>汇编语言（assembly language）</strong>：以助记符形式表示的机器指令。</p>
+</li>
+<li>
+<p><strong>机器语言（machine language）</strong>：以二进制元形式表示的机器指令。</p>
+</li>
+<li>
+<p><strong>高级编程语言（high-level programming language）</strong>：如 C 、 C + +、 Java 、 Visual Basic 等可移植的语言，由一些单词和代数符号组成，可以由编译器转换为汇编语言。</p>
+</li>
+<li>
+<p><strong>输入设备（input device）</strong>：为计算机提供信息的装置，如键盘。</p>
+</li>
+<li>
+<p><strong>输出设备（output device）</strong>：将计算结果输出给用户（如显示器）或其他计算机装置。</p>
+</li>
+<li>
+<p><strong>组成计算机的 5 个经典部件是输入、输出、存储器 、 数据通路（在计算机中也称运算器）和控制器，其中最后两个部件通常合称为处理器。</strong></p>
+</li>
+<li>
+<p><strong>像素（pixel）</strong>：图像元素的最小单元。屏幕由成千上万的像素组成的矩阵而形成。</p>
+</li>
+<li>
+<p><strong>集成电路（integrated circuit）</strong>：也叫芯片，一种将几十个至几百万个晶体管连接起来的设备。</p>
+</li>
+<li>
+<p><strong>中央处理器单元（central processor unit）</strong>：也称为处理器，处理器是计算机中最活跃的部分，它包括数据通路和控制器，能将数字相加，测试结果，并按结果发出控制信号使 I/O 设备动作等。</p>
+</li>
+<li>
+<p><strong>数据通路（daatapath）</strong>：是处理器中执行算术操作的部分。</p>
+</li>
+<li>
+<p><strong>控制器（control）</strong>：处理器中根据程序的指令指挥数据通路、存储器和 I/O 设备的部分。</p>
+</li>
+<li>
+<p><strong>内存（memory）</strong>：程序运行时的存储空间，同时还存储程序运行时所需的数据。</p>
+</li>
+<li>
+<p><strong>DRAM（dynamic random access memory）</strong>: 动态随机访问存储器，集成电路形式的存储器，可随机访问任何地址的内存。</p>
+</li>
+<li>
+<p><strong>缓存（cache memory）</strong>：缓存是一种小而快的存储器，一般作为大而慢的存储器的缓冲。</p>
+</li>
+<li>
+<p><strong>静态随机访问存储器（Static Random Access Memory, SRAM）</strong>：一种集成电路形式的存储器，但是比 DRAM 更快，集成度更低。</p>
+</li>
+<li>
+<p><strong>指令集体系结构（instruction set architecture, architecture）</strong>：也叫体系结构，是低层次软件和硬件之间的抽象接口，包含了需要编写正确运行的机器语言程序所需要的全部信息，包括指令、 寄存器 、 存储访问和 I/O 等。</p>
+</li>
+<li>
+<p><strong>应用二进制接口（Application Binary Interface, ABI）</strong>：用户部分的指令加上应用程序员调用的操作系统接口，定义了二进制层次可移植的计算机的标准。</p>
+</li>
+<li>
+<p><strong>易失性存储器（volatile memory）</strong>：类似 DRAM 的存储器，仅在加电时保存数据。</p>
+</li>
+<li>
+<p><strong>非易失性存储器（nonvolatile memory）</strong>：在掉电时仍可保持数据的存储器，用于存储运行间的程序，例如 DVD 。</p>
+</li>
+<li>
+<p><strong>主存储器（main memory）</strong>：也叫主要存储器。这个存储器用来保持运行中的程序，在现代计算机中一般由 DRAM 组成。</p>
+</li>
+<li>
+<p><strong>二级存储器（secondary memory）</strong>：非易失性存储器，用来保存两次运行之间的程序和数据。 在个人移动设备中 一般由闪存组成，在服务器中由磁盘组成。</p>
+</li>
+<li>
+<p><strong>磁盘（magnetic disk）</strong>：也叫硬盘 (hard disk) , 是使用磁介质材料构成的以旋转盘片为基础的非易失性二级存储设备。</p>
+</li>
+<li>
+<p><strong>闪存（flash memory）</strong>：一种非易失性半导体内存，单位价格和速度均低于 DRAM, 但单位价格比磁盘高，速度比磁盘快。</p>
+</li>
+<li>
+<p><strong>局域网（Local Area Network, LAN）</strong>：一种在一定地理区域（例如在同一栋大楼内）使用的传输数据的网络。</p>
+</li>
+<li>
+<p><strong>广域网（World Wide Web）</strong>：一种可将区域扩展到几百千米范围的网络。</p>
+</li>
+<li>
+<p><strong>响应时间（response time）</strong>：也叫执行时间(execution time), 是计算机完成某任务所需的总时间，包括硬盘访问、 内存访问、 I/O 活动、操作系统开销和 CPU 执行时间等。</p>
+</li>
+<li>
+<p><strong>吞吐率（throughput）</strong>：也叫带宽 (bandwidth) , 性能的另一种度量参数，表示单位时间内完成的任务数量。</p>
+</li>
+<li>
+<p><strong>CPU 执行时间（CPU execution time）</strong>：简称 CPU 时间，执行某一任务在 CPU 上所花费的时间。</p>
+</li>
+<li>
+<p><strong>用户 CPU 时间（user CPU time）</strong>：在程序本身所花费的 CPU 时间。</p>
+</li>
+<li>
+<p><strong>系统 CPU 时间（system CPU time）</strong>：为执行程序而花费在操作系统上的时间。</p>
+</li>
+<li>
+<p><strong>时钟周期（clock cycle）</strong>：也叫 tick 、 clock tick 、 clock period 、 clock 或 cycle, 为计算机一个时钟周期的时间，通常是处理器时钟，一般为常数。</p>
+</li>
+<li>
+<p><strong>CPI（clock cycle per instructuin）</strong>: 每条指令的时钟周期数，表示执行某个程序或者程序片段时每条指令所需的时钟周期平均数。</p>
+</li>
+<li>
+<p><strong>基准测试程序（benchmark）</strong>：用于比较计算机性能的程序。</p>
+</li>
+<li>
+<p><strong>MIPS（million instruction per second）</strong>: 基于百万条指令的程序执行速度的一种测量。指令条数除以执行时间与 10^6 之积就得到了 MIPS 。</p>
+</li>
+</ul>
+<p>&ndash; 完 &ndash;</p>
+
+        </div>
+        
+        <div class="my-4">
+    
+    <a href="https://blog.wangjialei.xyz/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#计算机组成原理</a>
+    
+    <a href="https://blog.wangjialei.xyz/tags/%E7%A1%AC%E4%BB%B6/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#硬件</a>
+    
+</div>
+        
+        
+        
+
+
+        
+        
+        
+        
+<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
+    <div>
+        
+        <span class="block font-bold">上一页</span>
+        <a href="https://blog.wangjialei.xyz/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E4%B8%8E%E8%AE%BE%E8%AE%A1%E8%BD%AF%E4%BB%B6%E7%A1%AC%E4%BB%B6%E6%8E%A5%E5%8F%A3-2-%E6%8C%87%E4%BB%A4%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E8%AF%AD%E8%A8%80/" class="block">『计算机组成与设计：软件硬件接口』 2 指令：计算机的语言</a>
+        
+    </div>
+    <div class="md:text-right mt-4 md:mt-0">
+        
+        <span class="block font-bold">下一页</span>
+        <a href="https://blog.wangjialei.xyz/posts/opengl-%E5%BF%83%E8%84%8F%E7%BA%BF/" class="block">OpenGL 心脏线</a>
+        
+    </div>
+</div>
+
+        
+
+
+
+    </div>
+    
+    <div class="col-span-2">
+        
+        
+<div class="bg-secondary-bg rounded p-6">
+    <h3 class="text-lg font-semibold mb-4">系列文章</h3>
+    <div class="content">
+        
+        
+        <a href="https://blog.wangjialei.xyz/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E4%B8%8E%E8%AE%BE%E8%AE%A1%E8%BD%AF%E4%BB%B6%E7%A1%AC%E4%BB%B6%E6%8E%A5%E5%8F%A3-2-%E6%8C%87%E4%BB%A4%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E8%AF%AD%E8%A8%80/">『计算机组成与设计：软件硬件接口』 2 指令：计算机的语言</a>
+        <br />
+        
+        <a href="https://blog.wangjialei.xyz/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E4%B8%8E%E8%AE%BE%E8%AE%A1%E8%BD%AF%E4%BB%B6%E7%A1%AC%E4%BB%B6%E6%8E%A5%E5%8F%A3-1-%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%A6%82%E8%A6%81%E6%8A%80%E6%9C%AF/">『计算机组成与设计：软件硬件接口』 1 计算机概要技术</a>
+        <br />
+        
+        
+    </div>
+</div>
+        
+        
+    </div>
+    
+
+    
+    
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+        hljs.initHighlightingOnLoad();
+    })
+</script>
+
+      </div>
+    </div>
+    
+  </main>
+  <footer class="pl-scrollbar">
+    <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">&copy; 2021 <a href="https://blog.wangjialei.xyz/">Wang Jialei</a>
+ &middot;  Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div></div>
+  </footer>
+</body>
+
+</html>

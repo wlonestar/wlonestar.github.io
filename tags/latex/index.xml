@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>LaTeX on LoneStar&#39;s blog</title>
+    <link>https://blog.wangjialei.xyz/tags/latex/</link>
+    <description>Recent content in LaTeX on LoneStar&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <copyright>&amp;copy; 2021 &lt;a href=&#34;https://blog.wangjialei.xyz/&#34;&gt;Wang Jialei&lt;/a&gt;
+</copyright>
+    <lastBuildDate>Sat, 27 Mar 2021 10:19:53 +0800</lastBuildDate><atom:link href="https://blog.wangjialei.xyz/tags/latex/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LaTeX简介</title>
+      <link>https://blog.wangjialei.xyz/posts/latex%E7%AE%80%E4%BB%8B/</link>
+      <pubDate>Sat, 27 Mar 2021 10:19:53 +0800</pubDate>
+      
+      <guid>https://blog.wangjialei.xyz/posts/latex%E7%AE%80%E4%BB%8B/</guid>
+      <description>我们平时在word里新建一个doc(x)文件后，输入内容，调整页边距、字体大小、行间距等待，然后交给打印机打印就可以了。
+如果你写了一篇关于新疆棉花的文章，2000字，在word里调整很快就可以得到你想要的效果。
+但如果你想把自己记下的关于矩阵乘法的笔记打印下来，因为你的字太丑了，你就会发现遇到了困难：那些数学符号应该怎么排版才好看，尤其是矩阵这样的大块内容。
+于是你通过找资料知道了怎么在word里插入公式，但每次都要点击插入-公式（或 Alt + =），才能在当前位置插入公式块。
+想要加一个下标还要点击上下标-下标。
+可能你注意到了word有一个墨迹公式的功能，于是你迫不及待地打开，发现，这玩意儿也是个垃圾，手写不适合鼠标，或许对触摸屏好一点。
+最终你通过万能的互联网，发现了LaTeX这个好东西。</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CLion on LoneStar&#39;s blog</title>
+    <link>https://blog.wangjialei.xyz/tags/clion/</link>
+    <description>Recent content in CLion on LoneStar&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <copyright>&amp;copy; 2021 &lt;a href=&#34;https://blog.wangjialei.xyz/&#34;&gt;Wang Jialei&lt;/a&gt;
+</copyright>
+    <lastBuildDate>Sun, 10 Apr 2022 11:06:53 +0800</lastBuildDate><atom:link href="https://blog.wangjialei.xyz/tags/clion/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CLion&#43;Visual Studio&#43;CMake配置图形学开发环境</title>
+      <link>https://blog.wangjialei.xyz/posts/clion&#43;visual-studio&#43;cmake%E9%85%8D%E7%BD%AE%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/</link>
+      <pubDate>Sun, 10 Apr 2022 11:06:53 +0800</pubDate>
+      
+      <guid>https://blog.wangjialei.xyz/posts/clion&#43;visual-studio&#43;cmake%E9%85%8D%E7%BD%AE%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/</guid>
+      <description>这学期的计算机图形学需要使用 OpenGL ，我参照 LearnOpenGL CN 配置好了环境，但是在使用 Visual Studio 写代码的过程中，发现很不顺手（是JetBrains的CLion太好用了），就想着用 CLion 再次配置一下。</description>
+    </item>
+    
+  </channel>
+</rss>

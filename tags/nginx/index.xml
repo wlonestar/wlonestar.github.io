@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Nginx on LoneStar&#39;s blog</title>
+    <link>https://blog.wangjialei.xyz/tags/nginx/</link>
+    <description>Recent content in Nginx on LoneStar&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <copyright>&amp;copy; 2021 &lt;a href=&#34;https://blog.wangjialei.xyz/&#34;&gt;Wang Jialei&lt;/a&gt;
+</copyright>
+    <lastBuildDate>Sun, 03 Oct 2021 14:44:48 +0800</lastBuildDate><atom:link href="https://blog.wangjialei.xyz/tags/nginx/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Docker 部署多站点</title>
+      <link>https://blog.wangjialei.xyz/posts/docker%E9%83%A8%E7%BD%B2%E5%A4%9A%E7%AB%99%E7%82%B9/</link>
+      <pubDate>Sun, 03 Oct 2021 14:44:48 +0800</pubDate>
+      
+      <guid>https://blog.wangjialei.xyz/posts/docker%E9%83%A8%E7%BD%B2%E5%A4%9A%E7%AB%99%E7%82%B9/</guid>
+      <description>生命不息，折腾不止hhh。继续捣鼓我的云服务器，再过一个月就到期需要付费了，到时候直接续个一年。
+说回正题，之所以要部署两个网站呢，是因为我的确有这个需求，哪个男孩子不想要好几个自己的网站呢（狗头）。
+&amp;ldquo;碰巧&amp;quot;昨天晚上一不小心 rm /* 了，关键TM我在 root 用户下敲了这个命令，直接把 ls 都给整没了，还能有什么办法了，自己手残呗，直接重装系统了。刚好是在全新的系统上搭环境，敲得命令都很全，直接按照命令来写吧。</description>
+    </item>
+    
+    <item>
+      <title>使用nginx托管hugo博客</title>
+      <link>https://blog.wangjialei.xyz/posts/%E4%BD%BF%E7%94%A8nginx%E6%89%98%E7%AE%A1hugo%E5%8D%9A%E5%AE%A2/</link>
+      <pubDate>Fri, 09 Jul 2021 21:26:01 +0800</pubDate>
+      
+      <guid>https://blog.wangjialei.xyz/posts/%E4%BD%BF%E7%94%A8nginx%E6%89%98%E7%AE%A1hugo%E5%8D%9A%E5%AE%A2/</guid>
+      <description>这几天一直在折腾云服务器，为了避免备案，我买了一台香港的云服务器。想着把博客转移到服务器上，因为 GitHub Pages 太慢了。
+可能是图片比较多，使用的那个主题比较耗资源，顺便换个主题，哪知道配置nginx就花了我两天时间，现在终于配置好了，博客顺利转移过来了，记录一下，防止忘了。
+本地 hugo 博客生成  生成站点  hugo new site blog  编辑配置文件  --blog |-archetypes |-content |-layouts |-static |-themes |-config.</description>
+    </item>
+    
+  </channel>
+</rss>

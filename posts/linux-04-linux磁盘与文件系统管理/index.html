@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang='zh' ><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+
+<title>Linux 04 Linux磁盘与文件系统管理 | LoneStar&#39;s blog</title>
+
+<meta name="generator" content="Hugo Eureka 0.8.4" />
+<link rel="stylesheet" href="https://blog.wangjialei.xyz/css/eureka.min.css">
+<script defer src="https://blog.wangjialei.xyz/js/eureka.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/styles/stackoverflow-light.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/highlight.min.js"
+   crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/languages/light.min.js"
+     crossorigin></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js"
+   integrity="sha256-uNYoXefWRqv&#43;PsIF/OflNmwtKM4lStn9yrz2gVl6ymo="  crossorigin></script>
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+   integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3&#43;Aro6EYUG4&#43;cU&#43;KJWu/X"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" 
+  integrity="sha384-g7c&#43;Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI&#43;sEnkvrMWph2EDg4"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+   integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC&#43;Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/mermaid@8.9.2/dist/mermaid.min.js" 
+  integrity="sha256-Zmpaaj&#43;GXFsPF5WdPArSrnW3b30dovldeKsW00xBVwE="  crossorigin></script>
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="https://blog.wangjialei.xyz/images/favicon_huce974d41c22b18f52c9ea90a63a4b2a6_21741_32x32_fill_box_center_3.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://blog.wangjialei.xyz/images/favicon_huce974d41c22b18f52c9ea90a63a4b2a6_21741_180x180_fill_box_center_3.png">
+
+<meta name="description"
+  content="Linux 磁盘与文件系统管理">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"文章",
+      "item":"https://blog.wangjialei.xyz/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"Linux 04 Linux磁盘与文件系统管理",
+      "item":"https://blog.wangjialei.xyz/posts/linux-04-linux%E7%A3%81%E7%9B%98%E4%B8%8E%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://blog.wangjialei.xyz/posts/linux-04-linux%E7%A3%81%E7%9B%98%E4%B8%8E%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/"
+    },
+    "headline": "Linux 04 Linux磁盘与文件系统管理 | LoneStar\u0027s blog",
+    "image": "https://mypic-1305118058.cos.ap-hongkong.myqcloud.com/img/linux.jpg",
+    "datePublished": "2021-02-28T18:33:44+08:00",
+    "dateModified": "2021-02-28T18:33:44+08:00",
+    "wordCount":  431 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "lonestar",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://blog.wangjialei.xyz/images/favicon.png"
+        }
+        },
+    "description": "Linux 磁盘与文件系统管理"
+}
+</script><meta property="og:title" content="Linux 04 Linux磁盘与文件系统管理 | LoneStar&#39;s blog" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="https://blog.wangjialei.xyz/images/favicon.png">
+
+
+<meta property="og:url" content="https://blog.wangjialei.xyz/posts/linux-04-linux%E7%A3%81%E7%9B%98%E4%B8%8E%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/" />
+
+
+
+<meta property="og:description" content="Linux 磁盘与文件系统管理" />
+
+
+
+<meta property="og:locale" content="zh" />
+
+
+
+
+<meta property="og:site_name" content="LoneStar&#39;s blog" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2021-02-28T18:33:44&#43;08:00" />
+
+
+<meta property="article:modified_time" content="2021-02-28T18:33:44&#43;08:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+<meta property="article:tag" content="Linux" />
+
+
+
+
+
+<meta property="og:see_also" content="https://blog.wangjialei.xyz/posts/linux-03-linux%E6%96%87%E4%BB%B6%E4%B8%8E%E7%9B%AE%E5%BD%95%E7%AE%A1%E7%90%86/" />
+
+<meta property="og:see_also" content="https://blog.wangjialei.xyz/posts/linux-02-linux%E7%9A%84%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90%E4%B8%8E%E7%9B%AE%E5%BD%95%E9%85%8D%E7%BD%AE/" />
+
+<meta property="og:see_also" content="https://blog.wangjialei.xyz/posts/linux-01-%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AE%89%E8%A3%85ubuntu20.04/" />
+
+
+
+<body class="flex flex-col min-h-screen">
+  <header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
+    <div class="w-full max-w-screen-xl mx-auto"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="/" class="mr-6 text-primary-text text-xl font-bold">LoneStar&#39;s blog</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  selected-menu-item  mr-4">文章</a>
+            <a href="/categories/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">分类</a>
+            <a href="/tags/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">标签</a>
+            <a href="/series/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">系列</a>
+            <a href="/#about" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">关于</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">浅色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">深色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">自动</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+</div>
+  </header>
+  <main class="flex-grow pt-16">
+    <div class="pl-scrollbar">
+      <div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
+
+
+<div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12">
+    <div
+        class="col-span-2  lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
+        <h1 class="font-bold text-3xl text-primary-text">Linux 04 Linux磁盘与文件系统管理</h1>
+        <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2021-02-28</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>3分钟阅读时长</span>
+    </div>
+    
+    
+    <div class="mr-6 my-2">
+        <i class="fas fa-folder mr-1"></i>
+        
+        <a href="https://blog.wangjialei.xyz/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="hover:text-eureka">学习笔记</a>
+        
+    </div>
+    
+
+    
+</div>
+        
+        
+        
+        <div class="my-4">
+            <img src="https://mypic-1305118058.cos.ap-hongkong.myqcloud.com/img/linux.jpg" class="w-full" alt="Featured Image">
+        </div>
+        
+
+        <div class="content">
+            <hr>
+<p>系统管理员很重要的任务之一就是管理好自己的磁盘文件系统， 每个分区不可太大也不能太小， 太大会造成磁盘容量的浪费， 太小则会产生文件无法储存的困扰。本节我们的重点在于如何制作文件系统， 包括分区、 格式化与挂载等 。</p>
+<hr>
+<h2 id="认识-linux-文件系统">认识 Linux 文件系统</h2>
+<h3 id="1-文件系统特性">1. 文件系统特性</h3>
+<p>因为每种操作系统所设置的文件属性、权限并不相同，为了让操作系统哪使用这个文件，需要在磁盘分区完毕后进行格式化，以成为操作系统能顺利用的文件系统格式。</p>
+<p>操作系统的文件数据除了文件实际内容外， 通常含有非常多的属性， 例如 Linux 操作系统的文件权限（ rwx） 与文件属性（ 拥有者、 群组、 时间参数等） 。 文件系统通常会将这两部份的数据分别存放在不同的区块， 权限与属性放置到 inode 中， 至于实际数据则放置到 data block 区块中。 另外， 还有一个超级区块 （ superblock） 会记录整个文件系统的整体信息， 包括 inode 与 block 的总量、 使用量、 剩余量等，每个 inode 与 block 都有编号， 这三个数据的意义：</p>
+<ul>
+<li>superblock：记录此 filesystem 的整体信息，包括inode/block的总量、使用量、剩余量，以及文件系统的格式与相关信息等</li>
+<li>inode：记录文件的属性，一个文件占用一个inode，同时记录此文件的数据所在的 block 号码</li>
+<li>block：实际记录文件的内容，若文件太大时，会占用多个 block</li>
+</ul>
+<p>文件系统先格式化出 inode 与 block 的区块， 假设某一个文件的属性与权限数据是放置到 inode 4 号，而这个 inode 记录了文件数据的实际放置点为 2, 7, 13, 15 这四个 block 号码， 此时我们的操作系统就能够据此来排列磁盘的读取顺序， 可以一口气将四个 block 内容读出来</p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210228185243535.png" alt="image-20210228185243535"></p>
+<h3 id="2-linux-的-ext2-文件系统">2. Linux 的 EXT2 文件系统</h3>
+<p>inode 的内容在记录文件的权限与相关属性，block 区块是在记录文件的实际内容。 而且文件系统一开始就将 inode 与 block 规划好了， 除非重新格式化（ 或者利用 resize2fs 等指令变更文件系统大小） ， 否则 inode 与 block 固定后就不再变动。但是如果文件系统高达数百GB时，那么将所有的inode 与 block 放置在一起是很明智的决定，因为 inode 与 block 的数量太庞大，不易管理。</p>
+<p>为此，Ext2 文件系统在格式化的时候基本上是区分为多个区块群组（block group）的，每个区块群组都有独立的 inode/block/superblock 系统。</p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210228190210038.png" alt="image-20210228190210038"></p>
+<p>在整体的规划当中， 文件系统最前面有一个开机扇区（boot sector），这个开机扇区可以安装开机管理程序， 这是个非常重要的设计， 因为如此一来我们就能够将不同的开机管理程序安装到个别的文件系统最前端， 而不用覆盖整颗磁盘唯一的 MBR， 这样也才能够制作出多重开机的环境。</p>
+<ul>
+<li>
+<p>data block （数据区块）</p>
+<p>data block 是用来放置文件内容数据地方，在 Ext2 文件系统中所支持的 block 大小有 1K, 2K 及 4K 三种而已。在格式化时 block 的大小就固定了，且每个 block 都有编号，以方便 inode 的记录</p>
+<p>Ext2 文件系统的 block 的基本限制如下：</p>
+<ul>
+<li>原则上， block 的大小与数量在格式化完就不能够再改变了（ 除非重新格式化）</li>
+<li>每个 block 内最多只能够放置一个文件的数据</li>
+<li>如果文件大于 block 的大小， 则一个文件会占用多个 block 数量</li>
+<li>若文件小于 block，则该 block 的剩余容量就不能够再被使用了（磁盘空间会浪费）</li>
+</ul>
+</li>
+<li>
+<p>inode table （inode 表格）</p>
+<p>inode 记录的文件数据至少有下面这些：</p>
+<ul>
+<li>该文件的存取模式（read/write/excute）</li>
+<li>该文件的拥有者与群组（owner/group）</li>
+<li>该文件的容量</li>
+<li>该文件创建或状态改变的时间（ctime）</li>
+<li>最近一次的读取时间（atime）</li>
+<li>最近修改的时间（mtime）</li>
+<li>定义文件特性的旗标（flag）</li>
+<li>该文件真正内容的指向（pointer）</li>
+</ul>
+<p>inode 的特色：</p>
+<ul>
+<li>每个 inode 大小均固定为 128 Bytes（新的 ext4 与 xfs 可设置到 256 Bytes）</li>
+<li>每个文件都仅会占用一个 inode 而已</li>
+<li>文件系统能够创建的文件数量与 inode 的数量有关</li>
+<li>系统读取文件时需要先找到 inode，并分析 inode 所记录的权限与使用者是否符合， 若符合才能够开始实际读取 block 的内容</li>
+</ul>
+</li>
+<li>
+<p>Superblock （超级区块）</p>
+<p>Superblock 是记录整个 filesystem 相关信息的地方， 没有 Superblock ，就没有这个 filesystem 了。 记录的信息主要有：</p>
+<ul>
+<li>
+<p>block 与 inode 的总量</p>
+</li>
+<li>
+<p>未使用与已使用的 inode / block 数量</p>
+</li>
+<li>
+<p>block 与 inode 的大小（ block 为 1, 2, 4K，inode 为 128Bytes 或 256Bytes）</p>
+</li>
+<li>
+<p>filesystem 的挂载时间、 最近一次写入数据的时间、 最近一次检验磁盘 （ fsck） 的时间等文件系统的相关信息</p>
+</li>
+<li>
+<p>一个 valid bit 数值，若此文件系统已被挂载，则 valid bit 为 0，若未被挂载，则 valid bit为 1</p>
+</li>
+</ul>
+<p>Superblock 是非常重要的， 因为我们这个文件系统的基本信息都写在这里</p>
+</li>
+<li>
+<p>Filesystem Description （ 文件系统描述说明）</p>
+<p>描述每个 block group 的开始与结束的 block 号码， 以及说明每个区段（ superblock, bitmap, inodemap, data block） 分别介于哪一个 block 号码之间</p>
+</li>
+<li>
+<p>block bitmap （ 区块对照表）</p>
+<p>从 block bitmap 当中可以知道哪些 block 是空的， 因此我们的系统就能够很快速的找到可使用的空间来处置文件。同样的， 如果你删除某些文件时， 那么那些文件原本占用的 block 号码就得要释放出来， 此时在 block bitmap 当中相对应到该 block 号码的标志就得要修改成为“可用”。</p>
+</li>
+<li>
+<p>inode bitmap （ inode 对照表）</p>
+<p>这个其实与 block bitmap 是类似的功能， 只是 block bitmap 记录的是使用与未使用的 block
+号码， 至于 inode bitmap 则是记录使用与未使用的 inode 号码</p>
+</li>
+<li>
+<p>dumpe2fs： 查询 Ext 家族 superblock 信息的指令</p>
+<p>了解了文件系统的概念之后， 再来观察这个文件系统。 每个区段与 superblock 的信息都可以使用 dumpe2fs 这个指令来查询的</p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210228192359420.png" alt="image-20210228192359420"></p>
+<p>利用 dumpe2fs 可以查询到非常多的信息， 不过依内容主要可以区分为上半部是superblock 内容， 下半部是每个 block group 的信息。从上面的表格中我们可以观察到这个 /dev/sda5 规划的 block 为 4K， 第一个 block 号码为 0 号， 且 block group 内的所有信息都以 block 的号码来表示的。 然后在 superblock 中还有谈到目前这个文件系统的可用 block 与 inode 数量</p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210228192615641.png" alt="image-20210228192615641"></p>
+<p>至于 block group 的内容看 Group0 信息。从上表中我们可以发现：</p>
+<ul>
+<li>Group0 所占用的 block 号码由 0 到 32767 号， superblock 则在第 0 号的 block 区块内</li>
+<li>文件系统描述说明在第 1 号到第 10 号 block 中</li>
+<li>block bitmap 与 inode bitmap 则在 1035 及 1051 的 block 号码上</li>
+<li>至于 inode table 分布于 1067-1578 的 block 号码中</li>
+<li>这个 Group0 目前可用的 block 有 21456 个， 可用的 inode 有 8174</li>
+<li>剩余的 inode 号码为 19 号到 8192 号</li>
+</ul>
+</li>
+</ul>
+<p>&ndash;待更</p>
+
+        </div>
+        
+        <div class="my-4">
+    
+    <a href="https://blog.wangjialei.xyz/tags/linux/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#Linux</a>
+    
+</div>
+        
+        
+        
+
+
+        
+        
+        
+        
+<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
+    <div>
+        
+        <span class="block font-bold">上一页</span>
+        <a href="https://blog.wangjialei.xyz/posts/vscode%E6%90%AD%E5%BB%BAc&#43;&#43;%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/" class="block">Vscode搭建c&#43;&#43;开发环境</a>
+        
+    </div>
+    <div class="md:text-right mt-4 md:mt-0">
+        
+        <span class="block font-bold">下一页</span>
+        <a href="https://blog.wangjialei.xyz/posts/linux-03-linux%E6%96%87%E4%BB%B6%E4%B8%8E%E7%9B%AE%E5%BD%95%E7%AE%A1%E7%90%86/" class="block">Linux 03 Linux文件与目录管理</a>
+        
+    </div>
+</div>
+
+        
+
+
+
+    </div>
+    
+    <div class="col-span-2">
+        
+        
+        <div class="sticky top-16 z-10 hidden lg:block px-6 py-4  bg-primary-bg ">
+    <span class="text-lg font-semibold">本页内容</span>
+</div>
+<div class="sticky-toc hidden lg:block px-6 pb-6 ">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#认识-linux-文件系统">认识 Linux 文件系统</a>
+      <ul>
+        <li><a href="#1-文件系统特性">1. 文件系统特性</a></li>
+        <li><a href="#2-linux-的-ext2-文件系统">2. Linux 的 EXT2 文件系统</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        enableStickyToc();
+    });
+</script>
+        
+    </div>
+    
+
+    
+    
+    <div
+        class="col-span-2  lg:col-span-6 bg-secondary-bg rounded p-6">
+        <h2 class="text-lg font-semibold mb-4">相关</h2>
+        <div class="content">
+            
+            <a href="https://blog.wangjialei.xyz/posts/linux-03-linux%E6%96%87%E4%BB%B6%E4%B8%8E%E7%9B%AE%E5%BD%95%E7%AE%A1%E7%90%86/">Linux 03 Linux文件与目录管理</a>
+            <br />
+            
+            <a href="https://blog.wangjialei.xyz/posts/linux-02-linux%E7%9A%84%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90%E4%B8%8E%E7%9B%AE%E5%BD%95%E9%85%8D%E7%BD%AE/">Linux 02 Linux的文件权限与目录配置</a>
+            <br />
+            
+            <a href="https://blog.wangjialei.xyz/posts/linux-01-%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AE%89%E8%A3%85ubuntu20.04/">Linux 01 虚拟机安装Ubuntu20.04</a>
+            <br />
+            
+        </div>
+    </div>
+    
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+        hljs.initHighlightingOnLoad();
+    })
+</script>
+
+      </div>
+    </div>
+    
+  </main>
+  <footer class="pl-scrollbar">
+    <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">&copy; 2021 <a href="https://blog.wangjialei.xyz/">Wang Jialei</a>
+ &middot;  Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div></div>
+  </footer>
+</body>
+
+</html>

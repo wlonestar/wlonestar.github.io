@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>计算机组成原理 on LoneStar&#39;s blog</title>
+    <link>https://blog.wangjialei.xyz/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/</link>
+    <description>Recent content in 计算机组成原理 on LoneStar&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <copyright>&amp;copy; 2021 &lt;a href=&#34;https://blog.wangjialei.xyz/&#34;&gt;Wang Jialei&lt;/a&gt;
+</copyright>
+    <lastBuildDate>Mon, 09 May 2022 19:44:47 +0800</lastBuildDate><atom:link href="https://blog.wangjialei.xyz/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>『计算机组成与设计：软件硬件接口』 2 指令：计算机的语言</title>
+      <link>https://blog.wangjialei.xyz/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E4%B8%8E%E8%AE%BE%E8%AE%A1%E8%BD%AF%E4%BB%B6%E7%A1%AC%E4%BB%B6%E6%8E%A5%E5%8F%A3-2-%E6%8C%87%E4%BB%A4%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E8%AF%AD%E8%A8%80/</link>
+      <pubDate>Mon, 09 May 2022 19:44:47 +0800</pubDate>
+      
+      <guid>https://blog.wangjialei.xyz/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E4%B8%8E%E8%AE%BE%E8%AE%A1%E8%BD%AF%E4%BB%B6%E7%A1%AC%E4%BB%B6%E6%8E%A5%E5%8F%A3-2-%E6%8C%87%E4%BB%A4%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E8%AF%AD%E8%A8%80/</guid>
+      <description>硬件设计的三条基本原则：
+ 简单源于规整   每条指令有且仅有三个操作数，操作数可变将给硬件设计带来更大的复杂性
+ 越小越快   寄存器个数限制为 32 个</description>
+    </item>
+    
+    <item>
+      <title>『计算机组成与设计：软件硬件接口』 1 计算机概要技术</title>
+      <link>https://blog.wangjialei.xyz/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E4%B8%8E%E8%AE%BE%E8%AE%A1%E8%BD%AF%E4%BB%B6%E7%A1%AC%E4%BB%B6%E6%8E%A5%E5%8F%A3-1-%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%A6%82%E8%A6%81%E6%8A%80%E6%9C%AF/</link>
+      <pubDate>Thu, 05 May 2022 10:58:48 +0800</pubDate>
+      
+      <guid>https://blog.wangjialei.xyz/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E4%B8%8E%E8%AE%BE%E8%AE%A1%E8%BD%AF%E4%BB%B6%E7%A1%AC%E4%BB%B6%E6%8E%A5%E5%8F%A3-1-%E8%AE%A1%E7%AE%97%E6%9C%BA%E6%A6%82%E8%A6%81%E6%8A%80%E6%9C%AF/</guid>
+      <description>个人计算机（Personal Computer, PC）：用于个人使用的计算机，通常包含图形显示器。键盘和鼠标等。
+  服务器（server）：用于为多用户运行大型程序的计算机，通常由多个用户并行使用，并且一般通过网络访问。
+  超级计算机（supercomputer）：具有最高性能和最高成本的一类计算机，一般配置为服务器，需要花费数于 万甚至数亿美元。</description>
+    </item>
+    
+  </channel>
+</rss>

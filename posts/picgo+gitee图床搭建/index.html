@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang='zh' ><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+
+<title>PicGo&#43;Gitee图床搭建 | LoneStar&#39;s blog</title>
+
+<meta name="generator" content="Hugo Eureka 0.8.4" />
+<link rel="stylesheet" href="https://blog.wangjialei.xyz/css/eureka.min.css">
+<script defer src="https://blog.wangjialei.xyz/js/eureka.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/styles/stackoverflow-light.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/highlight.min.js"
+   crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/languages/light.min.js"
+     crossorigin></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js"
+   integrity="sha256-uNYoXefWRqv&#43;PsIF/OflNmwtKM4lStn9yrz2gVl6ymo="  crossorigin></script>
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+   integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3&#43;Aro6EYUG4&#43;cU&#43;KJWu/X"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" 
+  integrity="sha384-g7c&#43;Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI&#43;sEnkvrMWph2EDg4"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+   integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC&#43;Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/mermaid@8.9.2/dist/mermaid.min.js" 
+  integrity="sha256-Zmpaaj&#43;GXFsPF5WdPArSrnW3b30dovldeKsW00xBVwE="  crossorigin></script>
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="https://blog.wangjialei.xyz/images/favicon_huce974d41c22b18f52c9ea90a63a4b2a6_21741_32x32_fill_box_center_3.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://blog.wangjialei.xyz/images/favicon_huce974d41c22b18f52c9ea90a63a4b2a6_21741_180x180_fill_box_center_3.png">
+
+<meta name="description"
+  content="PicGo&#43;Gitee 图床搭建">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"文章",
+      "item":"https://blog.wangjialei.xyz/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"PicGo+Gitee图床搭建",
+      "item":"https://blog.wangjialei.xyz/posts/picgo+gitee%E5%9B%BE%E5%BA%8A%E6%90%AD%E5%BB%BA/"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://blog.wangjialei.xyz/posts/picgo+gitee%E5%9B%BE%E5%BA%8A%E6%90%AD%E5%BB%BA/"
+    },
+    "headline": "PicGo\u002bGitee图床搭建 | LoneStar\u0027s blog",
+    "image": "https://mypic-1305118058.cos.ap-hongkong.myqcloud.com/img/2021-02-25.jpg",
+    "datePublished": "2021-02-25T13:15:51+08:00",
+    "dateModified": "2021-02-25T13:15:51+08:00",
+    "wordCount":  40 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "lonestar",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://blog.wangjialei.xyz/images/favicon.png"
+        }
+        },
+    "description": "PicGo\u002bGitee 图床搭建"
+}
+</script><meta property="og:title" content="PicGo&#43;Gitee图床搭建 | LoneStar&#39;s blog" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="https://blog.wangjialei.xyz/images/favicon.png">
+
+
+<meta property="og:url" content="https://blog.wangjialei.xyz/posts/picgo&#43;gitee%E5%9B%BE%E5%BA%8A%E6%90%AD%E5%BB%BA/" />
+
+
+
+<meta property="og:description" content="PicGo&#43;Gitee 图床搭建" />
+
+
+
+<meta property="og:locale" content="zh" />
+
+
+
+
+<meta property="og:site_name" content="LoneStar&#39;s blog" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2021-02-25T13:15:51&#43;08:00" />
+
+
+<meta property="article:modified_time" content="2021-02-25T13:15:51&#43;08:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+<meta property="article:tag" content="Gitee" />
+
+<meta property="article:tag" content="图床" />
+
+
+
+
+
+<body class="flex flex-col min-h-screen">
+  <header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
+    <div class="w-full max-w-screen-xl mx-auto"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="/" class="mr-6 text-primary-text text-xl font-bold">LoneStar&#39;s blog</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  selected-menu-item  mr-4">文章</a>
+            <a href="/categories/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">分类</a>
+            <a href="/tags/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">标签</a>
+            <a href="/series/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">系列</a>
+            <a href="/#about" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">关于</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">浅色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">深色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">自动</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+</div>
+  </header>
+  <main class="flex-grow pt-16">
+    <div class="pl-scrollbar">
+      <div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
+
+
+<div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12">
+    <div
+        class="col-span-2  lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
+        <h1 class="font-bold text-3xl text-primary-text">PicGo&#43;Gitee图床搭建</h1>
+        <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2021-02-25</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>1分钟阅读时长</span>
+    </div>
+    
+    
+    <div class="mr-6 my-2">
+        <i class="fas fa-folder mr-1"></i>
+        
+        <a href="https://blog.wangjialei.xyz/categories/%E8%BF%87%E7%A8%8B%E8%AE%B0%E5%BD%95/" class="hover:text-eureka">过程记录</a>
+        
+    </div>
+    
+
+    
+</div>
+        
+        
+        
+        <div class="my-4">
+            <img src="https://mypic-1305118058.cos.ap-hongkong.myqcloud.com/img/2021-02-25.jpg" class="w-full" alt="Featured Image">
+        </div>
+        
+
+        <div class="content">
+            <hr>
+<p>本文参考 <a href="https://saquarius.com/2019/07/picgo-gitee%E6%90%AD%E5%BB%BA%E5%9B%BE%E5%BA%8A/">PICGO+Gitee搭建图床</a> ，无意间发现宝藏，于是实操，解决图片痛点，万分感谢。</p>
+<hr>
+<h3 id="前提">前提</h3>
+<ul>
+<li><a href="https://gitee.com/">Gitee</a></li>
+<li><a href="https://picgo.github.io/PicGo-Doc/zh/">PicGo</a></li>
+<li><a href="https://nodejs.org/en/">Node.js</a></li>
+</ul>
+<h3 id="创建-gitee-仓库">创建 Gitee 仓库</h3>
+<h4 id="创建公开仓库选择单分支模型">创建公开仓库，选择单分支模型</h4>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/20210226132652.png" alt="image-20210226132652780"></p>
+<h4 id="生成私人令牌">生成私人令牌</h4>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/20210226133018.png" alt="image-20210226133018002"></p>
+<h3 id="配置-picgo">配置 PicGo</h3>
+<h4 id="安装-github-plus-插件预先安装好-nodejs">安装 github-plus 插件，预先安装好 node.js</h4>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/20210226133142.png" alt="image-20210226133142081"></p>
+<h4 id="设置图床参数">设置图床参数</h4>
+<ul>
+<li>repo 为创建仓库地址， 用户名+仓库名</li>
+<li>token 为生成的私人令牌</li>
+<li>origin 设为 gitee</li>
+<li>其他设为默认即可</li>
+</ul>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/20210226133238.png" alt="image-20210226133238496"></p>
+<h3 id="通过-typora-编辑-markdown-文件">通过 Typora 编辑 markdown 文件</h3>
+<p>打开偏好设置</p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/20210226133722.png" alt="image-20210226133722300"></p>
+<p>设置插入图片时自动上传</p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/20210226133816.png" alt="image-20210226133816219"></p>
+<p>将上传服务设定为 PicGo(app) ，选择安装路径，即可验证，若出现上传成功弹窗，即上传成功，在 gitee 仓库即可看到上传图片</p>
+
+        </div>
+        
+        <div class="my-4">
+    
+    <a href="https://blog.wangjialei.xyz/tags/gitee/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#Gitee</a>
+    
+    <a href="https://blog.wangjialei.xyz/tags/%E5%9B%BE%E5%BA%8A/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#图床</a>
+    
+</div>
+        
+        
+        
+
+
+        
+        
+        
+        
+<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
+    <div>
+        
+        <span class="block font-bold">上一页</span>
+        <a href="https://blog.wangjialei.xyz/posts/linux-01-%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AE%89%E8%A3%85ubuntu20.04/" class="block">Linux 01 虚拟机安装Ubuntu20.04</a>
+        
+    </div>
+    <div class="md:text-right mt-4 md:mt-0">
+        
+        <span class="block font-bold">下一页</span>
+        <a href="https://blog.wangjialei.xyz/posts/%E6%90%AD%E5%BB%BAhugo%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E5%88%B0github/" class="block">搭建hugo博客部署到Github</a>
+        
+    </div>
+</div>
+
+        
+
+
+
+    </div>
+    
+    <div class="col-span-2">
+        
+        
+        <div class="sticky top-16 z-10 hidden lg:block px-6 py-4  bg-primary-bg ">
+    <span class="text-lg font-semibold">本页内容</span>
+</div>
+<div class="sticky-toc hidden lg:block px-6 pb-6 ">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#前提">前提</a></li>
+        <li><a href="#创建-gitee-仓库">创建 Gitee 仓库</a>
+          <ul>
+            <li><a href="#创建公开仓库选择单分支模型">创建公开仓库，选择单分支模型</a></li>
+            <li><a href="#生成私人令牌">生成私人令牌</a></li>
+          </ul>
+        </li>
+        <li><a href="#配置-picgo">配置 PicGo</a>
+          <ul>
+            <li><a href="#安装-github-plus-插件预先安装好-nodejs">安装 github-plus 插件，预先安装好 node.js</a></li>
+            <li><a href="#设置图床参数">设置图床参数</a></li>
+          </ul>
+        </li>
+        <li><a href="#通过-typora-编辑-markdown-文件">通过 Typora 编辑 markdown 文件</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        enableStickyToc();
+    });
+</script>
+        
+    </div>
+    
+
+    
+    
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+        hljs.initHighlightingOnLoad();
+    })
+</script>
+
+      </div>
+    </div>
+    
+  </main>
+  <footer class="pl-scrollbar">
+    <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">&copy; 2021 <a href="https://blog.wangjialei.xyz/">Wang Jialei</a>
+ &middot;  Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div></div>
+  </footer>
+</body>
+
+</html>

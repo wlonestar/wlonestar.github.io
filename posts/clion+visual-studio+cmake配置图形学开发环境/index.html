@@ -1,0 +1,1538 @@
+<!DOCTYPE html>
+<html lang='zh' ><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+
+<title>CLion&#43;Visual Studio&#43;CMake配置图形学开发环境 | LoneStar&#39;s blog</title>
+
+<meta name="generator" content="Hugo Eureka 0.8.4" />
+<link rel="stylesheet" href="https://blog.wangjialei.xyz/css/eureka.min.css">
+<script defer src="https://blog.wangjialei.xyz/js/eureka.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/styles/stackoverflow-light.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/highlight.min.js"
+   crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/languages/light.min.js"
+     crossorigin></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js"
+   integrity="sha256-uNYoXefWRqv&#43;PsIF/OflNmwtKM4lStn9yrz2gVl6ymo="  crossorigin></script>
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+   integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3&#43;Aro6EYUG4&#43;cU&#43;KJWu/X"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" 
+  integrity="sha384-g7c&#43;Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI&#43;sEnkvrMWph2EDg4"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+   integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC&#43;Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/mermaid@8.9.2/dist/mermaid.min.js" 
+  integrity="sha256-Zmpaaj&#43;GXFsPF5WdPArSrnW3b30dovldeKsW00xBVwE="  crossorigin></script>
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="https://blog.wangjialei.xyz/images/favicon_huce974d41c22b18f52c9ea90a63a4b2a6_21741_32x32_fill_box_center_3.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://blog.wangjialei.xyz/images/favicon_huce974d41c22b18f52c9ea90a63a4b2a6_21741_180x180_fill_box_center_3.png">
+
+<meta name="description"
+  content="CMake &#43; GLFW &#43; glad &#43; glm">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"文章",
+      "item":"https://blog.wangjialei.xyz/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"CLion+Visual Studio+CMake配置图形学开发环境",
+      "item":"https://blog.wangjialei.xyz/posts/clion+visual-studio+cmake%E9%85%8D%E7%BD%AE%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://blog.wangjialei.xyz/posts/clion+visual-studio+cmake%E9%85%8D%E7%BD%AE%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/"
+    },
+    "headline": "CLion\u002bVisual Studio\u002bCMake配置图形学开发环境 | LoneStar\u0027s blog",
+    "image": "https://mypic-1305118058.cos.ap-hongkong.myqcloud.com/img/Snipaste_2022-04-09_21-28-25.png",
+    "datePublished": "2022-04-10T11:06:53+08:00",
+    "dateModified": "2022-04-10T11:06:53+08:00",
+    "wordCount":  3034 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "lonestar",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://blog.wangjialei.xyz/images/favicon.png"
+        }
+        },
+    "description": "CMake \u002b GLFW \u002b glad \u002b glm"
+}
+</script><meta property="og:title" content="CLion&#43;Visual Studio&#43;CMake配置图形学开发环境 | LoneStar&#39;s blog" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="https://blog.wangjialei.xyz/images/favicon.png">
+
+
+<meta property="og:url" content="https://blog.wangjialei.xyz/posts/clion&#43;visual-studio&#43;cmake%E9%85%8D%E7%BD%AE%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/" />
+
+
+
+<meta property="og:description" content="CMake &#43; GLFW &#43; glad &#43; glm" />
+
+
+
+<meta property="og:locale" content="zh" />
+
+
+
+
+<meta property="og:site_name" content="LoneStar&#39;s blog" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2022-04-10T11:06:53&#43;08:00" />
+
+
+<meta property="article:modified_time" content="2022-04-10T11:06:53&#43;08:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+<meta property="article:tag" content="CLion" />
+
+<meta property="article:tag" content="Visual Studio" />
+
+<meta property="article:tag" content="OpenGL" />
+
+
+
+
+
+<body class="flex flex-col min-h-screen">
+  <header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
+    <div class="w-full max-w-screen-xl mx-auto"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="/" class="mr-6 text-primary-text text-xl font-bold">LoneStar&#39;s blog</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  selected-menu-item  mr-4">文章</a>
+            <a href="/categories/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">分类</a>
+            <a href="/tags/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">标签</a>
+            <a href="/series/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">系列</a>
+            <a href="/#about" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">关于</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">浅色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">深色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">自动</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+</div>
+  </header>
+  <main class="flex-grow pt-16">
+    <div class="pl-scrollbar">
+      <div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
+
+
+<div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12">
+    <div
+        class="col-span-2  lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
+        <h1 class="font-bold text-3xl text-primary-text">CLion&#43;Visual Studio&#43;CMake配置图形学开发环境</h1>
+        <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2022-04-10</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>15分钟阅读时长</span>
+    </div>
+    
+    
+    <div class="mr-6 my-2">
+        <i class="fas fa-folder mr-1"></i>
+        
+        <a href="https://blog.wangjialei.xyz/categories/%E8%BF%87%E7%A8%8B%E8%AE%B0%E5%BD%95/" class="hover:text-eureka">过程记录</a>
+        
+    </div>
+    
+
+    
+</div>
+        
+        
+        
+        <div class="my-4">
+            <img src="https://mypic-1305118058.cos.ap-hongkong.myqcloud.com/img/Snipaste_2022-04-09_21-28-25.png" class="w-full" alt="Featured Image">
+        </div>
+        
+
+        <div class="content">
+            <p>这学期的计算机图形学需要使用 OpenGL ，我参照 <a href="https://learnopengl-cn.github.io/01%20Getting%20started/02%20Creating%20a%20window/">LearnOpenGL CN</a> 配置好了环境，但是在使用 Visual Studio 写代码的过程中，发现很不顺手（是JetBrains的CLion太好用了），就想着用 CLion 再次配置一下。</p>
+<p>因为 CLion 的构建工具是 CMake ，我不是很懂这个，就去查了很多资料，忙活了一下午才弄好，写下来怕忘了。</p>
+<p><strong>请先按照 Learn OpenGL 的官方教程用 Visual Studio 配置，下面所有步骤建立在 VS 环境配置好的基础上</strong></p>
+<h2 id="创建新项目">创建新项目</h2>
+<p>创建 C++ Executable 项目，命名为 <code>opengl-project</code> ，刚创建完的 <code>CMakelist.txt</code> 应该是这样的</p>
+<pre><code class="language-cmake">cmake_minimum_required(VERSION 3.21)
+project(opengl_project)
+
+set(CMAKE_CXX_STANDARD 11)
+
+add_executable(opengl_project main.cpp)
+</code></pre>
+<h2 id="修改编译工具为-vs">修改编译工具为 VS</h2>
+<p>在 <code>Settings -&gt; Build, Executable, Deployment -&gt; Toolchains</code> 中添加 Visual Studio ，</p>
+<p><code>Toolset</code> 选择 VS 安装路径， <code>Architecture</code> 选择 <code>amd64</code> ，其他保持默认即可</p>
+<p><img src="https://mypic-1305118058.cos.ap-hongkong.myqcloud.com/img/Snipaste_2022-04-10_14-03-27.png" alt=""></p>
+<h2 id="添加-include-和-lib-目录">添加 <code>include</code> 和 <code>lib</code> 目录</h2>
+<p>将头文件和库文件添加到项目目录下</p>
+<pre><code class="language-shell">├─cmake-build-debug
+├─include
+│  ├─glad
+│  ├─GLFW
+│  ├─glm
+│  ├─KHR
+│  └─stb_image.h
+├─lib
+│  └─glfw3.lib
+├─CMakeLists.txt
+├─glad.c
+└─main.cpp
+</code></pre>
+<p>在 <code>CMakeLists.txt</code> 中添加这两个目录</p>
+<pre><code class="language-cmake">include_directories(include)
+link_directories(lib)
+# link option
+set(option
+        glfw3
+        opengl32
+)
+</code></pre>
+<h2 id="示例程序">示例程序</h2>
+<h3 id="hello-triangle-程序">hello triangle 程序</h3>
+<p>新建文件 <code>hello_triangle.cpp</code></p>
+<pre><code class="language-cpp">// hello_triangle.cpp
+//
+// Created by wjl15 on 2022/4/9.
+//
+
+#include &lt;glad/glad.h&gt;
+#include &lt;GLFW/glfw3.h&gt;
+
+#include &lt;iostream&gt;
+
+void framebuffer_size_callback(GLFWwindow *window, int width, int height) {
+  glViewport(0, 0, width, height);
+}
+
+void process_input(GLFWwindow *window) {
+  if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS) {
+    glfwSetWindowShouldClose(window, true);
+  }
+}
+
+const unsigned int WIDTH = 800;
+const unsigned int HEIGHT = 600;
+
+const char *vertexShaderSource = &quot;#version 330 core\n&quot;
+                                 &quot;layout (location = 0) in vec3 aPos;\n&quot;
+                                 &quot;void main()\n&quot;
+                                 &quot;{\n&quot;
+                                 &quot;   gl_Position = vec4(aPos.x, aPos.y, aPos.z, 1.0);\n&quot;
+                                 &quot;}\0&quot;;
+const char *fragmentShaderSource = &quot;#version 330 core\n&quot;
+                                   &quot;out vec4 FragColor;\n&quot;
+                                   &quot;void main()\n&quot;
+                                   &quot;{\n&quot;
+                                   &quot;   FragColor = vec4(1.0f, 0.5f, 0.2f, 1.0f);\n&quot;
+                                   &quot;}\n\0&quot;;
+
+int main() {
+  glfwInit();
+  glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+  glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+  glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+
+  GLFWwindow *window = glfwCreateWindow(WIDTH, HEIGHT, &quot;LearnOpenGL&quot;, nullptr, nullptr);
+  if (window == nullptr) {
+    std::cout &lt;&lt; &quot;Failed to create GLFW window\n&quot;;
+    glfwTerminate();
+    return -1;
+  }
+  glfwMakeContextCurrent(window);
+  glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
+
+  if (!gladLoadGLLoader((GLADloadproc) glfwGetProcAddress)) {
+    std::cout &lt;&lt; &quot;Failed to initilize GLAD\n&quot;;
+    return -1;
+  }
+
+  unsigned int vertex_shader = glCreateShader(GL_VERTEX_SHADER);
+  glShaderSource(vertex_shader, 1, &amp;vertexShaderSource, nullptr);
+  glCompileShader(vertex_shader);
+  int success;
+  char info_log[512];
+  glGetShaderiv(vertex_shader, GL_COMPILE_STATUS, &amp;success);
+  if (!success) {
+    glGetShaderInfoLog(vertex_shader, 512, nullptr, info_log);
+    std::cout &lt;&lt; &quot;ERROR::SHADER::VERTEX::COMPILATION_FAILED\n&quot; &lt;&lt; info_log &lt;&lt; &quot;\n&quot;;
+  }
+  unsigned int fragment_shader = glCreateShader(GL_FRAGMENT_SHADER);
+  glShaderSource(fragment_shader, 1, &amp;fragmentShaderSource, nullptr);
+  glCompileShader(fragment_shader);
+  glGetShaderiv(fragment_shader, GL_COMPILE_STATUS, &amp;success);
+  if (!success) {
+    glGetShaderInfoLog(fragment_shader, 512, nullptr, info_log);
+    std::cout &lt;&lt; &quot;ERROR::SHADER::FRAGMENT::COMPILATION_FAILED\n&quot; &lt;&lt; info_log &lt;&lt; &quot;\n&quot;;
+  }
+
+  unsigned int shader_program = glCreateProgram();
+  glAttachShader(shader_program, vertex_shader);
+  glAttachShader(shader_program, fragment_shader);
+  glLinkProgram(shader_program);
+  glGetProgramiv(shader_program, GL_LINK_STATUS, &amp;success);
+  if (!success) {
+    glGetProgramInfoLog(shader_program, 512, nullptr, info_log);
+    std::cout &lt;&lt; &quot;ERROR::SHADER::PROGRAM::LINKING_FAILED\n&quot; &lt;&lt; info_log &lt;&lt; &quot;\n&quot;;
+  }
+  glDeleteShader(vertex_shader);
+  glDeleteShader(fragment_shader);
+
+  float vertices[] = {
+      -0.5f, -0.5f, 0.0f,
+      0.5f, -0.5f, 0.0f,
+      0.0f, 0.5f, 0.0f
+  };
+
+  unsigned int vbo, vao;
+  glGenVertexArrays(1, &amp;vao);
+  glGenBuffers(1, &amp;vbo);
+  glBindVertexArray(vao);
+  glBindBuffer(GL_ARRAY_BUFFER, vbo);
+  glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+
+  glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
+  glEnableVertexAttribArray(0);
+  glBindBuffer(GL_ARRAY_BUFFER, 0);
+  glBindVertexArray(0);
+
+  while (!glfwWindowShouldClose(window)) {
+    process_input(window);
+
+    glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+    glClear(GL_COLOR_BUFFER_BIT);
+
+    glUseProgram(shader_program);
+    glBindVertexArray(vao);
+    glDrawArrays(GL_TRIANGLES, 0, 3);
+
+    glfwSwapBuffers(window);
+    glfwPollEvents();
+  }
+
+  glDeleteVertexArrays(1, &amp;vao);
+  glDeleteBuffers(1, &amp;vbo);
+  glDeleteProgram(shader_program);
+
+  glfwTerminate();
+  return 0;
+}
+</code></pre>
+<p>在 <code>CMakeLists.txt</code> 中添加构建目标</p>
+<pre><code class="language-cmake">add_executable(hello_triangle hello_triangle.cpp glad.c)
+target_link_libraries(hello_triangle ${option})
+</code></pre>
+<p>运行结果</p>
+<p><img src="https://mypic-1305118058.cos.ap-hongkong.myqcloud.com/img/Snipaste_2022-04-10_14-29-27.png" alt=""></p>
+<h3 id="shader-class-程序">shader class 程序</h3>
+<p>新建文件 <code>shader_class.cpp</code> ，在这个程序里我们调用外部着色器文件</p>
+<h4 id="添加-glsl-插件">添加 GLSL 插件</h4>
+<p>写着色器就有代码高亮了</p>
+<p><img src="https://mypic-1305118058.cos.ap-hongkong.myqcloud.com/img/Snipaste_2022-04-10_14-19-47.png" alt=""></p>
+<h4 id="编写-shader-类">编写 <code>shader</code> 类</h4>
+<p>创建 <code>shader.h</code> 头文件</p>
+<pre><code class="language-h">// shader.h
+//
+// Created by wjl15 on 2022/4/9.
+//
+
+#ifndef OPENGL_PROJECT_SHADER_H
+#define OPENGL_PROJECT_SHADER_H
+
+#include &lt;glad/glad.h&gt;
+#include &lt;glm/glm.hpp&gt;
+
+#include &lt;fstream&gt;
+#include &lt;iostream&gt;
+#include &lt;sstream&gt;
+#include &lt;string&gt;
+
+class shader {
+private:
+  static void check_compile_errors(GLuint shader, const std::string &amp;type);
+
+public:
+  unsigned int id;
+
+  shader(const char *vertex_path, const char *fragment_path, const char *geometry_path = nullptr);
+
+  void use() const;
+  void set_bool(const std::string &amp;name, bool value) const;
+  void set_int(const std::string &amp;name, int value) const;
+  void set_float(const std::string &amp;name, float value) const;
+
+  void set_vec2(const std::string &amp;name, const glm::vec2 &amp;value) const;
+  void set_vec2(const std::string &amp;name, float x, float y) const;
+
+  void set_vec3(const std::string &amp;name, const glm::vec3 &amp;value) const;
+  void set_vec3(const std::string &amp;name, float x, float y, float z) const;
+
+  void set_vec4(const std::string &amp;name, const glm::vec4 &amp;value) const;
+  void set_vec4(const std::string &amp;name, float x, float y, float z, float w) const;
+
+  void set_mat2(const std::string &amp;name, const glm::mat2 &amp;mat) const;
+  void set_mat3(const std::string &amp;name, const glm::mat3 &amp;mat) const;
+  void set_mat4(const std::string &amp;name, const glm::mat4 &amp;mat) const;
+};
+
+void shader::check_compile_errors(const GLuint shader, const std::string &amp;type) {
+  GLint success;
+  GLchar info_log[1024];
+  if (type != &quot;PROGRAM&quot;) {
+    glGetShaderiv(shader, GL_COMPILE_STATUS, &amp;success);
+    if (!success) {
+      glGetShaderInfoLog(shader, 1024, nullptr, info_log);
+      std::cout &lt;&lt; &quot;ERROR::SHADER_COMPILATION_ERROR of type: &quot; &lt;&lt; type &lt;&lt; &quot;\n&quot; &lt;&lt; info_log &lt;&lt; &quot;\n&quot;;
+    }
+  } else {
+    glGetProgramiv(shader, GL_LINK_STATUS, &amp;success);
+    if (!success) {
+      glGetProgramInfoLog(shader, 1024, nullptr, info_log);
+      std::cout &lt;&lt; &quot;ERROR::PROGRAM_LINKING_ERROR of type: &quot; &lt;&lt; type &lt;&lt; &quot;\n&quot; &lt;&lt; info_log &lt;&lt; &quot;\n&quot;;
+    }
+  }
+}
+
+shader::shader(const char *vertex_path, const char *fragment_path, const char *geometry_path) {
+  std::string vertex_code;
+  std::string fragment_code;
+  std::string geometry_code;
+  std::ifstream v_shader_file;
+  std::ifstream f_shader_file;
+  std::ifstream g_shader_file;
+
+  v_shader_file.exceptions(std::ifstream::failbit | std::ifstream::badbit);
+  f_shader_file.exceptions(std::ifstream::failbit | std::ifstream::badbit);
+  g_shader_file.exceptions(std::ifstream::failbit | std::ifstream::badbit);
+
+  try {
+    v_shader_file.open(vertex_path);
+    f_shader_file.open(fragment_path);
+    std::stringstream v_shader_stream, f_shader_stream;
+    v_shader_stream &lt;&lt; v_shader_file.rdbuf();
+    f_shader_stream &lt;&lt; f_shader_file.rdbuf();
+    v_shader_file.close();
+    f_shader_file.close();
+    vertex_code = v_shader_stream.str();
+    fragment_code = f_shader_stream.str();
+    if (geometry_path != nullptr) {
+      g_shader_file.open(geometry_path);
+      std::stringstream g_shader_stream;
+      g_shader_stream &lt;&lt; g_shader_file.rdbuf();
+      g_shader_file.close();
+      geometry_code = g_shader_stream.str();
+    }
+  } catch (std::ifstream::failure &amp;e) {
+    std::cout &lt;&lt; &quot;ERROR::SHADER::FILE_NOT_SUCCESSFULLY_READ: &quot; &lt;&lt; e.what() &lt;&lt; &quot;\n&quot;;
+  }
+
+  const char *v_shader_code = vertex_code.c_str();
+  const char *f_shader_code = fragment_code.c_str();
+  unsigned int vertex, fragment;
+
+  vertex = glCreateShader(GL_VERTEX_SHADER);
+  glShaderSource(vertex, 1, &amp;v_shader_code, nullptr);
+  glCompileShader(vertex);
+  check_compile_errors(vertex, &quot;VERTEX&quot;);
+  fragment = glCreateShader(GL_FRAGMENT_SHADER);
+  glShaderSource(fragment, 1, &amp;f_shader_code, nullptr);
+  glCompileShader(fragment);
+  check_compile_errors(fragment, &quot;FRAGMENT&quot;);
+
+  unsigned int geometry = 0;
+  if (geometry_path != nullptr) {
+    const char *g_shader_code = geometry_code.c_str();
+    geometry = glCreateShader(GL_GEOMETRY_SHADER);
+    glShaderSource(geometry, 1, &amp;g_shader_code, nullptr);
+    glCompileShader(geometry);
+    check_compile_errors(geometry, &quot;GEOMETRY&quot;);
+  }
+
+  id = glCreateProgram();
+  glAttachShader(id, vertex);
+  glAttachShader(id, fragment);
+  if (geometry_path != nullptr) {
+    glAttachShader(id, geometry);
+  }
+  glLinkProgram(id);
+  check_compile_errors(id, &quot;PROGRAM&quot;);
+
+  glDeleteShader(vertex);
+  glDeleteShader(fragment);
+  if (geometry_path != nullptr) {
+    glDeleteShader(geometry);
+  }
+}
+
+void shader::use() const {
+  glUseProgram(id);
+}
+
+void shader::set_bool(const std::string &amp;name, const bool value) const {
+  glUniform1i(glGetUniformLocation(id, name.c_str()), static_cast&lt;int&gt;(value));
+}
+
+void shader::set_int(const std::string &amp;name, const int value) const {
+  glUniform1i(glGetUniformLocation(id, name.c_str()), value);
+}
+
+void shader::set_float(const std::string &amp;name, const float value) const {
+  glUniform1f(glGetUniformLocation(id, name.c_str()), value);
+}
+
+void shader::set_vec2(const std::string &amp;name, const glm::vec2 &amp;value) const {
+  glUniform2fv(glGetUniformLocation(id, name.c_str()), 1, &amp;value[0]);
+}
+
+void shader::set_vec2(const std::string &amp;name, const float x, const float y) const {
+  glUniform2f(glGetUniformLocation(id, name.c_str()), x, y);
+}
+
+void shader::set_vec3(const std::string &amp;name, const glm::vec3 &amp;value) const {
+  glUniform3fv(glGetUniformLocation(id, name.c_str()), 1, &amp;value[0]);
+}
+
+void shader::set_vec3(const std::string &amp;name, const float x, const float y, const float z) const {
+  glUniform3f(glGetUniformLocation(id, name.c_str()), x, y, z);
+}
+
+void shader::set_vec4(const std::string &amp;name, const glm::vec4 &amp;value) const {
+  glUniform4fv(glGetUniformLocation(id, name.c_str()), 1, &amp;value[0]);
+}
+
+void shader::set_vec4(const std::string &amp;name, const float x, const float y, const float z, const float w) const {
+  glUniform4f(glGetUniformLocation(id, name.c_str()), x, y, z, w);
+}
+
+void shader::set_mat2(const std::string &amp;name, const glm::mat2 &amp;mat) const {
+  glUniformMatrix2fv(glGetUniformLocation(id, name.c_str()), 1, GL_FALSE, &amp;mat[0][0]);
+}
+
+void shader::set_mat3(const std::string &amp;name, const glm::mat3 &amp;mat) const {
+  glUniformMatrix3fv(glGetUniformLocation(id, name.c_str()), 1, GL_FALSE, &amp;mat[0][0]);
+}
+
+void shader::set_mat4(const std::string &amp;name, const glm::mat4 &amp;mat) const {
+  glUniformMatrix4fv(glGetUniformLocation(id, name.c_str()), 1, GL_FALSE, &amp;mat[0][0]);
+}
+
+#endif//OPENGL_PROJECT_SHADER_H
+
+</code></pre>
+<h4 id="添加-shader-目录">添加 <code>shader</code> 目录</h4>
+<p>统一存放着色器文件</p>
+<pre><code class="language-shell">├─cmake-build-debug
+├─include
+│  ├─glad
+│  ├─GLFW
+│  ├─glm
+│  ├─KHR
+│  └─stb_image.h
+├─lib
+│  └─glfw3.lib
+├─shader
+├─CMakeLists.txt
+├─glad.c
+└─main.cpp
+</code></pre>
+<p>在 <code>shader</code> 路径下新建 <code>3-3.vert</code> 和 <code>3-3.frag</code> 着色器文件</p>
+<pre><code class="language-glsl">// 3-3.vert
+#version 330 core
+
+layout (location = 0) in vec3 aPos;
+layout (location = 1) in vec3 aColor;
+
+out vec3 ourColor;
+
+void main() {
+    gl_Position = vec4(aPos, 1.0);
+    ourColor = aColor;
+}
+///////////////////////////////////////
+// 3-3.frag
+#version 330 core
+
+out vec4 FragColor;
+
+in vec3 ourColor;
+
+void main() {
+    FragColor = vec4(ourColor, 1.0f);
+}
+</code></pre>
+<h4 id="程序代码">程序代码</h4>
+<pre><code class="language-cpp">// shader_class.cpp
+//
+// Created by wjl15 on 2022/4/9.
+//
+
+#include &lt;glad/glad.h&gt;
+#include &lt;GLFW/glfw3.h&gt;
+
+#include &quot;shader.h&quot;
+
+#include &lt;iostream&gt;
+
+void framebuffer_size_callback(GLFWwindow *window, int width, int height) {
+  glViewport(0, 0, width, height);
+}
+
+void process_input(GLFWwindow *window) {
+  if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS) {
+    glfwSetWindowShouldClose(window, true);
+  }
+}
+
+const unsigned int WIDTH = 800;
+const unsigned int HEIGHT = 600;
+
+int main() {
+  glfwInit();
+  glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+  glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+  glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+
+  GLFWwindow *window = glfwCreateWindow(WIDTH, HEIGHT, &quot;LearnOpenGL&quot;, nullptr, nullptr);
+  if (window == nullptr) {
+    std::cout &lt;&lt; &quot;Failed to create GLFW window\n&quot;;
+    glfwTerminate();
+    return -1;
+  }
+  glfwMakeContextCurrent(window);
+  glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
+
+  if (!gladLoadGLLoader((GLADloadproc) glfwGetProcAddress)) {
+    std::cout &lt;&lt; &quot;Failed to initilize GLAD\n&quot;;
+    return -1;
+  }
+
+  shader our_shader(&quot;shader/3-3.vert&quot;, &quot;shader/3-3.frag&quot;);
+
+  float vertices[] = {
+      0.5f, -0.5f, 0.0f, 1.0f, 0.0f, 0.0f,
+      -0.5f, -0.5f, 0.0f, 0.0f, 1.0f, 0.0f,
+      0.0f, 0.5f, 0.0f, 0.0f, 0.0f, 1.0f
+  };
+
+  unsigned int vbo, vao;
+  glGenVertexArrays(1, &amp;vao);
+  glGenBuffers(1, &amp;vbo);
+  glBindVertexArray(vao);
+  glBindBuffer(GL_ARRAY_BUFFER, vbo);
+  glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+
+  glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
+  glEnableVertexAttribArray(0);
+  glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3 * sizeof(float)));
+  glEnableVertexAttribArray(1);
+
+  while (!glfwWindowShouldClose(window)) {
+    process_input(window);
+
+    glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+    glClear(GL_COLOR_BUFFER_BIT);
+
+    our_shader.use();
+    glBindVertexArray(vao);
+    glDrawArrays(GL_TRIANGLES, 0, 3);
+
+    glfwSwapBuffers(window);
+    glfwPollEvents();
+  }
+
+  glDeleteVertexArrays(1, &amp;vao);
+  glDeleteBuffers(1, &amp;vbo);
+
+  glfwTerminate();
+  return 0;
+}
+</code></pre>
+<p>在 <code>CMakeLists.txt</code> 中添加构建目标</p>
+<pre><code class="language-cmake">add_executable(shader_class shader_class.cpp glad.c)
+target_link_libraries(shader_class ${option})
+file(COPY
+        ${CMAKE_CURRENT_SOURCE_DIR}/shader
+        DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
+</code></pre>
+<p>运行结果</p>
+<p><img src="https://mypic-1305118058.cos.ap-hongkong.myqcloud.com/img/Snipaste_2022-04-10_14-29-45.png" alt=""></p>
+<h3 id="textures-combined-程序">textures combined 程序</h3>
+<p>新建文件 <code>textures_combined.cpp</code> ，在这个程序里我们加载和创建纹理</p>
+<h4 id="添加-image-目录">添加 <code>image</code> 目录</h4>
+<p>统一存放 图片文件</p>
+<pre><code class="language-shell">├─cmake-build-debug
+├─include
+│  ├─glad
+│  ├─GLFW
+│  ├─glm
+│  ├─KHR
+│  └─stb_image.h
+├─lib
+│  └─glfw3.lib
+├─shader
+├─image
+├─CMakeLists.txt
+├─glad.c
+└─main.cpp
+</code></pre>
+<p>添加图片 <code>container.jpg</code> 和 <code>awesomeface.png</code></p>
+<h4 id="编写着色器文件">编写着色器文件</h4>
+<p>创建 <code>4-2.vert</code> 和 <code>4-2.frag</code> 文件</p>
+<pre><code class="language-glsl">// 4-2.vert
+#version 330 core
+
+layout (location = 0) in vec3 aPos;
+layout (location = 1) in vec3 aColor;
+layout (location = 2) in vec2 aTexCoord;
+
+out vec3 ourColor;
+out vec2 TexCoord;
+
+void main() {
+    gl_Position = vec4(aPos, 1.0);
+    ourColor = aColor;
+    TexCoord = vec2(aTexCoord.x, aTexCoord.y);
+}
+///////////////////////////////////////
+// 4-2.frag
+#version 330 core
+
+out vec4 FragColor;
+
+in vec3 ourColor;
+in vec2 TexCoord;
+
+uniform sampler2D texture1;
+uniform sampler2D texture2;
+
+void main() {
+    FragColor = mix(texture(texture1, TexCoord), texture(texture2, TexCoord), 0.2);
+}
+</code></pre>
+<h4 id="程序代码-1">程序代码</h4>
+<pre><code class="language-cpp">// textures_combined.cpp
+//
+// Created by wjl15 on 2022/4/9.
+//
+
+#include &lt;glad/glad.h&gt;
+#include &lt;GLFW/glfw3.h&gt;
+#define STB_IMAGE_IMPLEMENTATION
+#include &lt;stb_image.h&gt;
+
+#include &quot;shader.h&quot;
+
+#include &lt;iostream&gt;
+
+void framebuffer_size_callback(GLFWwindow *window, int width, int height) {
+  glViewport(0, 0, width, height);
+}
+
+void process_input(GLFWwindow *window) {
+  if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS) {
+    glfwSetWindowShouldClose(window, true);
+  }
+}
+
+const unsigned int WIDTH = 800;
+const unsigned int HEIGHT = 600;
+
+int main() {
+  glfwInit();
+  glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+  glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+  glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+
+  GLFWwindow *window = glfwCreateWindow(WIDTH, HEIGHT, &quot;LearnOpenGL&quot;, nullptr, nullptr);
+  if (window == nullptr) {
+    std::cout &lt;&lt; &quot;Failed to create GLFW window\n&quot;;
+    glfwTerminate();
+    return -1;
+  }
+  glfwMakeContextCurrent(window);
+  glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
+
+  if (!gladLoadGLLoader((GLADloadproc) glfwGetProcAddress)) {
+    std::cout &lt;&lt; &quot;Failed to initilize GLAD\n&quot;;
+    return -1;
+  }
+
+  shader our_shader(&quot;shader/4-2.vert&quot;, &quot;shader/4-2.frag&quot;);
+
+  float vertices[] = {
+      0.5f, 0.5f, 0.0f, 1.0f, 0.0f, 0.0f, 1.0f, 1.0f,
+      0.5f, -0.5f, 0.0f, 0.0f, 1.0f, 0.0f, 1.0f, 0.0f,
+      -0.5f, -0.5f, 0.0f, 0.0f, 0.0f, 1.0f, 0.0f, 0.0f,
+      -0.5f, 0.5f, 0.0f, 1.0f, 1.0f, 0.0f, 0.0f, 1.0f
+  };
+
+  unsigned int indices[] = {
+      0, 1, 3,
+      1, 2, 3
+  };
+
+  unsigned int vbo, vao, ebo;
+  glGenVertexArrays(1, &amp;vao);
+  glGenBuffers(1, &amp;vbo);
+  glGenBuffers(1, &amp;ebo);
+
+  glBindVertexArray(vao);
+
+  glBindBuffer(GL_ARRAY_BUFFER, vbo);
+  glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+
+  glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ebo);
+  glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
+
+  glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)0);
+  glEnableVertexAttribArray(0);
+
+  glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(3 * sizeof(float)));
+  glEnableVertexAttribArray(1);
+
+  glVertexAttribPointer(2, 2, GL_FLOAT, GL_FALSE, 8 * sizeof(float), (void*)(6 * sizeof(float)));
+  glEnableVertexAttribArray(2);
+
+  unsigned int texture1, texture2;
+
+  glGenTextures(1, &amp;texture1);
+  glBindTexture(GL_TEXTURE_2D, texture1);
+  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+  int width, height, nrChannels;
+
+  stbi_set_flip_vertically_on_load(true);
+  unsigned char *data = stbi_load(&quot;image/container.jpg&quot;, &amp;width, &amp;height, &amp;nrChannels, 0);
+  if (data) {
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
+    glGenerateMipmap(GL_TEXTURE_2D);
+  } else {
+    std::cout &lt;&lt; &quot;Failed to load texture\n&quot;;
+  }
+  stbi_image_free(data);
+
+  glGenTextures(1, &amp;texture2);
+  glBindTexture(GL_TEXTURE_2D, texture2);
+  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+  data = stbi_load(&quot;image/awesomeface.png&quot;, &amp;width, &amp;height, &amp;nrChannels, 0);
+  if (data) {
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
+    glGenerateMipmap(GL_TEXTURE_2D);
+  } else {
+    std::cout &lt;&lt; &quot;Failed to load texture\n&quot;;
+  }
+  stbi_image_free(data);
+
+  our_shader.use();
+  glUniform1i(glGetUniformLocation(our_shader.id, &quot;texture1&quot;), 0);
+  our_shader.set_int(&quot;texture2&quot;, 1);
+
+  while (!glfwWindowShouldClose(window)) {
+    process_input(window);
+
+    glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+    glClear(GL_COLOR_BUFFER_BIT);
+
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D, texture1);
+    glActiveTexture(GL_TEXTURE1);
+    glBindTexture(GL_TEXTURE_2D, texture2);
+
+    our_shader.use();
+    glBindVertexArray(vao);
+    glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+
+    glfwSwapBuffers(window);
+    glfwPollEvents();
+  }
+
+  glDeleteVertexArrays(1, &amp;vao);
+  glDeleteBuffers(1, &amp;vbo);
+  glDeleteBuffers(1, &amp;ebo);
+
+  glfwTerminate();
+  return 0;
+}
+</code></pre>
+<p>在 <code>CMakeLists.txt</code> 中添加构建目标</p>
+<pre><code class="language-cmake">add_executable(textures_combined textures_combined.cpp glad.c)
+target_link_libraries(textures_combined ${option})
+file(COPY
+        ${CMAKE_CURRENT_SOURCE_DIR}/shader
+        ${CMAKE_CURRENT_SOURCE_DIR}/image
+        DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
+</code></pre>
+<p>运行结果</p>
+<p><img src="https://mypic-1305118058.cos.ap-hongkong.myqcloud.com/img/Snipaste_2022-04-10_14-37-14.png" alt=""></p>
+<h3 id="cameara-class-程序">cameara class 程序</h3>
+<p>新建文件 <code>camera_class.cpp</code> ，在这个程序里我们调用摄像机类来浏览场景</p>
+<h4 id="编写-camera-类">编写 <code>camera</code> 类</h4>
+<p>创建 <code>camera.h</code> 头文件</p>
+<pre><code class="language-h">// camera.h
+//
+// Created by wjl15 on 2022/4/9.
+//
+
+#ifndef OPENGL_PROJECT_CAMERA_H
+#define OPENGL_PROJECT_CAMERA_H
+
+#include &lt;glad/glad.h&gt;
+#include &lt;glm/glm.hpp&gt;
+#include &lt;glm/gtc/matrix_transform.hpp&gt;
+
+#include &lt;vector&gt;
+
+enum camera_movement {
+  FORWARD, BACKWARD, LEFT, RIGHT
+};
+
+const float YAM = -90.0f;
+const float PITCH = 0.0f;
+const float SPEED = 2.5f;
+const float SENSITIVITY = 0.1f;
+const float ZOOM = 45.0f;
+
+class camera {
+private:
+  void update_camera_vectors();
+
+public:
+  glm::vec3 position;
+  glm::vec3 front;
+  glm::vec3 up;
+  glm::vec3 right;
+  glm::vec3 world_up;
+
+  float yaw;
+  float pitch;
+  float movement_speed;
+  float mouse_sensitivity;
+  float zoom;
+
+  explicit camera(glm::vec3 _pos = glm::vec3(0.0f, 0.0f, 0.0f),
+                  glm::vec3 _up = glm::vec3(0.0f, 1.0f, 0.0f),
+                  float _yam = YAM, float _pitch = PITCH)
+      : front(glm::vec3(0.0f, 0.0f, -1.0f)), movement_speed(SPEED),
+        mouse_sensitivity(SENSITIVITY), zoom(ZOOM) {
+    position = _pos;
+    world_up = _up;
+    yaw = _yam;
+    pitch = _pitch;
+    update_camera_vectors();
+  }
+
+  camera(float pos_x, float pos_y, float pos_z,
+         float up_x, float up_y, float up_z, float _yaw, float _pitch)
+      : front(glm::vec3(0.0f, 0.0f, -1.0f)), movement_speed(SPEED),
+        mouse_sensitivity(SENSITIVITY), zoom(ZOOM) {
+    position = glm::vec3(pos_x, pos_y, pos_z);
+    world_up = glm::vec3(up_x, up_y, up_z);
+    yaw = _yaw;
+    pitch = _pitch;
+    update_camera_vectors();
+  }
+
+  glm::mat4 get_view_matrix() const;
+
+  void process_keyboard(camera_movement direction, float delta_time);
+  void process_mouse_movement(float x_offset, float y_offset, GLboolean constrain_pitch = true);
+  void process_mouse_scroll(float y_offset);
+};
+
+void camera::update_camera_vectors() {
+  glm::vec3 _front;
+  _front.x = cos(glm::radians(yaw)) * cos(glm::radians(pitch));
+  _front.y = sin(glm::radians(pitch));
+  _front.z = sin(glm::radians(yaw)) * cos(glm::radians(pitch));
+  front = glm::normalize(_front);
+  right = glm::normalize(glm::cross(front, world_up));
+  up = glm::normalize(glm::cross(right, front));
+}
+
+glm::mat4 camera::get_view_matrix() const {
+  return glm::lookAt(position, position + front, up);
+}
+
+void camera::process_keyboard(camera_movement direction, float delta_time) {
+  float velocity = movement_speed * delta_time;
+  if (direction == FORWARD) {
+    position += front * velocity;
+  }
+  if (direction == BACKWARD) {
+    position -= front * velocity;
+  }
+  if (direction == LEFT) {
+    position -= right * velocity;
+  }
+  if (direction == RIGHT) {
+    position += right * velocity;
+  }
+}
+
+void camera::process_mouse_movement(float x_offset, float y_offset, GLboolean constrain_pitch) {
+    x_offset *= mouse_sensitivity;
+    y_offset *= mouse_sensitivity;
+    yaw += x_offset;
+    pitch += y_offset;
+    if (constrain_pitch) {
+      if (pitch &gt; 89.0f) {
+        pitch = 89.0f;
+      }
+      if (pitch &lt; -89.0f) {
+        pitch = -89.0f;
+      }
+    }
+    update_camera_vectors();
+}
+
+void camera::process_mouse_scroll(float y_offset) {
+  zoom -= (float) y_offset;
+  if (zoom &lt; 1.0f) {
+    zoom = 1.0f;
+  }
+  if (zoom &gt; 1.0f) {
+    zoom = 45.0f;
+  }
+}
+
+#endif//OPENGL_PROJECT_CAMERA_H
+</code></pre>
+<h4 id="编写着色器文件-1">编写着色器文件</h4>
+<p>创建 <code>7-1.vert</code> 和 <code>7-1.frag</code> 文件</p>
+<pre><code class="language-glsl">// 7-1.vert
+#version 330 core
+
+layout (location = 0) in vec3 aPos;
+layout (location = 1) in vec2 aTexCoord;
+
+out vec2 TexCoord;
+
+uniform mat4 model;
+uniform mat4 view;
+uniform mat4 projection;
+
+void main() {
+    gl_Position = projection * view * model * vec4(aPos, 1.0f);
+    TexCoord = vec2(aTexCoord.x, aTexCoord.y);
+}
+///////////////////////////////////////
+// 7-1.frag
+#version 330 core
+
+out vec4 FragColor;
+
+in vec2 TexCoord;
+
+uniform sampler2D texture1;
+uniform sampler2D texture2;
+
+void main() {
+    FragColor = mix(texture(texture1, TexCoord), texture(texture2, TexCoord), 0.2);
+}
+</code></pre>
+<h4 id="程序代码-2">程序代码</h4>
+<pre><code class="language-cpp">// camera_class.cpp
+//
+// Created by wjl15 on 2022/4/9.
+//
+
+#include &lt;glad/glad.h&gt;
+#include &lt;GLFW/glfw3.h&gt;
+#define STB_IMAGE_IMPLEMENTATION
+#include &lt;stb_image.h&gt;
+
+#include &lt;glm/glm.hpp&gt;
+#include &lt;glm/gtc/matrix_transform.hpp&gt;
+#include &lt;glm/gtc/type_ptr.hpp&gt;
+
+#include &quot;shader.h&quot;
+#include &quot;camera.h&quot;
+
+#include &lt;iostream&gt;
+
+void framebuffer_size_callback(GLFWwindow *window, int width, int height);
+void mouse_callback(GLFWwindow *window, double x_pos_in, double y_pos_in);
+void scroll_callback(GLFWwindow *window, double x_offset, double y_offset);
+void process_input(GLFWwindow *window);
+
+const unsigned int WIDTH = 800;
+const unsigned int HEIGHT = 600;
+
+camera camera(glm::vec3(0.0f, 0.0f, 3.0f));
+float last_x = WIDTH / 2.0f;
+float last_y = HEIGHT / 2.0f;
+bool first_mouse = true;
+
+float delta_time = 0.0f;
+float last_frame = 0.0f;
+
+int main() {
+  glfwInit();
+  glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
+  glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
+  glfwWindowHint(GLFW_OPENGL_PROFILE, GLFW_OPENGL_CORE_PROFILE);
+
+  GLFWwindow *window = glfwCreateWindow(WIDTH, HEIGHT, &quot;LearnOpenGL&quot;, nullptr, nullptr);
+  if (window == nullptr) {
+    std::cout &lt;&lt; &quot;Failed to create GLFW window\n&quot;;
+    glfwTerminate();
+    return -1;
+  }
+  glfwMakeContextCurrent(window);
+  glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
+  glfwSetCursorPosCallback(window, mouse_callback);
+  glfwSetScrollCallback(window, scroll_callback);
+
+  glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+
+  if (!gladLoadGLLoader((GLADloadproc) glfwGetProcAddress)) {
+    std::cout &lt;&lt; &quot;Failed to initilize GLAD\n&quot;;
+    return -1;
+  }
+
+  glEnable(GL_DEPTH_TEST);
+
+  shader our_shader(&quot;shader/7-1.vert&quot;, &quot;shader/7-1.frag&quot;);
+
+  float vertices[] = {
+      -0.5f, -0.5f, -0.5f,  0.0f, 0.0f,
+      0.5f, -0.5f, -0.5f,  1.0f, 0.0f,
+      0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
+      0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
+      -0.5f,  0.5f, -0.5f,  0.0f, 1.0f,
+      -0.5f, -0.5f, -0.5f,  0.0f, 0.0f,
+
+      -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
+      0.5f, -0.5f,  0.5f,  1.0f, 0.0f,
+      0.5f,  0.5f,  0.5f,  1.0f, 1.0f,
+      0.5f,  0.5f,  0.5f,  1.0f, 1.0f,
+      -0.5f,  0.5f,  0.5f,  0.0f, 1.0f,
+      -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
+
+      -0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+      -0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
+      -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+      -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+      -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
+      -0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+
+      0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+      0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
+      0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+      0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+      0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
+      0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+
+      -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+      0.5f, -0.5f, -0.5f,  1.0f, 1.0f,
+      0.5f, -0.5f,  0.5f,  1.0f, 0.0f,
+      0.5f, -0.5f,  0.5f,  1.0f, 0.0f,
+      -0.5f, -0.5f,  0.5f,  0.0f, 0.0f,
+      -0.5f, -0.5f, -0.5f,  0.0f, 1.0f,
+
+      -0.5f,  0.5f, -0.5f,  0.0f, 1.0f,
+      0.5f,  0.5f, -0.5f,  1.0f, 1.0f,
+      0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+      0.5f,  0.5f,  0.5f,  1.0f, 0.0f,
+      -0.5f,  0.5f,  0.5f,  0.0f, 0.0f,
+      -0.5f,  0.5f, -0.5f,  0.0f, 1.0f
+  };
+
+  glm::vec3 cubePositions[] = {
+      glm::vec3(0.0f,  0.0f,  0.0f),
+      glm::vec3(2.0f,  5.0f, -15.0f),
+      glm::vec3(-1.5f, -2.2f, -2.5f),
+      glm::vec3(-3.8f, -2.0f, -12.3f),
+      glm::vec3(2.4f, -0.4f, -3.5f),
+      glm::vec3(-1.7f,  3.0f, -7.5f),
+      glm::vec3(1.3f, -2.0f, -2.5f),
+      glm::vec3(1.5f,  2.0f, -2.5f),
+      glm::vec3(1.5f,  0.2f, -1.5f),
+      glm::vec3(-1.3f,  1.0f, -1.5f)
+  };
+
+  unsigned int vbo, vao;
+  glGenVertexArrays(1, &amp;vao);
+  glGenBuffers(1, &amp;vbo);
+  glBindVertexArray(vao);
+
+  glBindBuffer(GL_ARRAY_BUFFER, vbo);
+  glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
+
+  glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)0);
+  glEnableVertexAttribArray(0);
+  glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE, 5 * sizeof(float), (void*)(3 * sizeof(float)));
+  glEnableVertexAttribArray(1);
+
+  unsigned int texture1, texture2;
+
+  glGenTextures(1, &amp;texture1);
+  glBindTexture(GL_TEXTURE_2D, texture1);
+  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+  int width, height, nrChannels;
+
+  stbi_set_flip_vertically_on_load(true);
+  unsigned char *data = stbi_load(&quot;image/container.jpg&quot;, &amp;width, &amp;height, &amp;nrChannels, 0);
+  if (data) {
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data);
+    glGenerateMipmap(GL_TEXTURE_2D);
+  } else {
+    std::cout &lt;&lt; &quot;Failed to load texture\n&quot;;
+  }
+  stbi_image_free(data);
+
+  glGenTextures(1, &amp;texture2);
+  glBindTexture(GL_TEXTURE_2D, texture2);
+  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR);
+  glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_LINEAR);
+
+  data = stbi_load(&quot;image/awesomeface.png&quot;, &amp;width, &amp;height, &amp;nrChannels, 0);
+  if (data) {
+    glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGBA, GL_UNSIGNED_BYTE, data);
+    glGenerateMipmap(GL_TEXTURE_2D);
+  } else {
+    std::cout &lt;&lt; &quot;Failed to load texture\n&quot;;
+  }
+  stbi_image_free(data);
+
+  our_shader.use();
+  our_shader.set_int(&quot;texture1&quot;, 0);
+  our_shader.set_int(&quot;texture2&quot;, 1);
+
+  while (!glfwWindowShouldClose(window)) {
+    auto current_frame = static_cast&lt;float&gt;(glfwGetTime());
+    delta_time = current_frame - last_frame;
+    last_frame = current_frame;
+
+    process_input(window);
+
+    glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+
+    glActiveTexture(GL_TEXTURE0);
+    glBindTexture(GL_TEXTURE_2D, texture1);
+    glActiveTexture(GL_TEXTURE1);
+    glBindTexture(GL_TEXTURE_2D, texture2);
+
+    our_shader.use();
+
+    glm::mat4 projection = glm::perspective(glm::radians(camera.zoom), (float) WIDTH / (float) HEIGHT, 0.1f, 100.0f);
+    our_shader.set_mat4(&quot;projection&quot;, projection);
+
+    glm::mat4 view = camera.get_view_matrix();
+    our_shader.set_mat4(&quot;view&quot;, view);
+
+    glBindVertexArray(vao);
+
+    for (unsigned int i= 0; i &lt; 5; i++) {
+      glm::mat4 model = glm::mat4(1.0f);
+      model = glm::translate(model, cubePositions[i]);
+      float angle = 20.0f * i;
+      model = glm::rotate(model, glm::radians(angle), glm::vec3(1.0f, 0.3f, 0.5f));
+      our_shader.set_mat4(&quot;model&quot;, model);
+      glDrawArrays(GL_TRIANGLES, 0, 36);
+    }
+
+    glfwSwapBuffers(window);
+    glfwPollEvents();
+  }
+
+  glDeleteVertexArrays(1, &amp;vao);
+  glDeleteBuffers(1, &amp;vbo);
+
+  glfwTerminate();
+  return 0;
+}
+
+void framebuffer_size_callback(GLFWwindow *window, int width, int height) {
+  glViewport(0, 0, width, height);
+}
+
+void mouse_callback(GLFWwindow *window, double x_pos_in, double y_pos_in) {
+  float x_pos = static_cast&lt;float&gt;(x_pos_in);
+  float y_pos = static_cast&lt;float&gt;(y_pos_in);
+
+  if (first_mouse) {
+    last_x = x_pos;
+    last_y = y_pos;
+    first_mouse = false;
+  }
+
+  float x_offset = x_pos - last_x;
+  float y_offset = last_y - y_pos;
+
+  last_x = x_pos;
+  last_y = y_pos;
+
+  camera.process_mouse_movement(x_offset, y_offset);
+}
+
+void scroll_callback(GLFWwindow *window, double x_offset, double y_offset) {
+  camera.process_mouse_scroll(static_cast&lt;float&gt;(y_offset));
+}
+
+void process_input(GLFWwindow *window) {
+  if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS) {
+    glfwSetWindowShouldClose(window, true);
+  }
+  if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS) {
+    camera.process_keyboard(FORWARD, delta_time);
+  }
+  if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS) {
+    camera.process_keyboard(BACKWARD, delta_time);
+  }
+  if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS) {
+    camera.process_keyboard(LEFT, delta_time);
+  }
+  if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS) {
+    camera.process_keyboard(RIGHT, delta_time);
+  }
+}
+</code></pre>
+<p>在 <code>CMakeLists.txt</code> 中添加构建目标</p>
+<pre><code class="language-cmake">add_executable(camera_class camera_class.cpp glad.c)
+target_link_libraries(camera_class ${option})
+file(COPY
+        ${CMAKE_CURRENT_SOURCE_DIR}/shader
+        ${CMAKE_CURRENT_SOURCE_DIR}/image
+        DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
+</code></pre>
+<p>运行结果</p>
+<p><img src="https://mypic-1305118058.cos.ap-hongkong.myqcloud.com/img/Snipaste_2022-04-10_14-48-36.png" alt=""></p>
+<p>至此差不多基础配置都已完成，应该能正常写代码了</p>
+<p>&ndash;完&ndash;</p>
+
+        </div>
+        
+        <div class="my-4">
+    
+    <a href="https://blog.wangjialei.xyz/tags/clion/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#CLion</a>
+    
+    <a href="https://blog.wangjialei.xyz/tags/visual-studio/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#Visual Studio</a>
+    
+    <a href="https://blog.wangjialei.xyz/tags/opengl/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#OpenGL</a>
+    
+</div>
+        
+        
+        
+
+
+        
+        
+        
+        
+<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
+    <div>
+        
+        <span class="block font-bold">上一页</span>
+        <a href="https://blog.wangjialei.xyz/posts/opengl-%E5%BF%83%E8%84%8F%E7%BA%BF/" class="block">OpenGL 心脏线</a>
+        
+    </div>
+    <div class="md:text-right mt-4 md:mt-0">
+        
+        <span class="block font-bold">下一页</span>
+        <a href="https://blog.wangjialei.xyz/posts/%E4%BD%BF%E7%94%A8djl%E5%BA%93%E9%83%A8%E7%BD%B2%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%A8%A1%E5%9E%8B/" class="block">使用DJL库部署深度学习模型</a>
+        
+    </div>
+</div>
+
+        
+
+
+
+    </div>
+    
+    <div class="col-span-2">
+        
+        
+        <div class="sticky top-16 z-10 hidden lg:block px-6 py-4  bg-primary-bg ">
+    <span class="text-lg font-semibold">本页内容</span>
+</div>
+<div class="sticky-toc hidden lg:block px-6 pb-6 ">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#创建新项目">创建新项目</a></li>
+    <li><a href="#修改编译工具为-vs">修改编译工具为 VS</a></li>
+    <li><a href="#添加-include-和-lib-目录">添加 <code>include</code> 和 <code>lib</code> 目录</a></li>
+    <li><a href="#示例程序">示例程序</a>
+      <ul>
+        <li><a href="#hello-triangle-程序">hello triangle 程序</a></li>
+        <li><a href="#shader-class-程序">shader class 程序</a>
+          <ul>
+            <li><a href="#添加-glsl-插件">添加 GLSL 插件</a></li>
+            <li><a href="#编写-shader-类">编写 <code>shader</code> 类</a></li>
+            <li><a href="#添加-shader-目录">添加 <code>shader</code> 目录</a></li>
+            <li><a href="#程序代码">程序代码</a></li>
+          </ul>
+        </li>
+        <li><a href="#textures-combined-程序">textures combined 程序</a>
+          <ul>
+            <li><a href="#添加-image-目录">添加 <code>image</code> 目录</a></li>
+            <li><a href="#编写着色器文件">编写着色器文件</a></li>
+            <li><a href="#程序代码-1">程序代码</a></li>
+          </ul>
+        </li>
+        <li><a href="#cameara-class-程序">cameara class 程序</a>
+          <ul>
+            <li><a href="#编写-camera-类">编写 <code>camera</code> 类</a></li>
+            <li><a href="#编写着色器文件-1">编写着色器文件</a></li>
+            <li><a href="#程序代码-2">程序代码</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        enableStickyToc();
+    });
+</script>
+        
+    </div>
+    
+
+    
+    
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+        hljs.initHighlightingOnLoad();
+    })
+</script>
+
+      </div>
+    </div>
+    
+  </main>
+  <footer class="pl-scrollbar">
+    <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">&copy; 2021 <a href="https://blog.wangjialei.xyz/">Wang Jialei</a>
+ &middot;  Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div></div>
+  </footer>
+</body>
+
+</html>

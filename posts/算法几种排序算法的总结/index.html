@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang='zh' ><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+
+<title>『算法』几种排序算法的总结 | LoneStar&#39;s blog</title>
+
+<meta name="generator" content="Hugo Eureka 0.8.4" />
+<link rel="stylesheet" href="https://blog.wangjialei.xyz/css/eureka.min.css">
+<script defer src="https://blog.wangjialei.xyz/js/eureka.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/styles/stackoverflow-light.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/highlight.min.js"
+   crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/languages/light.min.js"
+     crossorigin></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js"
+   integrity="sha256-uNYoXefWRqv&#43;PsIF/OflNmwtKM4lStn9yrz2gVl6ymo="  crossorigin></script>
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+   integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3&#43;Aro6EYUG4&#43;cU&#43;KJWu/X"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" 
+  integrity="sha384-g7c&#43;Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI&#43;sEnkvrMWph2EDg4"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+   integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC&#43;Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/mermaid@8.9.2/dist/mermaid.min.js" 
+  integrity="sha256-Zmpaaj&#43;GXFsPF5WdPArSrnW3b30dovldeKsW00xBVwE="  crossorigin></script>
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="https://blog.wangjialei.xyz/images/favicon_huce974d41c22b18f52c9ea90a63a4b2a6_21741_32x32_fill_box_center_3.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://blog.wangjialei.xyz/images/favicon_huce974d41c22b18f52c9ea90a63a4b2a6_21741_180x180_fill_box_center_3.png">
+
+<meta name="description"
+  content="排序算法 java实现">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"文章",
+      "item":"https://blog.wangjialei.xyz/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"『算法』几种排序算法的总结",
+      "item":"https://blog.wangjialei.xyz/posts/%E7%AE%97%E6%B3%95%E5%87%A0%E7%A7%8D%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E7%9A%84%E6%80%BB%E7%BB%93/"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://blog.wangjialei.xyz/posts/%E7%AE%97%E6%B3%95%E5%87%A0%E7%A7%8D%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E7%9A%84%E6%80%BB%E7%BB%93/"
+    },
+    "headline": "『算法』几种排序算法的总结 | LoneStar\u0027s blog",
+    "image": "https://mypic-1305118058.cos.ap-hongkong.myqcloud.com/img/2021-09-04.jpg",
+    "datePublished": "2021-09-04T10:44:48+08:00",
+    "dateModified": "2021-09-04T10:44:48+08:00",
+    "wordCount":  1469 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "lonestar",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://blog.wangjialei.xyz/images/favicon.png"
+        }
+        },
+    "description": "排序算法 java实现"
+}
+</script><meta property="og:title" content="『算法』几种排序算法的总结 | LoneStar&#39;s blog" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="https://blog.wangjialei.xyz/images/favicon.png">
+
+
+<meta property="og:url" content="https://blog.wangjialei.xyz/posts/%E7%AE%97%E6%B3%95%E5%87%A0%E7%A7%8D%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E7%9A%84%E6%80%BB%E7%BB%93/" />
+
+
+
+<meta property="og:description" content="排序算法 java实现" />
+
+
+
+<meta property="og:locale" content="zh" />
+
+
+
+
+<meta property="og:site_name" content="LoneStar&#39;s blog" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2021-09-04T10:44:48&#43;08:00" />
+
+
+<meta property="article:modified_time" content="2021-09-04T10:44:48&#43;08:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+<meta property="article:tag" content="Java" />
+
+<meta property="article:tag" content="算法" />
+
+<meta property="article:tag" content="排序" />
+
+
+
+
+
+<meta property="og:see_also" content="https://blog.wangjialei.xyz/posts/java%E7%BB%86%E7%A2%8E%E7%9F%A5%E8%AF%86%E7%82%B9/" />
+
+<meta property="og:see_also" content="https://blog.wangjialei.xyz/posts/mybatis%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/" />
+
+<meta property="og:see_also" content="https://blog.wangjialei.xyz/posts/java%E5%9F%BA%E7%A1%80%E5%90%88%E9%9B%86/" />
+
+<meta property="og:see_also" content="https://blog.wangjialei.xyz/posts/%E8%AE%B0%E5%BD%95%E4%B8%80%E6%AC%A1%E5%81%9Aweb%E5%BC%80%E5%8F%91%E7%9A%84%E7%BB%8F%E5%8E%86/" />
+
+<meta property="og:see_also" content="https://blog.wangjialei.xyz/posts/%E8%87%AA%E5%B7%B1%E5%86%99%E7%9A%84%E7%AE%80%E5%8D%95java%E7%9F%A9%E9%98%B5%E5%BA%93/" />
+
+<meta property="og:see_also" content="https://blog.wangjialei.xyz/posts/java%E8%99%9A%E6%8B%9F%E6%9C%BA-03-%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/" />
+
+
+
+<body class="flex flex-col min-h-screen">
+  <header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
+    <div class="w-full max-w-screen-xl mx-auto"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="/" class="mr-6 text-primary-text text-xl font-bold">LoneStar&#39;s blog</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  selected-menu-item  mr-4">文章</a>
+            <a href="/categories/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">分类</a>
+            <a href="/tags/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">标签</a>
+            <a href="/series/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">系列</a>
+            <a href="/#about" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">关于</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">浅色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">深色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">自动</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+</div>
+  </header>
+  <main class="flex-grow pt-16">
+    <div class="pl-scrollbar">
+      <div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
+
+
+<div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12">
+    <div
+        class="col-span-2  lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
+        <h1 class="font-bold text-3xl text-primary-text">『算法』几种排序算法的总结</h1>
+        <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2021-09-04</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>7分钟阅读时长</span>
+    </div>
+    
+    
+    <div class="mr-6 my-2">
+        <i class="fas fa-folder mr-1"></i>
+        
+        <a href="https://blog.wangjialei.xyz/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="hover:text-eureka">学习笔记</a>
+        
+    </div>
+    
+
+    
+</div>
+        
+        
+        
+        <div class="my-4">
+            <img src="https://mypic-1305118058.cos.ap-hongkong.myqcloud.com/img/2021-09-04.jpg" class="w-full" alt="Featured Image">
+        </div>
+        
+
+        <div class="content">
+            <p>在线可视化算法演示：<a href="https://visualgo.net/zh/sorting">VisuAlgo - 排序</a></p>
+<p>对插入排序、选择排序、希尔排序、归并排序、快速排序这五种排序算法的总结</p>
+<h2 id="选择排序">选择排序</h2>
+<ol>
+<li>选定数组第一个元素为最小，遍历整个数组，如果有比第一个元素小且是最小的，将二者交换</li>
+<li>选定第二个元素为最小，对余下的数组遍历，如果有更小的，将其与第二个元素交换</li>
+<li>重复2，直至到达最后一个元素</li>
+</ol>
+<p>Java 代码实现：</p>
+<pre><code class="language-java">/**
+ * 选择排序
+ *
+ * @author: wjl
+ * @date: 2021/9/2 20:28
+ * @version: v1.0
+ */
+public class Selection {
+
+    public static void sort(Comparable[] a) {
+        int N = a.length;
+        sort(a, 0, N - 1);
+    }
+
+    public static void sort(Comparable[] a, int lo, int hi) {
+        for (int i = lo; i &lt; hi + 1; i++) {
+            int min = i;
+            for (int j = i + 1; j &lt; hi + 1; j++) {
+                if (less(a[j], a[min])) {
+                    min = j;
+                }
+            }
+            exchange(a, i, min);
+        }
+    }
+
+    private static boolean less(Comparable v, Comparable w) { return v.compareTo(w) &lt; 0; }
+
+    private static void exchange(Comparable[] a, int i, int j) {
+        Comparable t = a[i];
+        a[i] = a[j];
+        a[j] = t;
+    }
+
+    private static void show(Comparable[] a) {
+        for (Comparable comparable : a) {
+            System.out.print(comparable + &quot; &quot;);
+        }
+        System.out.println();
+    }
+
+    public static boolean isSorted(Comparable[] a) {
+        for (int i = 1; i &lt; a.length; i++) {
+            if (less(a[i], a[i - 1])) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static void main(String[] args) {
+        sort(args);
+        assert isSorted(args);
+        show(args);
+    }
+
+}
+</code></pre>
+<h2 id="插入排序">插入排序</h2>
+<ol>
+<li>将第一个元素标记为已排序，从第二个元素开始遍历，如果所选中的元素小于第一个元素，将其移动到第一个元素位置，第一个元素到该元素前面的都向后移动一格</li>
+<li>标记前两个元素为已排序，遍历未排序的元素，如果选中的元素比已排序的元素中的最大的小，则逆序遍历已排序的元素，若比已排序的元素小，将其插入到该元素前面</li>
+<li>重复2，直至所有元素标记为已排序</li>
+</ol>
+<p>Java 代码实现：</p>
+<pre><code class="language-java">/**
+ * 插入排序
+ *
+ * @author: wjl
+ * @date: 2021/9/2 20:44
+ * @version: v1.0
+ */
+public class Insertion {
+
+    public static void sort(Comparable[] a) {
+        int N = a.length;
+        sort(a, 0, N - 1);
+    }
+
+    public static void sort(Comparable[] a, int lo, int hi) {
+        for (int i = lo + 1; i &lt; hi + 1; i++) {
+            for (int j = i; j &gt; lo &amp;&amp; less(a[j], a[j - 1]); j--) {
+                exchange(a, j, j - 1);
+            }
+        }
+    }
+
+    private static boolean less(Comparable v, Comparable w) { return v.compareTo(w) &lt; 0; }
+
+    private static void exchange(Comparable[] a, int i, int j) {
+        Comparable t = a[i];
+        a[i] = a[j];
+        a[j] = t;
+    }
+
+    private static void show(Comparable[] a) {
+        for (Comparable comparable : a) {
+            System.out.print(comparable + &quot; &quot;);
+        }
+        System.out.println();
+    }
+
+    public static boolean isSorted(Comparable[] a) {
+        for (int i = 1; i &lt; a.length; i++) {
+            if (less(a[i], a[i - 1])) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static void main(String[] args) {
+        sort(args);
+        assert isSorted(args);
+        show(args);
+    }
+
+}
+</code></pre>
+<h2 id="希尔排序">希尔排序</h2>
+<p>希尔排序是基于插入排序的一种算法</p>
+<p>希尔排序的思想是使数组中任意间隔为 h 的元素都是有序的，这样的数组被称为 h 有序数组。</p>
+<p>实现希尔排序的一种方法是对于每个 h ，用插入排序将 h 个子数组独立地排序。</p>
+<p>Java 代码实现：</p>
+<pre><code class="language-java">/**
+ * 希尔排序
+ *
+ * @author: wjl
+ * @date: 2021/9/2 21:10
+ * @version: v1.0
+ */
+public class Shell {
+
+    public static void sort(Comparable[] a) {
+        int N = a.length;
+        int h = 1;
+        while (h &lt; N / 3) { h = 3 * h + 1; }
+        while (h &gt;= 1) {
+            for (int i = h; i &lt; N; i++) {
+                for (int j = i; j &gt;= h &amp;&amp; less(a[j], a[j - 1]); j -= h) {
+                    exchange(a, j, j - h);
+                }
+            }
+            h /= 3;
+        }
+    }
+
+    private static boolean less(Comparable v, Comparable w) { return v.compareTo(w) &lt; 0; }
+
+    private static void exchange(Comparable[] a, int i, int j) {
+        Comparable t = a[i];
+        a[i] = a[j];
+        a[j] = t;
+    }
+
+    private static void show(Comparable[] a) {
+        for (Comparable comparable : a) {
+            System.out.print(comparable + &quot; &quot;);
+        }
+        System.out.println();
+    }
+
+    public static boolean isSorted(Comparable[] a) {
+        for (int i = 1; i &lt; a.length; i++) {
+            if (less(a[i], a[i - 1])) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static void main(String[] args) {
+        sort(args);
+        assert isSorted(args);
+        show(args);
+    }
+
+}
+</code></pre>
+<h2 id="归并排序">归并排序</h2>
+<p>将一个数组先（递归地）将它分成两半分别排序，然后再将结果归并起来</p>
+<p>归并算法：</p>
+<ol>
+<li>对于已经排序好的一个数组的两半，复制该数组</li>
+<li>分别从两个子数组的第一个元素开始索引，如果左大于右，将复制数组中的右元素赋值给做左元素所在位置，右数组索引向右移动一格</li>
+<li>重复2，直至全部排序完成</li>
+</ol>
+<ul>
+<li>
+<p>对于元素较少的数组，多次递归调用反而会降低效率，一般在数组长度小于15时，使用插入排序</p>
+</li>
+<li>
+<p>在归并操作时，因为两边的元素都是有序的，若左数组最后一个元素小于右数组第一个元素，则可以直接跳过归并，该子数组排序完成</p>
+</li>
+</ul>
+<pre><code class="language-java">/**
+ * 归并排序
+ *
+ * @author: wjl
+ * @date: 2021/9/3 19:17
+ * @version: v1.0
+ */
+public class Merge {
+
+    private static Comparable[] aux;
+
+    private static void sort(Comparable[] a) {
+        aux = new Comparable[a.length];
+        sort(a, 0, a.length - 1);
+    }
+
+    // 对于小规模（长度小于15），使用插入排序
+    private static void sort(Comparable[] a, int lo, int hi) {
+        if (hi &lt;= lo) return;
+        if (hi - lo &lt;= 14) {
+            Insertion.sort(a, lo, hi);
+        } else {
+            int mid = lo + (hi - lo) / 2;
+            sort(a, lo, mid);
+            sort(a, mid + 1, hi);
+            // 如果 a[mid] &lt;= a[mid+1]，就跳过 merge()
+            if (!less(a[mid], a[mid + 1])) {
+                merge(a, lo, mid, hi);
+            }
+        }
+    }
+
+    public static void merge(Comparable[] a, int lo, int mid, int hi) {
+        int i = lo, j = mid + 1;
+        for (int k = lo; k &lt;= hi; k++) {
+            aux[k] = a[k];
+        }
+        for (int k = lo; k &lt;= hi; k++) {
+            if (i &gt; mid)                   a[k] = aux[j++];
+            else if (j &gt; hi)               a[k] = aux[i++];
+            else if (less(aux[j], aux[i])) a[k] = aux[j++];
+            else                           a[k] = aux[i++];
+        }
+    }
+
+    private static boolean less(Comparable v, Comparable w) { return v.compareTo(w) &lt; 0; }
+
+    private static void show(Comparable[] a) {
+        for (Comparable comparable : a) {
+            System.out.print(comparable + &quot; &quot;);
+        }
+        System.out.println();
+    }
+
+    public static boolean isSorted(Comparable[] a) {
+        for (int i = 1; i &lt; a.length; i++) {
+            if (less(a[i], a[i - 1])) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static void main(String[] args) {
+        sort(args);
+        assert isSorted(args);
+        show(args);
+    }
+
+}
+</code></pre>
+<h2 id="快速排序">快速排序</h2>
+<p>先打乱元素，再（递归地）随机选取一个元素作为中轴，将数组切分为两部分，将不大于中轴地元素移动到中轴左侧，不小于中轴的元素移动到中轴右侧，对左右部分分别排序</p>
+<p>切分算法：</p>
+<ol>
+<li>一般选取第一个元素为中轴</li>
+<li>使用两个指针分别从数组两边向中间扫描，左边扫描到的元素若比中轴大，且右边扫描到的元素比中轴小，则将两者交换，指针移向下一位</li>
+<li>重复2，直至两指针相遇</li>
+</ol>
+<pre><code class="language-java">/**
+ * 快速排序
+ *
+ * @author: wjl
+ * @date: 2021/9/3 21:06
+ * @version: v1.0
+ */
+public class Quick {
+
+    public static void sort(Comparable[] a) {
+        StdRandom.shuffle(a);
+        sort(a, 0, a.length - 1);
+    }
+
+    public static void sort(Comparable[] a, int lo, int hi) {
+        if (hi &lt;= lo) { return; }
+        int j = partition(a, lo, hi);
+        sort(a, lo, j - 1);
+        sort(a, j + 1, hi);
+    }
+
+    private static int partition(Comparable[] a, int lo, int hi) {
+        int i = lo, j = hi + 1;
+        Comparable v = a[lo];
+        while (true) {
+            while (less(a[++i], v)) {
+                if (i == hi) break;
+            }
+            while (less(v, a[--j])) {
+                if (j == lo) break;
+            }
+            if (i &gt;= j) break;
+            exch(a, i, j);
+        }
+        exch(a, lo, j);
+        return j;
+    }
+
+    private static boolean less(Comparable v, Comparable w) { return v.compareTo(w) &lt; 0; }
+
+    private static void exch(Comparable[] a, int i, int j) {
+        Comparable t = a[i];
+        a[i] = a[j];
+        a[j] = t;
+    }
+
+    private static void show(Comparable[] a) {
+        for (Comparable comparable : a) {
+            System.out.print(comparable + &quot; &quot;);
+        }
+        System.out.println();
+    }
+
+    public static boolean isSorted(Comparable[] a) {
+        for (int i = 1; i &lt; a.length; i++) {
+            if (less(a[i], a[i - 1])) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static void main(String[] args) {
+        sort(args);
+        assert isSorted(args);
+        show(args);
+    }
+
+}
+
+</code></pre>
+<h2 id="排序比较类">排序比较类</h2>
+<p>为了比较这五种排序算法的速度，写一个比较类，比较任意两种算法的速度</p>
+<pre><code class="language-java">/**
+ * 排序速度比较类
+ *
+ * @author: wjl
+ * @date: 2021/9/2 20:57
+ * @version: v1.0
+ */
+public class SortCompare {
+
+    /**
+     * 计时
+     *
+     * @param alg 传入的算法对应的字符串
+     * @param a 待排序的数组
+     * @return 运行时间
+     */
+    public static double time(String alg, Comparable[] a) {
+        long start;
+        start = System.currentTimeMillis();
+        if (alg.equals(&quot;Selection&quot;)) Selection.sort(a);
+        if (alg.equals(&quot;Insertion&quot;)) Insertion.sort(a);
+        if (alg.equals(&quot;Shell&quot;))     Shell.sort(a);
+        if (alg.equals(&quot;Merge&quot;))     Merge.sort(a);
+        if (alg.equals(&quot;Quick&quot;))     Quick.sort(a);
+        long now = System.currentTimeMillis();
+        return (now - start) / 1000.0;
+    }
+
+    /**
+     * 生成随机数并排序
+     *
+     * @param alg 传入的算法对应的字符串
+     * @param N 随机数组长度
+     * @param T 重复统计次数
+     * @return 平均运行时间
+     */
+    public static double timeRandomInput(String alg, int N, int T) {
+        double total = 0.0;
+        Double[] a = new Double[N];
+        for (int t = 0; t &lt; T; t++) {
+            for (int i = 0; i &lt; N; i++) {
+                a[i] = Math.random();
+            }
+            total += time(alg, a);
+        }
+        return total;
+    }
+
+    public static void main(String[] args) {
+        String alg1 = &quot;Selection&quot;; /* 第一种算法 */
+        String alg2 = &quot;Insertion&quot;; /* 第二种算法 */
+        String alg3 = &quot;Shell&quot;;     /* 第三种算法 */
+        String alg4 = &quot;Merge&quot;;     /* 第四种算法 */
+        String alg5 = &quot;Quick&quot;;     /* 第五种算法 */
+        int N = Integer.parseInt(args[0]); /* 数组大小 */
+        int T = Integer.parseInt(args[1]); /* 重复次数 */
+        double t1 = timeRandomInput(alg1, N, T);
+        double t2 = timeRandomInput(alg2, N, T);
+        double t3 = timeRandomInput(alg3, N, T);
+        double t4 = timeRandomInput(alg4, N, T);
+        double t5 = timeRandomInput(alg5, N, T);
+        System.out.printf(&quot;%s : %3.5fs\n&quot;, alg1, t1);
+        System.out.printf(&quot;%s : %3.5fs\n&quot;, alg2, t2);
+        System.out.printf(&quot;%s     : %3.5fs\n&quot;, alg3, t3);
+        System.out.printf(&quot;%s     : %3.5fs\n&quot;, alg4, t4);
+        System.out.printf(&quot;%s     : %3.5fs\n&quot;, alg5, t5);
+    }
+
+}
+</code></pre>
+<p>测试不同规模的数组五种算法的速度：</p>
+<pre><code class="language-shell">$ java SortCompare 100 100
+Selection : 0.01000s
+Insertion : 0.01200s
+Shell     : 0.00800s
+Merge     : 0.00200s
+Quick     : 0.00700s
+$ java SortCompare 500 100
+Selection : 0.05000s
+Insertion : 0.04500s
+Shell     : 0.02600s
+Merge     : 0.01100s
+Quick     : 0.01500s
+$ java SortCompare 1000 100
+Selection : 0.12200s
+Insertion : 0.15400s
+Shell     : 0.04700s
+Merge     : 0.02400s
+Quick     : 0.04900s
+$ java SortCompare 5000 100
+Selection : 2.16100s
+Insertion : 3.64100s
+Shell     : 0.37800s
+Merge     : 0.32800s
+Quick     : 0.08300s
+$ java SortCompare 10000 100
+Selection : 8.92300s
+Insertion : 15.15300s
+Shell     : 1.13300s
+Merge     : 0.30400s
+Quick     : 0.22600s
+</code></pre>
+<p>五种算法的比较</p>
+<table>
+<thead>
+<tr>
+<th>排序算法</th>
+<th>平均时间复杂度</th>
+<th>最坏时间复杂度</th>
+<th>最好时间复杂度</th>
+<th>空间复杂度</th>
+<th>稳定性</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>选择排序</td>
+<td>$O(n^2)$</td>
+<td>$O(n^2)$</td>
+<td>$O(n)$</td>
+<td>$O(1)$</td>
+<td>不稳定</td>
+</tr>
+<tr>
+<td>插入排序</td>
+<td>$O(n^2)$</td>
+<td>$O(n^2)$</td>
+<td>$O(n)$</td>
+<td>$O(1)$</td>
+<td>稳定</td>
+</tr>
+<tr>
+<td>希尔排序</td>
+<td>$O(n\log n)$</td>
+<td>$O(ns)$</td>
+<td>$O(n)$</td>
+<td>$O(1)$</td>
+<td>不稳定</td>
+</tr>
+<tr>
+<td>归并排序</td>
+<td>$O(n\log n)$</td>
+<td>$O(n \log n)$</td>
+<td>$O(n \log n)$</td>
+<td>$O(n)$</td>
+<td>稳定</td>
+</tr>
+<tr>
+<td>快速排序</td>
+<td>$O(n\log n)$</td>
+<td>$O(n^2)$</td>
+<td>$O(n\log n)$</td>
+<td>$O(n\log n)$</td>
+<td>不稳定</td>
+</tr>
+</tbody>
+</table>
+<p>以上。</p>
+
+        </div>
+        
+        <div class="my-4">
+    
+    <a href="https://blog.wangjialei.xyz/tags/java/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#Java</a>
+    
+    <a href="https://blog.wangjialei.xyz/tags/%E7%AE%97%E6%B3%95/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#算法</a>
+    
+    <a href="https://blog.wangjialei.xyz/tags/%E6%8E%92%E5%BA%8F/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#排序</a>
+    
+</div>
+        
+        
+        
+
+
+        
+        
+        
+        
+<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
+    <div>
+        
+        <span class="block font-bold">上一页</span>
+        <a href="https://blog.wangjialei.xyz/posts/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91%E5%AE%8C%E6%88%90/" class="block">个人博客项目开发完成！</a>
+        
+    </div>
+    <div class="md:text-right mt-4 md:mt-0">
+        
+        <span class="block font-bold">下一页</span>
+        <a href="https://blog.wangjialei.xyz/posts/%E8%A7%A3%E5%86%B3git%E6%8F%90%E4%BA%A4%E6%AC%A1%E6%95%B0%E8%BF%87%E5%A4%9A.git%E6%96%87%E4%BB%B6%E8%BF%87%E5%A4%A7%E7%9A%84%E9%97%AE%E9%A2%98/" class="block">解决git提交次数过多</a>
+        
+    </div>
+</div>
+
+        
+
+
+
+    </div>
+    
+    <div class="col-span-2">
+        
+        
+        <div class="sticky top-16 z-10 hidden lg:block px-6 py-4  bg-primary-bg ">
+    <span class="text-lg font-semibold">本页内容</span>
+</div>
+<div class="sticky-toc hidden lg:block px-6 pb-6 ">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#选择排序">选择排序</a></li>
+    <li><a href="#插入排序">插入排序</a></li>
+    <li><a href="#希尔排序">希尔排序</a></li>
+    <li><a href="#归并排序">归并排序</a></li>
+    <li><a href="#快速排序">快速排序</a></li>
+    <li><a href="#排序比较类">排序比较类</a></li>
+  </ul>
+</nav>
+</div>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        enableStickyToc();
+    });
+</script>
+        
+    </div>
+    
+
+    
+    
+    <div
+        class="col-span-2  lg:col-span-6 bg-secondary-bg rounded p-6">
+        <h2 class="text-lg font-semibold mb-4">相关</h2>
+        <div class="content">
+            
+            <a href="https://blog.wangjialei.xyz/posts/java%E7%BB%86%E7%A2%8E%E7%9F%A5%E8%AF%86%E7%82%B9/">java细碎知识点</a>
+            <br />
+            
+            <a href="https://blog.wangjialei.xyz/posts/mybatis%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/">Mybatis学习总结</a>
+            <br />
+            
+            <a href="https://blog.wangjialei.xyz/posts/java%E5%9F%BA%E7%A1%80%E5%90%88%E9%9B%86/">Java基础（合集）</a>
+            <br />
+            
+            <a href="https://blog.wangjialei.xyz/posts/%E8%AE%B0%E5%BD%95%E4%B8%80%E6%AC%A1%E5%81%9Aweb%E5%BC%80%E5%8F%91%E7%9A%84%E7%BB%8F%E5%8E%86/">记录一次做web开发的经历</a>
+            <br />
+            
+            <a href="https://blog.wangjialei.xyz/posts/%E8%87%AA%E5%B7%B1%E5%86%99%E7%9A%84%E7%AE%80%E5%8D%95java%E7%9F%A9%E9%98%B5%E5%BA%93/">自己写的简单Java矩阵库</a>
+            <br />
+            
+            <a href="https://blog.wangjialei.xyz/posts/java%E8%99%9A%E6%8B%9F%E6%9C%BA-03-%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/">Java虚拟机 03 垃圾收集器</a>
+            <br />
+            
+        </div>
+    </div>
+    
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+        hljs.initHighlightingOnLoad();
+    })
+</script>
+
+      </div>
+    </div>
+    
+  </main>
+  <footer class="pl-scrollbar">
+    <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">&copy; 2021 <a href="https://blog.wangjialei.xyz/">Wang Jialei</a>
+ &middot;  Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div></div>
+  </footer>
+</body>
+
+</html>

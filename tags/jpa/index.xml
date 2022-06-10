@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>JPA on LoneStar&#39;s blog</title>
+    <link>https://blog.wangjialei.xyz/tags/jpa/</link>
+    <description>Recent content in JPA on LoneStar&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <copyright>&amp;copy; 2021 &lt;a href=&#34;https://blog.wangjialei.xyz/&#34;&gt;Wang Jialei&lt;/a&gt;
+</copyright>
+    <lastBuildDate>Fri, 31 Dec 2021 16:24:16 +0800</lastBuildDate><atom:link href="https://blog.wangjialei.xyz/tags/jpa/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SpringBoot整合常用组件</title>
+      <link>https://blog.wangjialei.xyz/posts/springboot%E6%95%B4%E5%90%88%E5%B8%B8%E7%94%A8%E7%BB%84%E4%BB%B6/</link>
+      <pubDate>Fri, 31 Dec 2021 16:24:16 +0800</pubDate>
+      
+      <guid>https://blog.wangjialei.xyz/posts/springboot%E6%95%B4%E5%90%88%E5%B8%B8%E7%94%A8%E7%BB%84%E4%BB%B6/</guid>
+      <description>在学spring boot的过程中慢慢整合常用的组件，想着汇总成一个项目，方便下次开发拿来即用。
+示例项目已开源：wjl-lab/spring-boot-example: 学习spring boot过程中逐渐整合各大组件的项目 (github.com)
+创建Spring Boot工程 使用 idea 的 Spring Initializr 创建一个 Spring Boot 工程，这一步全部默认即可。</description>
+    </item>
+    
+    <item>
+      <title>Jpa or Mybatis</title>
+      <link>https://blog.wangjialei.xyz/posts/jpa-or-mybatis/</link>
+      <pubDate>Sat, 25 Sep 2021 21:52:02 +0800</pubDate>
+      
+      <guid>https://blog.wangjialei.xyz/posts/jpa-or-mybatis/</guid>
+      <description>最近一直在试着优化我的那个博客项目，今天上午差不多把博客前端页面改成了响应式布局了，下午想着再把后端重构一下，因为分页功能有点小问题，影响使用。
+因为我目前的博客主要有文章表、分类表嘛，想着再把标签表加上去，之前因为觉得多对多关系的表 CRUD 有辣么点麻烦，就没做，今天觉得再尝试一下。
+然后开始找 JPA 的教程，因为我一直不想继续用 xml 配置，就没用 Mybatis，现在想想还是太 naive 啊。不得不说 mybatis 有点香。</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>重装系统 on LoneStar&#39;s blog</title>
+    <link>https://blog.wangjialei.xyz/tags/%E9%87%8D%E8%A3%85%E7%B3%BB%E7%BB%9F/</link>
+    <description>Recent content in 重装系统 on LoneStar&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <copyright>&amp;copy; 2021 &lt;a href=&#34;https://blog.wangjialei.xyz/&#34;&gt;Wang Jialei&lt;/a&gt;
+</copyright>
+    <lastBuildDate>Mon, 24 May 2021 20:33:33 +0800</lastBuildDate><atom:link href="https://blog.wangjialei.xyz/tags/%E9%87%8D%E8%A3%85%E7%B3%BB%E7%BB%9F/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>计算机专业学生的笔记本配置</title>
+      <link>https://blog.wangjialei.xyz/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%93%E4%B8%9A%E5%AD%A6%E7%94%9F%E7%9A%84%E7%AC%94%E8%AE%B0%E6%9C%AC%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Mon, 24 May 2021 20:33:33 +0800</pubDate>
+      
+      <guid>https://blog.wangjialei.xyz/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%93%E4%B8%9A%E5%AD%A6%E7%94%9F%E7%9A%84%E7%AC%94%E8%AE%B0%E6%9C%AC%E9%85%8D%E7%BD%AE/</guid>
+      <description>这篇文章来源于我的一个疯狂的想法——重置我用了一年的 Windows 笔记本。
+可能会有人说了，为什么要重置呢？计算机专业的学生笔记本上不都是配置了很多环境嘛，重置一次还要重新配，多麻烦呀。
+但是我最喜欢折腾了(bushi)。
+主要是近一年来在笔记本上装了好多乱七八糟的软件，中间系统还崩溃过几次，今天突发奇想，要不我直接重置吧，正好清理一下硬盘存储啥的，给C盘腾点空间。
+但我又怕重新配置环境的时候有什么东西漏了，就在这里算是给我留个教程什么的，也可以给计算机方向的同学一个参考。
+配置系统偏好 这个因人而异，因为我登录了我的微软账号开启了设备同步，应该重置后再登录就可以直接和现在效果一样。但我怕 Windows 抽风，那就保险一点，记录一下。</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,1559 @@
+<!DOCTYPE html>
+<html lang='zh' ><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+
+<title>SpringBoot整合常用组件 | LoneStar&#39;s blog</title>
+
+<meta name="generator" content="Hugo Eureka 0.8.4" />
+<link rel="stylesheet" href="https://blog.wangjialei.xyz/css/eureka.min.css">
+<script defer src="https://blog.wangjialei.xyz/js/eureka.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/styles/stackoverflow-light.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/highlight.min.js"
+   crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/languages/light.min.js"
+     crossorigin></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js"
+   integrity="sha256-uNYoXefWRqv&#43;PsIF/OflNmwtKM4lStn9yrz2gVl6ymo="  crossorigin></script>
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+   integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3&#43;Aro6EYUG4&#43;cU&#43;KJWu/X"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" 
+  integrity="sha384-g7c&#43;Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI&#43;sEnkvrMWph2EDg4"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+   integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC&#43;Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/mermaid@8.9.2/dist/mermaid.min.js" 
+  integrity="sha256-Zmpaaj&#43;GXFsPF5WdPArSrnW3b30dovldeKsW00xBVwE="  crossorigin></script>
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="https://blog.wangjialei.xyz/images/favicon_huce974d41c22b18f52c9ea90a63a4b2a6_21741_32x32_fill_box_center_3.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://blog.wangjialei.xyz/images/favicon_huce974d41c22b18f52c9ea90a63a4b2a6_21741_180x180_fill_box_center_3.png">
+
+<meta name="description"
+  content="在学spring boot的过程中慢慢整合常用的组件，想着汇总成一个项目，方便下次开发拿来即用。
+示例项目已开源：wjl-lab/spring-boot-example: 学习spring boot过程中逐渐整合各大组件的项目 (github.com)
+创建Spring Boot工程 使用 idea 的 Spring Initializr 创建一个 Spring Boot 工程，这一步全部默认即可。">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"文章",
+      "item":"https://blog.wangjialei.xyz/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"SpringBoot整合常用组件",
+      "item":"https://blog.wangjialei.xyz/posts/springboot%E6%95%B4%E5%90%88%E5%B8%B8%E7%94%A8%E7%BB%84%E4%BB%B6/"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://blog.wangjialei.xyz/posts/springboot%E6%95%B4%E5%90%88%E5%B8%B8%E7%94%A8%E7%BB%84%E4%BB%B6/"
+    },
+    "headline": "SpringBoot整合常用组件 | LoneStar\u0027s blog",
+    "image": "https://mypic-1305118058.cos.ap-hongkong.myqcloud.com/img/IMG_20211225_15152.jpg",
+    "datePublished": "2021-12-31T16:24:16+08:00",
+    "dateModified": "2021-12-31T16:24:16+08:00",
+    "wordCount":  2254 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "lonestar",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://blog.wangjialei.xyz/images/favicon.png"
+        }
+        },
+    "description": "在学spring boot的过程中慢慢整合常用的组件，想着汇总成一个项目，方便下次开发拿来即用。\n示例项目已开源：wjl-lab\/spring-boot-example: 学习spring boot过程中逐渐整合各大组件的项目 (github.com)\n创建Spring Boot工程 使用 idea 的 Spring Initializr 创建一个 Spring Boot 工程，这一步全部默认即可。"
+}
+</script><meta property="og:title" content="SpringBoot整合常用组件 | LoneStar&#39;s blog" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="https://blog.wangjialei.xyz/images/favicon.png">
+
+
+<meta property="og:url" content="https://blog.wangjialei.xyz/posts/springboot%E6%95%B4%E5%90%88%E5%B8%B8%E7%94%A8%E7%BB%84%E4%BB%B6/" />
+
+
+
+
+<meta property="og:description" content="在学spring boot的过程中慢慢整合常用的组件，想着汇总成一个项目，方便下次开发拿来即用。
+示例项目已开源：wjl-lab/spring-boot-example: 学习spring boot过程中逐渐整合各大组件的项目 (github.com)
+创建Spring Boot工程 使用 idea 的 Spring Initializr 创建一个 Spring Boot 工程，这一步全部默认即可。" />
+
+
+
+
+<meta property="og:locale" content="zh" />
+
+
+
+
+<meta property="og:site_name" content="LoneStar&#39;s blog" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2021-12-31T16:24:16&#43;08:00" />
+
+
+<meta property="article:modified_time" content="2021-12-31T16:24:16&#43;08:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+<meta property="article:tag" content="Spring Boot" />
+
+<meta property="article:tag" content="MySQL" />
+
+<meta property="article:tag" content="Mybatis-plus" />
+
+<meta property="article:tag" content="JPA" />
+
+<meta property="article:tag" content="Redis" />
+
+<meta property="article:tag" content="Sa-Token" />
+
+
+
+
+
+<meta property="og:see_also" content="https://blog.wangjialei.xyz/posts/%E4%BD%BF%E7%94%A8docker%E9%83%A8%E7%BD%B2springboot&#43;vue%E9%A1%B9%E7%9B%AE/" />
+
+<meta property="og:see_also" content="https://blog.wangjialei.xyz/posts/jpa-or-mybatis/" />
+
+<meta property="og:see_also" content="https://blog.wangjialei.xyz/posts/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91%E5%AE%8C%E6%88%90/" />
+
+<meta property="og:see_also" content="https://blog.wangjialei.xyz/posts/%E6%88%91%E5%AF%B9%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E5%BC%80%E5%8F%91%E7%9A%84%E4%B8%80%E4%BA%9B%E7%90%86%E8%A7%A3/" />
+
+<meta property="og:see_also" content="https://blog.wangjialei.xyz/posts/%E5%90%8E%E7%AB%AF%E6%8E%A5%E5%8F%A3%E8%BF%94%E5%9B%9E%E7%BB%93%E6%9E%9C%E7%BB%9F%E4%B8%80%E5%B0%81%E8%A3%85/" />
+
+<meta property="og:see_also" content="https://blog.wangjialei.xyz/posts/%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E4%BD%86%E5%AE%8C%E6%95%B4%E7%9A%84springboot%E9%A1%B9%E7%9B%AE/" />
+
+
+
+<body class="flex flex-col min-h-screen">
+  <header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
+    <div class="w-full max-w-screen-xl mx-auto"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="/" class="mr-6 text-primary-text text-xl font-bold">LoneStar&#39;s blog</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  selected-menu-item  mr-4">文章</a>
+            <a href="/categories/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">分类</a>
+            <a href="/tags/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">标签</a>
+            <a href="/series/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">系列</a>
+            <a href="/#about" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">关于</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">浅色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">深色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">自动</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+</div>
+  </header>
+  <main class="flex-grow pt-16">
+    <div class="pl-scrollbar">
+      <div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
+
+
+<div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12">
+    <div
+        class="col-span-2  lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
+        <h1 class="font-bold text-3xl text-primary-text">SpringBoot整合常用组件</h1>
+        <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2021-12-31</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>11分钟阅读时长</span>
+    </div>
+    
+    
+    <div class="mr-6 my-2">
+        <i class="fas fa-folder mr-1"></i>
+        
+        <a href="https://blog.wangjialei.xyz/categories/%E8%BF%87%E7%A8%8B%E8%AE%B0%E5%BD%95/" class="hover:text-eureka">过程记录</a>
+        
+    </div>
+    
+
+    
+</div>
+        
+        
+        
+        <div class="my-4">
+            <img src="https://mypic-1305118058.cos.ap-hongkong.myqcloud.com/img/IMG_20211225_15152.jpg" class="w-full" alt="Featured Image">
+        </div>
+        
+
+        <div class="content">
+            <p>在学spring boot的过程中慢慢整合常用的组件，想着汇总成一个项目，方便下次开发拿来即用。</p>
+<p>示例项目已开源：<a href="https://github.com/wjl-lab/spring-boot-example">wjl-lab/spring-boot-example: 学习spring boot过程中逐渐整合各大组件的项目 (github.com)</a></p>
+<h2 id="创建spring-boot工程">创建Spring Boot工程</h2>
+<p>使用 idea 的 Spring Initializr 创建一个 Spring Boot 工程，这一步全部默认即可。</p>
+<p><img src="https://mypic-1305118058.cos.ap-hongkong.myqcloud.com/img/Snipaste_2021-12-31_19-38-58.png" alt=""></p>
+<h2 id="引入依赖库和插件">引入依赖库和插件</h2>
+<p><code>pom.xml</code> 里的 <code>dependencies</code> 和 <code>build</code> 添加以下内容，刷新等待依赖全部导进来即可。</p>
+<pre><code class="language-xml"> &lt;!-- pom.xml --&gt;
+ &lt;dependencies&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
+            &lt;exclusions&gt;
+                &lt;exclusion&gt;
+                    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+                    &lt;artifactId&gt;spring-boot-starter-logging&lt;/artifactId&gt;
+                &lt;/exclusion&gt;
+            &lt;/exclusions&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-starter-log4j2&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;mysql&lt;/groupId&gt;
+            &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-starter-data-jdbc&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-starter-data-jpa&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;com.baomidou&lt;/groupId&gt;
+            &lt;artifactId&gt;mybatis-plus-boot-starter&lt;/artifactId&gt;
+            &lt;version&gt;3.4.3.4&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-starter-data-redis&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.apache.commons&lt;/groupId&gt;
+            &lt;artifactId&gt;commons-pool2&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;cn.dev33&lt;/groupId&gt;
+            &lt;artifactId&gt;sa-token-spring-boot-starter&lt;/artifactId&gt;
+            &lt;version&gt;1.28.0&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;com.qcloud&lt;/groupId&gt;
+            &lt;artifactId&gt;cos_api&lt;/artifactId&gt;
+            &lt;version&gt;5.6.61&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.projectlombok&lt;/groupId&gt;
+            &lt;artifactId&gt;lombok&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;junit&lt;/groupId&gt;
+            &lt;artifactId&gt;junit&lt;/artifactId&gt;
+            &lt;scope&gt;test&lt;/scope&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;
+            &lt;scope&gt;test&lt;/scope&gt;
+        &lt;/dependency&gt;
+    &lt;/dependencies&gt;
+
+    &lt;build&gt;
+        &lt;plugins&gt;
+            &lt;plugin&gt;
+                &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+                &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;
+            &lt;/plugin&gt;
+            &lt;plugin&gt;
+                &lt;groupId&gt;com.github.shalousun&lt;/groupId&gt;
+                &lt;artifactId&gt;smart-doc-maven-plugin&lt;/artifactId&gt;
+                &lt;version&gt;2.2.9&lt;/version&gt;
+                &lt;configuration&gt;
+                    &lt;configFile&gt;./src/main/resources/smart-doc.json&lt;/configFile&gt;
+                &lt;/configuration&gt;
+            &lt;/plugin&gt;
+        &lt;/plugins&gt;
+    &lt;/build&gt;
+</code></pre>
+<h2 id="编写配置文件">编写配置文件</h2>
+<h3 id="spring-boot-配置文件">Spring Boot 配置文件</h3>
+<p>我习惯使用 <code>yml</code> 文件格式，可以右键默认的 <code>properties</code> 文件把后缀名改成 <code>yml</code></p>
+<p><img src="https://mypic-1305118058.cos.ap-hongkong.myqcloud.com/img/Snipaste_2021-12-31_19-43-06.png" alt=""></p>
+<p>然后填入以下内容</p>
+<pre><code class="language-yml"># application.yml
+server:
+  port: 8088
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/db?useSSL=false&amp;serverTimezone=UTC
+    username: root
+    password: 123456
+    hikari:
+      minimum-idle: 1
+      maximum-pool-size: 20
+      initialization-fail-timeout: 60000
+  jpa:
+    show-sql: false
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+  redis:
+    host: localhost
+    port: 6379
+    database: 1
+    password:
+    lettuce:
+      pool:
+        max-idle: 8
+        max-active: 8
+        max-wait: -1ms
+        min-idle: 0
+sa-token:
+  token-name: satoken
+  timeout: 86400
+  activity-timeout: -1
+  is-share: false
+  token-style: uuid
+  is-log: true
+</code></pre>
+<p>这里自行修改 MySQL 和 Redis 配置</p>
+<h3 id="日志配置文件">日志配置文件</h3>
+<p>我们使用 <code>log4j2</code> 作为我们的日志框架，虽然说最近曝出来有大漏洞，但对于我们来说问题不大，学生跟着学就行了，可以不管这些安全性问题。</p>
+<p>在 <code>/resources</code> 目录下新建 <code>log4j2.xml</code> 文件，填入以下内容</p>
+<pre><code class="language-xml">&lt;!-- log4j2.xml --&gt;
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!--Configuration后面的status，这个用于设置log4j2自身内部的信息输出，可以不设置，当设置成trace时，你会看到log4j2内部各种详细输出--&gt;
+&lt;!--monitorInterval：Log4j能够自动检测修改配置 文件和重新配置本身，设置间隔秒数--&gt;
+&lt;configuration monitorInterval=&quot;5&quot;&gt;
+    &lt;!--日志级别以及优先级排序: OFF &gt; FATAL &gt; ERROR &gt; WARN &gt; INFO &gt; DEBUG &gt; TRACE &gt; ALL --&gt;
+    &lt;!--变量配置--&gt;
+    &lt;Properties&gt;
+        &lt;!-- 格式化输出：%date表示日期，%thread表示线程名，%-5level：级别从左显示5个字符宽度 %msg：日志消息，%n是换行符--&gt;
+        &lt;!-- %logger{36} 表示 Logger 名字最长36个字符 --&gt;
+        &lt;property name=&quot;LOG_PATTERN&quot; value=&quot;[%date{YYYY-MM-dd HH:mm:ss}][%thread] %-5level %logger{36} - %msg%n&quot; /&gt;
+        &lt;!-- 定义日志存储的路径 --&gt;
+        &lt;property name=&quot;FILE_PATH&quot; value=&quot;log/&quot; /&gt;
+        &lt;property name=&quot;FILE_NAME&quot; value=&quot;example&quot; /&gt;
+    &lt;/Properties&gt;
+    &lt;appenders&gt;
+        &lt;console name=&quot;Console&quot; target=&quot;SYSTEM_OUT&quot;&gt;
+            &lt;!--输出日志的格式--&gt;
+            &lt;!--            &lt;PatternLayout pattern=&quot;${LOG_PATTERN}&quot;/&gt;--&gt;
+            &lt;PatternLayout
+                    pattern=&quot;[%date{YYYY-MM-dd HH:mm:ss}]%style{[%t]}{bright,magenta} %highlight{%-5level}{ERROR=Bright RED, WARN=Bright Yellow, INFO=Bright Green, DEBUG=Bright Cyan, TRACE=Bright White} %style{%c{1.}.%M(%L)}{cyan}: %msg%n&quot;/&gt;
+            &lt;!--控制台只输出level及其以上级别的信息（onMatch），其他的直接拒绝（onMismatch）--&gt;
+            &lt;ThresholdFilter level=&quot;info&quot; onMatch=&quot;ACCEPT&quot; onMismatch=&quot;DENY&quot;/&gt;
+        &lt;/console&gt;
+        &lt;!--文件会打印出所有信息，这个log每次运行程序会自动清空，由append属性决定，适合临时测试用--&gt;
+        &lt;File name=&quot;Filelog&quot; fileName=&quot;${FILE_PATH}/test.log&quot; append=&quot;false&quot;&gt;
+            &lt;PatternLayout pattern=&quot;${LOG_PATTERN}&quot;/&gt;
+        &lt;/File&gt;
+        &lt;!-- 这个会打印出所有的info及以下级别的信息，每次大小超过size，则这size大小的日志会自动存入按年份-月份建立的文件夹下面并进行压缩，作为存档--&gt;
+        &lt;RollingFile name=&quot;RollingFileInfo&quot; fileName=&quot;${FILE_PATH}/info.log&quot; filePattern=&quot;${FILE_PATH}/${FILE_NAME}-INFO-%d{yyyy-MM-dd}_%i.log.gz&quot;&gt;
+            &lt;!--控制台只输出level及以上级别的信息（onMatch），其他的直接拒绝（onMismatch）--&gt;
+            &lt;ThresholdFilter level=&quot;info&quot; onMatch=&quot;ACCEPT&quot; onMismatch=&quot;DENY&quot;/&gt;
+            &lt;PatternLayout pattern=&quot;${LOG_PATTERN}&quot;/&gt;
+            &lt;Policies&gt;
+                &lt;!--interval属性用来指定多久滚动一次，默认是1 hour--&gt;
+                &lt;TimeBasedTriggeringPolicy interval=&quot;1&quot;/&gt;
+                &lt;SizeBasedTriggeringPolicy size=&quot;10MB&quot;/&gt;
+            &lt;/Policies&gt;
+            &lt;!-- DefaultRolloverStrategy属性如不设置，则默认为最多同一文件夹下7个文件开始覆盖--&gt;
+            &lt;DefaultRolloverStrategy max=&quot;15&quot;/&gt;
+        &lt;/RollingFile&gt;
+        &lt;!-- 这个会打印出所有的warn及以下级别的信息，每次大小超过size，则这size大小的日志会自动存入按年份-月份建立的文件夹下面并进行压缩，作为存档--&gt;
+        &lt;RollingFile name=&quot;RollingFileWarn&quot; fileName=&quot;${FILE_PATH}/warn.log&quot; filePattern=&quot;${FILE_PATH}/${FILE_NAME}-WARN-%d{yyyy-MM-dd}_%i.log.gz&quot;&gt;
+            &lt;!--控制台只输出level及以上级别的信息（onMatch），其他的直接拒绝（onMismatch）--&gt;
+            &lt;ThresholdFilter level=&quot;warn&quot; onMatch=&quot;ACCEPT&quot; onMismatch=&quot;DENY&quot;/&gt;
+            &lt;PatternLayout pattern=&quot;${LOG_PATTERN}&quot;/&gt;
+            &lt;Policies&gt;
+                &lt;!--interval属性用来指定多久滚动一次，默认是1 hour--&gt;
+                &lt;TimeBasedTriggeringPolicy interval=&quot;1&quot;/&gt;
+                &lt;SizeBasedTriggeringPolicy size=&quot;10MB&quot;/&gt;
+            &lt;/Policies&gt;
+            &lt;!-- DefaultRolloverStrategy属性如不设置，则默认为最多同一文件夹下7个文件开始覆盖--&gt;
+            &lt;DefaultRolloverStrategy max=&quot;15&quot;/&gt;
+        &lt;/RollingFile&gt;
+        &lt;!-- 这个会打印出所有的error及以下级别的信息，每次大小超过size，则这size大小的日志会自动存入按年份-月份建立的文件夹下面并进行压缩，作为存档--&gt;
+        &lt;RollingFile name=&quot;RollingFileError&quot; fileName=&quot;${FILE_PATH}/error.log&quot; filePattern=&quot;${FILE_PATH}/${FILE_NAME}-ERROR-%d{yyyy-MM-dd}_%i.log.gz&quot;&gt;
+            &lt;!--控制台只输出level及以上级别的信息（onMatch），其他的直接拒绝（onMismatch）--&gt;
+            &lt;ThresholdFilter level=&quot;error&quot; onMatch=&quot;ACCEPT&quot; onMismatch=&quot;DENY&quot;/&gt;
+            &lt;PatternLayout pattern=&quot;${LOG_PATTERN}&quot;/&gt;
+            &lt;Policies&gt;
+                &lt;!--interval属性用来指定多久滚动一次，默认是1 hour--&gt;
+                &lt;TimeBasedTriggeringPolicy interval=&quot;1&quot;/&gt;
+                &lt;SizeBasedTriggeringPolicy size=&quot;10MB&quot;/&gt;
+            &lt;/Policies&gt;
+            &lt;!-- DefaultRolloverStrategy属性如不设置，则默认为最多同一文件夹下7个文件开始覆盖--&gt;
+            &lt;DefaultRolloverStrategy max=&quot;15&quot;/&gt;
+        &lt;/RollingFile&gt;
+    &lt;/appenders&gt;
+    &lt;!--Logger节点用来单独指定日志的形式，比如要为指定包下的class指定不同的日志级别等。--&gt;
+    &lt;!--然后定义loggers，只有定义了logger并引入的appender，appender才会生效--&gt;
+    &lt;loggers&gt;
+        &lt;!--过滤掉spring和mybatis的一些无用的DEBUG信息--&gt;
+        &lt;logger name=&quot;org.mybatis&quot; level=&quot;info&quot; additivity=&quot;false&quot;&gt;
+            &lt;AppenderRef ref=&quot;Console&quot;/&gt;
+        &lt;/logger&gt;
+        &lt;!--监控系统信息--&gt;
+        &lt;!--若是additivity设为false，则 子Logger 只会在自己的appender里输出，而不会在 父Logger 的appender里输出。--&gt;
+        &lt;Logger name=&quot;org.springframework&quot; level=&quot;info&quot; additivity=&quot;false&quot;&gt;
+            &lt;AppenderRef ref=&quot;Console&quot;/&gt;
+        &lt;/Logger&gt;
+        &lt;root level=&quot;info&quot;&gt;
+            &lt;appender-ref ref=&quot;Console&quot;/&gt;
+            &lt;appender-ref ref=&quot;Filelog&quot;/&gt;
+            &lt;appender-ref ref=&quot;RollingFileInfo&quot;/&gt;
+            &lt;appender-ref ref=&quot;RollingFileWarn&quot;/&gt;
+            &lt;appender-ref ref=&quot;RollingFileError&quot;/&gt;
+        &lt;/root&gt;
+    &lt;/loggers&gt;
+&lt;/configuration&gt;
+</code></pre>
+<p>这里记得修改项目名称和日志文件存放路径，也可以选择默认</p>
+<h3 id="api-文档生成插件配置文件">API 文档生成插件配置文件</h3>
+<p>我们使用 <code>smart-doc</code> 作为项目的API文档生成器，主要优点是无侵入性，只要在接口上写上标准的 <code>javadoc</code> 即可，很方便。</p>
+<p>在 <code>/resources</code> 目录下新建 <code>smart-doc.json</code> 文件，填入以下内容</p>
+<pre><code class="language-json">// smart-doc.json
+{
+  &quot;serverUrl&quot;: &quot;http://localhost:8088/&quot;,
+  &quot;isStrict&quot;: false,
+  &quot;allInOne&quot;: true,
+  &quot;outPath&quot;: &quot;src/main/resources/docs&quot;,
+  &quot;coverOld&quot;: true,
+  &quot;createDebugPage&quot;: true,
+  &quot;md5EncryptedHtmlName&quot;: false,
+  &quot;projectName&quot;: &quot;example&quot;,
+  &quot;showAuthor&quot;: true
+}
+</code></pre>
+<p>这里想改的话建议参考官方给的文档。</p>
+<h2 id="设计项目包结构">设计项目包结构</h2>
+<p>这里参考羊哥公众号发的那个，根据我的理解改了一点</p>
+<p><img src="https://mypic-1305118058.cos.ap-hongkong.myqcloud.com/img/Snipaste_2021-12-31_19-57-45.png" alt=""></p>
+<h2 id="编写-java-配置类">编写 Java 配置类</h2>
+<h3 id="程序入口加注解-enablecaching">程序入口加注解 <code>@EnableCaching</code></h3>
+<p>加这个注解启用缓存</p>
+<pre><code class="language-java">@EnableCaching
+@SpringBootApplication
+public class SpringBootExampleApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(SpringBootExampleApplication.class, args);
+    }
+
+}
+</code></pre>
+<h3 id="配置-mybatis-plus">配置 Mybatis-Plus</h3>
+<p>有一说一，这玩意儿挺香的，反正我是真香了</p>
+<pre><code class="language-java">package com.wjl.example.config;
+ 
+@Configuration
+@MapperScan(&quot;com.wjl.example.repository&quot;)
+public class MybatisPlusConfig {
+
+    @Bean
+    public MybatisPlusInterceptor mybatisPlusInterceptor() {
+        MybatisPlusInterceptor interceptor = new MybatisPlusInterceptor();
+        interceptor.addInnerInterceptor(new PaginationInnerInterceptor(DbType.MYSQL));
+        return interceptor;
+    }
+
+}
+</code></pre>
+<h3 id="配置跨域">配置跨域</h3>
+<p>因为一般写的是前后端分离项目，所以要进行跨域处理</p>
+<pre><code class="language-java">package com.wjl.example.config;
+
+@Configuration
+public class CorsConfig implements WebMvcConfigurer {
+
+    @Override
+    public void addCorsMappings(CorsRegistry registry) {
+        registry.addMapping(&quot;/**&quot;)
+                .allowedOrigins(&quot;*&quot;)
+                .allowedMethods(&quot;GET&quot;, &quot;HEAD&quot;, &quot;POST&quot;, &quot;PUT&quot;, &quot;DELETE&quot;, &quot;OPTIONS&quot;)
+                .allowedOriginPatterns()
+                .maxAge(3600)
+                .allowedHeaders(&quot;*&quot;);
+    }
+
+}
+</code></pre>
+<h3 id="配置-redis">配置 Redis</h3>
+<p>进行必要的配置，这里我下午还卡了以下，不是很懂</p>
+<pre><code class="language-java">package com.wjl.example.config;
+
+@EnableCaching
+@Configuration
+public class RedisConfig {
+
+    @Bean
+    public RedisTemplate&lt;String, Object&gt; redisTemplate(RedisConnectionFactory factory) {
+        RedisTemplate&lt;String, Object&gt; template = new RedisTemplate&lt;&gt;();
+        template.setConnectionFactory(factory);
+
+        RedisSerializer&lt;String&gt; redisSerializer = new StringRedisSerializer();
+        Jackson2JsonRedisSerializer&lt;?&gt; serializer = new Jackson2JsonRedisSerializer&lt;&gt;(Object.class);
+        ObjectMapper objectMapper = new ObjectMapper();
+        objectMapper.setSerializationInclusion(JsonInclude.Include.NON_NULL);
+        objectMapper.activateDefaultTyping(LaissezFaireSubTypeValidator.instance,
+                ObjectMapper.DefaultTyping.NON_FINAL, JsonTypeInfo.As.PROPERTY);
+        serializer.setObjectMapper(objectMapper);
+
+        template.setKeySerializer(redisSerializer);
+        template.setHashKeySerializer(redisSerializer);
+        template.setValueSerializer(serializer);
+        template.setHashValueSerializer(serializer);
+        template.afterPropertiesSet();
+        return template;
+    }
+
+}
+</code></pre>
+<h3 id="配置-sa-token-拦截器">配置 Sa-Token 拦截器</h3>
+<p>我们使用的这个Java权限认证框架很轻量级，官网文档也比较齐全</p>
+<pre><code class="language-java">package com.wjl.example.config;
+
+@Configuration
+public class SaIntercepConfig implements WebMvcConfigurer {
+
+    @Override
+    public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(new SaAnnotationInterceptor())
+                .addPathPatterns(&quot;/**&quot;);
+    }
+
+}
+</code></pre>
+<h2 id="统一后端返回格式">统一后端返回格式</h2>
+<p>SpringBoot 提供的不能满足我们的需求，需要我们自己封装返回结果，并进行配置</p>
+<h3 id="返回码定义">返回码定义</h3>
+<pre><code class="language-java">package com.wjl.example.common.enums;
+
+public enum HttpStatus {
+    // 2xx Success
+    OK(200, &quot;OK&quot;),
+    // --- 4xx Client Error ---
+    BAD_REQUEST(400, &quot;Bad Request&quot;),
+    UNAUTHORIZED(401, &quot;Unauthorized&quot;),
+    PAYMENT_REQUIRED(402, &quot;Payment Required&quot;),
+    FORBIDDEN(403, &quot;Forbidden&quot;),
+    NOT_FOUND(404, &quot;Not Found&quot;),
+    METHOD_NOT_ALLOWED(405, &quot;Method Not Allowed&quot;),
+    NOT_ACCEPTABLE(406, &quot;Not Acceptable&quot;),
+    PROXY_AUTHENTICATION_REQUIRED(407, &quot;Proxy Authentication Required&quot;),
+    REQUEST_TIMEOUT(408, &quot;Request Timeout&quot;),
+    CONFLICT(409, &quot;Conflict&quot;),
+    // --- 5xx Server Error ---
+    INTERNAL_SERVER_ERROR(500, &quot;Internal Server Error&quot;),
+    NOT_IMPLEMENTED(501, &quot;Not Implemented&quot;),
+    BAD_GATEWAY(502, &quot;Bad Gateway&quot;),
+    private final int code;
+    private final String msg;
+
+    HttpStatus(int code, String msg) {
+        this.code = code;
+        this.msg = msg;
+    }
+
+    public int getCode() {
+        return code;
+    }
+
+    public String getMsg() {
+        return msg;
+    }
+
+}
+</code></pre>
+<h3 id="返回结果统一封装">返回结果统一封装</h3>
+<pre><code class="language-java">package com.wjl.example.common.constants;
+
+@Data
+public class Result&lt;T&gt; {
+
+    private int status;
+    private String msg;
+    private T data;
+
+    public static &lt;T&gt; Result&lt;T&gt; success(T data) {
+        Result&lt;T&gt; Result = new Result&lt;&gt;();
+        Result.setStatus(HttpStatus.OK.getCode());
+        Result.setMsg(HttpStatus.OK.getMsg());
+        Result.setData(data);
+        return Result;
+    }
+
+    public static &lt;T&gt; Result&lt;T&gt; success(String msg) {
+        Result&lt;T&gt; Result = new Result&lt;&gt;();
+        Result.setStatus(HttpStatus.OK.getCode());
+        Result.setMsg(msg);
+        return Result;
+    }
+
+    public static &lt;T&gt; Result&lt;T&gt; fail(int code, String msg) {
+        Result&lt;T&gt; Result = new Result&lt;&gt;();
+        Result.setStatus(code);
+        Result.setMsg(msg);
+        return Result;
+    }
+
+}
+</code></pre>
+<h3 id="返回结果统一处理">返回结果统一处理</h3>
+<pre><code class="language-java">package com.wjl.example.component;
+
+@RestControllerAdvice
+public class ResponseAdvice implements ResponseBodyAdvice&lt;Object&gt; {
+
+    @Resource
+    private ObjectMapper objectMapper;
+
+    @Override
+    public boolean supports(MethodParameter parameter, Class&lt;? extends HttpMessageConverter&lt;?&gt;&gt; aClass) {
+        return true;
+    }
+
+    @SneakyThrows
+    @Override
+    public Object beforeBodyWrite(Object o, MethodParameter parameter, MediaType mediaType,
+                                  Class&lt;? extends HttpMessageConverter&lt;?&gt;&gt; aClass,
+                                  ServerHttpRequest request, ServerHttpResponse response) {
+        if (o instanceof String) {
+            return objectMapper.writeValueAsString(Result.success(o));
+        }
+        if (o instanceof Result) {
+            return o;
+        }
+        return Result.success(o);
+    }
+
+}
+</code></pre>
+<h3 id="全局异常拦截">全局异常拦截</h3>
+<pre><code class="language-java">package com.wjl.example.exception;
+
+@Slf4j
+@RestControllerAdvice
+public class RestExceptionHandler {
+
+    @ExceptionHandler(Exception.class)
+    @ResponseStatus(org.springframework.http.HttpStatus.INTERNAL_SERVER_ERROR)
+    public Result&lt;String&gt; exception(Exception e) {
+        log.error(&quot;全局异常信息 ex={}&quot;, e.getMessage(), e);
+        return Result.fail(HttpStatus.INTERNAL_SERVER_ERROR.getCode(), e.getMessage());
+    }
+
+}
+</code></pre>
+<h2 id="引入工具类">引入工具类</h2>
+<h3 id="操作-redis-的-redisutil">操作 Redis 的 RedisUtil</h3>
+<p>这里只放了一部分，这个工具类比较长，完整的可以去看源代码</p>
+<p><a href="https://github.com/wjl-lab/spring-boot-example">GitHub - wjl-lab/spring-boot-example: 学习spring boot过程中逐渐整合各大组件的项目</a></p>
+<pre><code class="language-java">package com.wjl.example.util;
+
+@Component
+public class RedisUtil {
+
+    @Resource
+    private RedisTemplate&lt;String, Object&gt; redisTemplate;
+
+    // ============================== common ==================================
+
+    /**
+     * set expire time
+     *
+     * @param key  key
+     * @param time time
+     * @return state
+     */
+    public boolean expire(String key, long time) {
+        try {
+            if (time &gt; 0) {
+                redisTemplate.expire(key, time, TimeUnit.SECONDS);
+            }
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    // ============================== string ==================================
+
+    /**
+     * get value by key
+     *
+     * @param key key
+     * @return value
+     */
+    public Object get(String key) {
+        return key == null ? null : redisTemplate.opsForValue().get(key);
+    }
+
+    // ================================ map ===================================
+
+    /**
+     * HashGet
+     *
+     * @param key  key - Notnull
+     * @param item item - NotNull
+     * @return data
+     */
+    public Object hget(String key, String item) {
+        return redisTemplate.opsForHash().get(key, item);
+    }
+
+    // ================================ set ===================================
+
+    /**
+     * get value in set by key
+     *
+     * @param key key
+     * @return set
+     */
+    public Set&lt;Object&gt; sGet(String key) {
+        try {
+            return redisTemplate.opsForSet().members(key);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+ 
+}
+</code></pre>
+<h3 id="连接-cos-的工具类">连接 COS 的工具类</h3>
+<p>我一般倾向于使用腾讯云，所以这里是腾讯云的COS对象存储，阿里云OSS同理，根据官方文档来就行。</p>
+<p>这里可以先定义全局常量，关于COS存储桶的信息，<strong>注意这些信息不能上传到GitHub</strong>，我上次没注意，直接 <code>git push</code> 一把梭，结果腾讯云立马给我打电话说密钥泄露，千万要注意。</p>
+<pre><code class="language-java">package com.wjl.example.common.constants;
+
+public class GlobalConstants {
+
+    public static final String AVATAR = &quot;https://cube.elemecdn.com/9/c2/f0ee8a3c7c9638a54940382568c9dpng.png&quot;;
+
+    public static final String SECRET_ID = &quot;&quot;;
+
+    public static final String SECRET_KEY = &quot;&quot;;
+
+    public static final String REGION = &quot;&quot;;
+
+    public static final String BUCKET = &quot;&quot;;
+
+    public static final String FOLDER = &quot;&quot;;
+
+}
+
+</code></pre>
+<pre><code class="language-java">package com.wjl.example.util;
+
+public class CosClientUtil {
+
+    public static COSClient createClient() {
+        String secretId = GlobalConstants.SECRET_ID;
+        String secretKey = GlobalConstants.SECRET_KEY;
+        COSCredentials credentials = new BasicCOSCredentials(secretId, secretKey);
+        Region region = new Region(GlobalConstants.REGION);
+        ClientConfig clientConfig = new ClientConfig(region);
+        return new COSClient(credentials, clientConfig);
+    }
+
+}
+</code></pre>
+<h2 id="实现权限认证功能">实现权限认证功能</h2>
+<p>这里我们使用RBAC认证模式</p>
+<h3 id="编写实体">编写实体</h3>
+<p>这里我们选择使用 Spring Data JPA 作为 ORM 框架，定义 <code>User</code> 、 <code>Role</code> 、 <code>Permission</code> 、 <code>UserRole</code> 、 <code>RolePermission</code>  五个实体</p>
+<pre><code class="language-java">package com.wjl.example.model.entity;
+
+@Getter
+@Setter
+@Entity
+@Table(name = &quot;user&quot;)
+@JsonIgnoreProperties({&quot;handler&quot;, &quot;hibernateLazyInitializer&quot;})
+public class User {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = &quot;id&quot;)
+    private Long id;
+    @Column(name = &quot;username&quot;)
+    private String username;
+    @Column(name = &quot;password&quot;)
+    private String password;
+    @Column(name = &quot;token&quot;)
+    private String token;
+
+}
+</code></pre>
+<pre><code class="language-java">package com.wjl.example.model.entity;
+
+@Getter
+@Setter
+@Entity
+@Table(name = &quot;role&quot;)
+@JsonIgnoreProperties({&quot;handler&quot;, &quot;hibernateLazyInitializer&quot;})
+public class Role {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = &quot;id&quot;)
+    private Long id;
+    @Column(name = &quot;role&quot;)
+    private String role;
+
+}
+</code></pre>
+<pre><code class="language-java">package com.wjl.example.model.entity;
+
+@Getter
+@Setter
+@Entity
+@Table(name = &quot;permission&quot;)
+@JsonIgnoreProperties({&quot;handler&quot;, &quot;hibernateLazyInitializer&quot;})
+public class Permission {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = &quot;id&quot;)
+    private Long id;
+    @Column(name = &quot;permission&quot;)
+    private String permission;
+
+}
+</code></pre>
+<pre><code class="language-java">package com.wjl.example.model.entity;
+
+@Getter
+@Setter
+@Entity
+@Table(name = &quot;user_role&quot;)
+@JsonIgnoreProperties({&quot;handler&quot;, &quot;hibernateLazyInitializer&quot;})
+public class UserRole {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = &quot;id&quot;)
+    private Long id;
+    private Long uid;
+    private Long rid;
+
+}
+</code></pre>
+<pre><code class="language-java">package com.wjl.example.model.entity;
+
+@Getter
+@Setter
+@Entity
+@Table(name = &quot;role_permission&quot;)
+@JsonIgnoreProperties({&quot;handler&quot;, &quot;hibernateLazyInitializer&quot;})
+public class RolePermission {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = &quot;id&quot;)
+    private Long id;
+    private Long rid;
+    private Long pid;
+
+}
+</code></pre>
+<h3 id="根据实体编写对应的orm层和service层">根据实体编写对应的ORM层和Service层</h3>
+<p>这里我就放一起了，因为单个代码比较少</p>
+<pre><code class="language-java">package com.wjl.example.repository;
+
+@Repository
+public interface UserRepository extends JpaRepository&lt;User, Long&gt; {
+    User findUserById(Long id);
+    User findUserByUsername(String username);
+    User findUserByUsernameAndPassword(String username, String password);
+}
+
+@Repository
+public interface RoleRepository extends JpaRepository&lt;Role, Long&gt; {
+    Role findRoleById(Long id);
+}
+
+@Repository
+public interface PermissionRepository extends JpaRepository&lt;Permission, Long&gt; {
+    Permission findPermissionById(Long id);
+}
+
+@Repository
+public interface UserRoleRepository extends JpaRepository&lt;UserRole, Long&gt; {
+    List&lt;UserRole&gt; findAllByUid(Long uid);
+}
+
+@Repository
+public interface RolePermissionRepository extends JpaRepository&lt;RolePermission, Long&gt; {
+    List&lt;RolePermission&gt; findAllByRid(Long rid);
+}
+</code></pre>
+<pre><code class="language-java">package com.wjl.example.service.impl;
+
+@Service
+public class UserServiceImpl implements UserService {
+
+    @Resource
+    private UserRepository userRepository;
+
+    @Override
+    public User findUserById(Long id) {
+        return userRepository.findUserById(id);
+    }
+
+    @Override
+    public User findUserByUsername(String username) {
+        return userRepository.findUserByUsername(username);
+    }
+
+    @Override
+    public User findUserByUsernameAndPassword(String username, String password) {
+        return userRepository.findUserByUsernameAndPassword(username, password);
+    }
+
+}
+
+@Service
+public class RoleServiceImpl implements RoleService {
+
+    @Resource
+    private RoleRepository roleRepository;
+
+    @Override
+    public Role findRoleById(Long rid) {
+        return roleRepository.findRoleById(rid);
+    }
+
+}
+
+@Service
+public class PermissionServiceImpl implements PermissionService {
+
+    @Resource
+    private PermissionRepository permissionRepository;
+
+    @Override
+    public Permission findPermissionById(Long pid) {
+        return permissionRepository.findPermissionById(pid);
+    }
+
+}
+
+@Service
+public class UserRoleServiceImpl implements UserRoleService {
+
+    @Resource
+    private UserRoleRepository userRoleRepository;
+
+    @Override
+    public List&lt;UserRole&gt; findRolesByUser(User user) {
+        return userRoleRepository.findAllByUid(user.getId());
+    }
+
+}
+
+@Service
+public class RolePermissionServiceImpl implements RolePermissionService {
+
+    @Resource
+    private RolePermissionRepository rolePermissionRepository;
+
+    @Override
+    public List&lt;RolePermission&gt; findAllByRole(Role role) {
+        return rolePermissionRepository.findAllByRid(role.getId());
+    }
+
+}
+</code></pre>
+<h3 id="实现-sa-token-的权限认证接口">实现 Sa-Token 的权限认证接口</h3>
+<p>根据官方文档，只要实现 <code>StpInterface</code> 接口里的两个方法即可</p>
+<pre><code class="language-java">package com.wjl.example.component;
+
+@Component
+public class StpInterfaceImpl implements StpInterface {
+
+    @Resource
+    private UserService userService;
+    
+    @Resource
+    private RoleService roleService;
+
+    @Resource
+    private PermissionService permissionService;
+
+    @Resource
+    private UserRoleService userRoleService;
+
+    @Resource
+    private RolePermissionService rolePermissionService;
+
+    @Override
+    public List&lt;String&gt; getPermissionList(Object loginId, String s) {
+        User user = userService.findUserByUsername(loginId.toString());
+        List&lt;UserRole&gt; userRoles = userRoleService.findRolesByUser(user);
+        Set&lt;String&gt; permissions = new HashSet&lt;&gt;();
+        for (UserRole userRole : userRoles) {
+            Role role = roleService.findRoleById(userRole.getRid());
+            List&lt;RolePermission&gt; rolePermissions = rolePermissionService.findAllByRole(role);
+            for (RolePermission rolePermission : rolePermissions) {
+                Permission permission = permissionService.findPermissionById(rolePermission.getPid());
+                permissions.add(permission.getPermission());
+            }
+        }
+        return new ArrayList&lt;&gt;(permissions);
+    }
+
+    @Override
+    public List&lt;String&gt; getRoleList(Object loginId, String s) {
+        User user = userService.findUserByUsername(loginId.toString());
+        List&lt;UserRole&gt; userRoles = userRoleService.findRolesByUser(user);
+        List&lt;String&gt; roles = new ArrayList&lt;&gt;();
+        for (UserRole userRole : userRoles) {
+            roles.add(roleService.findRoleById(userRole.getRid()).getRole());
+        }
+        return roles;
+    }
+
+}
+</code></pre>
+<p>登录注册接口什么的就先不写了。</p>
+<h2 id="实现-redis-缓存功能">实现 Redis 缓存功能</h2>
+<h3 id="实体和对象映射">实体和对象映射</h3>
+<p>让我们先定义一个 <code>Todo</code> 实体类，并使用 Mybatis 的注解进行对象映射，不要忘了先创建表</p>
+<pre><code class="language-java">package com.wjl.example.model.entity;
+
+@Data
+@ToString
+@AllArgsConstructor
+@NoArgsConstructor
+public class Todo implements Serializable {
+
+    private Long id;
+    private String description;
+    private String details;
+    private boolean done;
+
+}
+</code></pre>
+<pre><code class="language-java">package com.wjl.example.repository;
+
+@Mapper
+@Repository
+public interface TodoRepository {
+
+    @Select(&quot;select count(*) from todo&quot;)
+    int countTodo();
+
+    @Select(&quot;select * from todo&quot;)
+    List&lt;Todo&gt; findAll();
+
+    @Select(&quot;select * from todo where id=#{id}&quot;)
+    Todo findTodoById(@Param(value = &quot;id&quot;) Long id);
+
+    @Insert(&quot;insert into todo(id, description, details, done) values (#{id}, #{description}, #{details}, #{done})&quot;)
+    int addTodo(Todo todo);
+
+    @Update(&quot;update todo set description=#{description}, details=#{details}, done=#{done} where id=#{id}&quot;)
+    int updateTodo(Todo todo);
+
+    @Delete(&quot;delete from todo where id=#{id}&quot;)
+    int deleteTodo(@Param(value = &quot;id&quot;) Long id);
+
+}
+</code></pre>
+<h3 id="service-集成-redis-缓存机制">Service 集成 Redis 缓存机制</h3>
+<p>这里就直接贴代码了，因为我现在对这个还不是很熟</p>
+<pre><code class="language-java">package com.wjl.example.service.impl;
+
+@Slf4j
+@Service
+@CacheConfig(cacheNames = &quot;todo&quot;)
+public class TodoServiceImpl implements TodoService {
+
+    @Resource
+    private TodoRepository todoRepository;
+
+    @Resource
+    private RedisUtil redisUtil;
+
+    public static final String CACHE_KEY_TODO = &quot;todo:&quot;;
+
+    @Override
+    public int countTodo() {
+        return todoRepository.countTodo();
+    }
+
+    @Override
+    public List&lt;Todo&gt; findAll() {
+        int i = countTodo();
+        Object o = redisUtil.get(CACHE_KEY_TODO + &quot;number:&quot; + i);
+        if (!Objects.isNull(o)) {
+            return (List&lt;Todo&gt;) o;
+        }
+        List&lt;Todo&gt; todos = todoRepository.findAll();
+        redisUtil.set(CACHE_KEY_TODO + &quot;number:&quot; + i, todos);
+        log.info(&quot;cache not exist, do this method&quot;);
+        return todos;
+    }
+
+    @Override
+    public Todo findTodoById(Long id) {
+        Object o = redisUtil.get(CACHE_KEY_TODO + id);
+        if (!Objects.isNull(o)) {
+            log.info(&quot;get from redis: {}&quot;, o);
+            return (Todo) o;
+        }
+        Todo todo = todoRepository.findTodoById(id);
+        redisUtil.set(CACHE_KEY_TODO + id, todo);
+        log.info(&quot;get from mysql, and set into redis: {}&quot;, todo);
+        return todo;
+    }
+
+    @Override
+    public int addTodo(Todo todo) {
+        int i = todoRepository.addTodo(todo);
+        redisUtil.set(CACHE_KEY_TODO + todo.getId(), todo);
+        log.info(&quot;write into redis: {}&quot;, todo);
+        return i;
+    }
+
+    @Override
+    public int updateTodoById(Todo todo) {
+        int i = todoRepository.updateTodo(todo);
+        redisUtil.set(CACHE_KEY_TODO + todo.getId(), todo);
+        log.info(&quot;update data and delete cache&quot;);
+        return i;
+    }
+
+    @Override
+    public int deleteTodoById(Long id) {
+        int i = todoRepository.deleteTodo(id);
+        redisUtil.del(CACHE_KEY_TODO + id);
+        return i;
+    }
+
+}
+</code></pre>
+<h3 id="编写单元测试">编写单元测试</h3>
+<p>这是 <code>TodoService</code> 的单元测试</p>
+<pre><code class="language-java">package com.wjl.example.service;
+
+@SpringBootTest
+@RunWith(SpringRunner.class)
+public class TodoServiceTest {
+
+    @Resource
+    private TodoService todoService;
+
+    @Test
+    public void test() {
+        List&lt;Todo&gt; todos = todoService.findAll();
+        System.out.println(todos);
+    }
+
+    @Test
+    public void selectById() {
+        Todo todo = todoService.findTodoById(1L);
+        System.out.println(todo);
+    }
+
+    @Test
+    public void add() {
+        todoService.addTodo(new Todo(2L, &quot;test3&quot;, &quot;rveref&quot;, false));
+    }
+
+    @Test
+    public void update() {
+        todoService.updateTodoById(new Todo(3L, &quot;test33&quot;, &quot;rveref&quot;, false));
+    }
+
+    @Test
+    public void delete() {
+        todoService.deleteTodoById(2L);
+    }
+
+}
+</code></pre>
+<p>这是 <code>RedisUtil</code> 的单元测试</p>
+<pre><code class="language-java">package com.wjl.example.service;
+
+@SpringBootTest
+@RunWith(SpringRunner.class)
+public class RedisServiceTest {
+
+    @Resource
+    private RedisUtil redisUtil;
+
+    @Test
+    public void save() {
+        Todo todo = new Todo(1L, &quot;test1&quot;, &quot;test111111111111111111&quot;, false);
+        redisUtil.set(&quot;todo:&quot; + todo.getId(), todo);
+        System.out.println(redisUtil.get(&quot;todo:&quot; + todo.getId()));
+        todo.setDetails(&quot;test123221122141&quot;);
+        redisUtil.del(&quot;todo:&quot; + todo.getId());
+        redisUtil.set(&quot;todo:&quot; + todo.getId(), todo);
+        System.out.println(redisUtil.get(&quot;todo:&quot; + todo.getId()));
+    }
+
+    /**
+     * test redisService common part
+     */
+    @Test
+    public void commonTest() {
+        System.out.println(redisUtil.expire(&quot;todo:1&quot;, 1000));
+        System.out.println(redisUtil.getExpire(&quot;todo:1&quot;));
+        System.out.println(redisUtil.hasKey(&quot;todo:1&quot;));
+        System.out.println(redisUtil.hasKey(&quot;todo:4&quot;));
+        redisUtil.del(&quot;todo:1&quot;, &quot;todo:4&quot;);
+        System.out.println(redisUtil.hasKey(&quot;todo:1&quot;));
+    }
+
+    /**
+     * test redisService string part
+     */
+    @Test
+    public void stringTest() {
+        redisUtil.set(&quot;test:1&quot;, &quot;test1111&quot;);
+        System.out.println(redisUtil.get(&quot;test:1&quot;));
+        redisUtil.set(&quot;test:2&quot;, &quot;test2222&quot;, 1000);
+        System.out.println(redisUtil.getExpire(&quot;test:2&quot;));
+        redisUtil.set(&quot;test1&quot;, 1);
+        System.out.println(redisUtil.incr(&quot;test1&quot;, 1));
+        redisUtil.set(&quot;test2&quot;, 100);
+        System.out.println(redisUtil.decr(&quot;test2&quot;, 1));
+    }
+
+    /**
+     * test redisService map part
+     */
+    @Test
+    public void mapTest() {
+        Map&lt;String, Object&gt; map = new HashMap&lt;&gt;();
+        map.put(String.valueOf(1L), &quot;aaa&quot;);
+        map.put(String.valueOf(2L), &quot;bbb&quot;);
+        map.put(String.valueOf(3L), &quot;ccc&quot;);
+        System.out.println(redisUtil.hmset(&quot;map-test1&quot;, map));
+        System.out.println(redisUtil.hmset(&quot;map-test2&quot;, map, 1000));
+        System.out.println(redisUtil.hmget(&quot;map-test1&quot;));
+        System.out.println(redisUtil.hmget(&quot;map-test2&quot;));
+        System.out.println(redisUtil.hget(&quot;map-test1&quot;, String.valueOf(1L)));
+        System.out.println(redisUtil.hset(&quot;map-test1&quot;, &quot;4&quot;, &quot;ddd&quot;));
+        System.out.println(redisUtil.hset(&quot;map-test3&quot;, &quot;4&quot;, &quot;ddd&quot;, 30));
+        redisUtil.hdel(&quot;map-test2&quot;, &quot;1&quot;, &quot;2&quot;);
+        System.out.println(redisUtil.hHasKey(&quot;map-test2&quot;, &quot;2&quot;));
+        System.out.println(redisUtil.hHasKey(&quot;map-test2&quot;, &quot;3&quot;));
+        System.out.println(redisUtil.hincr(&quot;maptest1&quot;, &quot;123&quot;, 1));
+        System.out.println(redisUtil.hdecr(&quot;maptest2&quot;, &quot;231&quot;, 2));
+    }
+
+    /**
+     * test redisService set part
+     */
+    @Test
+    public void setTest() {
+        System.out.println(redisUtil.sSet(&quot;set-test1&quot;, &quot;set1&quot;, &quot;set2&quot;, &quot;set3&quot;, &quot;set4&quot;));
+        System.out.println(redisUtil.sGet(&quot;set-test1&quot;));
+        System.out.println(redisUtil.sSetAndTime(&quot;set-test2&quot;, 100, &quot;set1&quot;, &quot;set2&quot;));
+        System.out.println(redisUtil.sGetSetSize(&quot;set-test1&quot;));
+        System.out.println(redisUtil.setRemove(&quot;set-test1&quot;, &quot;set3&quot;));
+        System.out.println(redisUtil.sGetSetSize(&quot;set-test1&quot;));
+        System.out.println(redisUtil.sHashKey(&quot;set-test1&quot;, &quot;set2&quot;));
+    }
+
+    /**
+     * test redisService list part
+     */
+    @Test
+    public void listTest() {
+        List&lt;Object&gt; list = new ArrayList&lt;&gt;();
+        list.add(&quot;aaa&quot;);
+        list.add(&quot;bbb&quot;);
+        list.add(&quot;aaa&quot;);
+        list.add(&quot;ccc&quot;);
+        System.out.println(redisUtil.lSet(&quot;list-test1&quot;, &quot;aaaa&quot;));
+        System.out.println(redisUtil.lSet(&quot;list-test3&quot;, &quot;aaaa&quot;, 10));
+        System.out.println(redisUtil.lSet(&quot;list-test2&quot;, list));
+        System.out.println(redisUtil.lSet(&quot;list-test3&quot;, list, 100));
+        System.out.println(redisUtil.lGet(&quot;list-test2&quot;, 2, 4));
+        System.out.println(redisUtil.lGetListSize(&quot;list-test2&quot;));
+        System.out.println(redisUtil.lGetIndex(&quot;list-test2&quot;, 2));
+        System.out.println(redisUtil.lUpdateIndex(&quot;list-test2&quot;, 2, &quot;123&quot;));
+        System.out.println(redisUtil.lGetListSize(&quot;list-test1&quot;));
+        System.out.println(redisUtil.lRemove(&quot;list-test1&quot;, 4, &quot;aaaa&quot;));
+        System.out.println(redisUtil.lGetListSize(&quot;list-test1&quot;));
+    }
+
+}
+</code></pre>
+<p>个人觉得单元测试覆盖面还是很广的。</p>
+<p>&ndash;完&ndash;</p>
+<p>示例项目已开源：<a href="https://github.com/wjl-lab/spring-boot-example">wjl-lab/spring-boot-example: 学习spring boot过程中逐渐整合各大组件的项目 (github.com)</a></p>
+
+        </div>
+        
+        <div class="my-4">
+    
+    <a href="https://blog.wangjialei.xyz/tags/spring-boot/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#Spring Boot</a>
+    
+    <a href="https://blog.wangjialei.xyz/tags/mysql/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#MySQL</a>
+    
+    <a href="https://blog.wangjialei.xyz/tags/mybatis-plus/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#Mybatis-plus</a>
+    
+    <a href="https://blog.wangjialei.xyz/tags/jpa/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#JPA</a>
+    
+    <a href="https://blog.wangjialei.xyz/tags/redis/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#Redis</a>
+    
+    <a href="https://blog.wangjialei.xyz/tags/sa-token/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#Sa-Token</a>
+    
+    <a href="https://blog.wangjialei.xyz/tags/smart-doc/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#smart-doc</a>
+    
+</div>
+        
+        
+        
+
+
+        
+        
+        
+        
+<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
+    <div>
+        
+        <span class="block font-bold">上一页</span>
+        <a href="https://blog.wangjialei.xyz/posts/2021%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/" class="block">2021年终总结</a>
+        
+    </div>
+    <div class="md:text-right mt-4 md:mt-0">
+        
+        <span class="block font-bold">下一页</span>
+        <a href="https://blog.wangjialei.xyz/posts/docker%E9%83%A8%E7%BD%B2%E5%A4%9A%E7%AB%99%E7%82%B9/" class="block">Docker 部署多站点</a>
+        
+    </div>
+</div>
+
+        
+
+
+
+    </div>
+    
+    <div class="col-span-2">
+        
+        
+        <div class="sticky top-16 z-10 hidden lg:block px-6 py-4  bg-primary-bg ">
+    <span class="text-lg font-semibold">本页内容</span>
+</div>
+<div class="sticky-toc hidden lg:block px-6 pb-6 ">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#创建spring-boot工程">创建Spring Boot工程</a></li>
+    <li><a href="#引入依赖库和插件">引入依赖库和插件</a></li>
+    <li><a href="#编写配置文件">编写配置文件</a>
+      <ul>
+        <li><a href="#spring-boot-配置文件">Spring Boot 配置文件</a></li>
+        <li><a href="#日志配置文件">日志配置文件</a></li>
+        <li><a href="#api-文档生成插件配置文件">API 文档生成插件配置文件</a></li>
+      </ul>
+    </li>
+    <li><a href="#设计项目包结构">设计项目包结构</a></li>
+    <li><a href="#编写-java-配置类">编写 Java 配置类</a>
+      <ul>
+        <li><a href="#程序入口加注解-enablecaching">程序入口加注解 <code>@EnableCaching</code></a></li>
+        <li><a href="#配置-mybatis-plus">配置 Mybatis-Plus</a></li>
+        <li><a href="#配置跨域">配置跨域</a></li>
+        <li><a href="#配置-redis">配置 Redis</a></li>
+        <li><a href="#配置-sa-token-拦截器">配置 Sa-Token 拦截器</a></li>
+      </ul>
+    </li>
+    <li><a href="#统一后端返回格式">统一后端返回格式</a>
+      <ul>
+        <li><a href="#返回码定义">返回码定义</a></li>
+        <li><a href="#返回结果统一封装">返回结果统一封装</a></li>
+        <li><a href="#返回结果统一处理">返回结果统一处理</a></li>
+        <li><a href="#全局异常拦截">全局异常拦截</a></li>
+      </ul>
+    </li>
+    <li><a href="#引入工具类">引入工具类</a>
+      <ul>
+        <li><a href="#操作-redis-的-redisutil">操作 Redis 的 RedisUtil</a></li>
+        <li><a href="#连接-cos-的工具类">连接 COS 的工具类</a></li>
+      </ul>
+    </li>
+    <li><a href="#实现权限认证功能">实现权限认证功能</a>
+      <ul>
+        <li><a href="#编写实体">编写实体</a></li>
+        <li><a href="#根据实体编写对应的orm层和service层">根据实体编写对应的ORM层和Service层</a></li>
+        <li><a href="#实现-sa-token-的权限认证接口">实现 Sa-Token 的权限认证接口</a></li>
+      </ul>
+    </li>
+    <li><a href="#实现-redis-缓存功能">实现 Redis 缓存功能</a>
+      <ul>
+        <li><a href="#实体和对象映射">实体和对象映射</a></li>
+        <li><a href="#service-集成-redis-缓存机制">Service 集成 Redis 缓存机制</a></li>
+        <li><a href="#编写单元测试">编写单元测试</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        enableStickyToc();
+    });
+</script>
+        
+    </div>
+    
+
+    
+    
+    <div
+        class="col-span-2  lg:col-span-6 bg-secondary-bg rounded p-6">
+        <h2 class="text-lg font-semibold mb-4">相关</h2>
+        <div class="content">
+            
+            <a href="https://blog.wangjialei.xyz/posts/%E4%BD%BF%E7%94%A8docker%E9%83%A8%E7%BD%B2springboot&#43;vue%E9%A1%B9%E7%9B%AE/">使用Docker部署SpringBoot&#43;Vue项目</a>
+            <br />
+            
+            <a href="https://blog.wangjialei.xyz/posts/jpa-or-mybatis/">Jpa or Mybatis</a>
+            <br />
+            
+            <a href="https://blog.wangjialei.xyz/posts/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91%E5%AE%8C%E6%88%90/">个人博客项目开发完成！</a>
+            <br />
+            
+            <a href="https://blog.wangjialei.xyz/posts/%E6%88%91%E5%AF%B9%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E5%BC%80%E5%8F%91%E7%9A%84%E4%B8%80%E4%BA%9B%E7%90%86%E8%A7%A3/">我对前后端分离开发的一些理解</a>
+            <br />
+            
+            <a href="https://blog.wangjialei.xyz/posts/%E5%90%8E%E7%AB%AF%E6%8E%A5%E5%8F%A3%E8%BF%94%E5%9B%9E%E7%BB%93%E6%9E%9C%E7%BB%9F%E4%B8%80%E5%B0%81%E8%A3%85/">后端接口返回结果统一封装</a>
+            <br />
+            
+            <a href="https://blog.wangjialei.xyz/posts/%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E4%BD%86%E5%AE%8C%E6%95%B4%E7%9A%84springboot%E9%A1%B9%E7%9B%AE/">一个简单但完整的 spring boot 项目</a>
+            <br />
+            
+        </div>
+    </div>
+    
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+        hljs.initHighlightingOnLoad();
+    })
+</script>
+
+      </div>
+    </div>
+    
+  </main>
+  <footer class="pl-scrollbar">
+    <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">&copy; 2021 <a href="https://blog.wangjialei.xyz/">Wang Jialei</a>
+ &middot;  Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div></div>
+  </footer>
+</body>
+
+</html>

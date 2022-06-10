@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Redis on LoneStar&#39;s blog</title>
+    <link>https://blog.wangjialei.xyz/tags/redis/</link>
+    <description>Recent content in Redis on LoneStar&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <copyright>&amp;copy; 2021 &lt;a href=&#34;https://blog.wangjialei.xyz/&#34;&gt;Wang Jialei&lt;/a&gt;
+</copyright>
+    <lastBuildDate>Fri, 31 Dec 2021 16:24:16 +0800</lastBuildDate><atom:link href="https://blog.wangjialei.xyz/tags/redis/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>SpringBoot整合常用组件</title>
+      <link>https://blog.wangjialei.xyz/posts/springboot%E6%95%B4%E5%90%88%E5%B8%B8%E7%94%A8%E7%BB%84%E4%BB%B6/</link>
+      <pubDate>Fri, 31 Dec 2021 16:24:16 +0800</pubDate>
+      
+      <guid>https://blog.wangjialei.xyz/posts/springboot%E6%95%B4%E5%90%88%E5%B8%B8%E7%94%A8%E7%BB%84%E4%BB%B6/</guid>
+      <description>在学spring boot的过程中慢慢整合常用的组件，想着汇总成一个项目，方便下次开发拿来即用。
+示例项目已开源：wjl-lab/spring-boot-example: 学习spring boot过程中逐渐整合各大组件的项目 (github.com)
+创建Spring Boot工程 使用 idea 的 Spring Initializr 创建一个 Spring Boot 工程，这一步全部默认即可。</description>
+    </item>
+    
+  </channel>
+</rss>

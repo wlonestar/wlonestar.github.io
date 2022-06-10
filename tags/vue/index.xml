@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Vue on LoneStar&#39;s blog</title>
+    <link>https://blog.wangjialei.xyz/tags/vue/</link>
+    <description>Recent content in Vue on LoneStar&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <copyright>&amp;copy; 2021 &lt;a href=&#34;https://blog.wangjialei.xyz/&#34;&gt;Wang Jialei&lt;/a&gt;
+</copyright>
+    <lastBuildDate>Wed, 29 Sep 2021 13:58:48 +0800</lastBuildDate><atom:link href="https://blog.wangjialei.xyz/tags/vue/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>使用Docker部署SpringBoot&#43;Vue项目</title>
+      <link>https://blog.wangjialei.xyz/posts/%E4%BD%BF%E7%94%A8docker%E9%83%A8%E7%BD%B2springboot&#43;vue%E9%A1%B9%E7%9B%AE/</link>
+      <pubDate>Wed, 29 Sep 2021 13:58:48 +0800</pubDate>
+      
+      <guid>https://blog.wangjialei.xyz/posts/%E4%BD%BF%E7%94%A8docker%E9%83%A8%E7%BD%B2springboot&#43;vue%E9%A1%B9%E7%9B%AE/</guid>
+      <description>之前写好了一个SpringBoot + Vue 的项目，但是还不知道怎么部署上线，于是这几天稍微学了一下 Docker ，还只是会用的阶段，就先把部署过程写下来，防止遗忘。
+测试项目编写 因为是测试使用，就先在本地简单写个前后端分离的小项目：后端向前端返回所有用户信息，前端简单的将信息展示出来，MySQL负责存储用户信息。
+很简单，项目代码： wjl-lab/docker-test</description>
+    </item>
+    
+    <item>
+      <title>个人博客项目开发完成！</title>
+      <link>https://blog.wangjialei.xyz/posts/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91%E5%AE%8C%E6%88%90/</link>
+      <pubDate>Mon, 20 Sep 2021 21:47:22 +0800</pubDate>
+      
+      <guid>https://blog.wangjialei.xyz/posts/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91%E5%AE%8C%E6%88%90/</guid>
+      <description>项目地址：wjl-lab/lblog
+演示视频：BV1oQ4y1r7tQ
+Lblog Springboot + Vue 前后端分离个人博客项目
+后端技术：
+ SpringBoot Spring Data JPA sa-token hu-tool smart-doc  前端技术：</description>
+    </item>
+    
+    <item>
+      <title>我对前后端分离开发的一些理解</title>
+      <link>https://blog.wangjialei.xyz/posts/%E6%88%91%E5%AF%B9%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E5%BC%80%E5%8F%91%E7%9A%84%E4%B8%80%E4%BA%9B%E7%90%86%E8%A7%A3/</link>
+      <pubDate>Mon, 23 Aug 2021 00:02:29 +0800</pubDate>
+      
+      <guid>https://blog.wangjialei.xyz/posts/%E6%88%91%E5%AF%B9%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E5%BC%80%E5%8F%91%E7%9A%84%E4%B8%80%E4%BA%9B%E7%90%86%E8%A7%A3/</guid>
+      <description>这个其实算是一种开发模式，前端和后端独立开发，独立部署，通过 json 传输数据。
+无论是 JSP，还是模板引擎，都是严重依赖于后端的，jsp 里面甚至还有 Java 代码，前端一般都是后端程序员兼任。在以前那个网页还比较简单的时代确实没问题，但随着的网站页面越来越复杂，用户的需求越来越高，前端逐渐独立出来，前端也开始工程化。后端可以专注于业务逻辑本身，前端则重点放在页面开发上。
+MVC （Model–view–controller） 模式，即模型-视图-控制器。模型是用于封装数据的载体，视图关注页面的展现，一般使用到的就是上面提到的 JSP 和模板引擎这种，控制器控制用户的各种请求。</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Linux on LoneStar&#39;s blog</title>
+    <link>https://blog.wangjialei.xyz/tags/linux/</link>
+    <description>Recent content in Linux on LoneStar&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <copyright>&amp;copy; 2021 &lt;a href=&#34;https://blog.wangjialei.xyz/&#34;&gt;Wang Jialei&lt;/a&gt;
+</copyright>
+    <lastBuildDate>Sun, 28 Feb 2021 18:33:44 +0800</lastBuildDate><atom:link href="https://blog.wangjialei.xyz/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linux 04 Linux磁盘与文件系统管理</title>
+      <link>https://blog.wangjialei.xyz/posts/linux-04-linux%E7%A3%81%E7%9B%98%E4%B8%8E%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/</link>
+      <pubDate>Sun, 28 Feb 2021 18:33:44 +0800</pubDate>
+      
+      <guid>https://blog.wangjialei.xyz/posts/linux-04-linux%E7%A3%81%E7%9B%98%E4%B8%8E%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/</guid>
+      <description>系统管理员很重要的任务之一就是管理好自己的磁盘文件系统， 每个分区不可太大也不能太小， 太大会造成磁盘容量的浪费， 太小则会产生文件无法储存的困扰。本节我们的重点在于如何制作文件系统， 包括分区、 格式化与挂载等 。
+ 认识 Linux 文件系统 1.</description>
+    </item>
+    
+    <item>
+      <title>Linux 03 Linux文件与目录管理</title>
+      <link>https://blog.wangjialei.xyz/posts/linux-03-linux%E6%96%87%E4%BB%B6%E4%B8%8E%E7%9B%AE%E5%BD%95%E7%AE%A1%E7%90%86/</link>
+      <pubDate>Sun, 28 Feb 2021 09:30:03 +0800</pubDate>
+      
+      <guid>https://blog.wangjialei.xyz/posts/linux-03-linux%E6%96%87%E4%BB%B6%E4%B8%8E%E7%9B%AE%E5%BD%95%E7%AE%A1%E7%90%86/</guid>
+      <description>在这一节中， 我们来进一步的操作与管理文件及目录。包括在不同的目录间变换、 创建与删除目录、创建与删除文件、寻找文件、查阅文件内容等。
+ 目录与路径 相对路径与绝对路径   相对路径的用途：</description>
+    </item>
+    
+    <item>
+      <title>Linux 02 Linux的文件权限与目录配置</title>
+      <link>https://blog.wangjialei.xyz/posts/linux-02-linux%E7%9A%84%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90%E4%B8%8E%E7%9B%AE%E5%BD%95%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Fri, 26 Feb 2021 16:58:15 +0800</pubDate>
+      
+      <guid>https://blog.wangjialei.xyz/posts/linux-02-linux%E7%9A%84%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90%E4%B8%8E%E7%9B%AE%E5%BD%95%E9%85%8D%E7%BD%AE/</guid>
+      <description>Linux 最优秀的地方之一就在于他的多用户多任务环境。 而为了让各个使用者具有较保密的文件数据， 因此文件的权限管理就变的很重要了。 Linux 一般将文件可存取的身份分为三个类别， 分别是 owner/group/others， 且三种身份各有 read/write/execute 等权限。</description>
+    </item>
+    
+    <item>
+      <title>Linux 01 虚拟机安装Ubuntu20.04</title>
+      <link>https://blog.wangjialei.xyz/posts/linux-01-%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AE%89%E8%A3%85ubuntu20.04/</link>
+      <pubDate>Thu, 25 Feb 2021 21:41:52 +0800</pubDate>
+      
+      <guid>https://blog.wangjialei.xyz/posts/linux-01-%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AE%89%E8%A3%85ubuntu20.04/</guid>
+      <description>前提   Ubuntu20.04 系统镜像 ubuntu20.04.2.0LTS
+  VMware workstation 虚拟机 VMware Workstation 16 Pro</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>C on LoneStar&#39;s blog</title>
+    <link>https://blog.wangjialei.xyz/tags/c/</link>
+    <description>Recent content in C on LoneStar&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <copyright>&amp;copy; 2021 &lt;a href=&#34;https://blog.wangjialei.xyz/&#34;&gt;Wang Jialei&lt;/a&gt;
+</copyright>
+    <lastBuildDate>Sat, 27 Feb 2021 18:51:40 +0800</lastBuildDate><atom:link href="https://blog.wangjialei.xyz/tags/c/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>基于Easyx图形库的C语言游戏开发</title>
+      <link>https://blog.wangjialei.xyz/posts/%E5%9F%BA%E4%BA%8Eeasyx%E5%9B%BE%E5%BD%A2%E5%BA%93%E7%9A%84c%E8%AF%AD%E8%A8%80%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/</link>
+      <pubDate>Sat, 27 Feb 2021 18:51:40 +0800</pubDate>
+      
+      <guid>https://blog.wangjialei.xyz/posts/%E5%9F%BA%E4%BA%8Eeasyx%E5%9B%BE%E5%BD%A2%E5%BA%93%E7%9A%84c%E8%AF%AD%E8%A8%80%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/</guid>
+      <description>项目地址 wjl-lab/simple-lol
+游戏演示视频已上传B站 BV1Cy4y127Th
+设计思路 本游戏在老师提供的代码框架下，通过调用easyx图形库、Windows API 以及查阅资料获得的能替代easyx的函数实现相应效果。
+设计思路如下：
+  实现人物行走</description>
+    </item>
+    
+  </channel>
+</rss>

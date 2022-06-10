@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang='zh' ><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+
+<title>一个简单但完整的 spring boot 项目 | LoneStar&#39;s blog</title>
+
+<meta name="generator" content="Hugo Eureka 0.8.4" />
+<link rel="stylesheet" href="https://blog.wangjialei.xyz/css/eureka.min.css">
+<script defer src="https://blog.wangjialei.xyz/js/eureka.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/styles/stackoverflow-light.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/highlight.min.js"
+   crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/languages/light.min.js"
+     crossorigin></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js"
+   integrity="sha256-uNYoXefWRqv&#43;PsIF/OflNmwtKM4lStn9yrz2gVl6ymo="  crossorigin></script>
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+   integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3&#43;Aro6EYUG4&#43;cU&#43;KJWu/X"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" 
+  integrity="sha384-g7c&#43;Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI&#43;sEnkvrMWph2EDg4"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+   integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC&#43;Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/mermaid@8.9.2/dist/mermaid.min.js" 
+  integrity="sha256-Zmpaaj&#43;GXFsPF5WdPArSrnW3b30dovldeKsW00xBVwE="  crossorigin></script>
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="https://blog.wangjialei.xyz/images/favicon_huce974d41c22b18f52c9ea90a63a4b2a6_21741_32x32_fill_box_center_3.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://blog.wangjialei.xyz/images/favicon_huce974d41c22b18f52c9ea90a63a4b2a6_21741_180x180_fill_box_center_3.png">
+
+<meta name="description"
+  content="一个简单但完整的 spring boot web 项目应该包括哪些部分">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"文章",
+      "item":"https://blog.wangjialei.xyz/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"一个简单但完整的 spring boot 项目",
+      "item":"https://blog.wangjialei.xyz/posts/%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E4%BD%86%E5%AE%8C%E6%95%B4%E7%9A%84springboot%E9%A1%B9%E7%9B%AE/"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://blog.wangjialei.xyz/posts/%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E4%BD%86%E5%AE%8C%E6%95%B4%E7%9A%84springboot%E9%A1%B9%E7%9B%AE/"
+    },
+    "headline": "一个简单但完整的 spring boot 项目 | LoneStar\u0027s blog",
+    "image": "https://mypic-1305118058.cos.ap-hongkong.myqcloud.com/img/2021-05-26.jpg",
+    "datePublished": "2021-05-26T19:13:52+08:00",
+    "dateModified": "2021-05-26T19:13:52+08:00",
+    "wordCount":  684 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "lonestar",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://blog.wangjialei.xyz/images/favicon.png"
+        }
+        },
+    "description": "一个简单但完整的 spring boot web 项目应该包括哪些部分"
+}
+</script><meta property="og:title" content="一个简单但完整的 spring boot 项目 | LoneStar&#39;s blog" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="https://blog.wangjialei.xyz/images/favicon.png">
+
+
+<meta property="og:url" content="https://blog.wangjialei.xyz/posts/%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E4%BD%86%E5%AE%8C%E6%95%B4%E7%9A%84springboot%E9%A1%B9%E7%9B%AE/" />
+
+
+
+<meta property="og:description" content="一个简单但完整的 spring boot web 项目应该包括哪些部分" />
+
+
+
+<meta property="og:locale" content="zh" />
+
+
+
+
+<meta property="og:site_name" content="LoneStar&#39;s blog" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2021-05-26T19:13:52&#43;08:00" />
+
+
+<meta property="article:modified_time" content="2021-05-26T19:13:52&#43;08:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+<meta property="article:tag" content="Spring Boot" />
+
+
+
+
+
+<meta property="og:see_also" content="https://blog.wangjialei.xyz/posts/%E8%AE%B0%E5%BD%95%E4%B8%80%E6%AC%A1%E5%81%9Aweb%E5%BC%80%E5%8F%91%E7%9A%84%E7%BB%8F%E5%8E%86/" />
+
+
+
+<body class="flex flex-col min-h-screen">
+  <header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
+    <div class="w-full max-w-screen-xl mx-auto"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="/" class="mr-6 text-primary-text text-xl font-bold">LoneStar&#39;s blog</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  selected-menu-item  mr-4">文章</a>
+            <a href="/categories/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">分类</a>
+            <a href="/tags/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">标签</a>
+            <a href="/series/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">系列</a>
+            <a href="/#about" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">关于</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">浅色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">深色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">自动</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+</div>
+  </header>
+  <main class="flex-grow pt-16">
+    <div class="pl-scrollbar">
+      <div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
+
+
+<div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12">
+    <div
+        class="col-span-2  lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
+        <h1 class="font-bold text-3xl text-primary-text">一个简单但完整的 spring boot 项目</h1>
+        <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2021-05-26</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>4分钟阅读时长</span>
+    </div>
+    
+    
+    <div class="mr-6 my-2">
+        <i class="fas fa-folder mr-1"></i>
+        
+        <a href="https://blog.wangjialei.xyz/categories/%E8%BF%87%E7%A8%8B%E8%AE%B0%E5%BD%95/" class="hover:text-eureka">过程记录</a>
+        
+    </div>
+    
+
+    
+</div>
+        
+        
+        
+        <div class="my-4">
+            <img src="https://mypic-1305118058.cos.ap-hongkong.myqcloud.com/img/2021-05-26.jpg" class="w-full" alt="Featured Image">
+        </div>
+        
+
+        <div class="content">
+            <p>还记得我之前留的坑吧，想想还是今天把它填了吧，可能再过几天就又忘了。</p>
+<p>我就按照我目前学习到的内容写一篇教程，关于创建一个 spring boot web 项目的全过程。</p>
+<hr>
+<h2 id="新建数据库">新建数据库</h2>
+<p>打开MySQL命令行，输入命令新建数据库</p>
+<pre><code class="language-shell">create database demo00;
+</code></pre>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210526200440763.png" alt="image-20210526200440763"></p>
+<p>我这里就用了和项目相同的数据库名。</p>
+<h2 id="创建-springboot-项目">创建 springboot 项目</h2>
+<h3 id="导入依赖">导入依赖</h3>
+<p>打开 IDEA，选择 <code>Spring Initializr</code> ，选择工程路径、名称等等。</p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210526192044910.png" alt="image-20210526192044910"></p>
+<p>这里先只勾选 <code>Spring Web</code> 依赖，其他依赖可以通过 Maven 导入。</p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210526192111577.png" alt="image-20210526192111577"></p>
+<p>就可以进入到项目中，修改Maven路径，改为之前配置的配置文件和本地仓库位置。</p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210526193257539.png" alt="image-20210526193257539"></p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210526193314443.png" alt="image-20210526193314443"></p>
+<p>修改 <code>pom.xml</code> 文件导入相应依赖。</p>
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot; 					
+         xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+         xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 				
+                             https://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;
+    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+    &lt;parent&gt;
+        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+        &lt;artifactId&gt;spring-boot-starter-parent&lt;/artifactId&gt;
+        &lt;version&gt;2.5.0&lt;/version&gt;
+        &lt;relativePath/&gt; &lt;!-- lookup parent from repository --&gt;
+    &lt;/parent&gt;
+    &lt;groupId&gt;com.wjl&lt;/groupId&gt;
+    &lt;artifactId&gt;demo00&lt;/artifactId&gt;
+    &lt;version&gt;0.0.1-SNAPSHOT&lt;/version&gt;
+    &lt;name&gt;demo00&lt;/name&gt;
+    &lt;description&gt;Demo project for Spring Boot&lt;/description&gt;
+    &lt;properties&gt;
+        &lt;java.version&gt;16&lt;/java.version&gt;
+    &lt;/properties&gt;
+    &lt;dependencies&gt;
+        &lt;!--druid--&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;com.alibaba&lt;/groupId&gt;
+            &lt;artifactId&gt;druid&lt;/artifactId&gt;
+            &lt;version&gt;1.2.4&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;!--pageable--&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;com.github.pagehelper&lt;/groupId&gt;
+            &lt;artifactId&gt;pagehelper-spring-boot-starter&lt;/artifactId&gt;
+            &lt;version&gt;1.3.0&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;!--jdbc--&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-starter-jdbc&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+        &lt;!--thymeleaf--&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-starter-thymeleaf&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+        &lt;!--web--&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+        &lt;!--mybatis--&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.mybatis.spring.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;mybatis-spring-boot-starter&lt;/artifactId&gt;
+            &lt;version&gt;2.1.4&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;!--mysql--&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;mysql&lt;/groupId&gt;
+            &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;
+            &lt;scope&gt;runtime&lt;/scope&gt;
+        &lt;/dependency&gt;
+        &lt;!--lombok--&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.projectlombok&lt;/groupId&gt;
+            &lt;artifactId&gt;lombok&lt;/artifactId&gt;
+            &lt;optional&gt;true&lt;/optional&gt;
+        &lt;/dependency&gt;
+        &lt;!--test--&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-boot-starter-test&lt;/artifactId&gt;
+            &lt;scope&gt;test&lt;/scope&gt;
+        &lt;/dependency&gt;
+    &lt;/dependencies&gt;
+    &lt;build&gt;
+        &lt;plugins&gt;
+            &lt;plugin&gt;
+                &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+                &lt;artifactId&gt;spring-boot-maven-plugin&lt;/artifactId&gt;
+                &lt;version&gt;2.4.5&lt;/version&gt;
+            &lt;/plugin&gt;
+        &lt;/plugins&gt;
+    &lt;/build&gt;
+&lt;/project&gt;
+</code></pre>
+<p>等待依赖加载完毕。</p>
+<h3 id="编写配置文件">编写配置文件</h3>
+<p>把 <code>src-main-resources</code> 下的 <code>application.properity</code> 改成 <code>application.yml</code></p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210526200655472.png" alt="image-20210526200655472"></p>
+<p>写入配置信息。</p>
+<pre><code class="language-yaml">#服务器端口
+server:
+  port: 8080
+#数据库配置
+spring:
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/demo00?useUnicode=true&amp;characterEncoding=utf-8&amp;useSSL=false&amp;serverTimezone=GMT&amp;allowPublicKeyRetrieval=true
+    username: root
+    password: 123456
+  thymeleaf:
+    cache: false
+#mybatis配置文件位置
+mybatis:
+  type-aliases-package: com.wjl.model
+  mapper-locations: classpath:/mybatis/*.xml
+#打印日志
+logging:
+  file:
+    name: log/log.log
+  level:
+    root: info
+    wjl: debug
+</code></pre>
+<p>在项目目录下新建 <code>log</code> 文件夹，<code>File-Project Structure-Modules</code></p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210526201053073.png" alt="image-20210526201053073"></p>
+<h3 id="连接数据库">连接数据库</h3>
+<p>打开右边的 <code>Database</code></p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210526201215747.png" alt="image-20210526201215747"></p>
+<p>选择MySQL数据库</p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210526201254416.png" alt="image-20210526201254416"></p>
+<p>输入用户名密码和数据库名称，点击 <code>Test Connection</code> 会报错，那是因为新版本的MySQL必须要设置一下时区。</p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210526201442958.png" alt="image-20210526201442958"></p>
+<p>把时区设为 <code>UTC</code> ，再测试连接，即可成功。</p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210526201506988.png" alt="image-20210526201506988"></p>
+<p>我喜欢在 IDEA 里用 sql 脚本的方式创建数据表。</p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210526202035311.png" alt="image-20210526202035311"></p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210526202055578.png" alt="image-20210526202055578"></p>
+<p>这样我们的数据库就创建完成了。</p>
+<h3 id="实现-mvc-三层模型">实现 MVC 三层模型</h3>
+<h4 id="建包">建包</h4>
+<p>右键 <code>com.wjl</code> ，选择 <code>New-Package</code></p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210526202329731.png" alt="image-20210526202329731"></p>
+<p>新建 model 层、 mapper层、controller层</p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210526203210666.png" alt="image-20210526203210666"></p>
+<h4 id="创建实体类">创建实体类</h4>
+<p>根据数据库的两个表创建对应的实体类，使用 <code>lombok</code> 注解自动实现 <code>Construction</code>、<code>getter() and setter()</code> 方法等。</p>
+<pre><code class="language-java">// User.java
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class User {
+    private Integer id;
+    private String username;
+    private String password;
+    private String token;
+}
+</code></pre>
+<pre><code class="language-java">// Comment.java
+import java.util.Date;
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+public class Comment {
+    private Integer id;
+    private String username;
+    private String comment;
+    private Date time;
+}
+</code></pre>
+<p>注意这里导入的包是 <code>java.util.Date</code> ，不是数据库的那个包。</p>
+<h4 id="实现-mapper-层">实现 mapper 层</h4>
+<p>因为这个项目很简单，这里就直接通过注解操作数据库。</p>
+<p>创建 <code>UserMapper</code> 、 <code>CommentMapper</code> 接口类。</p>
+<pre><code class="language-java">// UserMapper.java
+@Mapper
+public interface UserMapper {
+    // 注册成功，插入一条数据
+    @Insert(&quot;insert into user(username,password,token) values (#{username},#{password},#{token})&quot;)
+    void add(User user);
+    // 检验注册的username是否已经存在数据库中，传进username进行与数据库比较
+    @Select(&quot;select * from user where username = #{username}&quot;)
+    User findByUsername(@Param(&quot;username&quot;) String username);
+    //登录用：检验账号密码是否正确
+    @Select(&quot;select * from user where username = #{username} and password = #{password}&quot;)
+    User findByUsername_login(@Param(&quot;username&quot;) String username,
+                              @Param(&quot;password&quot;) String password);
+    @Select(&quot;select * from user where token = #{token}&quot;)
+    User findByToken(@Param(&quot;token&quot;) String token);
+    @Select(&quot;select username from user where username=#{username}&quot;)
+    List&lt;String&gt; exitUsername();
+    @Select(&quot;select * from user where username = #{username}&quot;)
+    User username_to_setToken(@Param(&quot;username&quot;) String username);
+} 
+</code></pre>
+<pre><code class="language-java">// CommentMapper.java
+@Mapper
+@Repository
+public interface CommentMapper {
+    // 发布留言，插入数据库
+    @Insert(&quot;insert into comment (username, comment, time) values (#{username}, #{comment}, #{time})&quot;)
+    void addComment(Comment comment);
+    // 寻找username,为“发布留言”功能提供 username
+    @Select(&quot;select * from user where username = #{username}&quot;)
+    User findByUsername(@Param(&quot;username&quot;) String username);
+    // 展示所有留言
+    @Select(&quot;select * from comment&quot;)
+    List&lt;Comment&gt; showAllComment();
+    @Select(&quot;select comment from comment&quot;)
+    List&lt;String&gt; listAllComment();
+}
+</code></pre>
+<h4 id="实现控制层">实现控制层</h4>
+<p>因为我们有三个不同页面，就对应创建三个控制器 <code>LoginController</code> 、 <code>RegisterController</code> 、 <code>IndexController</code></p>
+<pre><code class="language-java">// LoginController.java
+@Controller
+public class IndexController {
+    @Autowired
+    private UserMapper userMapper;
+    @GetMapping(&quot;/&quot;)
+    public String index() {
+        return &quot;/login&quot;;
+    }
+    @GetMapping(&quot;/toLogin&quot;)
+    public String toLogin() {
+        return &quot;/login&quot;;
+    }
+    @PostMapping(&quot;/loginUser&quot;)
+    public String login(
+            @Param(&quot;username&quot;) String username,
+            @Param(&quot;password&quot;) String password,
+            HttpServletResponse response,
+            Map&lt;String, Object&gt; map
+    ) {
+        User user = new User();
+        user.setUsername(username);
+        user.setPassword(password);
+        User check_login = userMapper.findByUsername_login(username, password);
+        if (check_login != null) {
+            User user_token = userMapper.username_to_setToken(username);
+            String token = user_token.getToken();
+            response.addCookie(new Cookie(&quot;token&quot;, token));
+            return &quot;redirect:/homePage&quot;;
+        } else {
+            map.put(&quot;msg&quot;, &quot;用户名或密码错误，请重新登录&quot;);
+            return &quot;/login&quot;;
+        }
+    }
+}
+</code></pre>
+<pre><code class="language-java">// RegisterController.java
+@Controllerpublic 
+class RegisterController {    
+    @Autowired    
+    private UserMapper userMapper;
+    
+    @GetMapping(&quot;/toRegister&quot;)    
+    public String toRegister() {        
+        return &quot;register&quot;;    
+    }    
+    
+    @RequestMapping(&quot;/registerUser&quot;)    
+    public String register(User user, Map&lt;String, Object&gt; map) {        
+        user.setToken(UUID.randomUUID().toString());        
+        List&lt;String&gt; userList = userMapper.exitUsername();        
+        if (userList.contains(user.getUsername())) {            
+            map.put(&quot;msg&quot;, &quot;用户名[ &quot;+user.getUsername()+&quot; ]&quot;+&quot;已存在, 请重新注册&quot;);
+            return &quot;/register&quot;; 
+        } else {            
+            User userCheck = userMapper.findByUsername(user.getUsername());
+            if (userCheck == null) {                
+                userMapper.add(user);                
+                return &quot;/login&quot;;            
+            } else {                
+                return &quot;redirect:/homePage&quot;;            
+            }        
+        }    
+    }
+}
+</code></pre>
+<pre><code class="language-java">// IndexController.java
+@Controllerpublic 
+class IndexController {    
+    @Autowired    
+    private UserMapper userMapper;    
+    
+    @Autowired    
+    private CommentMapper commentMapper;    
+
+    @ModelAttribute    
+    Comment setComment() {        
+        return new Comment();    
+    }    
+    
+    @GetMapping(&quot;/homePage&quot;)    
+    public String index(Model model) {        
+        Comment comment = new Comment();        
+        model.addAttribute(&quot;list&quot;, commentMapper.showAllComment());        
+        return &quot;index&quot;;    
+    }    
+    
+    @PostMapping(&quot;/homePage&quot;)    
+    public String listCommentByName(Model model) {        
+        model.addAttribute(&quot;list&quot;, commentMapper.showAllComment());        
+        return &quot;index&quot;;    
+    }    
+    
+    @GetMapping(&quot;/update&quot;)    
+    public String toUpdate(Model model) {        
+        Comment comment = new Comment();        
+        model.addAttribute(&quot;comment&quot;, comment);        
+        return &quot;index&quot;;    
+    }    
+    
+    @PostMapping(&quot;/add&quot;)    
+    public String addComment(Comment comment, HttpServletRequest request, RedirectAttributes attributes) {        
+        // 通过 token 获取用户名        
+        User user = new User();        
+        Cookie[] cookies = request.getCookies();        
+        for (Cookie cookie : cookies) {            
+            if (cookie.getName().equals(&quot;token&quot;)){                
+                String token = cookie.getValue();                
+                user = userMapper.findByToken(token);                
+                break;            
+            }        
+        }        
+        comment.setUsername(user.getUsername());        
+        Date date = new Date(System.currentTimeMillis());        
+        comment.setTime(date);        
+        commentMapper.addComment(comment);        
+        return &quot;redirect:/homePage#comment&quot;;    
+    }
+}
+</code></pre>
+<hr>
+<p>接下来就是前端的活了。。。</p>
+
+        </div>
+        
+        <div class="my-4">
+    
+    <a href="https://blog.wangjialei.xyz/tags/spring-boot/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#Spring Boot</a>
+    
+</div>
+        
+        
+        
+
+
+        
+        
+        
+        
+<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
+    <div>
+        
+        <span class="block font-bold">上一页</span>
+        <a href="https://blog.wangjialei.xyz/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-00-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E6%A6%82%E8%BF%B0/" class="block">计算机网络 00 计算机网络概述</a>
+        
+    </div>
+    <div class="md:text-right mt-4 md:mt-0">
+        
+        <span class="block font-bold">下一页</span>
+        <a href="https://blog.wangjialei.xyz/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%93%E4%B8%9A%E5%AD%A6%E7%94%9F%E7%9A%84%E7%AC%94%E8%AE%B0%E6%9C%AC%E9%85%8D%E7%BD%AE/" class="block">计算机专业学生的笔记本配置</a>
+        
+    </div>
+</div>
+
+        
+
+
+
+    </div>
+    
+    <div class="col-span-2">
+        
+        
+        <div class="sticky top-16 z-10 hidden lg:block px-6 py-4  bg-primary-bg ">
+    <span class="text-lg font-semibold">本页内容</span>
+</div>
+<div class="sticky-toc hidden lg:block px-6 pb-6 ">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#新建数据库">新建数据库</a></li>
+    <li><a href="#创建-springboot-项目">创建 springboot 项目</a>
+      <ul>
+        <li><a href="#导入依赖">导入依赖</a></li>
+        <li><a href="#编写配置文件">编写配置文件</a></li>
+        <li><a href="#连接数据库">连接数据库</a></li>
+        <li><a href="#实现-mvc-三层模型">实现 MVC 三层模型</a>
+          <ul>
+            <li><a href="#建包">建包</a></li>
+            <li><a href="#创建实体类">创建实体类</a></li>
+            <li><a href="#实现-mapper-层">实现 mapper 层</a></li>
+            <li><a href="#实现控制层">实现控制层</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        enableStickyToc();
+    });
+</script>
+        
+    </div>
+    
+
+    
+    
+    <div
+        class="col-span-2  lg:col-span-6 bg-secondary-bg rounded p-6">
+        <h2 class="text-lg font-semibold mb-4">相关</h2>
+        <div class="content">
+            
+            <a href="https://blog.wangjialei.xyz/posts/%E8%AE%B0%E5%BD%95%E4%B8%80%E6%AC%A1%E5%81%9Aweb%E5%BC%80%E5%8F%91%E7%9A%84%E7%BB%8F%E5%8E%86/">记录一次做web开发的经历</a>
+            <br />
+            
+        </div>
+    </div>
+    
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+        hljs.initHighlightingOnLoad();
+    })
+</script>
+
+      </div>
+    </div>
+    
+  </main>
+  <footer class="pl-scrollbar">
+    <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">&copy; 2021 <a href="https://blog.wangjialei.xyz/">Wang Jialei</a>
+ &middot;  Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div></div>
+  </footer>
+</body>
+
+</html>

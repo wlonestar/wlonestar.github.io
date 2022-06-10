@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang='zh' ><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+
+<title>基于Easyx图形库的C语言游戏开发 | LoneStar&#39;s blog</title>
+
+<meta name="generator" content="Hugo Eureka 0.8.4" />
+<link rel="stylesheet" href="https://blog.wangjialei.xyz/css/eureka.min.css">
+<script defer src="https://blog.wangjialei.xyz/js/eureka.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/styles/stackoverflow-light.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/highlight.min.js"
+   crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/languages/light.min.js"
+     crossorigin></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js"
+   integrity="sha256-uNYoXefWRqv&#43;PsIF/OflNmwtKM4lStn9yrz2gVl6ymo="  crossorigin></script>
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+   integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3&#43;Aro6EYUG4&#43;cU&#43;KJWu/X"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" 
+  integrity="sha384-g7c&#43;Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI&#43;sEnkvrMWph2EDg4"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+   integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC&#43;Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/mermaid@8.9.2/dist/mermaid.min.js" 
+  integrity="sha256-Zmpaaj&#43;GXFsPF5WdPArSrnW3b30dovldeKsW00xBVwE="  crossorigin></script>
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="https://blog.wangjialei.xyz/images/favicon_huce974d41c22b18f52c9ea90a63a4b2a6_21741_32x32_fill_box_center_3.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://blog.wangjialei.xyz/images/favicon_huce974d41c22b18f52c9ea90a63a4b2a6_21741_180x180_fill_box_center_3.png">
+
+<meta name="description"
+  content="大一C语言大作业——“simple-lol”游戏设计">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"文章",
+      "item":"https://blog.wangjialei.xyz/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"基于Easyx图形库的C语言游戏开发",
+      "item":"https://blog.wangjialei.xyz/posts/%E5%9F%BA%E4%BA%8Eeasyx%E5%9B%BE%E5%BD%A2%E5%BA%93%E7%9A%84c%E8%AF%AD%E8%A8%80%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://blog.wangjialei.xyz/posts/%E5%9F%BA%E4%BA%8Eeasyx%E5%9B%BE%E5%BD%A2%E5%BA%93%E7%9A%84c%E8%AF%AD%E8%A8%80%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/"
+    },
+    "headline": "基于Easyx图形库的C语言游戏开发 | LoneStar\u0027s blog",
+    "image": "https://mypic-1305118058.cos.ap-hongkong.myqcloud.com/img/2021-02-27.jpg",
+    "datePublished": "2021-02-27T18:51:40+08:00",
+    "dateModified": "2021-02-27T18:51:40+08:00",
+    "wordCount":  77 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "lonestar",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://blog.wangjialei.xyz/images/favicon.png"
+        }
+        },
+    "description": "大一C语言大作业——“simple-lol”游戏设计"
+}
+</script><meta property="og:title" content="基于Easyx图形库的C语言游戏开发 | LoneStar&#39;s blog" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="https://blog.wangjialei.xyz/images/favicon.png">
+
+
+<meta property="og:url" content="https://blog.wangjialei.xyz/posts/%E5%9F%BA%E4%BA%8Eeasyx%E5%9B%BE%E5%BD%A2%E5%BA%93%E7%9A%84c%E8%AF%AD%E8%A8%80%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/" />
+
+
+
+<meta property="og:description" content="大一C语言大作业——“simple-lol”游戏设计" />
+
+
+
+<meta property="og:locale" content="zh" />
+
+
+
+
+<meta property="og:site_name" content="LoneStar&#39;s blog" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2021-02-27T18:51:40&#43;08:00" />
+
+
+<meta property="article:modified_time" content="2021-02-27T18:51:40&#43;08:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+<meta property="article:tag" content="C" />
+
+
+
+
+
+<body class="flex flex-col min-h-screen">
+  <header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
+    <div class="w-full max-w-screen-xl mx-auto"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="/" class="mr-6 text-primary-text text-xl font-bold">LoneStar&#39;s blog</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  selected-menu-item  mr-4">文章</a>
+            <a href="/categories/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">分类</a>
+            <a href="/tags/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">标签</a>
+            <a href="/series/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">系列</a>
+            <a href="/#about" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">关于</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">浅色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">深色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">自动</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+</div>
+  </header>
+  <main class="flex-grow pt-16">
+    <div class="pl-scrollbar">
+      <div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
+
+
+<div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12">
+    <div
+        class="col-span-2  lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
+        <h1 class="font-bold text-3xl text-primary-text">基于Easyx图形库的C语言游戏开发</h1>
+        <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2021-02-27</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>1分钟阅读时长</span>
+    </div>
+    
+    
+    <div class="mr-6 my-2">
+        <i class="fas fa-folder mr-1"></i>
+        
+        <a href="https://blog.wangjialei.xyz/categories/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/" class="hover:text-eureka">开源项目</a>
+        
+    </div>
+    
+
+    
+</div>
+        
+        
+        
+        <div class="my-4">
+            <img src="https://mypic-1305118058.cos.ap-hongkong.myqcloud.com/img/2021-02-27.jpg" class="w-full" alt="Featured Image">
+        </div>
+        
+
+        <div class="content">
+            <p>项目地址  <a href="https://github.com/wjl-lab/simple-lol">wjl-lab/simple-lol</a></p>
+<p>游戏演示视频已上传B站  <a href="https://www.bilibili.com/video/BV1Cy4y127Th">BV1Cy4y127Th</a></p>
+<h2 id="设计思路">设计思路</h2>
+<p>本游戏在老师提供的代码框架下，通过调用easyx图形库、Windows API 以及查阅资料获得的能替代easyx的函数实现相应效果。</p>
+<p>设计思路如下：</p>
+<ol>
+<li>
+<p>实现人物行走</p>
+</li>
+<li>
+<p>随机生成小怪，从画面外朝向人物移动</p>
+</li>
+<li>
+<p>增加攻击、闪现及技能触发效果</p>
+</li>
+<li>
+<p>增加第二种模式</p>
+</li>
+<li>
+<p>添加游戏界面，提升玩家体验度。</p>
+</li>
+</ol>
+<h2 id="功能描述">功能描述</h2>
+<p>游戏核心就是玩家通过键盘控制人物移动、释放技能，杀死尽可能多的小怪或者躲避尽可能多的火球，打破原来的纪录。分部分介绍如下：</p>
+<h3 id="定义游戏配置数据初始函数">定义游戏配置数据、初始函数</h3>
+<p>此部分宏定义了不需要修改的常量、全局变量、鼠标和图片对象；因为游戏设计重新开始，所以全局变量需要重新初始化</p>
+<h3 id="导入去除png图片透明部分的函数精确到微秒的延时类">导入去除png图片透明部分的函数、精确到微秒的延时类</h3>
+<p>此部分内容能够提升游戏体验感，非常重要。</p>
+<h3 id="游戏加载动画类">游戏加载动画类</h3>
+<p>由于easyx图形库的缺陷，再加上我们的图片素材很多，我们只好通过增加加载动画来解决游戏一开始会黑屏加载不出来的问题。</p>
+<h3 id="定义开始界面对象">定义开始界面对象</h3>
+<p>通过鼠标点击打开相应的界面或者对应的游戏画面，为了给玩家更好的体验，增加了鼠标移动到相应的按键范围内按键反色，鼠标左键按下去会播放触发音效。</p>
+<h3 id="定义游戏结束界面对象">定义游戏结束界面对象</h3>
+<p>实现方式同开始界面，玩家控制的人物死亡后，进入游戏结束界面，显示相应的得分情况，增加了返回菜单，通过点击后重新进入主函数让玩家能持续完下去。</p>
+<h3 id="定义游戏暂停界面对象">定义游戏暂停界面对象</h3>
+<p>为防止玩家因为临时有事不能完，提供暂停选项，让玩家处理完手头紧急的事后还能继续游戏。</p>
+<h3 id="定义人物和子弹对象">定义人物和子弹对象</h3>
+<p>这是本游戏的核心，整个游戏都是围绕着英雄展开的。</p>
+<h4 id="动态行走">动态行走：</h4>
+<p>通过4个方向、每个方向15张图片的连续放出得到人物的</p>
+<p>动态行走的效果；调用Windows API 实现连按键盘键连续行走效果。</p>
+<h4 id="释放技能">释放技能：</h4>
+<p>射击：按下对应的按键后从人物所在位置释放一个与人物头朝下相同的子弹，匀速移动相应距离，如果击中小怪，小怪和子弹消失，否则子弹超过射程也消失；闪现：触发闪现技能后，向触发时头朝向位置移动对应距离，在原来位置放一张效果图，实现释放技能效果。</p>
+<h4 id="显示技能冷却时间条">显示技能冷却时间条：</h4>
+<p>射击设置了1秒的冷却时间，闪现设置了10秒的冷却时间，触发技能后时间条归零，从零开始逐渐增加，为红色，时间条满了后，变绿色，表示可用。</p>
+<h3 id="定义敌人对象">定义敌人对象</h3>
+<p>先让小怪在画面外生成，再实时计算人物与小怪的横纵坐标之差，利用三角函数的关系让小怪朝向人物移动。由于随机函数生成的是每次固定的随机序列，通过加入srand(time(NULL))，让程序获取系统时间，得到随机数种子，使每次生成的小怪位置都不同。游戏中共有三种小怪，但并没有使用对象数组，因为小怪的8个方向以及每种小怪的大小都有很大区别，在与人物的接触判定时要分开处理，这也是比较繁琐的地方。</p>
+<h3 id="定义火球对象">定义火球对象：</h3>
+<p>与敌人对象类似，不同的是，在画面外生成后不再改变方向，而且火球的移动速度也比小怪快，给游戏增加了挑战性。</p>
+<h2 id="下载方式">下载方式</h2>
+<h3 id="必需的环境配置">必需的环境配置</h3>
+<ol>
+<li>
+<p>vs2019	<a href="https://visualstudio.microsoft.com/zh-hans/vs/">https://visualstudio.microsoft.com/zh-hans/vs/</a></p>
+<p>点击链接选择 Community 2019</p>
+<p>下载完在开始菜单找到 Visual Studio Installer</p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/20210226130239.jpg" alt="vs2"></p>
+<p>打开 vs installer，选择使用C++的桌面开发</p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/20210226130247.jpg" alt="vs3"></p>
+<p>等待安装完毕，时间比较长</p>
+</li>
+<li>
+<p>easyx 图形库    <a href="https://easyx.cn/">https://easyx.cn/</a></p>
+<p>下载完双击打开安装程序</p>
+<p>vs2019 安装好了会有 EasyX 文档 和 Visual C++ 2019 两个选项，点击即可安装</p>
+</li>
+</ol>
+<h3 id="运行方法">运行方法</h3>
+<p>克隆仓库后，找到 Debug 目录下的 exe 可执行文件，双击即可运行</p>
+
+        </div>
+        
+        <div class="my-4">
+    
+    <a href="https://blog.wangjialei.xyz/tags/c/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#C</a>
+    
+</div>
+        
+        
+        
+
+
+        
+        
+        
+        
+<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
+    <div>
+        
+        <span class="block font-bold">上一页</span>
+        <a href="https://blog.wangjialei.xyz/posts/linux-03-linux%E6%96%87%E4%BB%B6%E4%B8%8E%E7%9B%AE%E5%BD%95%E7%AE%A1%E7%90%86/" class="block">Linux 03 Linux文件与目录管理</a>
+        
+    </div>
+    <div class="md:text-right mt-4 md:mt-0">
+        
+        <span class="block font-bold">下一页</span>
+        <a href="https://blog.wangjialei.xyz/posts/linux-02-linux%E7%9A%84%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90%E4%B8%8E%E7%9B%AE%E5%BD%95%E9%85%8D%E7%BD%AE/" class="block">Linux 02 Linux的文件权限与目录配置</a>
+        
+    </div>
+</div>
+
+        
+
+
+
+    </div>
+    
+    <div class="col-span-2">
+        
+        
+        <div class="sticky top-16 z-10 hidden lg:block px-6 py-4  bg-primary-bg ">
+    <span class="text-lg font-semibold">本页内容</span>
+</div>
+<div class="sticky-toc hidden lg:block px-6 pb-6 ">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#设计思路">设计思路</a></li>
+    <li><a href="#功能描述">功能描述</a>
+      <ul>
+        <li><a href="#定义游戏配置数据初始函数">定义游戏配置数据、初始函数</a></li>
+        <li><a href="#导入去除png图片透明部分的函数精确到微秒的延时类">导入去除png图片透明部分的函数、精确到微秒的延时类</a></li>
+        <li><a href="#游戏加载动画类">游戏加载动画类</a></li>
+        <li><a href="#定义开始界面对象">定义开始界面对象</a></li>
+        <li><a href="#定义游戏结束界面对象">定义游戏结束界面对象</a></li>
+        <li><a href="#定义游戏暂停界面对象">定义游戏暂停界面对象</a></li>
+        <li><a href="#定义人物和子弹对象">定义人物和子弹对象</a>
+          <ul>
+            <li><a href="#动态行走">动态行走：</a></li>
+            <li><a href="#释放技能">释放技能：</a></li>
+            <li><a href="#显示技能冷却时间条">显示技能冷却时间条：</a></li>
+          </ul>
+        </li>
+        <li><a href="#定义敌人对象">定义敌人对象</a></li>
+        <li><a href="#定义火球对象">定义火球对象：</a></li>
+      </ul>
+    </li>
+    <li><a href="#下载方式">下载方式</a>
+      <ul>
+        <li><a href="#必需的环境配置">必需的环境配置</a></li>
+        <li><a href="#运行方法">运行方法</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        enableStickyToc();
+    });
+</script>
+        
+    </div>
+    
+
+    
+    
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+        hljs.initHighlightingOnLoad();
+    })
+</script>
+
+      </div>
+    </div>
+    
+  </main>
+  <footer class="pl-scrollbar">
+    <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">&copy; 2021 <a href="https://blog.wangjialei.xyz/">Wang Jialei</a>
+ &middot;  Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div></div>
+  </footer>
+</body>
+
+</html>

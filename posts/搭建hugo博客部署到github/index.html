@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang='zh' ><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+
+<title>搭建hugo博客部署到Github | LoneStar&#39;s blog</title>
+
+<meta name="generator" content="Hugo Eureka 0.8.4" />
+<link rel="stylesheet" href="https://blog.wangjialei.xyz/css/eureka.min.css">
+<script defer src="https://blog.wangjialei.xyz/js/eureka.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/styles/stackoverflow-light.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/highlight.min.js"
+   crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/languages/light.min.js"
+     crossorigin></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js"
+   integrity="sha256-uNYoXefWRqv&#43;PsIF/OflNmwtKM4lStn9yrz2gVl6ymo="  crossorigin></script>
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+   integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3&#43;Aro6EYUG4&#43;cU&#43;KJWu/X"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" 
+  integrity="sha384-g7c&#43;Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI&#43;sEnkvrMWph2EDg4"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+   integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC&#43;Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/mermaid@8.9.2/dist/mermaid.min.js" 
+  integrity="sha256-Zmpaaj&#43;GXFsPF5WdPArSrnW3b30dovldeKsW00xBVwE="  crossorigin></script>
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="https://blog.wangjialei.xyz/images/favicon_huce974d41c22b18f52c9ea90a63a4b2a6_21741_32x32_fill_box_center_3.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://blog.wangjialei.xyz/images/favicon_huce974d41c22b18f52c9ea90a63a4b2a6_21741_180x180_fill_box_center_3.png">
+
+<meta name="description"
+  content="hugo 博客搭建">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"文章",
+      "item":"https://blog.wangjialei.xyz/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"搭建hugo博客部署到Github",
+      "item":"https://blog.wangjialei.xyz/posts/%E6%90%AD%E5%BB%BAhugo%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E5%88%B0github/"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://blog.wangjialei.xyz/posts/%E6%90%AD%E5%BB%BAhugo%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E5%88%B0github/"
+    },
+    "headline": "搭建hugo博客部署到Github | LoneStar\u0027s blog",
+    "image": "https://mypic-1305118058.cos.ap-hongkong.myqcloud.com/img/2021-02-24.jpg",
+    "datePublished": "2021-02-24T13:17:13+08:00",
+    "dateModified": "2021-02-24T13:17:13+08:00",
+    "wordCount":  165 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "lonestar",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://blog.wangjialei.xyz/images/favicon.png"
+        }
+        },
+    "description": "hugo 博客搭建"
+}
+</script><meta property="og:title" content="搭建hugo博客部署到Github | LoneStar&#39;s blog" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="https://blog.wangjialei.xyz/images/favicon.png">
+
+
+<meta property="og:url" content="https://blog.wangjialei.xyz/posts/%E6%90%AD%E5%BB%BAhugo%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E5%88%B0github/" />
+
+
+
+<meta property="og:description" content="hugo 博客搭建" />
+
+
+
+<meta property="og:locale" content="zh" />
+
+
+
+
+<meta property="og:site_name" content="LoneStar&#39;s blog" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2021-02-24T13:17:13&#43;08:00" />
+
+
+<meta property="article:modified_time" content="2021-02-24T13:17:13&#43;08:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+<meta property="article:tag" content="hugo" />
+
+<meta property="article:tag" content="GitHub" />
+
+
+
+
+
+<body class="flex flex-col min-h-screen">
+  <header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
+    <div class="w-full max-w-screen-xl mx-auto"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="/" class="mr-6 text-primary-text text-xl font-bold">LoneStar&#39;s blog</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  selected-menu-item  mr-4">文章</a>
+            <a href="/categories/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">分类</a>
+            <a href="/tags/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">标签</a>
+            <a href="/series/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">系列</a>
+            <a href="/#about" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">关于</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">浅色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">深色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">自动</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+</div>
+  </header>
+  <main class="flex-grow pt-16">
+    <div class="pl-scrollbar">
+      <div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
+
+
+<div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12">
+    <div
+        class="col-span-2  lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
+        <h1 class="font-bold text-3xl text-primary-text">搭建hugo博客部署到Github</h1>
+        <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2021-02-24</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>1分钟阅读时长</span>
+    </div>
+    
+    
+    <div class="mr-6 my-2">
+        <i class="fas fa-folder mr-1"></i>
+        
+        <a href="https://blog.wangjialei.xyz/categories/%E8%BF%87%E7%A8%8B%E8%AE%B0%E5%BD%95/" class="hover:text-eureka">过程记录</a>
+        
+    </div>
+    
+
+    
+</div>
+        
+        
+        
+        <div class="my-4">
+            <img src="https://mypic-1305118058.cos.ap-hongkong.myqcloud.com/img/2021-02-24.jpg" class="w-full" alt="Featured Image">
+        </div>
+        
+
+        <div class="content">
+            <h2 id="前提">前提</h2>
+<ol>
+<li>
+<p>一定要配置好git，具体教程见 <a href="https://wjl-lab.github.io/2021/02/windows%E4%B8%8B%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E5%88%B0github/">windows下搭建hexo博客部署到github</a></p>
+</li>
+<li>
+<p>推荐在Microsoft Store安装Windows Terminal，方便后续操作</p>
+</li>
+</ol>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210310082338604.png" alt="image-20210310082338604"></p>
+<h2 id="安装">安装</h2>
+<ol>
+<li>
+<p>下载：去GitHub主页下载  <a href="https://github.com/gohugoio/hugo/releases">https://github.com/gohugoio/hugo/releases</a></p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210310080453206.png" alt="image-20210310080453206"></p>
+<p>下载完解压得到</p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210310080916612.png" alt="image-20210310080916612"></p>
+</li>
+<li>
+<p>配置环境变量：将hugo.exe所在目录添加到系统环境变量Path下</p>
+<p>复制上方hugo.exe所在目录</p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210310080947304.png" alt="image-20210310080947304"></p>
+<p>打开编辑系统环境变量</p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210310081137997.png" alt="image-20210310081137997"></p>
+<p>选择环境变量</p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210310081215698.png" alt="image-20210310081215698"></p>
+<p>点击下方系统变量Path，选择编辑</p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210310081345063.png" alt="image-20210310081345063"></p>
+<p>点击右方新建，将复制的路径粘贴进去</p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210310081725299.png" alt="image-20210310081725299"></p>
+<p>然后一路点击确定退出</p>
+</li>
+<li>
+<p>验证：打开终端，输入</p>
+</li>
+</ol>
+<pre><code class="language-shell">hugo version
+</code></pre>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210310081923874.png" alt="image-20210310081923874"></p>
+<p>出现版本号则安装成功</p>
+<h2 id="启动">启动</h2>
+<ol>
+<li>
+<p>创建博客文件夹：在一个叫tmp的文件夹下创建博客</p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210310082757147.png" alt="image-20210310082757147"></p>
+<p>打开终端，切换到该目录下</p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210310082836219.png" alt="image-20210310082836219"></p>
+<p>输入命令创建博客</p>
+</li>
+</ol>
+<pre><code class="language-shell">hugo new site myblog
+</code></pre>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210310082903028.png" alt="image-20210310082903028"></p>
+<p>博客已经建好，这时在该路径下生成了一个名为myblog的目录</p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210310083024849.png" alt="image-20210310083024849"></p>
+<p>切换到myblog目录，进行后续操作</p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210310083214295.png" alt="image-20210310083214295"></p>
+<ol start="2">
+<li>
+<p>下载主题 <a href="https://themes.gohugo.io/">https://themes.gohugo.io/</a> ，按照主题要求安装，修改 config.toml</p>
+<p>以m10c主题为例</p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210310083616412.png" alt="image-20210310083616412"></p>
+<p>网页下方有提示</p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210310083659698.png" alt="image-20210310083659698"></p>
+<p>即在myblog目录下克隆仓库</p>
+</li>
+</ol>
+<pre><code class="language-shell">git clone git@github.com:vaga/hugo-theme-m10c.git themes/m10c
+</code></pre>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210310083926147.png" alt="image-20210310083926147"></p>
+<p>这时在myblog/themes目录下生成了m10c主题目录</p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210310084054141.png" alt="image-20210310084054141"></p>
+<p>接下来打开myblog目录下的config.toml文件</p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210310084147742.png" alt="image-20210310084147742"></p>
+<p>添加一行</p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210310084236183.png" alt="image-20210310084236183"></p>
+<ol start="3">
+<li>启动博客</li>
+</ol>
+<pre><code class="language-shell">hugo server --theme=m10c -D
+</code></pre>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210310084317807.png" alt="image-20210310084317807"></p>
+<p>现在在本机的1313端口启动了博客，在浏览器搜索框输入 <code>localhost:1313</code>即可看到生成的博客</p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210310084504979.png" alt="image-20210310084504979"></p>
+<p>按 Ctrl + C 终止博客</p>
+<ol start="4">
+<li>创建文章：输入命令</li>
+</ol>
+<pre><code class="language-shell">hugo new post/first.md
+</code></pre>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210310084739298.png" alt="image-20210310084739298"></p>
+<p>这时在 <code>myblog/content/post</code> 目录下有刚创建的文章</p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210310084807367.png" alt="image-20210310084807367"></p>
+<p>打开文件进行编辑</p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210310084928125.png" alt="image-20210310084928125"></p>
+<p>注意上面的 <code>draft</code> 表示文章是否为草稿，默认为 <code>true</code>，草稿不会出现在网站上</p>
+<p>再次输入命令</p>
+<pre><code class="language-shell">hugo server --theme=m10c -D
+</code></pre>
+<p>即可看到更改</p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210310085159036.png" alt="image-20210310085159036"></p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210310085210434.png" alt="image-20210310085210434"></p>
+<h2 id="部署">部署</h2>
+<ol>
+<li>
+<p>在Github上新建仓库 <code>username.github.io</code></p>
+<p>一定是 <code>username.github.io</code>，<code>username</code> 为你的 Github 用户名</p>
+</li>
+<li>
+<p>用 hugo 生成网页，托管到 GitHub 仓库</p>
+</li>
+</ol>
+<pre><code class="language-shell">hugo --theme=m10c --baseUrl=&quot;https://wjl-lab.github.io/&quot; -D
+</code></pre>
+<ol start="3">
+<li>将 <code>myblog/public</code> 目录 push 到刚创建仓库的 master 分支</li>
+</ol>
+<pre><code class="language-shell">cd public
+git init
+git add .
+git commit -m &quot;message&quot;
+git remote add origin https://github.com/wjl-lab/wjl-lab.github.io.git
+git push -u origin master
+</code></pre>
+<ol start="4">
+<li>访问网站 <a href="%60https://wjl-lab.github.io%60">wjl-lab.github.io</a></li>
+</ol>
+<h2 id="增加文章">增加文章</h2>
+<pre><code class="language-shell">hugo new post/xxx.md
+hugo --theme=m10c --baseUrl=&quot;https://wjl-lab(username).github.io/&quot; -D
+cd public
+git add .
+git commit -m &quot;message&quot;
+git push
+</code></pre>
+<ul>
+<li>
+<p>创建文章</p>
+</li>
+<li>
+<p>用 hugo 生成页面</p>
+</li>
+<li>
+<p>push 到 GitHub上 的远端仓库</p>
+</li>
+</ul>
+<h2 id="修改配置">修改配置</h2>
+<p>自己摸索。。。</p>
+<h2 id="解决图片问题">解决图片问题</h2>
+<ol>
+<li>图片放在 static 目录下</li>
+</ol>
+<pre><code>![](/images/images.jpg)
+</code></pre>
+<ol start="2">
+<li>图片放在博客文件名相同的文件夹中</li>
+</ol>
+<pre><code>![](images.jpg)
+</code></pre>
+<ol start="3">
+<li>利用 PicGo + Gitee 创建图床</li>
+</ol>
+<p>具体教程见 <a href="https://blog.wangjialei.xyz/p/picgo-gitee%E5%9B%BE%E5%BA%8A%E6%90%AD%E5%BB%BA/">picgo-gitee图床搭建</a></p>
+
+        </div>
+        
+        <div class="my-4">
+    
+    <a href="https://blog.wangjialei.xyz/tags/hugo/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#hugo</a>
+    
+    <a href="https://blog.wangjialei.xyz/tags/github/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#github</a>
+    
+</div>
+        
+        
+        
+
+
+        
+        
+        
+        
+<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
+    <div>
+        
+        <span class="block font-bold">上一页</span>
+        <a href="https://blog.wangjialei.xyz/posts/picgo&#43;gitee%E5%9B%BE%E5%BA%8A%E6%90%AD%E5%BB%BA/" class="block">PicGo&#43;Gitee图床搭建</a>
+        
+    </div>
+    <div class="md:text-right mt-4 md:mt-0">
+        
+        <span class="block font-bold">下一页</span>
+        <a href="https://blog.wangjialei.xyz/posts/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E5%88%B0github/" class="block">搭建hexo博客部署到Github</a>
+        
+    </div>
+</div>
+
+        
+
+
+
+    </div>
+    
+    <div class="col-span-2">
+        
+        
+        <div class="sticky top-16 z-10 hidden lg:block px-6 py-4  bg-primary-bg ">
+    <span class="text-lg font-semibold">本页内容</span>
+</div>
+<div class="sticky-toc hidden lg:block px-6 pb-6 ">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#前提">前提</a></li>
+    <li><a href="#安装">安装</a></li>
+    <li><a href="#启动">启动</a></li>
+    <li><a href="#部署">部署</a></li>
+    <li><a href="#增加文章">增加文章</a></li>
+    <li><a href="#修改配置">修改配置</a></li>
+    <li><a href="#解决图片问题">解决图片问题</a></li>
+  </ul>
+</nav>
+</div>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        enableStickyToc();
+    });
+</script>
+        
+    </div>
+    
+
+    
+    
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+        hljs.initHighlightingOnLoad();
+    })
+</script>
+
+      </div>
+    </div>
+    
+  </main>
+  <footer class="pl-scrollbar">
+    <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">&copy; 2021 <a href="https://blog.wangjialei.xyz/">Wang Jialei</a>
+ &middot;  Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div></div>
+  </footer>
+</body>
+
+</html>

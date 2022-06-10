@@ -1,0 +1,759 @@
+<!DOCTYPE html>
+<html lang='zh' ><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+
+<title>Linux 02 Linux的文件权限与目录配置 | LoneStar&#39;s blog</title>
+
+<meta name="generator" content="Hugo Eureka 0.8.4" />
+<link rel="stylesheet" href="https://blog.wangjialei.xyz/css/eureka.min.css">
+<script defer src="https://blog.wangjialei.xyz/js/eureka.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/styles/stackoverflow-light.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/highlight.min.js"
+   crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/languages/light.min.js"
+     crossorigin></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js"
+   integrity="sha256-uNYoXefWRqv&#43;PsIF/OflNmwtKM4lStn9yrz2gVl6ymo="  crossorigin></script>
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+   integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3&#43;Aro6EYUG4&#43;cU&#43;KJWu/X"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" 
+  integrity="sha384-g7c&#43;Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI&#43;sEnkvrMWph2EDg4"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+   integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC&#43;Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/mermaid@8.9.2/dist/mermaid.min.js" 
+  integrity="sha256-Zmpaaj&#43;GXFsPF5WdPArSrnW3b30dovldeKsW00xBVwE="  crossorigin></script>
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="https://blog.wangjialei.xyz/images/favicon_huce974d41c22b18f52c9ea90a63a4b2a6_21741_32x32_fill_box_center_3.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://blog.wangjialei.xyz/images/favicon_huce974d41c22b18f52c9ea90a63a4b2a6_21741_180x180_fill_box_center_3.png">
+
+<meta name="description"
+  content="Linux 的文件权限与目录配置">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"文章",
+      "item":"https://blog.wangjialei.xyz/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"Linux 02 Linux的文件权限与目录配置",
+      "item":"https://blog.wangjialei.xyz/posts/linux-02-linux%E7%9A%84%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90%E4%B8%8E%E7%9B%AE%E5%BD%95%E9%85%8D%E7%BD%AE/"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://blog.wangjialei.xyz/posts/linux-02-linux%E7%9A%84%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90%E4%B8%8E%E7%9B%AE%E5%BD%95%E9%85%8D%E7%BD%AE/"
+    },
+    "headline": "Linux 02 Linux的文件权限与目录配置 | LoneStar\u0027s blog",
+    "image": "https://mypic-1305118058.cos.ap-hongkong.myqcloud.com/img/linux.jpg",
+    "datePublished": "2021-02-26T16:58:15+08:00",
+    "dateModified": "2021-02-26T16:58:15+08:00",
+    "wordCount":  758 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "lonestar",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://blog.wangjialei.xyz/images/favicon.png"
+        }
+        },
+    "description": "Linux 的文件权限与目录配置"
+}
+</script><meta property="og:title" content="Linux 02 Linux的文件权限与目录配置 | LoneStar&#39;s blog" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="https://blog.wangjialei.xyz/images/favicon.png">
+
+
+<meta property="og:url" content="https://blog.wangjialei.xyz/posts/linux-02-linux%E7%9A%84%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90%E4%B8%8E%E7%9B%AE%E5%BD%95%E9%85%8D%E7%BD%AE/" />
+
+
+
+<meta property="og:description" content="Linux 的文件权限与目录配置" />
+
+
+
+<meta property="og:locale" content="zh" />
+
+
+
+
+<meta property="og:site_name" content="LoneStar&#39;s blog" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2021-02-26T16:58:15&#43;08:00" />
+
+
+<meta property="article:modified_time" content="2021-02-26T16:58:15&#43;08:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+<meta property="article:tag" content="Linux" />
+
+
+
+
+
+<meta property="og:see_also" content="https://blog.wangjialei.xyz/posts/linux-01-%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AE%89%E8%A3%85ubuntu20.04/" />
+
+
+
+<body class="flex flex-col min-h-screen">
+  <header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
+    <div class="w-full max-w-screen-xl mx-auto"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="/" class="mr-6 text-primary-text text-xl font-bold">LoneStar&#39;s blog</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  selected-menu-item  mr-4">文章</a>
+            <a href="/categories/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">分类</a>
+            <a href="/tags/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">标签</a>
+            <a href="/series/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">系列</a>
+            <a href="/#about" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">关于</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">浅色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">深色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">自动</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+</div>
+  </header>
+  <main class="flex-grow pt-16">
+    <div class="pl-scrollbar">
+      <div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
+
+
+<div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12">
+    <div
+        class="col-span-2  lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
+        <h1 class="font-bold text-3xl text-primary-text">Linux 02 Linux的文件权限与目录配置</h1>
+        <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2021-02-26</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>4分钟阅读时长</span>
+    </div>
+    
+    
+    <div class="mr-6 my-2">
+        <i class="fas fa-folder mr-1"></i>
+        
+        <a href="https://blog.wangjialei.xyz/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="hover:text-eureka">学习笔记</a>
+        
+    </div>
+    
+
+    
+</div>
+        
+        
+        
+        <div class="my-4">
+            <img src="https://mypic-1305118058.cos.ap-hongkong.myqcloud.com/img/linux.jpg" class="w-full" alt="Featured Image">
+        </div>
+        
+
+        <div class="content">
+            <hr>
+<p>Linux 最优秀的地方之一就在于他的多用户多任务环境。 而为了让各个使用者具有较保密的文件数据， 因此文件的权限管理就变的很重要了。 Linux 一般将文件可存取的身份分为三个类别， 分别是 owner/group/others， 且三种身份各有 read/write/execute 等权限。</p>
+<p>本节主要介绍在 Linux 下每个目录/文件代表的意义。</p>
+<hr>
+<h2 id="使用者与群组">使用者与群组</h2>
+<ul>
+<li>使用者</li>
+<li>群组</li>
+<li>非本群组外的其他人</li>
+<li>root 用户</li>
+</ul>
+<ol>
+<li>
+<p>文件拥有者：</p>
+<p>Linux 是个多用户多任务的系统， 常常会有多人同时使用这部主机来进行工作的情况发生， 为了考虑每个人的隐私权以及每个人喜好的工作环境，这个“文件拥有者”的角色就显的相当的重要。</p>
+</li>
+<li>
+<p>群组：</p>
+<p>假设有两组项目生在我的主机里面， 第一个项目为 projecta ， 里面的成员有 class1,  class2,  class3 三个； 第二个项目为 projectb， 里面的成员有 class4,  class5,  class6。 这两个专题之间是有竞争性质的， 但却要缴交同一份报告。 每组的组员之间必须要能够互相修改对方的数据， 但是其他组的组员则不能看到本组自己的文件内容， 此时在Linux下面我可以经由简易的文件权限设置， 就能限制非自己团队的其他人不能够查看内容。 而且也可以让自己的团队成员可以修改我所创建的文件。</p>
+</li>
+<li>
+<p>其他人：</p>
+<p>有个人， 叫做张小猪， 他是张小猪家的人， 与王家没有关系。 这个时候， 除非王家认识张小猪， 然后开门让张小猪进来王家， 否则张小猪永远没有办法进入王家， 更不要说进到王三毛的房间。不过， 如果张小猪通过关系认识了三毛， 并且跟王三毛成为好朋友， 那么张小猪就可以通过三毛进入王家。</p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/20210226171306.png" alt="image-20210226171306579"></p>
+</li>
+<li>
+<p>root 用户：root 用户拥有所有权限。</p>
+</li>
+</ol>
+<h2 id="linux-文件权限概念">Linux 文件权限概念</h2>
+<h3 id="linux-文件属性">Linux 文件属性</h3>
+<p><code>su -</code> 切换成 root 用户，输入命令 <code>ls -al</code></p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/20210226171921.png" alt="image-20210226171921616"></p>
+<p><code>ls -al</code> 表示列出所有文件详细的权限与属性（包含隐藏文件）</p>
+<ul>
+<li>
+<p>第一栏代表文件的类型与权限：</p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/20210226172727.png" alt="image-20210226172727120"></p>
+</li>
+<li>
+<p>第一个字符代表这个文件是目录、文件或链接文件等等：</p>
+<ul>
+<li><code>d</code> 是目录， 例如上表文件名为 <code>snap</code> 的那一行</li>
+<li><code>-</code> 是文件， 例如上表文件名为 <code>.viminfo</code> 那一行</li>
+<li><code>l</code> 表示为链接文件</li>
+<li><code>b</code> 表示为设备文件里面的可供储存的周边设备（ 可随机存取设备）</li>
+<li><code>c</code> 表示为设备文件里面的设备， 例如键盘、 鼠标（ 一次性读取设备）</li>
+</ul>
+</li>
+<li>
+<p>接下来的字符中， 以三个为一组， 且均为 <code>rwx</code> 的三个参数的组合：</p>
+<p>其中，  <code>r</code> 代表可读（ read） 、  <code>w</code> 代表可写（ write） 、  <code>x</code> 代表可执行（ execute） 。 要注意的是， 这三个权限的位置不会改变， 如果没有权限， 就会出现减号 <code>-</code> 而已</p>
+</li>
+<li>
+<p>第二栏表示有多少文件名链接到此节点（i-node）：</p>
+<p>每个文件都会将他的权限与属性记录到文件系统的 i-node 中， 不过， 我们使用的目录树是使用文件名来记录， 因此每个文件名就会链接到一个 i-node 。这个属性记录的， 就是有多少不同的文件名链接到相同的一个 i-node 号码</p>
+</li>
+<li>
+<p>第三栏表示文件（目录）的所属用户</p>
+</li>
+<li>
+<p>第四栏表示文件的所属群组</p>
+</li>
+<li>
+<p>第五栏为文件的大小（默认 Bytes）</p>
+</li>
+<li>
+<p>第六栏为文件的创建日期或是最近的修改日期：</p>
+<p>这一栏的内容分别为日期（ 月/日） 及时间。 如果这个文件被修改的时间距离现在太久了， 那么时间部分会仅显示年份。如果想要显示完整的时间格式， 可以利用ls的选项， 即： <code>ls -l --full-time</code> 就能够显示出完整的时间格式了</p>
+</li>
+<li>
+<p>第七栏为文件文件名：</p>
+<p>如果文件名之前多一个 <code>.</code> ， 则代表这个文件为“隐藏文件”</p>
+</li>
+</ul>
+<h4 id="linux-文件权限的重要性">Linux 文件权限的重要性</h4>
+<ul>
+<li>
+<p>系统保护：</p>
+<p>关于系统服务的文件通常只有 root 才能读写或者是执行， 例如 <code>/etc/shadow</code> 这一个帐号管理的文件， 由于该文件记录了你系统中所有帐号的数据， 因此是很重要的一个配置文件， 当然不能让任何人读取， 只有 root 才能够来读取。root 基本上是不受系统的权限所限制的。</p>
+</li>
+<li>
+<p>团队开发软件或数据共享</p>
+</li>
+</ul>
+<h3 id="如何改变文件属性与权限">如何改变文件属性与权限</h3>
+<ul>
+<li><code>chgrp</code> ：改变文件所属群组</li>
+<li><code>chown</code> ：改变文件拥有者</li>
+<li><code>chmod</code> ：改变文件权限</li>
+</ul>
+<h4 id="改变文件所属群组">改变文件所属群组：</h4>
+<pre><code>chgrp uesrs initial-setup-ks.cfg
+</code></pre>
+<h4 id="改变文件拥有者">改变文件拥有者：</h4>
+<pre><code>chown bin initial-setup-ks.cfg
+</code></pre>
+<h4 id="改变文件权限">改变文件权限：</h4>
+<ul>
+<li>
+<p>数字类型改变文件权限：</p>
+<p>Linux文件的基本权限就有九个， 分别是 <code>owner/group/others</code> 三种身份各有自己的read/write/execute权限，文件的权限字符为： <code>-rwxrwxrwx</code>， 这九个权限是三个三个一组的。我们使用数字来代表各个权限，各权限的分数对照表：</p>
+<p><code>&gt; r:4 &gt; w:2 &gt; x:1</code></p>
+<p><code>-rwxrwx---</code> 分数则是：
+<code>owner = rwx = 4+2+1 = 7 &gt; group = rwx = 4+2+1 = 7 &gt; others= --- = 0+0+0 = 0</code></p>
+<p>如果修改 <code>.bashrc</code> 文件的权限为 <code>777</code> ，则输入以下命令：</p>
+<pre><code>chmod 777 .bashrc
+</code></pre>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/20210226183734.png" alt="image-20210226183734842"></p>
+</li>
+<li>
+<p>符号类型改变文件权限：</p>
+<p><code>user(u)</code> 、 <code>group(g)</code> 、 <code>others(o)</code> 、 <code>all(a)</code> ，输入命令：</p>
+<pre><code>chmod u=rwx, go=rx .bashrc
+</code></pre>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/20210226184605.png" alt="image-20210226184605655"></p>
+</li>
+</ul>
+<h3 id="目录与文件权限的意义">目录与文件权限的意义</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align:center"></th>
+<th style="text-align:center">内容</th>
+<th style="text-align:center">r</th>
+<th style="text-align:center">w</th>
+<th style="text-align:center">x</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">文件</td>
+<td style="text-align:center">详细数据</td>
+<td style="text-align:center">读取文件内容</td>
+<td style="text-align:center">修改文件内容</td>
+<td style="text-align:center">执行文件内容</td>
+</tr>
+<tr>
+<td style="text-align:center">目录</td>
+<td style="text-align:center">文件名</td>
+<td style="text-align:center">读取文件名</td>
+<td style="text-align:center">修改文件名</td>
+<td style="text-align:center">进入该目录的权限</td>
+</tr>
+</tbody>
+</table>
+<h3 id="linux-文件种类与扩展名">Linux 文件种类与扩展名</h3>
+<h4 id="linux-文件种类">Linux 文件种类</h4>
+<ul>
+<li>正规文件：
+<ul>
+<li>纯文本文件</li>
+<li>二进制文件</li>
+<li>数据格式文件</li>
+</ul>
+</li>
+<li>目录</li>
+<li>链接文件：类似 Windows 下的快捷方式</li>
+<li>设备与设备文件：通常集中在 <code>/dev</code> 目录下
+<ul>
+<li>区块设备文件：储存数据，提供系统随机存取的周边设备，在 <code>/dev/sda</code> 目录下</li>
+<li>字符设备文件：键盘鼠标等</li>
+</ul>
+</li>
+<li>数据接口文件：网路上的数据，通常在 <code>/run</code> 或 <code>/temp</code> 目录下</li>
+<li>FIFO 存储器：主要的目的在解决多个程序同时存取一个文件所造成的错误问题</li>
+</ul>
+<h4 id="linux-文件拓展名">Linux 文件拓展名</h4>
+<ul>
+<li><code>*.sh</code> ：脚本或批处理文件</li>
+<li><code>.tar</code> 、 <code>.tar.gz</code> 、 <code>.zip</code> 、 <code>*.tgz</code> ：压缩文件</li>
+<li><code>.html</code> 、 <code>php</code> ：网页相关文件</li>
+</ul>
+<h4 id="linux-文件名称限制">Linux 文件名称限制：</h4>
+<p>由于Linux在命令行下的一些指令操作关系， 一般来说， 在设置Linux下面的文件名称时，最好避免一些特殊字符  <code>?&gt;&lt;;&amp;![]|\'&quot;`(){}</code></p>
+<h2 id="linux-目录配置">Linux 目录配置</h2>
+<h3 id="linux-目录配置的依据-fhs">Linux 目录配置的依据—— FHS</h3>
+<p>FHS 的重点在于规范每个特定的目录下应该要放置什么样子的数据而已。 这样做好处非常多， 因为Linux操作系统就能够在既有的面貌下（目录架构不变）发展出开发者想要的独特风格。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>可分享的（shareable）</th>
+<th>不可分享的（unshareable）</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>不变的（static）</td>
+<td><code>/usr</code> （软件放置处）</td>
+<td><code>/etc</code> （配置文件）</td>
+</tr>
+<tr>
+<td><code>/opt</code> （第三方软件）</td>
+<td><code>/boot</code> （系统启动核心）</td>
+<td></td>
+</tr>
+<tr>
+<td>可变动的（variable）</td>
+<td><code>/var/mail</code> （使用者邮件信箱）</td>
+<td><code>/var/run</code> （程序相关）</td>
+</tr>
+<tr>
+<td><code>/var/spool/news</code> （新闻群组）</td>
+<td><code>/var/lock</code> （程序相关）</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>可分享的： 可以分享给其他系统挂载使用的目录， 包括可执行文件与使用者的邮件等数据， 是能够分享给网络上其他主机挂载用的目录</li>
+<li>不可分享的： 自己机器上面运行的设备文件或者是与程序有关的socket文件等， 仅与自身机器有关</li>
+<li>不变的： 有些数据是不会经常变动的， 跟随着distribution而不变动。 例如函数库、 文件说明文档、 系统管理员所管理的主机服务配置文件等等</li>
+<li>可变动的： 经常改变的数据， 例如登录文件、 一般用户可自行收受的新闻群组等</li>
+</ul>
+<p><strong>FHS 针对目录树架构仅定义出三层目录下面应该放置什么数据而已， 分别是下面这三个目录的定义：</strong></p>
+<ul>
+<li><code>/</code> （ root, 根目录）： 与开机系统有关</li>
+<li><code>/usr</code> （ unix software resource）： 与软件安装/执行有关</li>
+<li><code>/var</code> （ variable）： 与系统运行过程有关</li>
+</ul>
+<h4 id="-根目录的意义与内容"><code>/</code> 根目录的意义与内容：</h4>
+<p>根目录是整个系统最重要的一个目录， 所有的目录都是由根目录衍生出来的，根目录也与开机/还原/系统修复等动作有关。 系统开机时需要特定的开机软件、 核心文件、 开机所需程序、 函数库等等文件数据， 若系统出现错误时， 根目录也必须要包含有能够修复文件系统的程序才行。 根目录很重要， 所以 FHS 希望根目录不要放在非常大的分区内， 越大的分区会放入越多的数据，根目录所在分区就可能发生较多错误。FHS 标准建议： 根目录（<code>/</code>） 所在分区应该越小越好， 且应用程序所安装的软件最好不要与根目录放在同一个分区内， 保持根目录越小越好。</p>
+<p>FHS要求必须要存在的目录：</p>
+<ul>
+<li><code>/bin</code> ：放置的是在单人维护模式下还能够被操作的指令。 在/bin下面的指令可以被root与一般帐号所使用</li>
+<li><code>/boot</code> ：放置开机会使用到的文件， 包括 Linux 核心文件以及开机菜单与开机所需配置文件等等</li>
+<li><code>/dev</code> ：在 Linux 系统上， 任何设备与周边设备都是以文件的型态存在于这个目录当中的</li>
+<li><code>/etc</code> ：系统主要的配置文件几乎都放置在这个目录内。 FHS 建议不要放置可执行文件（ binary）在这个目录中</li>
+<li><code>/lib</code> ：放置的是在开机时会用到的函数库， 以及在<code>/bin</code> 或 <code>/sbin</code>下面的指令会调用的函数库而已</li>
+<li><code>/media</code> ：可移除的设备</li>
+<li><code>/mnt</code> ：要暂时挂载某些额外的设备</li>
+<li><code>/opt</code> ：这个是给第三方软件放置的目录</li>
+<li><code>/sbin</code> ：放在 <code>/sbin</code> 下面的指令为开机过程中所需要的，里面包括了开机、 修复、 还原系统所需要的指令</li>
+<li><code>/run</code> ： 新版的 FHS 规定系统开机后所产生的各项信息到 <code>/run</code> 下面</li>
+<li><code>/srv</code> ：是一些网络服务启动之后， 这些服务所需要取用的数据目录</li>
+<li><code>/tmp</code> ：让一般使用者或者是正在执行的程序暂时放置文件的地方，需要定期的清理</li>
+<li><code>/usr</code></li>
+<li><code>/var</code></li>
+</ul>
+<p>FHS 建议可以存在的目录：</p>
+<ul>
+<li><code>/home</code> ：系统默认的使用者主文件夹</li>
+<li><code>/lib&lt;qual&gt;</code> ：用来存放与 <code>/lib</code> 不同的格式的二进制函数库</li>
+<li><code>/root</code> ：系统管理员（root）的主文件夹。 之所以放在这里， 是因为如果进入单人维护模式而仅挂载根目录时， 该目录就能够拥有 root 的主文件夹， 所以希望 root 的主文件夹与根目录放置在同一个分区中</li>
+</ul>
+<h4 id="usr-的意义与内容"><code>/usr</code> 的意义与内容：</h4>
+<p><code>usr</code> 是 <code>Unix Software Resource</code> 所放置的目录，这点要注意。 FHS建议所有软件开发者， 应该将他们的数据合理的分别放置到这个目录下的次目录， 而不要自行创建该软件自己独立的目录。</p>
+<p>所有系统默认的软件（ distribution发布者提供的软件） 都会放置到 <code>/usr</code> 下面， 因此这个目录有点类似 Windows 系统的 <code>C:\Windows\</code> （ 当中的一部份） + <code>C:\Program files\</code> 这两个目录的综合体， 系统刚安装完毕时， 这个目录会占用最多的硬盘容量。</p>
+<p>FHS 要求必须要存在的目录：</p>
+<ul>
+<li><code>/usr/bin</code> ：所有一般用户能够使用的指令都放在这里， <code>/usr/bin</code> 与 <code>/bin</code> 一模一样</li>
+<li><code>/usr/lib</code> ：与 <code>/lib</code> 功能相同， <code>/lib</code> 链接到此目录中的</li>
+<li><code>/usr/local</code> ：系统管理员在本机自行安装自己下载的软件（ 非distribution默认提供者）， 建议安装到此目录，便于管理</li>
+<li><code>/usr/sbin</code> ：非系统正常运行所需要的系统指令</li>
+<li><code>/usr/share</code> ：主要放置只读架构的数据文件，也包括共享文件</li>
+</ul>
+<p>FHS 建议可以存在的目录：</p>
+<ul>
+<li><code>/usr/games/</code> ：与游戏比较相关的数据</li>
+<li><code>/usr/include/</code> ：c/c++等程序语言的头文件</li>
+<li><code>/usr/libexec/</code> ：不被一般使用者惯用的可执行文件或脚本</li>
+<li><code>/usr/lib&lt;qual&gt;/</code> ：与 <code>/lib&lt;qual&gt;/</code> 功能相同，  <code>/lib&lt;qual&gt;</code> 链接到此目录中</li>
+<li><code>/usr/src/</code> ：一般源代码建议放置到这里</li>
+</ul>
+<h4 id="var-的意义与内容"><code>/var</code> 的意义与内容：</h4>
+<p><code>/var</code> 是在系统运行后才会渐渐占用硬盘容量的目录。 因为 <code>/var</code> 目录主要针对常态性变动的文件， 包括高速缓存（ cache） 、 登录文件（ log file） 以及某些软件运行所产生的文件， 包括程序文件（ lock file, run file） ， 或者MySQL数据库的文件等等。</p>
+<p>FHS 要求必须要存在的目录：</p>
+<ul>
+<li><code>/var/cache/</code> ：应用程序本身运行过程中会产生的一些缓存</li>
+<li><code>/var/lib/</code> ：程序本身执行的过程中， 需要使用到的数据文件放置的目录。 在此目录下 各自的软件应该要有各自的目录</li>
+<li><code>/var/lock/</code> ：某些设备或者是文件资源一次只能被一个应用程序所使用， 如果同时有两个程序使用该设备时， 就可能产生一些错误的状况， 因此就得要将该设备上锁（ lock）， 以确保该设备只会给单一软件所使用</li>
+<li><code>/var/log/</code> ：登录文件放置的目录</li>
+<li><code>/var/mail/</code> ：放置个人电子邮件信箱的目录</li>
+<li><code>/var/run/</code> ：某些程序或者是服务启动后， 会将他们的PID放置在这个目录下</li>
+<li><code>/var/spool/</code> ：通常放置一些伫列数据</li>
+</ul>
+<h3 id="目录树">目录树</h3>
+<p>在Linux下， 所有的文件与目录都是由根目录开始的，是所有目录与文件的源头，然后再一个一个的分支下来。称这种目录配置方式为目录树</p>
+<ul>
+<li>目录树的启始点为根目录 <code>/</code></li>
+<li>每一个目录不仅能使用本地端的 partition 的文件系统， 也可以使用网络上的 filesystem</li>
+<li>每一个文件在此目录树中的文件名（ 包含完整路径） 都是独一无二的</li>
+</ul>
+<p>输入命令</p>
+<pre><code>ls -l /
+</code></pre>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/20210226210345.png" alt="image-20210226210345752"></p>
+<h3 id="绝对路径与相对路径">绝对路径与相对路径</h3>
+<ul>
+<li>绝对路径： 由根目录（<code>/</code>） 开始写起的文件名或目录名称，例如 <code>/home/dmtsai/.bashrc</code></li>
+<li>相对路径： 相对于目前路径的文件名写法。 例如 <code>./home/dmtsai</code> 或 <code>../../home/dmtsai/</code> 等。 开头不是 <code>/</code> 就属于相对路径的写法</li>
+</ul>
+<p>如果目前在 <code>/home</code> 这个目录下， 如果想要进入 /var/log 这个目录时， 可以：</p>
+<pre><code>cd /var/log (absolute)
+cd ../var/log (relative) 
+</code></pre>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/20210226211526.png" alt="image-20210226211526704"></p>
+<p>注意两个特殊的目录：</p>
+<ul>
+<li><code>.</code> ：代表当前的目录， 也可以使用 <code>./</code> 来表示</li>
+<li><code>..</code> ：代表上一层目录， 也可以 <code>../</code> 来表示</li>
+</ul>
+<hr>
+<p><strong>总结：</strong></p>
+<ul>
+<li>
+<p>Linux 的每个文件中， 可分别给予使用者、 群组与其他人三种身份个别的 rwx 权限</p>
+</li>
+<li>
+<p>群组最有用的功能之一， 就是当你在团队开发资源的时候， 且每个帐号都可以有多个群组的支持</p>
+</li>
+<li>
+<p>利用 <code>ls -l</code> 显示的文件属性中， 第一个字段是文件的权限， 共有十个位， 第一个位是文件类型， 接下来三个为一组共三组， 为使用者、 群组、 其他人的权限， 权限有 <code>r</code> , <code>w</code> , <code>x</code> 三种</p>
+</li>
+<li>
+<p>如果文件名之前多一个 <code>.</code> ， 则代表这个文件为 “隐藏文件”</p>
+</li>
+<li>
+<p>若需要root的权限时，可以使用 <code>su -</code> 这个指令来切换身份。 处理完毕则使用 <code>exit</code> 离开 <code>su</code> 的指令环境</p>
+</li>
+<li>
+<p>更改文件的群组支持可用 <code>chgrp</code>，修改文件的拥有者可用 <code>chown</code>，修改文件的权限可用 <code>chmod</code></p>
+</li>
+<li>
+<p><code>chmod</code> 修改权限的方法有两种， 分别是符号法与数字法， 数字法中 <code>r</code> , <code>w</code> , <code>x</code> 分数为 4, 2, 1</p>
+</li>
+<li>
+<p>对文件来讲， 权限的性能为：</p>
+<ul>
+<li><code>r</code> ： 可读取此一文件的实际内容， 如读取文本文件的文字内容等</li>
+<li><code>w</code> ： 可以编辑、 新增或者是修改该文件的内容（ 但不含删除该文件）</li>
+<li><code>x</code> ： 该文件具有可以被系统执行的权限。</li>
+</ul>
+</li>
+<li>
+<p>对目录来说， 权限的性能为：</p>
+<ul>
+<li>
+<p><code>r(read contents in directory)</code></p>
+</li>
+<li>
+<p><code>w(modify contents of directory)</code></p>
+</li>
+<li>
+<p><code>x(access directory)</code></p>
+</li>
+</ul>
+</li>
+<li>
+<p>要开放目录给任何人浏览时， 应该至少也要给予 <code>r</code> 及 <code>x</code> 的权限， 但 <code>w</code> 权限不可随便给</p>
+</li>
+<li>
+<p>能否读取到某个文件内容， 跟该文件所在的目录权限也有关系 （ 目录至少需要有 x 的权限）</p>
+</li>
+<li>
+<p>Linux 文件名的限制为： 单一文件或目录的最大容许文件名为 255 个英文字符或 128 个中文字符</p>
+</li>
+<li>
+<p>根据 <code>FHS</code> 的官方文件指出， 他们的主要目的是希望让使用者可以了解到已安装软件通常放置于那个目录下</p>
+</li>
+<li>
+<p>FHS 设定的四种目录特色为： <code>shareable</code>, <code>unshareable</code>, <code>static</code>, <code>variable</code> 四类</p>
+</li>
+<li>
+<p>FHS 所定义的三层主目录为： <code>/</code>, <code>/var</code>, <code>/usr</code>三层</p>
+</li>
+<li>
+<p>绝对路径文件名为从根目录 <code>/</code> 开始写起， 否则都是相对路径的文件名</p>
+</li>
+</ul>
+<hr>
+
+        </div>
+        
+        <div class="my-4">
+    
+    <a href="https://blog.wangjialei.xyz/tags/linux/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#Linux</a>
+    
+</div>
+        
+        
+        
+
+
+        
+        
+        
+        
+<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
+    <div>
+        
+        <span class="block font-bold">上一页</span>
+        <a href="https://blog.wangjialei.xyz/posts/%E5%9F%BA%E4%BA%8Eeasyx%E5%9B%BE%E5%BD%A2%E5%BA%93%E7%9A%84c%E8%AF%AD%E8%A8%80%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/" class="block">基于Easyx图形库的C语言游戏开发</a>
+        
+    </div>
+    <div class="md:text-right mt-4 md:mt-0">
+        
+        <span class="block font-bold">下一页</span>
+        <a href="https://blog.wangjialei.xyz/posts/%E4%BD%BF%E7%94%A8git%E5%88%9B%E5%BB%BA%E7%89%88%E6%9C%AC%E5%BA%93/" class="block">使用git创建版本库</a>
+        
+    </div>
+</div>
+
+        
+
+
+
+    </div>
+    
+    <div class="col-span-2">
+        
+        
+        <div class="sticky top-16 z-10 hidden lg:block px-6 py-4  bg-primary-bg ">
+    <span class="text-lg font-semibold">本页内容</span>
+</div>
+<div class="sticky-toc hidden lg:block px-6 pb-6 ">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#使用者与群组">使用者与群组</a></li>
+    <li><a href="#linux-文件权限概念">Linux 文件权限概念</a>
+      <ul>
+        <li><a href="#linux-文件属性">Linux 文件属性</a>
+          <ul>
+            <li><a href="#linux-文件权限的重要性">Linux 文件权限的重要性</a></li>
+          </ul>
+        </li>
+        <li><a href="#如何改变文件属性与权限">如何改变文件属性与权限</a>
+          <ul>
+            <li><a href="#改变文件所属群组">改变文件所属群组：</a></li>
+            <li><a href="#改变文件拥有者">改变文件拥有者：</a></li>
+            <li><a href="#改变文件权限">改变文件权限：</a></li>
+          </ul>
+        </li>
+        <li><a href="#目录与文件权限的意义">目录与文件权限的意义</a></li>
+        <li><a href="#linux-文件种类与扩展名">Linux 文件种类与扩展名</a>
+          <ul>
+            <li><a href="#linux-文件种类">Linux 文件种类</a></li>
+            <li><a href="#linux-文件拓展名">Linux 文件拓展名</a></li>
+            <li><a href="#linux-文件名称限制">Linux 文件名称限制：</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#linux-目录配置">Linux 目录配置</a>
+      <ul>
+        <li><a href="#linux-目录配置的依据-fhs">Linux 目录配置的依据—— FHS</a>
+          <ul>
+            <li><a href="#-根目录的意义与内容"><code>/</code> 根目录的意义与内容：</a></li>
+            <li><a href="#usr-的意义与内容"><code>/usr</code> 的意义与内容：</a></li>
+            <li><a href="#var-的意义与内容"><code>/var</code> 的意义与内容：</a></li>
+          </ul>
+        </li>
+        <li><a href="#目录树">目录树</a></li>
+        <li><a href="#绝对路径与相对路径">绝对路径与相对路径</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        enableStickyToc();
+    });
+</script>
+        
+    </div>
+    
+
+    
+    
+    <div
+        class="col-span-2  lg:col-span-6 bg-secondary-bg rounded p-6">
+        <h2 class="text-lg font-semibold mb-4">相关</h2>
+        <div class="content">
+            
+            <a href="https://blog.wangjialei.xyz/posts/linux-01-%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AE%89%E8%A3%85ubuntu20.04/">Linux 01 虚拟机安装Ubuntu20.04</a>
+            <br />
+            
+        </div>
+    </div>
+    
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+        hljs.initHighlightingOnLoad();
+    })
+</script>
+
+      </div>
+    </div>
+    
+  </main>
+  <footer class="pl-scrollbar">
+    <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">&copy; 2021 <a href="https://blog.wangjialei.xyz/">Wang Jialei</a>
+ &middot;  Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div></div>
+  </footer>
+</body>
+
+</html>

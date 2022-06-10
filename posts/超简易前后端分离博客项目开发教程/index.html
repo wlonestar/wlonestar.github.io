@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang='zh' ><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+
+<title>简易前后端分离博客项目开发教程 | LoneStar&#39;s blog</title>
+
+<meta name="generator" content="Hugo Eureka 0.8.4" />
+<link rel="stylesheet" href="https://blog.wangjialei.xyz/css/eureka.min.css">
+<script defer src="https://blog.wangjialei.xyz/js/eureka.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/styles/github.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/highlight.min.js"
+   crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/languages/light.min.js"
+     crossorigin></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js"
+   integrity="sha256-uNYoXefWRqv&#43;PsIF/OflNmwtKM4lStn9yrz2gVl6ymo="  crossorigin></script>
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+   integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3&#43;Aro6EYUG4&#43;cU&#43;KJWu/X"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" 
+  integrity="sha384-g7c&#43;Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI&#43;sEnkvrMWph2EDg4"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+   integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC&#43;Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/mermaid@8.9.2/dist/mermaid.min.js" 
+  integrity="sha256-Zmpaaj&#43;GXFsPF5WdPArSrnW3b30dovldeKsW00xBVwE="  crossorigin></script>
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="https://blog.wangjialei.xyz/images/favicon_huce974d41c22b18f52c9ea90a63a4b2a6_21741_32x32_fill_box_center_3.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://blog.wangjialei.xyz/images/favicon_huce974d41c22b18f52c9ea90a63a4b2a6_21741_180x180_fill_box_center_3.png">
+
+<meta name="description"
+  content="前后端分离博客项目">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"文章",
+      "item":"https://blog.wangjialei.xyz/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"简易前后端分离博客项目开发教程",
+      "item":"https://blog.wangjialei.xyz/posts/%E8%B6%85%E7%AE%80%E6%98%93%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E5%8D%9A%E5%AE%A2%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91%E6%95%99%E7%A8%8B/"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://blog.wangjialei.xyz/posts/%E8%B6%85%E7%AE%80%E6%98%93%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E5%8D%9A%E5%AE%A2%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91%E6%95%99%E7%A8%8B/"
+    },
+    "headline": "简易前后端分离博客项目开发教程 | LoneStar\u0027s blog",
+    "image": "https://blog.wangjialei.xyz/images/2021-08-22.jpg",
+    "datePublished": "2021-08-22T22:20:29+08:00",
+    "dateModified": "2021-08-22T22:20:29+08:00",
+    "wordCount":  97 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "lonestar",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://blog.wangjialei.xyz/images/favicon.png"
+        }
+        },
+    "description": "前后端分离博客项目"
+}
+</script><meta property="og:title" content="简易前后端分离博客项目开发教程 | LoneStar&#39;s blog" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="https://blog.wangjialei.xyz/images/favicon.png">
+
+
+<meta property="og:url" content="https://blog.wangjialei.xyz/posts/%E8%B6%85%E7%AE%80%E6%98%93%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E5%8D%9A%E5%AE%A2%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91%E6%95%99%E7%A8%8B/" />
+
+
+
+<meta property="og:description" content="前后端分离博客项目" />
+
+
+
+<meta property="og:locale" content="zh" />
+
+
+
+
+<meta property="og:site_name" content="LoneStar&#39;s blog" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2021-08-22T22:20:29&#43;08:00" />
+
+
+<meta property="article:modified_time" content="2021-08-22T22:20:29&#43;08:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+<meta property="article:tag" content="Spring Boot" />
+
+<meta property="article:tag" content="Vue" />
+
+<meta property="article:tag" content="前后端分离" />
+
+<meta property="article:tag" content="博客" />
+
+
+
+
+
+<meta property="og:see_also" content="https://blog.wangjialei.xyz/posts/%E5%90%8E%E7%AB%AF%E6%8E%A5%E5%8F%A3%E8%BF%94%E5%9B%9E%E7%BB%93%E6%9E%9C%E7%BB%9F%E4%B8%80%E5%B0%81%E8%A3%85/" />
+
+<meta property="og:see_also" content="https://blog.wangjialei.xyz/posts/%E4%BF%AE%E6%94%B9%E7%9A%84stack%E4%B8%BB%E9%A2%98/" />
+
+<meta property="og:see_also" content="https://blog.wangjialei.xyz/posts/%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E4%BD%86%E5%AE%8C%E6%95%B4%E7%9A%84springboot%E9%A1%B9%E7%9B%AE/" />
+
+<meta property="og:see_also" content="https://blog.wangjialei.xyz/posts/%E8%AE%B0%E5%BD%95%E4%B8%80%E6%AC%A1%E5%81%9Aweb%E5%BC%80%E5%8F%91%E7%9A%84%E7%BB%8F%E5%8E%86/" />
+
+<meta property="og:see_also" content="https://blog.wangjialei.xyz/posts/%E6%88%91%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%86%99%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" />
+
+
+
+<body class="flex flex-col min-h-screen">
+  <header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
+    <div class="w-full max-w-screen-xl mx-auto"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="/" class="mr-6 text-primary-text text-xl font-bold">LoneStar&#39;s blog</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  selected-menu-item  mr-4">文章</a>
+            <a href="/categories/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">分类</a>
+            <a href="/tags/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">标签</a>
+            <a href="/series/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">系列</a>
+            <a href="/#about" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">关于</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">浅色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">深色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">自动</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+</div>
+  </header>
+  <main class="flex-grow pt-16">
+    <div class="pl-scrollbar">
+      <div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
+
+
+<div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12">
+    <div
+        class="col-span-2  lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
+        <h1 class="font-bold text-3xl text-primary-text">简易前后端分离博客项目开发教程</h1>
+        <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2021-08-22</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>1分钟阅读时长</span>
+    </div>
+    
+    
+    <div class="mr-6 my-2">
+        <i class="fas fa-folder mr-1"></i>
+        
+        <a href="https://blog.wangjialei.xyz/categories/%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE/" class="hover:text-eureka">开源项目</a>
+        
+    </div>
+    
+
+    
+</div>
+        
+        
+        
+        <div class="my-4">
+            <img src="https://blog.wangjialei.xyz/images/2021-08-22.jpg" class="w-full" alt="Featured Image">
+        </div>
+        
+
+        <div class="content">
+            <p>项目已开源，地址： <a href="https://github.com/wjl-lab/miniyblog">wjl-lab/miniblog</a></p>
+<h2 id="miniblog">miniblog</h2>
+<p>miniblog 是 tinyblog 的升级版，支持 markdown 语法</p>
+<p>本项目是基于Spring Boot 和 Vue3 开发的一个前后端分离的简易博客项目</p>
+<p>实现了创建、修改、删除文章操作</p>
+<p>文章支持 markdown 语法</p>
+<h3 id="技术栈">技术栈：</h3>
+<p><strong>后端：</strong></p>
+<ul>
+<li>
+<p>Spring Boot 2.x</p>
+</li>
+<li>
+<p>Spring JPA</p>
+</li>
+<li>
+<p><a href="https://gitee.com/smart-doc-team/smart-doc">smart doc</a> 生成 API 文档，文档的 HTML 版本在 doc 目录下</p>
+</li>
+</ul>
+<p><strong>前端：</strong></p>
+<ul>
+<li>Vue 3.x</li>
+<li><a href="https://imzbf.github.io/md-editor-v3/">md-editor-v3</a> markdown 编辑器</li>
+<li><a href="https://github.com/Vivify-Ideas/vue-simple-markdown">vue-simple-markdown</a> markdown 转 html 预览</li>
+<li>bootstrap</li>
+</ul>
+<h3 id="构建运行">构建运行</h3>
+<h4 id="数据库">数据库</h4>
+<p>修改 <code>application.xml</code> 里的数据库配置，启动项目后表会自动生成</p>
+<h4 id="后端">后端</h4>
+<p>项目打包 <code>mvn clean package</code></p>
+<p>在 <code>target</code> 包下运行 <code>java -jar miniblog-0.1.0.jar</code></p>
+<p>即在配置文件指定的 8081 端口启动了项目</p>
+<h4 id="前端">前端</h4>
+<p>运行 <code>npm run build</code></p>
+<p>项目打包在 <code>dist</code>文件夹</p>
+<p>安装简易HTTP 服务器 serve <code>npm install serve -g</code></p>
+<p>启动前端服务器 <code>serve -s dist</code></p>
+<p>即在默认的 5000 端口启动了项目</p>
+<p>用浏览器打开，即可使用</p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210828172237195.png" alt="image-20210828172237195"></p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210828172251847.png" alt="image-20210828172251847"></p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210828172310420.png" alt="image-20210828172310420"></p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210828172326348.png" alt="image-20210828172326348"></p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210828172342670.png" alt="image-20210828172342670"></p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210828172422598.png" alt="image-20210828172422598"></p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210828172441130.png" alt="image-20210828172441130"></p>
+<h3 id="关于我">关于我</h3>
+<p>半个技术宅，喜欢尝试新事物，想法很多</p>
+<p>计算机专业在读，目前对后端开发感兴趣</p>
+<p>Java 在学，为了构建完整 web 应用还准备学前端</p>
+<p>个人博客： <a href="https://blog.wangjialei.xyz">LoneStar&rsquo;s blog</a></p>
+
+        </div>
+        
+        <div class="my-4">
+    
+    <a href="https://blog.wangjialei.xyz/tags/spring-boot/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#Spring Boot</a>
+    
+    <a href="https://blog.wangjialei.xyz/tags/vue/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#Vue</a>
+    
+    <a href="https://blog.wangjialei.xyz/tags/%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#前后端分离</a>
+    
+    <a href="https://blog.wangjialei.xyz/tags/%E5%8D%9A%E5%AE%A2/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#博客</a>
+    
+</div>
+        
+        
+        
+
+
+        
+        
+        
+        
+<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
+    <div>
+        
+        <span class="block font-bold">上一页</span>
+        <a href="https://blog.wangjialei.xyz/posts/%E6%88%91%E5%AF%B9%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E5%BC%80%E5%8F%91%E7%9A%84%E4%B8%80%E4%BA%9B%E7%90%86%E8%A7%A3/" class="block">我对前后端分离开发的一些理解</a>
+        
+    </div>
+    <div class="md:text-right mt-4 md:mt-0">
+        
+        <span class="block font-bold">下一页</span>
+        <a href="https://blog.wangjialei.xyz/posts/%E4%BF%AE%E6%94%B9%E7%9A%84stack%E4%B8%BB%E9%A2%98/" class="block">修改的Stack主题</a>
+        
+    </div>
+</div>
+
+        
+
+
+
+    </div>
+    
+    <div class="col-span-2">
+        
+        
+        <div class="sticky top-16 z-10 hidden lg:block px-6 py-4  bg-primary-bg ">
+    <span class="text-lg font-semibold">本页内容</span>
+</div>
+<div class="sticky-toc hidden lg:block px-6 pb-6 ">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#miniblog">miniblog</a>
+      <ul>
+        <li><a href="#技术栈">技术栈：</a></li>
+        <li><a href="#构建运行">构建运行</a>
+          <ul>
+            <li><a href="#数据库">数据库</a></li>
+            <li><a href="#后端">后端</a></li>
+            <li><a href="#前端">前端</a></li>
+          </ul>
+        </li>
+        <li><a href="#关于我">关于我</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        enableStickyToc();
+    });
+</script>
+        
+    </div>
+    
+
+    
+    
+    <div
+        class="col-span-2  lg:col-span-6 bg-secondary-bg rounded p-6">
+        <h2 class="text-lg font-semibold mb-4">相关</h2>
+        <div class="content">
+            
+            <a href="https://blog.wangjialei.xyz/posts/%E5%90%8E%E7%AB%AF%E6%8E%A5%E5%8F%A3%E8%BF%94%E5%9B%9E%E7%BB%93%E6%9E%9C%E7%BB%9F%E4%B8%80%E5%B0%81%E8%A3%85/">后端接口返回结果统一封装</a>
+            <br />
+            
+            <a href="https://blog.wangjialei.xyz/posts/%E4%BF%AE%E6%94%B9%E7%9A%84stack%E4%B8%BB%E9%A2%98/">修改的Stack主题</a>
+            <br />
+            
+            <a href="https://blog.wangjialei.xyz/posts/%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E4%BD%86%E5%AE%8C%E6%95%B4%E7%9A%84springboot%E9%A1%B9%E7%9B%AE/">一个简单但完整的 spring boot 项目</a>
+            <br />
+            
+            <a href="https://blog.wangjialei.xyz/posts/%E8%AE%B0%E5%BD%95%E4%B8%80%E6%AC%A1%E5%81%9Aweb%E5%BC%80%E5%8F%91%E7%9A%84%E7%BB%8F%E5%8E%86/">记录一次做web开发的经历</a>
+            <br />
+            
+            <a href="https://blog.wangjialei.xyz/posts/%E6%88%91%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%86%99%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">我为什么要写个人博客</a>
+            <br />
+            
+        </div>
+    </div>
+    
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+        hljs.initHighlightingOnLoad();
+    })
+</script>
+
+      </div>
+    </div>
+    
+  </main>
+  <footer class="pl-scrollbar">
+    <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">&copy; 2021 <a href="https://blog.wangjialei.xyz/">Wang Jialei</a>
+ &middot;  Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div></div>
+  </footer>
+</body>
+
+</html>

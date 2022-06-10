@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>MyBatis on LoneStar&#39;s blog</title>
+    <link>https://blog.wangjialei.xyz/tags/mybatis/</link>
+    <description>Recent content in MyBatis on LoneStar&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <copyright>&amp;copy; 2021 &lt;a href=&#34;https://blog.wangjialei.xyz/&#34;&gt;Wang Jialei&lt;/a&gt;
+</copyright>
+    <lastBuildDate>Sat, 25 Sep 2021 21:52:02 +0800</lastBuildDate><atom:link href="https://blog.wangjialei.xyz/tags/mybatis/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Jpa or Mybatis</title>
+      <link>https://blog.wangjialei.xyz/posts/jpa-or-mybatis/</link>
+      <pubDate>Sat, 25 Sep 2021 21:52:02 +0800</pubDate>
+      
+      <guid>https://blog.wangjialei.xyz/posts/jpa-or-mybatis/</guid>
+      <description>最近一直在试着优化我的那个博客项目，今天上午差不多把博客前端页面改成了响应式布局了，下午想着再把后端重构一下，因为分页功能有点小问题，影响使用。
+因为我目前的博客主要有文章表、分类表嘛，想着再把标签表加上去，之前因为觉得多对多关系的表 CRUD 有辣么点麻烦，就没做，今天觉得再尝试一下。
+然后开始找 JPA 的教程，因为我一直不想继续用 xml 配置，就没用 Mybatis，现在想想还是太 naive 啊。不得不说 mybatis 有点香。</description>
+    </item>
+    
+    <item>
+      <title>Mybatis学习总结</title>
+      <link>https://blog.wangjialei.xyz/posts/mybatis%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/</link>
+      <pubDate>Sat, 07 Aug 2021 19:53:08 +0800</pubDate>
+      
+      <guid>https://blog.wangjialei.xyz/posts/mybatis%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/</guid>
+      <description>简介 MyBatis 是一款优秀的持久层框架，它支持自定义 SQL、存储过程以及高级映射。MyBatis 免除了几乎所有的 JDBC 代码以及设置参数和获取结果集的工作。MyBatis 可以通过简单的 XML 或注解来配置和映射原始类型、接口和 Java POJO（Plain Old Java Objects，普通老式 Java 对象）为数据库中的记录。</description>
+    </item>
+    
+  </channel>
+</rss>

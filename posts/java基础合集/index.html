@@ -1,0 +1,2211 @@
+<!DOCTYPE html>
+<html lang='zh' ><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+
+<title>Java基础（合集） | LoneStar&#39;s blog</title>
+
+<meta name="generator" content="Hugo Eureka 0.8.4" />
+<link rel="stylesheet" href="https://blog.wangjialei.xyz/css/eureka.min.css">
+<script defer src="https://blog.wangjialei.xyz/js/eureka.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/styles/stackoverflow-light.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/highlight.min.js"
+   crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/languages/light.min.js"
+     crossorigin></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js"
+   integrity="sha256-uNYoXefWRqv&#43;PsIF/OflNmwtKM4lStn9yrz2gVl6ymo="  crossorigin></script>
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+   integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3&#43;Aro6EYUG4&#43;cU&#43;KJWu/X"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" 
+  integrity="sha384-g7c&#43;Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI&#43;sEnkvrMWph2EDg4"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+   integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC&#43;Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/mermaid@8.9.2/dist/mermaid.min.js" 
+  integrity="sha256-Zmpaaj&#43;GXFsPF5WdPArSrnW3b30dovldeKsW00xBVwE="  crossorigin></script>
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="https://blog.wangjialei.xyz/images/favicon_huce974d41c22b18f52c9ea90a63a4b2a6_21741_32x32_fill_box_center_3.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://blog.wangjialei.xyz/images/favicon_huce974d41c22b18f52c9ea90a63a4b2a6_21741_180x180_fill_box_center_3.png">
+
+<meta name="description"
+  content="“Java的设计目标之一在于使得Java编写的程序具有多方面的可靠性”">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"文章",
+      "item":"https://blog.wangjialei.xyz/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"Java基础（合集）",
+      "item":"https://blog.wangjialei.xyz/posts/java%E5%9F%BA%E7%A1%80%E5%90%88%E9%9B%86/"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://blog.wangjialei.xyz/posts/java%E5%9F%BA%E7%A1%80%E5%90%88%E9%9B%86/"
+    },
+    "headline": "Java基础（合集） | LoneStar\u0027s blog",
+    "image": "https://mypic-1305118058.cos.ap-hongkong.myqcloud.com/img/java.jpg",
+    "datePublished": "2021-07-10T23:16:27+08:00",
+    "dateModified": "2021-07-10T23:16:27+08:00",
+    "wordCount":  4477 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "lonestar",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://blog.wangjialei.xyz/images/favicon.png"
+        }
+        },
+    "description": "“Java的设计目标之一在于使得Java编写的程序具有多方面的可靠性”"
+}
+</script><meta property="og:title" content="Java基础（合集） | LoneStar&#39;s blog" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="https://blog.wangjialei.xyz/images/favicon.png">
+
+
+<meta property="og:url" content="https://blog.wangjialei.xyz/posts/java%E5%9F%BA%E7%A1%80%E5%90%88%E9%9B%86/" />
+
+
+
+<meta property="og:description" content="“Java的设计目标之一在于使得Java编写的程序具有多方面的可靠性”" />
+
+
+
+<meta property="og:locale" content="zh" />
+
+
+
+
+<meta property="og:site_name" content="LoneStar&#39;s blog" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2021-07-10T23:16:27&#43;08:00" />
+
+
+<meta property="article:modified_time" content="2021-07-10T23:16:27&#43;08:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+<meta property="article:tag" content="Java" />
+
+
+
+
+
+<meta property="og:see_also" content="https://blog.wangjialei.xyz/posts/%E8%AE%B0%E5%BD%95%E4%B8%80%E6%AC%A1%E5%81%9Aweb%E5%BC%80%E5%8F%91%E7%9A%84%E7%BB%8F%E5%8E%86/" />
+
+<meta property="og:see_also" content="https://blog.wangjialei.xyz/posts/%E8%87%AA%E5%B7%B1%E5%86%99%E7%9A%84%E7%AE%80%E5%8D%95java%E7%9F%A9%E9%98%B5%E5%BA%93/" />
+
+<meta property="og:see_also" content="https://blog.wangjialei.xyz/posts/java%E8%99%9A%E6%8B%9F%E6%9C%BA-03-%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/" />
+
+<meta property="og:see_also" content="https://blog.wangjialei.xyz/posts/java%E8%99%9A%E6%8B%9F%E6%9C%BA-02-java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F/" />
+
+<meta property="og:see_also" content="https://blog.wangjialei.xyz/posts/java%E8%99%9A%E6%8B%9F%E6%9C%BA-01-%E8%B5%B0%E8%BF%91java/" />
+
+
+
+<body class="flex flex-col min-h-screen">
+  <header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
+    <div class="w-full max-w-screen-xl mx-auto"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="/" class="mr-6 text-primary-text text-xl font-bold">LoneStar&#39;s blog</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  selected-menu-item  mr-4">文章</a>
+            <a href="/categories/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">分类</a>
+            <a href="/tags/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">标签</a>
+            <a href="/series/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">系列</a>
+            <a href="/#about" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">关于</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">浅色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">深色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">自动</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+</div>
+  </header>
+  <main class="flex-grow pt-16">
+    <div class="pl-scrollbar">
+      <div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
+
+
+<div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12">
+    <div
+        class="col-span-2  lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
+        <h1 class="font-bold text-3xl text-primary-text">Java基础（合集）</h1>
+        <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2021-07-10</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>22分钟阅读时长</span>
+    </div>
+    
+    
+    <div class="mr-6 my-2">
+        <i class="fas fa-folder mr-1"></i>
+        
+        <a href="https://blog.wangjialei.xyz/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="hover:text-eureka">学习笔记</a>
+        
+    </div>
+    
+
+    
+</div>
+        
+        
+        
+        <div class="my-4">
+            <img src="https://mypic-1305118058.cos.ap-hongkong.myqcloud.com/img/java.jpg" class="w-full" alt="Featured Image">
+        </div>
+        
+
+        <div class="content">
+            <h2 id="java-程序设计概述">Java 程序设计概述</h2>
+<h3 id="java-的关键词">Java 的关键词：</h3>
+<ol>
+<li>
+<p>简单性：“ Java 语法是 C++ 语法的一个‘纯净’版本”，没有头文件、指针运算、结构、联合、操作符重载、虚基类等。</p>
+</li>
+<li>
+<p>面向对象：将对象视为奇特的变量，可以存储数据、在自身上执行操作。</p>
+</li>
+<li>
+<p>网络技能：Java 有处理 HTTP 和 FTP 这类 TCP/IP 协议的扩展库，能通过 URL 打开和访问网络上的对象，强大且易用。</p>
+</li>
+<li>
+<p>健壮性：Java 编译器能够检测许多在其他语言中仅运行时才能检测出来的问题。</p>
+</li>
+<li>
+<p>安全性：Java 适用于网络/分布式环境，在安全方面投入了很大精力。从一开始，Java 就设计成能够防范各种袭击。</p>
+</li>
+<li>
+<p>体系结构中立：Java 编译器通过生成与特定计算机体系结构无关的字节码指令生成目标文件。</p>
+</li>
+<li>
+<p>可移植性：基本数据类型的大小以及有关算法都做了明确的说明，消除了代码移植时的问题。</p>
+</li>
+<li>
+<p>解释型：Java 解释器可以在任何移植了解释器的机器上执行Java字节码。</p>
+</li>
+<li>
+<p>高性能：现在的即时编译器在某些情况下甚至超越了传统编译器。</p>
+</li>
+<li>
+<p>多线程：只要操作系统支持，Java 中的线程就可以利用多个处理器。多线程可以带来更好的交互响应和实时行为。</p>
+</li>
+<li>
+<p>动态性：能够适应不断变化的环境。</p>
+</li>
+</ol>
+<hr>
+<h2 id="java-程序设计环境">Java 程序设计环境</h2>
+<h3 id="安装-java-开发程序包">安装 Java 开发程序包</h3>
+<h4 id="下载-jdk-和文档">下载 JDK 和文档</h4>
+<p>去 Oracle 官网下载 JDK15</p>
+<p>下载地址：<a href="https://www.oracle.com/java/technologies/javase-downloads.html#JDK15">Java SE15</a></p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210307145714573.png" alt="image-20210307145714573"></p>
+<h4 id="添加到环境变量">添加到环境变量</h4>
+<p>把安装好的 JDK 下 bin 路径添加到系统环境变量 Path 下</p>
+<pre><code class="language-shell">java --version
+</code></pre>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210307150347014.png" alt="image-20210307150347014"></p>
+<h3 id="安装-ide">安装 IDE</h3>
+<p>推荐 IDEA Community，学生可以使用 edu 邮箱申请，享受免费使用。</p>
+<p>下载地址：<a href="https://www.jetbrains.com/zh-cn/idea/download/#section=windows">Intellij IDEA</a></p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210307152814248.png" alt="image-20210307152814248"></p>
+<p>安装时注意勾选这几项，其他默认即可</p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210307152655519.png" alt="image-20210307152655519"></p>
+<h3 id="使用命令行工具">使用命令行工具</h3>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210307153110214.png" alt="image-20210307153110214"></p>
+<p>新建一个 Java 类 Hello</p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210307153309550.png" alt="image-20210307153309550"></p>
+<pre><code class="language-java">public class Hello {
+	public static void main(String[] args) {
+		System.out.println(&quot;Hello, weclome to java!&quot;);
+	}
+}
+</code></pre>
+<p>编译</p>
+<pre><code class="language-shell">javac Hello.java
+</code></pre>
+<p>会在同级目录下生成 Hello.class 文件，运行</p>
+<pre><code class="language-shell">java Hello
+</code></pre>
+<p>得到运行结果</p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210307154002325.png" alt="image-20210307154002325"></p>
+<h3 id="使用集成开发环境">使用集成开发环境</h3>
+<p>打开 IDEA，选择 File - New - Project，选择安装的 jdk15</p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210307154730018.png" alt="image-20210307154730018"></p>
+<p>其他均为默认设置，选择新建的目录</p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210307154837599.png" alt="image-20210307154837599"></p>
+<p>生成一个 Java 项目，右键 helloidea 目录下生成的 src 目录，选择 new - java class</p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210307155003180.png" alt="image-20210307155003180"></p>
+<p>新建一个名为 HelloIdea 的类，输入以下内容</p>
+<pre><code class="language-java">public class HelloIdea {    
+    public static void main(String[] args) {        
+        String[] greeting = new String[3];        
+        greeting[0] = &quot;Welcome to java&quot;; greeting[1] = &quot;and&quot;; greeting[2] = &quot;idea&quot;;        
+        for (String g : greeting) System.out.println(g);
+    }
+}
+</code></pre>
+<p>点击左边的运行按钮，即可编译运行</p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210307155508554.png" alt="image-20210307155508554"></p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210307155610498.png" alt="image-20210307155610498"></p>
+<hr>
+<h2 id="java-基本程序结构">Java 基本程序结构</h2>
+<h3 id="一个简单的-java-应用程序">一个简单的 Java 应用程序</h3>
+<pre><code class="language-java">// FirstSample.java
+public class FirstSample {
+	public static void main(String[] args) {
+		System.out.println(&quot;we will not use 'Hello, world!'&quot;);
+	}
+}
+</code></pre>
+<ul>
+<li>
+<p><code>public</code>：访问修饰符，用于控制程序的其他部分对这段代码的访问级别</p>
+</li>
+<li>
+<p><code>class</code>：表面 Java 程序中的全部内容都包含在类中</p>
+</li>
+<li>
+<p>类名：必须以字母开头，后面可以跟字母和数字的任意组合，不能使用 Java 保留字作为类名</p>
+<p>标准的命名规范：大驼峰命名法 <code>CamelCase</code></p>
+</li>
+<li>
+<p>源代码的文件名必须与公有类相同，且用 <code>.java</code> 作为扩展名</p>
+</li>
+<li>
+<p>编译后，得到同名的 <code>FirstSample.class</code> 文件，使用 <code>java FirstSample</code> 运行</p>
+</li>
+<li>
+<p>运行时，Java 虚拟机从指定类中的 <code>main</code> 方法开始执行</p>
+</li>
+<li>
+<p>在 <code>main</code> 方法中，使用了 <code>System.out</code> 对象并调用了它的 <code>println</code> 方法，点号用于调用方法</p>
+</li>
+</ul>
+<h3 id="数据类型">数据类型</h3>
+<p>Java是一种强类型语言，共有8种基本类型。</p>
+<h4 id="整型">整型</h4>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>存储需求</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>int</code></td>
+<td>4字节</td>
+</tr>
+<tr>
+<td><code>short</code></td>
+<td>2字节</td>
+</tr>
+<tr>
+<td><code>long</code></td>
+<td>8字节</td>
+</tr>
+<tr>
+<td><code>byte</code></td>
+<td>1字节</td>
+</tr>
+</tbody>
+</table>
+<p>在Java中，整型的范围与运行Java代码的机器无关。</p>
+<h4 id="浮点型">浮点型</h4>
+<table>
+<thead>
+<tr>
+<th>类型</th>
+<th>存储需求</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>float</code></td>
+<td>4字节</td>
+</tr>
+<tr>
+<td><code>double</code></td>
+<td>8字节</td>
+</tr>
+</tbody>
+</table>
+<p>绝大部分应用程序都采用<code>double</code>类型，在很多情况下，<code>float</code>类型的精度很难满足需求。</p>
+<h4 id="char类型"><code>char</code>类型</h4>
+<p><code>char</code>类型用于表示单个字符，通常用来表示字符常量。转义序列符<code>\u</code>表示Unicode代码单元的编码。</p>
+<p>特殊字符的转义序列符：</p>
+<table>
+<thead>
+<tr>
+<th>转义序列</th>
+<th>名称</th>
+<th>Unicode值</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>\b</code></td>
+<td>退格</td>
+<td><code>\u0008</code></td>
+</tr>
+<tr>
+<td><code>\t</code></td>
+<td>制表</td>
+<td><code>\u0009</code></td>
+</tr>
+<tr>
+<td><code>\n</code></td>
+<td>换行</td>
+<td><code>\u000a</code></td>
+</tr>
+<tr>
+<td><code>\r</code></td>
+<td>回车</td>
+<td><code>\u000d</code></td>
+</tr>
+<tr>
+<td><code>\&quot;</code></td>
+<td>双引号</td>
+<td><code>\u0022</code></td>
+</tr>
+<tr>
+<td><code>\'</code></td>
+<td>单引号</td>
+<td><code>\u0027</code></td>
+</tr>
+<tr>
+<td><code>\\</code></td>
+<td>反斜杠</td>
+<td><code>\u005c</code></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>程序中不要使用 <code>char</code> 类型，除非确实需要对 <code>UTF-8</code> 代码单元进行操作，最好将需要处理的字符串用抽象数据类型表示。</p>
+</blockquote>
+<h4 id="boolean类型"><code>boolean</code>类型</h4>
+<p>整型值和布尔值之间不能相互转换。</p>
+<h3 id="变量">变量</h3>
+<p>每个变量属于一种类型（<code>type</code>）。</p>
+<blockquote>
+<p>逐一声明每一个变量可以提高程序的可读性。</p>
+</blockquote>
+<h4 id="变量初始化">变量初始化</h4>
+<p>声明一个变量后，必须用复制语句对变量进行显式初始化，千万不要使用未被初始化的变量。</p>
+<blockquote>
+<p>变量的声明尽可能靠近变量第一次使用的地方。</p>
+</blockquote>
+<h4 id="常量">常量</h4>
+<p>利用关键字 <code>final</code> 声明常量</p>
+<pre><code class="language-java">public class Constants {
+	public static void main(String[] args) {
+		final double CM_PER_INCH = 2.54;
+		double paperWidth = 8.5;
+		double paperHeight = 11;
+		System.out.println(&quot;Paper size in centimeters: &quot; + paperWidth * CM_PER_INCH + &quot; by &quot; + paperHeight * CM_PER_INCH);
+	}
+}
+</code></pre>
+<p>关键字 <code>final</code> 表示这个变量只能被赋值一次，被赋值后就不能更改。习惯上，常量名使用大写。</p>
+<h3 id="运算符">运算符</h3>
+<h4 id="自增运算符与自减运算符">自增运算符与自减运算符</h4>
+<p>在表达式中，前缀方式先进行加1运算，后缀方式则使用变量原来的值。</p>
+<pre><code class="language-java">int m = 7;
+int n = 7;
+int a = 2 * ++m; // now a = 16, m = 8
+int b = 2 * n++; // now b = 14, n = 8
+</code></pre>
+<blockquote>
+<p>不要在其他表达式内部使用 <code>++</code>，这样编写的代码容易产生bug。</p>
+</blockquote>
+<h4 id="关系运算符与-boolean-运算符">关系运算符与 <code>boolean</code> 运算符</h4>
+<p>Java 沿用 C++ 的习惯，用 <code>&amp;&amp;</code> 表示逻辑“与”，用 <code>||</code> 表示逻辑“或”，<code>!</code> 表示逻辑“非”。</p>
+<p><code>&amp;&amp;</code> 和 <code>||</code> 是按照短路方式求值的。如果使用 <code>&amp;&amp;</code>，且第一个表达式为 <code>false</code>，就没必要计算第二个表达式。如果使用 <code>||</code>，且第一个表达式为 <code>true</code>，就没必要计算第二个表达式。</p>
+<h4 id="位运算">位运算</h4>
+<p>位运算符包括：<code>&amp;</code>（与）、  <code>|</code>（或）、  <code>^</code>（异或）、  <code>-</code>（非）</p>
+<blockquote>
+<p><code>&amp;</code> 和 <code>|</code> 运算符应用于布尔值，得到的结果也是布尔值，在得到结果之前，一定要计算两个操作数的值。</p>
+</blockquote>
+<p><code>&gt;&gt;</code> 和 <code>&lt;&lt;</code> 运算符将二进制位进行右移或左移操作，<code>&gt;&gt;&gt;</code> 运算符用0填充高位，<code>&gt;&gt;</code> 运算符永符号位填充高位，没有 <code>&lt;&lt;&lt;</code> 运算符。</p>
+<h4 id="数学函数与常量">数学函数与常量</h4>
+<p>Math类提供了常见的数学函数和常量</p>
+<blockquote>
+<p>在 <code>Math</code> 类中，为了达到更快的性能，所有的方法都使用计算机浮点单元的例程。如果得到一个完全可预测的结果不运行速度更重要的话，应该使用 <code>StrickMath</code> 类。</p>
+</blockquote>
+<h4 id="数值类型之间的转换">数值类型之间的转换</h4>
+<p>数值类型之间的合法转换：</p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210307192848813.png" alt="image-20210307192848813"></p>
+<p>虚箭头表示可能有精度损失的转换。</p>
+<h4 id="强制类型转换">强制类型转换</h4>
+<p>Java 允许进行数值之间的类型转换，需要通过强制类型转换实现</p>
+<pre><code class="language-java">double x = 9.997;
+int nx = (int) x;
+</code></pre>
+<p>对浮点数进行舍入操作，得到最接近的整数，需要用到 <code>Math.round</code> 方法：</p>
+<pre><code class="language-java">double x = 9.997;
+int nx = (int) Math.round(x);
+</code></pre>
+<h4 id="枚举类型">枚举类型</h4>
+<pre><code class="language-java">enum Size {	SMALL, MEDIUM, LARGE, EXTRE_LARGE};
+Size s = Size.MeDIUM;
+</code></pre>
+<p>Size 类型的变量只能存储这个类型声明中给定的某个枚举值，或者 null，null 表示这个变量没设置任何值。</p>
+<h3 id="字符串">字符串</h3>
+<p>Java 字符串就是 Unicode 字符序列。Java 没有内置的字符串类型，而是在标准 Java 类库中提供了一个预定义类String。</p>
+<pre><code class="language-java">String e = &quot;&quot;;
+String greeting = &quot;Hello&quot;;
+</code></pre>
+<p><code>String</code> 类的 <code>substring</code> 方法可以从一个较大的字符串中提取出一个子串。</p>
+<pre><code class="language-java">String greeting = &quot;Hello&quot;;
+String s = greeting.substring(0, 3);
+</code></pre>
+<p>创建了一个由字符“Hel”组成的字符串。</p>
+<p>Java 语言允许使用 <code>+</code> 号连接（拼接）两个字符串。</p>
+<pre><code class="language-java">String expletive = &quot;Expletive&quot;;
+String PG13 = &quot;deleted&quot;;
+String message = expletive + PG13;
+</code></pre>
+<p>上述代码将 <code>“Expletivedeleted”</code> 赋给变量 <code>message</code>（单词之间没有空格，+号按照给定的次序将两个字符串拼接起来）。</p>
+<p>任何一个 Java 对象都可以转换成字符串。当将一个字符串与另一个非字符串的值进行拼接时，后者被转换成字符串。</p>
+<pre><code class="language-java">int age = 13;
+String rating = &quot;PG&quot; + age;
+</code></pre>
+<p>这种特性通常用在输出语句中：</p>
+<pre><code class="language-java">System.out.println(&quot;The answer is &quot; + answer);
+</code></pre>
+<p>使用 <code>equals</code> 方法检测两个字符串是否相等。</p>
+<pre><code class="language-java">// 如果字符串s和字符串t相等，则返回true，否则返回false
+s.equals(t);
+// 不区分大小写
+&quot;Hello&quot;.equalsIgnoreCase(&quot;hello&quot;);
+</code></pre>
+<p><code>==</code> 运算符只能确定两个字符串是否放置在同一位置上。</p>
+<p><code>length</code> 方法返回采用 UTF-16 编码表示的给定字符串所需要的代码单元数量。</p>
+<pre><code class="language-java">String greeting = &quot;Hello&quot;;int n = greeting.length(); // is 5
+</code></pre>
+<h4 id="构建字符串">构建字符串</h4>
+<pre><code class="language-java">StringBuilder builder = new StringBuilder();
+builder.append(ch); builder.append(str);
+String completedString = builder.toString();
+</code></pre>
+<h3 id="输入输出">输入输出</h3>
+<ol>
+<li>构造一个Scanner对象</li>
+<li>使用nextLine方法读取一行（nextInt方法读取整数）</li>
+</ol>
+<pre><code class="language-java">// InputTest.java
+import java.util.*;
+public class InputTest {    
+    public static void main(String[] args) {		
+        Scanner in = new Scanner(System.in);        
+        System.out.print(&quot;What is your name?&quot;);        
+        String name = in.nextLine();        
+        System.out.print(&quot;How old are you?&quot;);        
+        int age = in.nextInt();        
+        System.out.println(&quot;Hello, &quot; + name + &quot;. Next year, you'll be &quot; + (age + 1));    
+    }
+}
+</code></pre>
+<h4 id="格式化输出">格式化输出</h4>
+<pre><code class="language-java">System.out.printf(&quot;Hello, %s. Next year, you'll be %d&quot;, name, age);
+</code></pre>
+<h3 id="大数值">大数值</h3>
+<pre><code class="language-java">// BigIntegerTest.java
+import java.math.*;
+import java.util.*;
+public class BigIntegerTest {    
+    public static void main(String[] args) {        
+        Scanner in = new Scanner(System.in);        
+        System.out.print(&quot;How many numbers do need to draw? &quot;);        
+        int k = in.nextInt();        
+        System.out.print(&quot;What is the hightest number you can draw? &quot;);        
+        int n = in.nextInt();        
+        BigInteger lotteryOdds = BigInteger.valueOf(1);        
+        for (int i = 1; i &lt;= k; i++) {
+            lotteryOdds = lotteryOdds.multiply(BigInteger.valueOf(n - i + 1)).divide(BigInteger.valueOf(i)); 
+        }
+        System.out.println(&quot;You odds are 1 in &quot; + lotteryOdds + &quot;. Good luck!&quot;);    
+    }
+}
+</code></pre>
+<h3 id="数组">数组</h3>
+<pre><code class="language-java">// LotteryArray.java
+public class LotteryArray {    
+    public static void main(String[] args) {        
+        final int NMAX = 10;        
+        int[][] odds = new int[NMAX + 1][];        
+        for (int n = 0; n &lt;= NMAX; n++) { odds[n] = new int[n + 1]; }        
+        for (int n = 0; n &lt; odds.length; n++) {            
+            for (int k = 0; k &lt; odds[n].length; k++) {                
+                int lotteryOdds = 1;                
+                for (int i = 1; i &lt;= k; i++) { lotteryOdds = lotteryOdds * (n - i + 1) / i; }                
+                odds[n][k] = lotteryOdds;            
+            }        
+        }        
+        for (int[] row : odds) {            
+            for (int odd : row) { System.out.printf(&quot;%4d&quot;, odd); }            
+            System.out.println();        
+        }    
+    }
+}
+</code></pre>
+<hr>
+<h2 id="对象与类">对象与类</h2>
+<h3 id="面向对象程序设计概述">面向对象程序设计概述</h3>
+<p>面向对象的程序是由对象组成的，每个对象包含对用户公开的特定功能部分和隐藏的实现部分。</p>
+<p>对于一些规模较小的问题，将其分解成过程的开发方式比较理想。而面向对象更加适用于解决规模较大的问题。</p>
+<blockquote>
+<p>要想实现一个简单的web浏览器可能需要大约2000个过程，这些过程可能需要对一组全局数据进行操作。采用面向对象的设计风格，可能只需要大约100个类，每个类平均包含20个方法。后者更易于程序员掌握，也容易找到bug。</p>
+</blockquote>
+<h4 id="类">类</h4>
+<p>类是构造对象的模板或蓝图。由类构造对象的过程称为创建类的实例。</p>
+<p>封装是与对象有关的一个重要概念。将数据和行为组合在一个包中，并对对象的使用者隐藏了数据的实现方法。对象中的数据称为实例域，操纵数据的过程称为方法。对于每个特定的实例对象都有一组特定的实例域值。这些值的集合就是这个对象的当前状态。</p>
+<h4 id="对象">对象</h4>
+<p>对象的三个主要特性：</p>
+<ul>
+<li>对象的行为：可以对对象施加哪些操作，或可以对对象施加哪些方法</li>
+<li>对象的状态：当施加那些方法时，对象如何响应</li>
+<li>对象标识：如何辨别具有相同行为与状态的不同对象</li>
+</ul>
+<p>同一个类的所有对象实例，由于支持相同的行为而具有相似性。对象的行为是用可调用的方法定义的。每个对象都保存着描述当前特征的信息。对象的关键特性在彼此之间相互影响着。</p>
+<h3 id="面向对象">面向对象</h3>
+<h4 id="创建类">创建类</h4>
+<p>在 OOP 中，<code>class</code> 和 <code>instance</code> 是“模版”和“实例”的关系。定义 <code>class</code> 就是定义了一种数据类型，对应的 <code>instance</code> 是这种数据类型的实例。</p>
+<pre><code class="language-java">class Person {
+    public String name;
+    public int age;
+}
+Person ming = new Person();
+</code></pre>
+<p><code>class</code> 定义的 <code>field</code>，在每个 <code>instance</code> 都会拥有各自的 <code>field</code>，且互不干扰。</p>
+<pre><code class="language-java">ming.name = &quot;Xiao Ming&quot;; // 对字段name赋值
+ming.age = 12; // 对字段age赋值
+Person hong = new Person();
+hong.name = &quot;Xiao Hong&quot;;
+hong.age = 15;
+</code></pre>
+<p>通过 <code>new</code> 操作符创建新的 <code>instance</code>，然后用变量指向它，即可通过变量来引用这个 <code>instance</code>。</p>
+<p>访问实例字段的方法是 <code>变量名.字段名</code>，指向 <code>instance</code> 的变量都是引用变量。</p>
+<h4 id="方法">方法</h4>
+<p>方法可以让外部代码安全地访问实例字段，方法内部遇到 <code>return</code> 时返回，<code>void</code> 表示不返回任何值（和返回 <code>null</code> 不同）。</p>
+<p>外部代码通过 <code>public</code> 方法操作实例，内部代码可以调用 <code>private</code> 方法。</p>
+<pre><code class="language-java">public class Main {
+    public static void main(String[] args) {
+        Person p = new Person();
+        String bob = &quot;Bob&quot;;
+        p.setName(bob); // 传入bob变量
+        System.out.println(p.getName()); // &quot;Bob&quot;
+        bob = &quot;Alice&quot;; // bob改名为Alice
+        System.out.println(p.getName()); // &quot;Bob&quot;还是&quot;Alice&quot;?
+    }
+}
+class Person {
+    private String name;
+    public String getName() { return this.name; }
+    public void setName(String name) { this.name = name; }
+}
+</code></pre>
+<h4 id="继承">继承</h4>
+<p>继承是面向对象编程的一种强大的代码复用方式，Java只允许单继承，所有类最终的根类是 <code>Object</code>。</p>
+<pre><code class="language-java">class Person {
+    private String name;
+    private int age;
+    public String getName() {...}
+    public void setName(String name) {...}
+    public int getAge() {...}
+    public void setAge(int age) {...}
+}
+class Student extends Person {
+    // 不要重复name和age字段/方法,
+    // 只需要定义新增score字段/方法:
+    private int score;
+    public int getScore() { … }
+    public void setScore(int score) { … }
+}
+</code></pre>
+<p>通过继承，<code>Student</code> 只需要编写额外的功能，不再需要重复代码。</p>
+<p>在 Java 中，没有明确写 <code>extends</code> 的类，编译器会自动加上 <code>extends Object</code>。任何类，除了 <code>Object</code>，都会继承自某个类。Java 只允许一个 class 继承自一个类。一个类有且仅有一个父类。只有 <code>Object</code> 特殊，没有父类。</p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210316171846759.png" alt="image-20210316171846759"></p>
+<p><code>protected</code> 允许子类访问父类的字段和方法，子类的构造方法可以通过 <code>super()</code> 调用父类的构造方法，可以安全地向上转型为更抽象的类型，可以强制向下转型，最好借助 <code>instanceof</code> 判断。</p>
+<pre><code class="language-java">class Person {
+    protected String name;
+    protected int age;
+}
+class Student extends Person {
+    public String hello() { return &quot;Hello, &quot; + name; // OK! }
+}
+</code></pre>
+<p>子类和父类的关系是 is，has 关系不能用继承。</p>
+<pre><code class="language-java">class Book {    
+    protected String name;    
+    public String getName() {...}    
+    public void setName(String name) {...}
+}
+class Student extends Person {    
+    protected Book book;    
+    protected int score;
+}
+</code></pre>
+<p>具有 has 关系不应该使用继承，而是使用组合，即 <code>Student</code> 可以持有一个 <code>Book</code> 实例。</p>
+<h4 id="多态">多态</h4>
+<p>多态是指，针对某个类型的方法调用，其真正执行的方法取决于运行时期实际类型的方法。</p>
+<p>在继承关系中，子类如果定义了一个与父类方法签名完全相同的方法，被称为覆写（<code>Override</code>）。子类可以覆写父类的方法，覆写在子类中改变了父类方法的行为。</p>
+<pre><code class="language-java">class Person {    
+    public void run() { System.out.println(&quot;Person.run&quot;); }
+}
+class Student extends Person {    
+    @Override    
+    public void run() { System.out.println(&quot;Student.run&quot;); }
+}
+</code></pre>
+<p>如果子类覆写了父类的方法，一个实际类型为 <code>Student</code>，引用类型为 <code>Person</code> 的变量，调用其 <code>run()</code> 方法。</p>
+<pre><code class="language-java">public class Main {    
+    public static void main(String[] args) {        
+        Person p = new Student();        
+        p.run(); // 应该打印Person.run还是Student.run?    
+    }
+}
+class Person {    
+    public void run() { System.out.println(&quot;Person.run&quot;); }
+}
+class Student extends Person {    
+    @Override    
+    public void run() { System.out.println(&quot;Student.run&quot;); }
+}
+</code></pre>
+<p>实际上调用的方法是 <code>Student</code> 的 <code>run()</code> 方法。Java 的实例方法调用是基于运行时的实际类型的动态调用，而非变量的声明类型。</p>
+<pre><code class="language-java">public class Main {    
+    public static void main(String[] args) {        
+    // 给一个有普通收入、工资收入和享受国务院特殊津贴的小伙伴算税:        
+        Income[] incomes = new Income[] {            
+            new Income(3000), new Salary(7500),            
+            new StateCouncilSpecialAllowance(15000)        
+        };        
+        System.out.println(totalTax(incomes));    
+    }    
+    public static double totalTax(Income... incomes) {        
+        double total = 0;        
+        for (Income income: incomes) { total = total + income.getTax(); }        
+        return total;    
+    }
+}
+class Income {    
+    protected double income;    
+    public Income(double income) { this.income = income; }    
+    public double getTax() { return income * 0.1; }
+}
+class Salary extends Income {    
+    public Salary(double income) { super(income); }    
+    @Override   
+    public double getTax() {        
+        if (income &lt;= 5000) { return 0; }        
+        return (income - 5000) * 0.2;    
+    }
+}
+class StateCouncilSpecialAllowance extends Income {    
+    public StateCouncilSpecialAllowance(double income) { super(income); }    
+    @Override    
+    public double getTax() { return 0; }
+}
+</code></pre>
+<p>利用多态，<code>totalTax()</code> 方法只需要和 <code>Income</code> 打交道，完全不需要知道 <code>Salary</code> 和 <code>StateCouncilSpecialAllowance</code> 的存在，就可以正确计算出总的税。如果要新增一种稿费收入，只需要从 <code>Income</code> 派生，然后正确覆写 <code>getTax()</code> 方法就可以。把新的类型传入 <code>totalTax()</code>，不需要修改任何代码。</p>
+<p>多态具有一个非常强大的功能，允许添加更多类型的子类实现功能扩展，却不需要修改基于父类的代码。</p>
+<h4 id="抽象类">抽象类</h4>
+<p>通过 <code>abstract</code> 定义的方法是抽象方法，它只有定义，没有实现。抽象方法定义了子类必须实现的接口规范。定义了抽象方法的 class 必须被定义为抽象类，从抽象类继承的子类必须实现抽象方法。</p>
+<pre><code class="language-java">public class Main {    
+    public static void main(String[] args) {        
+        Person p = new Student();        
+        p.run();    
+    }
+}
+abstract class Person {    
+    public abstract void run();
+}
+class Student extends Person {    
+    @Override    
+    public void run() { System.out.println(&quot;Student.run&quot;); }
+}
+</code></pre>
+<p>如果不实现抽象方法，则该子类仍是一个抽象类，面向抽象编程使得调用者只关心抽象方法的定义，不关心子类的具体实现。</p>
+<p>这种尽量引用高层类型，避免引用实际子类型的方式，称之为面向抽象编程。</p>
+<p>面向抽象编程的本质就是：</p>
+<ul>
+<li>上层代码只定义规范（例如：<code>abstract class Person</code>）</li>
+<li>不需要子类就可以实现业务逻辑（正常编译）</li>
+<li>具体的业务逻辑由不同的子类实现，调用者并不关心</li>
+</ul>
+<h4 id="接口">接口</h4>
+<p>如果一个抽象类没有字段，所有方法全部都是抽象方法：</p>
+<pre><code class="language-java">abstract class Person {    
+    public abstract void run();    
+    public abstract String getName();
+}
+</code></pre>
+<p>就可以把该抽象类改写为接口：<code>interface</code>，在Java中，使用 <code>interface</code> 声明一个接口：</p>
+<pre><code class="language-java">interface Person {    
+    void run();    
+    String getName();
+}
+</code></pre>
+<p>一个具体的 <code>class</code> 去实现一个 <code>interface</code> 时，需要使用 <code>implements</code> 关键字。</p>
+<pre><code class="language-java">class Student implements Person {    
+    private String name;    
+    public Student(String name) { this.name = name; }    
+    @Override    
+    public void run() { System.out.println(this.name + &quot; run&quot;); }    
+    @Override    
+    public String getName() { return this.name; }
+}
+</code></pre>
+<p>Java 的接口特指 <code>interface</code> 的定义，表示一个接口类型和一组方法签名，而编程接口泛指接口规范，如方法签名，数据格式，网络协议等。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>abstract class</th>
+<th>interface</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>继承</td>
+<td>只能extends一个class</td>
+<td>可以implements多个interface</td>
+</tr>
+<tr>
+<td>字段</td>
+<td>可以定义实例字段</td>
+<td>不能定义实例字段</td>
+</tr>
+<tr>
+<td>抽象方法</td>
+<td>可以定义抽象方法</td>
+<td>可以定义抽象方法</td>
+</tr>
+<tr>
+<td>非抽象方法</td>
+<td>可以定义非抽象方法</td>
+<td>可以定义default方法</td>
+</tr>
+</tbody>
+</table>
+<p>Java 的接口（<code>interface</code>）定义了纯抽象规范，一个类可以实现多个接口，接口也是数据类型，适用于向上转型和向下转型。</p>
+<p>接口的所有方法都是抽象方法，接口不能定义实例字段，接口可以定义 <code>default</code> 方法。</p>
+<pre><code class="language-java">public class Main {    
+    public static void main(String[] args) {        
+        Person p = new Student(&quot;Xiao Ming&quot;);        
+        p.run();    
+    }
+}
+interface Person {    
+    String getName();    
+    default void run() { System.out.println(getName() + &quot; run&quot;); }
+}
+class Student implements Person {    
+    private String name;    
+    public Student(String name) { this.name = name; }    
+    public String getName() { return this.name; }
+}
+</code></pre>
+<h4 id="静态方法">静态方法</h4>
+<p>用 <code>static</code> 修饰的字段，称为静态字段。</p>
+<pre><code class="language-java">public class Main {    
+    public static void main(String[] args) {        
+        Person ming = new Person(&quot;Xiao Ming&quot;, 12);        
+        Person hong = new Person(&quot;Xiao Hong&quot;, 15);        
+        ming.number = 88;        
+        System.out.println(hong.number);        
+        hong.number = 99;        
+        System.out.println(ming.number);    
+    }
+}
+class Person {    
+    public String name;    
+    public int age;    
+    public static int number;    
+    public Person(String name, int age) { this.name = name; this.age = age; }
+}
+</code></pre>
+<p>静态字段属于所有实例“共享”的字段，实际上是属于 <code>class</code> 的字段。</p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210317140345863.png" alt="image-20210317140345863"></p>
+<p>用 <code>static</code> 修饰的方法称为静态方法。</p>
+<pre><code class="language-java">public class Main {    
+    public static void main(String[] args) {        
+        Person.setNumber(99);        
+        System.out.println(Person.number);    
+    }
+}
+class Person {    
+    public static int number;    
+    public static void setNumber(int value) { number = value; }
+}
+</code></pre>
+<p>调用静态方法不需要实例，无法访问 <code>this</code> ，但可以访问静态字段和其他静态方法。</p>
+<p>静态方法常用于工具类和辅助方法。Java 程序的入口 <code>main()</code> 也是静态方法。</p>
+<h4 id="包">包</h4>
+<p>Java 内建的 <code>package</code> 机制是为了避免 <code>class</code> 命名冲突，JDK的核心类使用 <code>java.lang</code> 包，编译器会自动导入。</p>
+<p>JDK 的其它常用类定义在 <code>java.util.*</code>，<code>java.math.*</code>，<code>java.text.*</code>，……</p>
+<p>包名推荐使用倒置的域名，例如 <code>org.apache</code>。</p>
+<h4 id="作用域">作用域</h4>
+<p>Java 内建的访问权限包括 <code>public</code>、<code>protected</code>、<code>private</code> 和 <code>package</code> 权限，Java 在方法内部定义的变量是局部变量，局部变量的作用域从变量声明开始，到一个块结束。</p>
+<pre><code class="language-java">public class Main {    
+    public static void main(String[] args) {        
+        Inner i = new Inner();        
+        i.hi();    
+    }    
+    // private方法:    
+    private static void hello() { System.out.println(&quot;private hello!&quot;); }    
+    // 静态内部类:    
+    static class Inner {
+        public void hi() { Main.hello(); }    
+    }
+}
+</code></pre>
+<p><code>final</code> 修饰符不是访问权限，它可以修饰 <code>class</code>、<code>field</code> 和 <code>method</code>。</p>
+<p>一个 <code>.java</code> 文件只能包含一个 <code>public</code> 类，但可以包含多个非 <code>public</code> 类。</p>
+<h4 id="内部类">内部类</h4>
+<p>Java 的内部类可分为 Inner Class、Anonymous Class 和 Static Nested Class 三种。</p>
+<pre><code class="language-java">// Inner Class
+public class Main {    
+    public static void main(String[] args) {        
+        Outer outer = new Outer(&quot;Nested&quot;); // 实例化一个Outer        
+        Outer.Inner inner = outer.new Inner(); // 实例化一个Inner        
+        inner.hello();    
+    }
+}
+class Outer {    
+    private String name;    
+    Outer(String name) { this.name = name; }    
+    class Inner {        
+        void hello() { System.out.println(&quot;Hello, &quot; + Outer.this.name); }    
+    }
+}
+</code></pre>
+<p>Inner Class 和 Anonymous Class 本质上是相同的，都必须依附于 Outer Class 的实例，即隐含地持有 <code>Outer.this</code> 实例，并拥有 Outer Class 的 <code>private</code> 访问权限。</p>
+<pre><code class="language-java">// Anonymous Class
+public class Main {    
+    public static void main(String[] args) {        
+        Outer outer = new Outer(&quot;Nested&quot;);        
+        outer.asyncHello();    
+    }
+}
+class Outer {    
+    private String name;    
+    Outer(String name) { this.name = name; }    
+    void asyncHello() {        
+        Runnable r = new Runnable() {            
+            @Override            
+            public void run() { System.out.println(&quot;Hello, &quot; + Outer.this.name); }        
+        };        
+        new Thread(r).start();    
+    }
+}
+</code></pre>
+<p>Static Nested Class 是独立类，但拥有 Outer Class 的 <code>private</code> 访问权限。</p>
+<hr>
+<h2 id="java核心类">Java核心类</h2>
+<h3 id="stringbuilder">StringBuilder</h3>
+<p><code>StringBuilder</code> 是可变对象，可以预分配缓冲区，往 <code>StringBuilder</code> 中新增字符时，不会创建新的临时对象，可以高效拼接字符串。</p>
+<pre><code class="language-java">public class Main {
+    public static void main(String[] args) {
+        var sb = new StringBuilder(1024);
+        sb.append(&quot;Mr &quot;).append(&quot;Bob&quot;).append(&quot;!&quot;).insert(0, &quot;Hello, &quot;);
+        System.out.println(sb.toString());
+    }
+}
+</code></pre>
+<p><code>StringBuilder</code>可以支持链式操作，实现链式操作的关键是返回实例本身。</p>
+<pre><code class="language-java">public class Main {
+    public static void main(String[] args) {
+        Adder adder = new Adder();
+        adder.add(3).add(5).inc().add(10);
+        System.out.println(adder.value());
+    }
+}
+class Adder {
+    private int sum = 0;
+    public Adder add(int n) { sum += n; return this; }
+    public Adder inc() { sum ++; return this; }
+    public int value() { return sum; }
+}
+</code></pre>
+<p><code>StringBuffer</code> 是 <code>StringBuilder</code> 的线程安全版本，现在很少使用。</p>
+<h3 id="stringjoiner">StringJoiner</h3>
+<p>用指定分隔符拼接字符串数组时，使用 <code>StringJoiner</code> 或者 <code>String.join()</code> 更方便。</p>
+<p>用 <code>StringJoiner</code> 拼接字符串时，还可以额外附加一个“开头”和“结尾”。</p>
+<pre><code class="language-java">import java.util.StringJoiner;
+public class Main {
+    public static void main(String[] args) {
+        String[] names = {&quot;Bob&quot;, &quot;Alice&quot;, &quot;Grace&quot;};
+        var sj = new StringJoiner(&quot;, &quot;, &quot;Hello &quot;, &quot;!&quot;);
+        for (String name : names) { sj.add(name); }
+        System.out.println(sj.toString());
+    }
+}
+</code></pre>
+<h3 id="javabean">JavaBean</h3>
+<p>JavaBean是一种符合命名规范的 <code>class</code>，它通过 <code>getter</code> 和 <code>setter</code> 来定义属性，属性是一种通用的叫法，并非Java语法规定。</p>
+<p>通常把一组对应的读方法（<code>getter</code>）和写方法（<code>setter</code>）称为属性（<code>property</code>）。例如，<code>name</code> 属性：</p>
+<p>对应的读方法是 <code>String getName()</code>，对应的写方法是 <code>setName(String)</code></p>
+<p>只有 <code>getter</code> 的属性称为只读属性（read-only），例如，定义一个 <code>age</code> 只读属性：</p>
+<p>对应的读方法是 <code>int getAge()</code>，无对应的写方法 <code>setAge(int)</code></p>
+<p>可以利用IDE快速生成<code>getter</code>和<code>setter</code>。</p>
+<p>以 Idea 为例，创建 Person 类，添加 private 变量。</p>
+<pre><code class="language-java">public class Person {
+    private String name;
+    private int age;
+}
+</code></pre>
+<p>在右键弹出的菜单选择 Generate 或者点击菜单栏 Code -&gt; Generate</p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210317143211831.png" alt="image-20210317143211831"></p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210317143334480.png" alt="image-20210317143334480"></p>
+<p>选择 Getter and Setter</p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210317143455454.png" alt="image-20210317143455454"></p>
+<p>选择要生成的字段，选择确定即可自动生成。</p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210317143550396.png" alt="image-20210317143550396"></p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210317143638233.png" alt="image-20210317143638233"></p>
+<p>使用 <code>Introspector.getBeanInfo()</code> 可以获取属性列表。</p>
+<pre><code class="language-java">import java.beans.*;
+public class Main {
+    public static void main(String[] args) throws Exception {
+        BeanInfo info = Introspector.getBeanInfo(Person.class);
+        for (PropertyDescriptor pd : info.getPropertyDescriptors()) {
+            System.out.println(pd.getName());
+            System.out.println(&quot;  &quot; + pd.getReadMethod());
+            System.out.println(&quot;  &quot; + pd.getWriteMethod());
+        }
+    }
+}
+class Person {
+    private String name;
+    private int age;
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
+    public int getAge() { return age; }
+    public void setAge(int age) { this.age = age; }
+}
+</code></pre>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210317143915425.png" alt="image-20210317143915425"></p>
+<hr>
+<h2 id="异常处理">异常处理</h2>
+<h3 id="java-异常">Java 异常</h3>
+<p>Java 内置了一套异常处理机制，总是使用异常来表示错误。异常是一种 <code>class</code>，本身带有类型信息。</p>
+<p>异常的继承关系：</p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210310215857511.png" alt="image-20210310215857511"></p>
+<p><code>Error</code>表示严重的错误，程序一般无能为力：</p>
+<ul>
+<li><code>OutOfMemoryError</code>：内存耗尽</li>
+<li><code>NoClassDefFoundError</code>：无法加载某个class</li>
+<li><code>StackOverflowError</code>：栈溢出</li>
+</ul>
+<p><code>Exception</code> 表示运行时的错误，可以被捕获并处理。</p>
+<p>Java 规定 <code>Exception</code> 及其子类必须被捕获，但不包括 <code>RuntimeException</code> 及其子类。</p>
+<h3 id="捕获异常">捕获异常</h3>
+<p>使用 <code>try...catch</code> 语句，把可能发生异常的代码放到 <code>try {...}</code> 中，然后使用 <code>catch</code> 捕获对应的 <code>Exception</code> 及其子类。</p>
+<pre><code class="language-java">import java.io.UnsupportedEncodingException;
+import java.util.Arrays;
+public class Main {
+    public static void main(String[] args) {
+        byte[] bs = toGBK(&quot;中文&quot;);
+        System.out.println(Arrays.toString(bs));
+    }
+    static byte[] toGBK(String s) {
+        try {
+            // 用指定编码转换String为byte[]:
+            return s.getBytes(&quot;GBK&quot;);
+        } catch (UnsupportedEncodingException e) {
+            // 如果系统不支持GBK编码，会捕获到UnsupportedEncodingException:
+            System.out.println(e); // 打印异常信息
+            return s.getBytes(); // 尝试使用用默认编码
+        }
+    }
+}
+</code></pre>
+<h4 id="多-catch-语句">多 catch 语句</h4>
+<p>可以使用多个 <code>catch</code> 语句，只有一个能被执行，子类必须写在前面。</p>
+<pre><code class="language-java">public static void main(String[] args) {
+    try {
+        process1();
+        process2();
+        process3();
+    } catch (UnsupportedEncodingException e) {
+        System.out.println(&quot;Bad encoding&quot;);
+    } catch (IOException e) {
+        System.out.println(&quot;IO error&quot;);
+    }
+}
+</code></pre>
+<h4 id="finally-语句">finally 语句</h4>
+<p>Java 的 <code>try...catch</code> 机制提供了 <code>finally</code> 语句，在有无错误时都会执行。</p>
+<pre><code class="language-java">public static void main(String[] args) {
+    try {
+        process1();
+        process2();
+        process3();
+    } catch (UnsupportedEncodingException e) {
+        System.out.println(&quot;Bad encoding&quot;);
+    } catch (IOException e) {
+        System.out.println(&quot;IO error&quot;);
+    } finally {
+        System.out.println(&quot;END&quot;);
+    }
+}
+</code></pre>
+<ul>
+<li><code>finally</code> 不是必须的</li>
+<li><code>finally</code> 总是最后执行</li>
+</ul>
+<h3 id="抛出异常">抛出异常</h3>
+<ol>
+<li>创建某个 <code>Exception</code> 的实例</li>
+<li>用 <code>throw</code> 语句抛出</li>
+</ol>
+<pre><code class="language-java">void process2(String s) {
+    if (s==null) { throw new NullPointerException(); }
+}
+</code></pre>
+<hr>
+<h2 id="泛型">泛型</h2>
+<h3 id="泛型-1">泛型</h3>
+<p>泛型就是编写模板代码来适应任何类型。</p>
+<pre><code class="language-java">public classArrayList&lt;T&gt; {
+    private T[] array;
+    private int size;
+    public void add(T e) {...}
+    public void remove(int index) {...}
+    public T get(int index) {...}
+}
+
+ArrayList&lt;String&gt; strList = new ArrayList&lt;String&gt;();
+ArrayList&lt;Double&gt; doubleList = new ArrayList&lt;Double&gt;();
+ArrayList&lt;Person&gt; personList = new ArrayList&lt;Person&gt;();
+</code></pre>
+<h3 id="使用">使用</h3>
+<p>把泛型参数 <code>&lt;T&gt;</code> 替换为需要的 class 类型。</p>
+<p>接口也可以使用泛型，<code>Arrays.sort(Object[])</code> 可以对任意数组进行排序，但待排序的元素必须实现 <code>Comparable&lt;T&gt;</code> 这个泛型接口。</p>
+<pre><code class="language-java">public interface Comparable&lt;T&gt; {
+    /**
+     * 返回负数: 当前实例比参数o小
+     * 返回0: 当前实例与参数o相等
+     * 返回正数: 当前实例比参数o大
+     */
+    int compareTo(T o);
+}
+</code></pre>
+<p>直接对 String 数组排序</p>
+<pre><code class="language-java">import java.util.Arrays;
+public class Main {
+    public static void main(String[] args) {
+        String[] ss = new String[] { &quot;Orange&quot;, &quot;Apple&quot;, &quot;Pear&quot; };
+        Arrays.sort(ss);
+        System.out.println(Arrays.toString(ss));
+    }
+}
+</code></pre>
+<p>自定义类要实现 <code>Comparable&lt;T&gt;</code> 接口</p>
+<pre><code class="language-java">import java.util.Arrays;
+public class Main {
+    public static void main(String[] args) {
+        Person[] ps = new Person[] {
+            new Person(&quot;Bob&quot;, 61),
+            new Person(&quot;Alice&quot;, 88),
+            new Person(&quot;Lily&quot;, 75),
+        };
+        Arrays.sort(ps);
+        System.out.println(Arrays.toString(ps));
+    }
+}
+class Person implements Comparable&lt;Person&gt; {
+    String name; int score;
+    Person(String name, int score) { this.name = name; this.score = score; }
+    public int compareTo(Person other) { return this.name.compareTo(other.name); }
+    public String toString() { return this.name + &quot;,&quot; + this.score; }
+}
+</code></pre>
+<h3 id="编写泛型类">编写泛型类</h3>
+<ol>
+<li>按照某种类型，编写类</li>
+</ol>
+<pre><code class="language-java">public class Pair {
+    private String first;
+    private String last;
+    public Pair(String first, String last) { this.first = first; this.last = last; }
+    public String getFirst() { return first; }
+    public String getLast() { return last; }
+}
+</code></pre>
+<ol start="2">
+<li>把 String换成T，并声明<code>&lt;T&gt;</code></li>
+</ol>
+<pre><code class="language-java">public class Pair&lt;T&gt; {
+    private T first;
+    private T last;
+    public Pair(T first, T last) { this.first = first; this.last = last; }
+    public T getFirst() { return first; }
+    public T getLast() { return last; }
+}
+</code></pre>
+<p><strong>泛型类型不能用于静态方法</strong></p>
+<p>对于静态方法，可以单独改写为“泛型”方法，只需要使用另一个类型即可。对于上面的<code>create()</code>静态方法，我们应该把它改为另一种泛型类型</p>
+<pre><code class="language-java">public class Pair&lt;T&gt; {
+    private T first;
+    private T last;
+    public Pair(T first, T last) { this.first = first; this.last = last; }
+    public T getFirst() { ... }
+    public T getLast() { ... }
+    // 静态泛型方法应该使用其他类型区分:
+    public static &lt;K&gt; Pair&lt;K&gt; create(K first, K last) { return new Pair&lt;K&gt;(first, last); }
+}
+</code></pre>
+<hr>
+<h2 id="集合">集合</h2>
+<p>集合是对象的容器，实现了对对象常用的操作，类似数组的功能。</p>
+<p>Java集合类定义在 <code>java.util</code> 包中，支持泛型。</p>
+<h3 id="collection">Collection</h3>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210314144031638.png" alt="image-20210314144031638"></p>
+<p>特点：代表一组任意类型的对象，无序、无下标、不能重复。</p>
+<pre><code class="language-java">public class Main {
+    public static void main(String[] args) {
+        Collection&lt;Student&gt; collection = new ArrayList&lt;Student&gt;(); //新建 Collection 对象
+        Student s1 = new Student(&quot;张三&quot;, 20);
+        Student s2 = new Student(&quot;李四&quot;, 18);
+        Student s3 = new Student(&quot;王五&quot;, 22);
+        collection.add(s1); // 添加对象
+        collection.add(s2);
+        collection.add(s3);
+        System.out.println(&quot;元素个数：&quot; + collection.size());
+        System.out.println(collection.toString());
+        collection.remove(new Student(&quot;王五&quot;, 22)); //地址不同
+        System.out.println(&quot;删除之后：&quot; + collection.size());
+        System.out.println(collection.contains(new Student(&quot;王五&quot;, 22)));
+        Iterator iterator = collection.iterator();
+        while (iterator.hasNext()) {
+            Student student = (Student) iterator.next();
+            System.out.println(student.toString());
+        }
+        System.out.println(collection.isEmpty());
+    }
+}
+</code></pre>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210314154359847.png" alt="image-20210314154359847"></p>
+<h3 id="list">List</h3>
+<p>特点：有序、有下标、元素可以重复。</p>
+<p><strong>迭代器</strong>：专门用来遍历集合的一种类型。</p>
+<pre><code class="language-java">public class Main {
+    public static void main(String[] args) {
+        List&lt;Object&gt; list = new ArrayList&lt;&gt;();
+        list.add(&quot;apple&quot;);
+        list.add(&quot;xiaomi&quot;);
+        list.add(0, &quot;huawei&quot;);
+        ListIterator&lt;Object&gt; listIterator = list.listIterator();
+        System.out.println(&quot;使用列表迭代器从前往后&quot;);
+        while (listIterator.hasNext()) { System.out.println(listIterator.nextIndex() + &quot;:&quot; + listIterator.next()); }
+        System.out.println(&quot;使用列表迭代器从后往前&quot;);
+        while (listIterator.hasPrevious()) { System.out.println(listIterator.previousIndex() + &quot;:&quot; + listIterator.previous()); }
+        System.out.println(list.contains(&quot;apple&quot;));
+        System.out.println(list.isEmpty());
+        System.out.println(list.indexOf(&quot;huawei&quot;));
+    }
+}
+</code></pre>
+<h4 id="arraylist">ArrayList</h4>
+<p>特点：数组结构实现，查询快，增删慢，运行效率高，线程不安全。</p>
+<pre><code class="language-java">public class Main {
+    public static void main(String[] args) {
+        ArrayList&lt;Object&gt; arrayList = new ArrayList&lt;&gt;();
+        Student s1 = new Student(&quot;tom&quot;, 18);
+        Student s2 = new Student(&quot;john&quot;, 17);
+        Student s3 = new Student(&quot;peter&quot;, 20);
+        arrayList.add(s1);
+        arrayList.add(s2);
+        arrayList.add(s3);
+        System.out.println(arrayList.size());
+        System.out.println(arrayList.toString());
+        arrayList.remove(new Student(&quot;tom&quot;, 18)); // 重写equals 
+        ListIterator listIterator = arrayList.listIterator();
+        while (listIterator.hasNext()) {
+            Student student = (Student) listIterator.next();
+            System.out.println(student.toString());
+        }
+    }
+}
+public class Student {
+    private  String name;
+    private int age;
+    ...
+    @Override
+    public boolean equals(Object o) {
+        if (this ==o) { return false; }
+        if (o == null) { return false; }
+        if (o instanceof Student) {
+            Student s = (Student) o;
+            return this.name.equals(s.getName()) &amp;&amp; this.age == s.getAge();
+        }
+        return false;
+    }
+}
+</code></pre>
+<h4 id="vector">Vector</h4>
+<p>特点：数组结构实现，查询快，增删慢，运行效率低，线程安全。</p>
+<pre><code class="language-java">public class Main {
+    public static void main(String[] args) {
+        Vector vector = new Vector&lt;&gt;();
+        vector.add(&quot;straw&quot;);
+        vector.add(&quot;mango&quot;);
+        vector.add(&quot;water&quot;);
+        System.out.println(vector.size());
+        Enumeration enumeration = vector.elements();
+        while (enumeration.hasMoreElements()) {
+            String o = (String) enumeration.nextElement();
+            System.out.println(o);
+        }
+    }
+}
+</code></pre>
+<h4 id="linkedlist">LinkedList</h4>
+<p>特点：链表结构实现，增删快，查询慢。</p>
+<pre><code class="language-java">public class Main {
+    public static void main(String[] args) {
+        LinkedList&lt;Student&gt; linkedList = new LinkedList&lt;&gt;();
+        Student s1 = new Student(&quot;tom&quot;, 18);
+        Student s2 = new Student(&quot;john&quot;, 17);
+        Student s3 = new Student(&quot;peter&quot;, 20);
+        linkedList.add(s1); linkedList.add(s2);
+        linkedList.add(s3); linkedList.add(s3);
+        System.out.println(linkedList.size());
+        System.out.println(linkedList.toString());
+        for (Student s : linkedList) { System.out.println(s.toString()); }
+    }
+}
+</code></pre>
+<h3 id="set">Set</h3>
+<p>特点：无序、无下标、元素不可重复。</p>
+<p>方法：全部继承自<code>Collection</code>中的方法。</p>
+<pre><code class="language-java">public class Main {
+    public static void main(String[] args) {
+        Set&lt;String&gt; set = new HashSet&lt;&gt;();
+        set.add(&quot;apple&quot;); set.add(&quot;huawei&quot;); set.add(&quot;xiaomi&quot;);
+        System.out.println(set.toString());
+        for (String string : set) { System.out.println(string); }
+    }
+}
+</code></pre>
+<h4 id="hashset">HashSet</h4>
+<ul>
+<li>
+<p>基于<code>HashCode</code>计算元素存放位置</p>
+</li>
+<li>
+<p>当存入元素的哈希码相同时，会调用equals进行确认，如果结果为true，则拒接后者存入</p>
+</li>
+</ul>
+<pre><code class="language-java">public class Main {
+    public static void main(String[] args) {
+        HashSet&lt;Person&gt; hashSet = new HashSet&lt;&gt;();
+        Person p1 = new Person(&quot;aaa&quot;, 12); Person p2 = new Person(&quot;bbb&quot;, 14);
+        Person p3 = new Person(&quot;ccc&quot;, 16); Person p4 = new Person(&quot;ddd&quot;, 18);
+        hashSet.add(p1); hashSet.add(p2);
+        hashSet.add(p3); hashSet.add(p4);
+        hashSet.add(new Person(&quot;ddd&quot;, 18)); // 重写了equals方法，哈希值不同，不能添加到hashset中
+        for (Person p : hashSet) { System.out.println(p.toString()); }
+    }
+}
+
+public class Person {
+    private String name;
+    private int age;
+    ...
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Person person = (Person) o;
+        return age == person.age &amp;&amp; name.equals(person.name);
+    }
+    @Override
+    public int hashCode() { return Objects.hash(name, age); }
+}
+</code></pre>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210315142913865.png" alt="image-20210315142913865"></p>
+<h4 id="treeset">TreeSet</h4>
+<ul>
+<li>基于排序顺序实现元素不重复</li>
+<li>实现了<code>SortedSet</code>接口，对集合元素自动排序</li>
+<li>元素对象的类型必须实现<code>Comparable</code>接口，指定排序规则</li>
+<li>通过<code>CompaerTo</code>方法确定是否为重复元素</li>
+</ul>
+<pre><code class="language-java">public class Main {
+    public static void main(String[] args) {
+        TreeSet&lt;Person&gt; person = new TreeSet&lt;&gt;();
+        Person p1 = new Person(&quot;aaa&quot;, 12); Person p2 = new Person(&quot;bbb&quot;, 14);
+        Person p3 = new Person(&quot;ccc&quot;, 16);
+        person.add(p1); person.add(p2);
+        person.add(p3);
+        person.add(new Person(&quot;ccc&quot;, 16));
+        for (Person p : person) { System.out.println(p.toString()); }
+    }
+}
+
+public class Person implements Comparable&lt;Person&gt; {
+    private String name;
+    private int age;
+    ...
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Person person = (Person) o;
+        return age == person.age &amp;&amp; name.equals(person.name);
+    }
+    @Override
+    public int hashCode() { return Objects.hash(name, age); }
+    @Override
+    public int compareTo(Person o) {
+        int n1 = this.getName().compareTo(o.getName());
+        int n2 = this.age-o.getAge();
+        return n1;
+    }
+}
+</code></pre>
+<p>comparator 接口实现定制比较</p>
+<pre><code class="language-java">public class Main {    
+    public static void main(String[] args) {        
+        TreeSet&lt;String&gt; treeSet = new TreeSet&lt;&gt;(new Comparator&lt;String&gt;() {           
+            @Override // comparator接口实现定制比较            
+            public int compare(String o1, String o2) {                
+                int n1 = o1.length() - o2.length();                
+                int n2 = o1.compareTo(o2);                
+                return n1 == 0 ? n2 : n1;            
+            }        
+        });        
+        treeSet.add(&quot;hollowed&quot;); treeSet.add(&quot;zhang&quot;); treeSet.add(&quot;beijing&quot;);        
+        treeSet.add(&quot;xian&quot;); treeSet.add(&quot;nanjing&quot;);        
+        System.out.println(treeSet.toString());    
+    }
+}
+</code></pre>
+<h3 id="map">Map</h3>
+<p>特点：用于存储任意键值对（key-value），无序，无下标，键不可重复，值可重复。</p>
+<pre><code class="language-java">public class Demo1 {    
+    public static void main(String[] args) {       
+        Map&lt;String, String&gt; map = new HashMap&lt;&gt;();        
+        map.put(&quot;cn&quot;, &quot;china&quot;); map.put(&quot;us&quot;, &quot;america&quot;); map.put(&quot;uk&quot;, &quot;england&quot;);        
+        map.put(&quot;us&quot;, &quot;american&quot;); map.put(&quot;eu&quot;, &quot;euro&quot;); map.remove(&quot;us&quot;);        
+        System.out.println(map.toString());        
+        for (String key : map.keySet()) { System.out.println(key + &quot;---&quot; + map.get(key)); }        
+        for (Map.Entry&lt;String, String&gt; entry : map.entrySet()) { System.out.println(entry.getKey() + &quot;---&quot; + entry.getValue()); }    
+    }
+}
+</code></pre>
+<h4 id="hashmap">HashMap</h4>
+<p>特点：线程不安全，运行效率高；允许用null作为key或是value。</p>
+<pre><code class="language-java">public class Main {    
+    public static void main(String[] args) {        
+        HashMap&lt;Student, String&gt; student = new HashMap&lt;&gt;();        
+        Student s1 = new Student(&quot;aaa&quot;, 100); Student s2 = new Student(&quot;bbb&quot;, 200);        
+        Student s3 = new Student(&quot;ccc&quot;, 300);        
+        student.put(s1, &quot;x&quot;); student.put(s2, &quot;y&quot;);        
+        student.put(s3, &quot;z&quot;);        
+        student.put(new Student(&quot;ccc&quot;, 300), &quot;a&quot;); // 内存地址不同        
+        System.out.println(student.toString());        
+        for (Student key : student.keySet()) { System.out.println(key.toString() + &quot;---&quot; + student.get(key)); }        
+        for (Map.Entry&lt;Student, String&gt; entry : student.entrySet()) { System.out.println(entry.getKey() + &quot;---&quot; + entry.getValue()); }    
+    }
+}
+public class Student {    
+    private String name;    
+    private int id;    
+    @Override    
+    public boolean equals(Object o) {        
+        if (this == o) return true;        
+        if (o == null || getClass() != o.getClass()) return false;        
+        Student student = (Student) o;        
+        return id == student.id &amp;&amp; name.equals(student.name);    
+    }    
+    @Override    
+    public int hashCode() { return Objects.hash(name, id); }
+}
+</code></pre>
+<h3 id="collections">Collections</h3>
+<p>集合工具类，提供了一系列静态方法，能更方便地操作各种集合。</p>
+<ul>
+<li>创建空集合：返回的空集合是不可变集合</li>
+</ul>
+<pre><code class="language-java">List&lt;T&gt; emptyList()
+Map&lt;K, V&gt; emptyMap()
+Set&lt;T&gt; emptySet()
+</code></pre>
+<ul>
+<li>创建单元素集合：返回的单元素集合也是不可变集合</li>
+</ul>
+<pre><code class="language-java">List&lt;T&gt; singletonList(T o)
+Map&lt;K, V&gt; singletonMap(K key, V value)
+Set&lt;T&gt; singleton(T o)
+</code></pre>
+<p>用各个集合接口提供的<code>of(T...)</code>方法创建单元素集合更方便，既可以创建空集合，也可以创建单元素集合，还可以创建任意个元素的集合。</p>
+<pre><code class="language-java">List&lt;String&gt; list1 = List.of(); // empty list
+List&lt;String&gt; list2 = List.of(&quot;apple&quot;); // 1 element
+List&lt;String&gt; list3 = List.of(&quot;apple&quot;, &quot;pear&quot;); // 2 elements
+List&lt;String&gt; list4 = List.of(&quot;apple&quot;, &quot;pear&quot;, &quot;orange&quot;); // 3 elements
+</code></pre>
+<ul>
+<li>排序：排序会直接修改<code>List</code>元素的位置，必须传入可变<code>List</code>。</li>
+</ul>
+<pre><code class="language-java">public class Main {    
+    public static void main(String[] args) {        
+        List&lt;String&gt; list = new ArrayList&lt;&gt;();        
+        list.add(&quot;apple&quot;); list.add(&quot;pear&quot;); list.add(&quot;orange&quot;);        
+        System.out.println(list); // 排序前        
+        Collections.sort(list);        
+        System.out.println(list); // 排序后    
+    }
+}
+</code></pre>
+<ul>
+<li>洗牌：传入一个有序的<code>List</code>，可以随机打乱<code>List</code>内部元素的顺序。</li>
+</ul>
+<pre><code class="language-java">public class Main {    
+    public static void main(String[] args) {        
+        List&lt;Integer&gt; list = new ArrayList&lt;&gt;();        
+        for (int i=0; i&lt;10; i++) { list.add(i); }        
+        System.out.println(list); // 洗牌前        
+        Collections.shuffle(list);        
+        System.out.println(list); // 洗牌后    
+    }
+}
+</code></pre>
+<ul>
+<li>不可变集合：通过创建一个代理对象，拦截掉所有修改方法。</li>
+</ul>
+<pre><code class="language-java">List&lt;T&gt; unmodifiableList(List&lt;? extends T&gt; list)
+Set&lt;T&gt; unmodifiableSet(Set&lt;? extends T&gt; set)
+Map&lt;K, V&gt; unmodifiableMap(Map&lt;? extends K, ? extends V&gt; m)
+</code></pre>
+<pre><code class="language-java">public class Main {    
+    public static void main(String[] args) {        
+        List&lt;String&gt; mutable = new ArrayList&lt;&gt;();        
+        mutable.add(&quot;apple&quot;); mutable.add(&quot;pear&quot;);        
+        // 变为不可变集合:        
+        List&lt;String&gt; immutable = Collections.unmodifiableList(mutable);        
+        immutable.add(&quot;orange&quot;); 
+        // UnsupportedOperationException!    
+    }
+}
+</code></pre>
+<ul>
+<li>线程安全集合：</li>
+</ul>
+<pre><code class="language-java">List&lt;T&gt; synchronizedList(List&lt;T&gt; list)
+Set&lt;T&gt; synchronizedSet(Set&lt;T&gt; s)
+Map&lt;K,V&gt; synchronizedMap(Map&lt;K,V&gt; m)
+</code></pre>
+<hr>
+<h2 id="io">IO</h2>
+<p>IO流是一种顺序读写数据的模式，特点是单向流动。所以把它称为IO流。</p>
+<h3 id="file对象">File对象</h3>
+<h3 id="inputstream">InputStream</h3>
+<h3 id="outputstream">OutputStream</h3>
+<h3 id="filter">Filter</h3>
+<h3 id="reader">Reader</h3>
+<h3 id="writer">Writer</h3>
+<h3 id="files">Files</h3>
+<p>&mdash;待更</p>
+<hr>
+<h2 id="多线程">多线程</h2>
+<p>进程：启动一个 LOL.exe 是一个进程，再启动一个 DOTA.exe，叫两个进程。</p>
+<p>线程：在进程内部，同时做多件事。</p>
+<h3 id="创建多线程">创建多线程</h3>
+<h4 id="继承线程类">继承线程类</h4>
+<p>设计一个类继承<code>Thread</code>，并且重写<code>run</code>方法。</p>
+<p>启动线程：实例化对象，调用<code>start</code>方法。</p>
+<pre><code class="language-java">public class Main {
+    public static void main(String[] args) {
+        Thread t = new MyThread();
+        t.start(); // 启动新线程
+    }
+}
+class MyThread extends Thread {
+    @Override
+    public void run() { System.out.println(&quot;start new thread!&quot;); }
+}
+</code></pre>
+<h4 id="实现runnable接口">实现<code>Runnable</code>接口</h4>
+<p>创建类，实现<code>Runnable</code>接口。</p>
+<p>启动：创建对象，根据对象创建线程对象并启动。</p>
+<h3 id="线程方法">线程方法</h3>
+<h4 id="中断线程">中断线程</h4>
+<p>其他线程给该线程发一个信号，该线程收到信号后结束执行<code>run()</code>方法，使得自身线程能立刻结束运行。</p>
+<p><code>main</code>线程通过调用<code>t.interrupt()</code>方法中断<code>t</code>线程，但<code>interrupt()</code>方法仅仅向<code>t</code>线程发出了“中断请求”，至于<code>t</code>线程是否能立刻响应，要看具体代码。而<code>t</code>线程的<code>while</code>循环会检测<code>isInterrupted()</code>，所以能正确响应<code>interrupt()</code>请求，使得自身立刻结束运行<code>run()</code>方法。</p>
+<pre><code class="language-java">public class Main {
+    public static void main(String[] args) throws InterruptedException {
+        Thread t = new MyThread();
+        t.start();
+        Thread.sleep(1); // 暂停1毫秒
+        t.interrupt(); // 中断t线程
+        t.join(); // 等待t线程结束
+        System.out.println(&quot;end&quot;);
+    }
+}
+class MyThread extends Thread {
+    public void run() {
+        int n = 0;
+        while (!isInterrupted()) {
+            n++;
+            System.out.println(n + &quot; hello!&quot;);
+        }
+    }
+}
+</code></pre>
+<p>用一个<code>running</code>标志位来标识线程是否应该继续运行，在外部线程中，通过把<code>HelloThread.running</code>置为<code>false</code>，就可以让线程结束。</p>
+<pre><code class="language-java">public class Main {
+    public static void main(String[] args)  throws InterruptedException {
+        HelloThread t = new HelloThread();
+        t.start();
+        Thread.sleep(10);
+        t.running = false; // 标志位置为false
+    }
+}
+class HelloThread extends Thread {
+    public volatile boolean running = true;
+    public void run() {
+        int n = 0;
+        while (running) {
+            n++;
+            System.out.println(n + &quot; hello!&quot;);
+        }
+        System.out.println(&quot;end!&quot;);
+    }
+}
+</code></pre>
+<p>线程间共享变量需要使用<code>volatile</code>关键字标记，确保每个线程都能读取到更新后的变量值。</p>
+<p>在Java虚拟机中，变量的值保存在主内存中，但是，当线程访问变量时，它会先获取一个副本，并保存在自己的工作内存中。如果线程修改了变量的值，虚拟机会在某个时刻把修改后的值回写到主内存，但是，这个时间是不确定的。</p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210312095906972.png" alt="image-20210312095906972"></p>
+<p><code>volatile</code>关键字的目的是告诉虚拟机：</p>
+<ul>
+<li>每次访问变量时，总是获取主内存的最新值</li>
+<li>每次修改变量后，立刻回写到主内存</li>
+</ul>
+<h4 id="守护线程">守护线程</h4>
+<p>守护线程是指为其他线程服务的线程。在JVM中，所有非守护线程都执行完毕后，无论有没有守护线程，虚拟机都会自动退出。</p>
+<p>因此，JVM退出时，不必关心守护线程是否已结束。</p>
+<p>在守护线程中，编写代码要注意：守护线程不能持有任何需要关闭的资源，因为虚拟机退出时，守护线程没有任何机会来关闭文件，这会导致数据丢失。</p>
+<pre><code class="language-java">// TestThread.java  
+public class TestThread {
+    public static void main(String[] args) { 
+        Thread t1= new Thread(){
+            public void run(){
+                int seconds =0;
+                while(true){
+                    try {
+                        Thread.sleep(1000);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                    System.out.printf(&quot;已经玩了LOL %d 秒%n&quot;, seconds++); 
+                }              
+            }
+        };
+        t1.setDaemon(true);
+        t1.start();   
+    }   
+}
+</code></pre>
+<h3 id="同步">同步</h3>
+<p>当多个线程同时运行时，线程的调度由操作系统决定，程序本身无法决定。因此，任何一个线程都有可能在任何指令处被操作系统暂停，然后在某个时间段后继续执行。</p>
+<p>这个时候，单线程模型下不存在的问题就来了：如果多个线程同时读写共享变量，会出现数据不一致的问题。</p>
+<pre><code class="language-java">public class Main {
+    public static void main(String[] args) throws Exception {
+        var add = new AddThread();
+        var dec = new DecThread();
+        add.start();
+        dec.start();
+        add.join();
+        dec.join();
+        System.out.println(Counter.count);
+    }
+}
+class Counter {
+    public static int count = 0;
+}
+class AddThread extends Thread {
+    public void run() {
+        for (int i=0; i&lt;10000; i++) { Counter.count += 1; }
+    }
+}
+class DecThread extends Thread {
+    public void run() {
+        for (int i=0; i&lt;10000; i++) { Counter.count -= 1; }
+    }
+}
+</code></pre>
+<p><code>synchronized</code>保证了代码块在任意时刻最多只有一个线程能执行。</p>
+<pre><code class="language-java">public class Main {
+    public static void main(String[] args) throws Exception {
+        var add = new AddThread();
+        var dec = new DecThread();
+        add.start();
+        dec.start();
+        add.join();
+        dec.join();
+        System.out.println(Counter.count);
+    }
+}
+class Counter {
+    public static final Object lock = new Object();
+    public static int count = 0;
+}
+class AddThread extends Thread {
+    public void run() {
+        for (int i=0; i&lt;10000; i++) {
+            synchronized(Counter.lock) { Counter.count += 1; }
+        }
+    }
+}
+class DecThread extends Thread {
+    public void run() {
+        for (int i=0; i&lt;10000; i++) {
+            synchronized(Counter.lock) { Counter.count -= 1; }
+        }
+    }
+}
+</code></pre>
+<p>用<code>Counter.lock</code>实例作为锁，两个线程在执行各自的<code>synchronized(Counter.lock) { ... }</code>代码块时，必须先获得锁，才能进入代码块进行。执行结束后，在<code>synchronized</code>语句块结束会自动释放锁。这样一来，对<code>Counter.count</code>变量进行读写就不可能同时进行。上述代码无论运行多少次，最终结果都是0。</p>
+<h4 id="同步方法">同步方法</h4>
+<p>让线程自己选择锁对象往往会使得代码逻辑混乱，也不利于封装。更好的方法是把<code>synchronized</code>逻辑封装起来。</p>
+<pre><code class="language-java">public class Counter {
+    private int count = 0;
+    public void add(int n) {
+        synchronized(this) { count += n; }
+    }
+    public void dec(int n) {
+        synchronized(this) { count -= n; }
+    }
+    public int get() { return count; }
+}
+</code></pre>
+<p>如果一个类被设计为允许多线程正确访问，我们就说这个类就是“线程安全”的（thread-safe），上面的<code>Counter</code>类就是线程安全的。Java标准库的<code>java.lang.StringBuffer</code>也是线程安全的。</p>
+<p><strong>没有特殊说明时，一个类默认是非线程安全的。</strong></p>
+<h3 id="死锁">死锁</h3>
+<p>一个线程可以获取一个锁后，再继续获取另一个锁。</p>
+<pre><code class="language-java">public void add(int m) {
+    synchronized(lockA) { // 获得lockA的锁
+        this.value += m;
+        synchronized(lockB) { // 获得lockB的锁
+            this.another += m;
+        } // 释放lockB的锁
+    } // 释放lockA的锁
+}
+public void dec(int m) {
+    synchronized(lockB) { // 获得lockB的锁
+        this.another -= m;
+        synchronized(lockA) { // 获得lockA的锁
+            this.value -= m;
+        } // 释放lockA的锁
+    } // 释放lockB的锁
+}
+</code></pre>
+<p>两个线程各自持有不同的锁，然后各自试图获取对方手里的锁，造成了双方无限等待下去，这就是死锁。</p>
+<p>死锁发生后，没有任何机制能解除死锁，只能强制结束JVM进程。</p>
+<p>因此，在编写多线程应用时，要特别注意防止死锁。因为死锁一旦形成，就只能强制结束进程。</p>
+<p>通过使线程获取锁的顺序一致来避免死锁，即严格按照先获取<code>lockA</code>，再获取<code>lockB</code>的顺序</p>
+<pre><code class="language-java">public void dec(int m) {    
+    synchronized(lockA) { // 获得lockA的锁        
+        this.value -= m;        
+        synchronized(lockB) { // 获得lockB的锁            
+            this.another -= m;        
+        } // 释放lockB的锁    
+    } // 释放lockA的锁
+}
+</code></pre>
+<h3 id="多线程协调">多线程协调</h3>
+<p><code>wait</code>和<code>notify</code>用于多线程协调运行：</p>
+<ul>
+<li>在<code>synchronized</code>内部可以调用<code>wait()</code>使线程进入等待状态</li>
+<li>必须在已获得的锁对象上调用<code>wait()</code>方法</li>
+<li>在<code>synchronized</code>内部可以调用<code>notify()</code>或<code>notifyAll()</code>唤醒其他等待线程</li>
+<li>必须在已获得的锁对象上调用<code>notify()</code>或<code>notifyAll()</code>方法</li>
+<li>已唤醒的线程还需要重新获得锁后才能继续执行</li>
+</ul>
+<pre><code class="language-java">public class Main {    
+    public static void main(String[] args) throws InterruptedException {        
+        var q = new TaskQueue();        
+        var ts = new ArrayList&lt;Thread&gt;();        
+        for (int i=0; i&lt;5; i++) {            
+            var t = new Thread() {                
+                public void run() {                    
+                    // 执行task:                    
+                    while (true) {                        
+                        try {                            
+                            String s = q.getTask();                            
+                            System.out.println(&quot;execute task: &quot; + s);                        
+                        } catch (InterruptedException e) { return; }                   
+                    }                
+                }           
+            };            
+            t.start();            
+            ts.add(t);        
+        }        
+        var add = new Thread(() -&gt; {            
+            for (int i=0; i&lt;10; i++) {                
+                // 放入task:                
+                String s = &quot;t-&quot; + Math.random();                
+                System.out.println(&quot;add task: &quot; + s);                
+                q.addTask(s);                
+                try { 
+                    Thread.sleep(100); 
+                } catch(InterruptedException e) {}            
+            }        
+        });        
+        add.start();        
+        add.join();        
+        Thread.sleep(100);        
+        for (var t : ts) { t.interrupt(); }    
+    }
+}
+class TaskQueue {    
+    Queue&lt;String&gt; queue = new LinkedList&lt;&gt;();    
+    public synchronized void addTask(String s) {        
+        this.queue.add(s);        
+        this.notifyAll(); // 唤醒所有当前正在this锁等待的线程    
+    }    
+    public synchronized String getTask() throws InterruptedException {        
+        while (queue.isEmpty()) {            
+            this.wait(); // 始终在while循环中wait()，并且每次被唤醒后拿到this锁就必须再次判断       
+        }       
+        return queue.remove();    
+    }
+}
+</code></pre>
+<h3 id="concurrent集合"><code>Concurrent</code>集合</h3>
+<p>高级的处理并发的<code>java.util.concurrent</code>包，提供了大量更高级的并发功能，能大大简化多线程程序的编写。</p>
+<h4 id="reentrantlock"><code>ReentrantLock</code></h4>
+<p><code>ReentrantLock</code>可以替代<code>synchronized</code>进行同步，<code>ReentrantLock</code>获取锁更安全。</p>
+<p>必须先获取到锁，再进入<code>try {...}</code>代码块，最后使用<code>finally</code>保证释放锁。</p>
+<p>可以使用<code>tryLock()</code>尝试获取锁。</p>
+<p><code>synchronized</code>是Java语言层面提供的语法，所以不需要考虑异常，而<code>ReentrantLock</code>是Java代码实现的锁，就必须先获取锁，然后在<code>finally</code>中正确释放锁。</p>
+<pre><code class="language-java">// synchronized
+public class Counter {    
+    private int count;    
+    public void add(int n) {        
+        synchronized(this) { count += n; }    
+    }
+}
+// ReentrantLock
+public class Counter {    
+    private final Lock lock = new ReentrantLock();    
+    private int count;    
+    public void add(int n) {        
+        lock.lock();        
+        try { count+= n; } finally { lock.unlock(); }    
+    }
+}
+</code></pre>
+<h4 id="condition"><code>Condition</code></h4>
+<p>使用<code>Condition</code>对象来实现<code>wait</code>和<code>notify</code>的功能，引用的<code>Condition</code>对象必须从<code>Lock</code>实例的<code>newCondition()</code>返回，这样才能获得一个绑定了<code>Lock</code>实例的<code>Condition</code>实例。</p>
+<pre><code class="language-java">class TaskQueue {    
+    private final Lock lock = new ReentrantLock();    
+    private final Condition condition = lock.newCondition();    
+    private Queue&lt;String&gt; queue = new LinkedList&lt;&gt;();    
+    public void addTask(String s) {        
+        lock.lock();        
+        try {            
+            queue.add(s);            
+            condition.signalAll();        
+        } finally { lock.unlock(); }    
+    }    
+    public String getTask() {        
+        lock.lock();        
+        try {            
+            while (queue.isEmpty()) { condition.await(); }            
+            return queue.remove();       
+        } finally { lock.unlock(); }    
+    }
+}
+</code></pre>
+<p>&mdash;待更</p>
+
+        </div>
+        
+        <div class="my-4">
+    
+    <a href="https://blog.wangjialei.xyz/tags/java/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#Java</a>
+    
+</div>
+        
+        
+        
+
+
+        
+        
+        
+        
+<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
+    <div>
+        
+        <span class="block font-bold">上一页</span>
+        <a href="https://blog.wangjialei.xyz/posts/spring-framework-00-%E6%A6%82%E8%BF%B0/" class="block">Spring Framework 00 概述</a>
+        
+    </div>
+    <div class="md:text-right mt-4 md:mt-0">
+        
+        <span class="block font-bold">下一页</span>
+        <a href="https://blog.wangjialei.xyz/posts/%E4%BD%BF%E7%94%A8nginx%E6%89%98%E7%AE%A1hugo%E5%8D%9A%E5%AE%A2/" class="block">使用nginx托管hugo博客</a>
+        
+    </div>
+</div>
+
+        
+
+
+
+    </div>
+    
+    <div class="col-span-2">
+        
+        
+        <div class="sticky top-16 z-10 hidden lg:block px-6 py-4  bg-primary-bg ">
+    <span class="text-lg font-semibold">本页内容</span>
+</div>
+<div class="sticky-toc hidden lg:block px-6 pb-6 ">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#java-程序设计概述">Java 程序设计概述</a>
+      <ul>
+        <li><a href="#java-的关键词">Java 的关键词：</a></li>
+      </ul>
+    </li>
+    <li><a href="#java-程序设计环境">Java 程序设计环境</a>
+      <ul>
+        <li><a href="#安装-java-开发程序包">安装 Java 开发程序包</a>
+          <ul>
+            <li><a href="#下载-jdk-和文档">下载 JDK 和文档</a></li>
+            <li><a href="#添加到环境变量">添加到环境变量</a></li>
+          </ul>
+        </li>
+        <li><a href="#安装-ide">安装 IDE</a></li>
+        <li><a href="#使用命令行工具">使用命令行工具</a></li>
+        <li><a href="#使用集成开发环境">使用集成开发环境</a></li>
+      </ul>
+    </li>
+    <li><a href="#java-基本程序结构">Java 基本程序结构</a>
+      <ul>
+        <li><a href="#一个简单的-java-应用程序">一个简单的 Java 应用程序</a></li>
+        <li><a href="#数据类型">数据类型</a>
+          <ul>
+            <li><a href="#整型">整型</a></li>
+            <li><a href="#浮点型">浮点型</a></li>
+            <li><a href="#char类型"><code>char</code>类型</a></li>
+            <li><a href="#boolean类型"><code>boolean</code>类型</a></li>
+          </ul>
+        </li>
+        <li><a href="#变量">变量</a>
+          <ul>
+            <li><a href="#变量初始化">变量初始化</a></li>
+            <li><a href="#常量">常量</a></li>
+          </ul>
+        </li>
+        <li><a href="#运算符">运算符</a>
+          <ul>
+            <li><a href="#自增运算符与自减运算符">自增运算符与自减运算符</a></li>
+            <li><a href="#关系运算符与-boolean-运算符">关系运算符与 <code>boolean</code> 运算符</a></li>
+            <li><a href="#位运算">位运算</a></li>
+            <li><a href="#数学函数与常量">数学函数与常量</a></li>
+            <li><a href="#数值类型之间的转换">数值类型之间的转换</a></li>
+            <li><a href="#强制类型转换">强制类型转换</a></li>
+            <li><a href="#枚举类型">枚举类型</a></li>
+          </ul>
+        </li>
+        <li><a href="#字符串">字符串</a>
+          <ul>
+            <li><a href="#构建字符串">构建字符串</a></li>
+          </ul>
+        </li>
+        <li><a href="#输入输出">输入输出</a>
+          <ul>
+            <li><a href="#格式化输出">格式化输出</a></li>
+          </ul>
+        </li>
+        <li><a href="#大数值">大数值</a></li>
+        <li><a href="#数组">数组</a></li>
+      </ul>
+    </li>
+    <li><a href="#对象与类">对象与类</a>
+      <ul>
+        <li><a href="#面向对象程序设计概述">面向对象程序设计概述</a>
+          <ul>
+            <li><a href="#类">类</a></li>
+            <li><a href="#对象">对象</a></li>
+          </ul>
+        </li>
+        <li><a href="#面向对象">面向对象</a>
+          <ul>
+            <li><a href="#创建类">创建类</a></li>
+            <li><a href="#方法">方法</a></li>
+            <li><a href="#继承">继承</a></li>
+            <li><a href="#多态">多态</a></li>
+            <li><a href="#抽象类">抽象类</a></li>
+            <li><a href="#接口">接口</a></li>
+            <li><a href="#静态方法">静态方法</a></li>
+            <li><a href="#包">包</a></li>
+            <li><a href="#作用域">作用域</a></li>
+            <li><a href="#内部类">内部类</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    <li><a href="#java核心类">Java核心类</a>
+      <ul>
+        <li><a href="#stringbuilder">StringBuilder</a></li>
+        <li><a href="#stringjoiner">StringJoiner</a></li>
+        <li><a href="#javabean">JavaBean</a></li>
+      </ul>
+    </li>
+    <li><a href="#异常处理">异常处理</a>
+      <ul>
+        <li><a href="#java-异常">Java 异常</a></li>
+        <li><a href="#捕获异常">捕获异常</a>
+          <ul>
+            <li><a href="#多-catch-语句">多 catch 语句</a></li>
+            <li><a href="#finally-语句">finally 语句</a></li>
+          </ul>
+        </li>
+        <li><a href="#抛出异常">抛出异常</a></li>
+      </ul>
+    </li>
+    <li><a href="#泛型">泛型</a>
+      <ul>
+        <li><a href="#泛型-1">泛型</a></li>
+        <li><a href="#使用">使用</a></li>
+        <li><a href="#编写泛型类">编写泛型类</a></li>
+      </ul>
+    </li>
+    <li><a href="#集合">集合</a>
+      <ul>
+        <li><a href="#collection">Collection</a></li>
+        <li><a href="#list">List</a>
+          <ul>
+            <li><a href="#arraylist">ArrayList</a></li>
+            <li><a href="#vector">Vector</a></li>
+            <li><a href="#linkedlist">LinkedList</a></li>
+          </ul>
+        </li>
+        <li><a href="#set">Set</a>
+          <ul>
+            <li><a href="#hashset">HashSet</a></li>
+            <li><a href="#treeset">TreeSet</a></li>
+          </ul>
+        </li>
+        <li><a href="#map">Map</a>
+          <ul>
+            <li><a href="#hashmap">HashMap</a></li>
+          </ul>
+        </li>
+        <li><a href="#collections">Collections</a></li>
+      </ul>
+    </li>
+    <li><a href="#io">IO</a>
+      <ul>
+        <li><a href="#file对象">File对象</a></li>
+        <li><a href="#inputstream">InputStream</a></li>
+        <li><a href="#outputstream">OutputStream</a></li>
+        <li><a href="#filter">Filter</a></li>
+        <li><a href="#reader">Reader</a></li>
+        <li><a href="#writer">Writer</a></li>
+        <li><a href="#files">Files</a></li>
+      </ul>
+    </li>
+    <li><a href="#多线程">多线程</a>
+      <ul>
+        <li><a href="#创建多线程">创建多线程</a>
+          <ul>
+            <li><a href="#继承线程类">继承线程类</a></li>
+            <li><a href="#实现runnable接口">实现<code>Runnable</code>接口</a></li>
+          </ul>
+        </li>
+        <li><a href="#线程方法">线程方法</a>
+          <ul>
+            <li><a href="#中断线程">中断线程</a></li>
+            <li><a href="#守护线程">守护线程</a></li>
+          </ul>
+        </li>
+        <li><a href="#同步">同步</a>
+          <ul>
+            <li><a href="#同步方法">同步方法</a></li>
+          </ul>
+        </li>
+        <li><a href="#死锁">死锁</a></li>
+        <li><a href="#多线程协调">多线程协调</a></li>
+        <li><a href="#concurrent集合"><code>Concurrent</code>集合</a>
+          <ul>
+            <li><a href="#reentrantlock"><code>ReentrantLock</code></a></li>
+            <li><a href="#condition"><code>Condition</code></a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        enableStickyToc();
+    });
+</script>
+        
+    </div>
+    
+
+    
+    
+    <div
+        class="col-span-2  lg:col-span-6 bg-secondary-bg rounded p-6">
+        <h2 class="text-lg font-semibold mb-4">相关</h2>
+        <div class="content">
+            
+            <a href="https://blog.wangjialei.xyz/posts/%E8%AE%B0%E5%BD%95%E4%B8%80%E6%AC%A1%E5%81%9Aweb%E5%BC%80%E5%8F%91%E7%9A%84%E7%BB%8F%E5%8E%86/">记录一次做web开发的经历</a>
+            <br />
+            
+            <a href="https://blog.wangjialei.xyz/posts/%E8%87%AA%E5%B7%B1%E5%86%99%E7%9A%84%E7%AE%80%E5%8D%95java%E7%9F%A9%E9%98%B5%E5%BA%93/">自己写的简单Java矩阵库</a>
+            <br />
+            
+            <a href="https://blog.wangjialei.xyz/posts/java%E8%99%9A%E6%8B%9F%E6%9C%BA-03-%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/">Java虚拟机 03 垃圾收集器</a>
+            <br />
+            
+            <a href="https://blog.wangjialei.xyz/posts/java%E8%99%9A%E6%8B%9F%E6%9C%BA-02-java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F/">Java虚拟机 02 Java内存区域</a>
+            <br />
+            
+            <a href="https://blog.wangjialei.xyz/posts/java%E8%99%9A%E6%8B%9F%E6%9C%BA-01-%E8%B5%B0%E8%BF%91java/">Java虚拟机 01 走近Java</a>
+            <br />
+            
+        </div>
+    </div>
+    
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+        hljs.initHighlightingOnLoad();
+    })
+</script>
+
+      </div>
+    </div>
+    
+  </main>
+  <footer class="pl-scrollbar">
+    <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">&copy; 2021 <a href="https://blog.wangjialei.xyz/">Wang Jialei</a>
+ &middot;  Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div></div>
+  </footer>
+</body>
+
+</html>

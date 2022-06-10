@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Windows Terminal on LoneStar&#39;s blog</title>
+    <link>https://blog.wangjialei.xyz/tags/windows-terminal/</link>
+    <description>Recent content in Windows Terminal on LoneStar&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <copyright>&amp;copy; 2021 &lt;a href=&#34;https://blog.wangjialei.xyz/&#34;&gt;Wang Jialei&lt;/a&gt;
+</copyright>
+    <lastBuildDate>Tue, 29 Jun 2021 20:59:16 +0800</lastBuildDate><atom:link href="https://blog.wangjialei.xyz/tags/windows-terminal/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>使用Oh My Posh配置Windows Terminal</title>
+      <link>https://blog.wangjialei.xyz/posts/%E4%BD%BF%E7%94%A8oh-my-posh%E9%85%8D%E7%BD%AEwindows-terminal/</link>
+      <pubDate>Tue, 29 Jun 2021 20:59:16 +0800</pubDate>
+      
+      <guid>https://blog.wangjialei.xyz/posts/%E4%BD%BF%E7%94%A8oh-my-posh%E9%85%8D%E7%BD%AEwindows-terminal/</guid>
+      <description>越看越觉得 Windows Terminal 的配置难看，就想着换个主题配色什么的，直接去官网看文档，官方推荐使用 Powerline，就按照文档一步步来，最终效果也还不错，权当记录一下配置过程。
+安装 Powerline 字体  Powerline 使用字形来设置提示符样式。 如果你的字体不包含 Powerline 字形，则在整个提示符中，你可能会看到若干 Unicode 替换字符“&amp;amp;#x25AF”。 尽管 Cascadia Mono 不包括 Powerline 字形，但你可以安装 Cascadia Code PL 或 Cascadia Mono PL，这两者包含 Powerline 字形。 可以从 Cascadia Code GitHub 发布页安装这些字体。</description>
+    </item>
+    
+  </channel>
+</rss>

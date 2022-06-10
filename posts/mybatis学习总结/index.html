@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang='zh' ><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+
+<title>Mybatis学习总结 | LoneStar&#39;s blog</title>
+
+<meta name="generator" content="Hugo Eureka 0.8.4" />
+<link rel="stylesheet" href="https://blog.wangjialei.xyz/css/eureka.min.css">
+<script defer src="https://blog.wangjialei.xyz/js/eureka.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/styles/stackoverflow-light.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/highlight.min.js"
+   crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/languages/light.min.js"
+     crossorigin></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js"
+   integrity="sha256-uNYoXefWRqv&#43;PsIF/OflNmwtKM4lStn9yrz2gVl6ymo="  crossorigin></script>
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+   integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3&#43;Aro6EYUG4&#43;cU&#43;KJWu/X"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" 
+  integrity="sha384-g7c&#43;Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI&#43;sEnkvrMWph2EDg4"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+   integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC&#43;Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/mermaid@8.9.2/dist/mermaid.min.js" 
+  integrity="sha256-Zmpaaj&#43;GXFsPF5WdPArSrnW3b30dovldeKsW00xBVwE="  crossorigin></script>
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="https://blog.wangjialei.xyz/images/favicon_huce974d41c22b18f52c9ea90a63a4b2a6_21741_32x32_fill_box_center_3.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://blog.wangjialei.xyz/images/favicon_huce974d41c22b18f52c9ea90a63a4b2a6_21741_180x180_fill_box_center_3.png">
+
+<meta name="description"
+  content="简介 MyBatis 是一款优秀的持久层框架，它支持自定义 SQL、存储过程以及高级映射。MyBatis 免除了几乎所有的 JDBC 代码以及设置参数和获取结果集的工作。MyBatis 可以通过简单的 XML 或注解来配置和映射原始类型、接口和 Java POJO（Plain Old Java Objects，普通老式 Java 对象）为数据库中的记录。">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"文章",
+      "item":"https://blog.wangjialei.xyz/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"Mybatis学习总结",
+      "item":"https://blog.wangjialei.xyz/posts/mybatis%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://blog.wangjialei.xyz/posts/mybatis%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/"
+    },
+    "headline": "Mybatis学习总结 | LoneStar\u0027s blog",
+    "image": "https://mypic-1305118058.cos.ap-hongkong.myqcloud.com/img/2021-08-07.jpg",
+    "datePublished": "2021-08-07T19:53:08+08:00",
+    "dateModified": "2021-08-07T19:53:08+08:00",
+    "wordCount":  503 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "lonestar",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://blog.wangjialei.xyz/images/favicon.png"
+        }
+        },
+    "description": "简介 MyBatis 是一款优秀的持久层框架，它支持自定义 SQL、存储过程以及高级映射。MyBatis 免除了几乎所有的 JDBC 代码以及设置参数和获取结果集的工作。MyBatis 可以通过简单的 XML 或注解来配置和映射原始类型、接口和 Java POJO（Plain Old Java Objects，普通老式 Java 对象）为数据库中的记录。"
+}
+</script><meta property="og:title" content="Mybatis学习总结 | LoneStar&#39;s blog" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="https://blog.wangjialei.xyz/images/favicon.png">
+
+
+<meta property="og:url" content="https://blog.wangjialei.xyz/posts/mybatis%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/" />
+
+
+
+
+<meta property="og:description" content="简介 MyBatis 是一款优秀的持久层框架，它支持自定义 SQL、存储过程以及高级映射。MyBatis 免除了几乎所有的 JDBC 代码以及设置参数和获取结果集的工作。MyBatis 可以通过简单的 XML 或注解来配置和映射原始类型、接口和 Java POJO（Plain Old Java Objects，普通老式 Java 对象）为数据库中的记录。" />
+
+
+
+
+<meta property="og:locale" content="zh" />
+
+
+
+
+<meta property="og:site_name" content="LoneStar&#39;s blog" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2021-08-07T19:53:08&#43;08:00" />
+
+
+<meta property="article:modified_time" content="2021-08-07T19:53:08&#43;08:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+<meta property="article:tag" content="Java" />
+
+<meta property="article:tag" content="MyBatis" />
+
+
+
+
+
+<meta property="og:see_also" content="https://blog.wangjialei.xyz/posts/java%E5%9F%BA%E7%A1%80%E5%90%88%E9%9B%86/" />
+
+<meta property="og:see_also" content="https://blog.wangjialei.xyz/posts/%E8%AE%B0%E5%BD%95%E4%B8%80%E6%AC%A1%E5%81%9Aweb%E5%BC%80%E5%8F%91%E7%9A%84%E7%BB%8F%E5%8E%86/" />
+
+<meta property="og:see_also" content="https://blog.wangjialei.xyz/posts/%E8%87%AA%E5%B7%B1%E5%86%99%E7%9A%84%E7%AE%80%E5%8D%95java%E7%9F%A9%E9%98%B5%E5%BA%93/" />
+
+<meta property="og:see_also" content="https://blog.wangjialei.xyz/posts/java%E8%99%9A%E6%8B%9F%E6%9C%BA-03-%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/" />
+
+<meta property="og:see_also" content="https://blog.wangjialei.xyz/posts/java%E8%99%9A%E6%8B%9F%E6%9C%BA-02-java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F/" />
+
+<meta property="og:see_also" content="https://blog.wangjialei.xyz/posts/java%E8%99%9A%E6%8B%9F%E6%9C%BA-01-%E8%B5%B0%E8%BF%91java/" />
+
+
+
+<body class="flex flex-col min-h-screen">
+  <header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
+    <div class="w-full max-w-screen-xl mx-auto"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="/" class="mr-6 text-primary-text text-xl font-bold">LoneStar&#39;s blog</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  selected-menu-item  mr-4">文章</a>
+            <a href="/categories/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">分类</a>
+            <a href="/tags/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">标签</a>
+            <a href="/series/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">系列</a>
+            <a href="/#about" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">关于</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">浅色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">深色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">自动</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+</div>
+  </header>
+  <main class="flex-grow pt-16">
+    <div class="pl-scrollbar">
+      <div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
+
+
+<div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12">
+    <div
+        class="col-span-2  lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
+        <h1 class="font-bold text-3xl text-primary-text">Mybatis学习总结</h1>
+        <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2021-08-07</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>3分钟阅读时长</span>
+    </div>
+    
+    
+    <div class="mr-6 my-2">
+        <i class="fas fa-folder mr-1"></i>
+        
+        <a href="https://blog.wangjialei.xyz/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="hover:text-eureka">学习笔记</a>
+        
+    </div>
+    
+
+    
+</div>
+        
+        
+        
+        <div class="my-4">
+            <img src="https://mypic-1305118058.cos.ap-hongkong.myqcloud.com/img/2021-08-07.jpg" class="w-full" alt="Featured Image">
+        </div>
+        
+
+        <div class="content">
+            <h2 id="简介">简介</h2>
+<p>MyBatis 是一款优秀的持久层框架，它支持自定义 SQL、存储过程以及高级映射。MyBatis 免除了几乎所有的 JDBC 代码以及设置参数和获取结果集的工作。MyBatis 可以通过简单的 XML 或注解来配置和映射原始类型、接口和 Java POJO（Plain Old Java Objects，普通老式 Java 对象）为数据库中的记录。</p>
+<h2 id="入门">入门</h2>
+<h3 id="从-xml-中构建-sqlsessionfactory">从 XML 中构建 SqlSessionFactory</h3>
+<p>每个基于 MyBatis 的应用都是以一个 SqlSessionFactory 的实例为核心的。SqlSessionFactory 的实例可以通过 SqlSessionFactoryBuilder 获得。而 SqlSessionFactoryBuilder 则可以从 XML 配置文件或一个预先配置的 Configuration 实例来构建出 SqlSessionFactory 实例。</p>
+<p>从 XML 文件中构建 SqlSessionFactory 的实例非常简单，建议使用类路径下的资源文件进行配置。 但也可以使用任意的输入流（InputStream）实例，比如用文件路径字符串或 file:// URL 构造的输入流。MyBatis 包含一个名叫 Resources 的工具类，它包含一些实用方法，使得从类路径或其它位置加载资源文件更加容易。</p>
+<pre><code class="language-java">String resource = &quot;org/mybatis/example/mybatis-config.xml&quot;;
+InputStream inputStream = Resources.getResourceAsStream(resource);
+SqlSessionFactory sqlSessionFactory = new SqlSessionFactoryBuilder().build(inputStream);
+</code></pre>
+<p>XML 配置文件中包含了对 MyBatis 系统的核心设置，包括获取数据库连接实例的数据源（DataSource）以及决定事务作用域和控制方式的事务管理器（TransactionManager）。</p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/code-snapshot%20(1).png" alt="code-snapshot (1)"></p>
+<h3 id="从-sqlsessionfactory-中获取-sqlsession">从 SqlSessionFactory 中获取 SqlSession</h3>
+<p>SqlSession 提供了在数据库执行 SQL 命令所需的所有方法。你可以通过 SqlSession 实例来直接执行已映射的 SQL 语句。</p>
+<pre><code class="language-java">try (SqlSession session = sqlSessionFactory.openSession()) {
+  	BlogMapper mapper = session.getMapper(BlogMapper.class);
+  	Blog blog = mapper.selectBlog(101);
+}
+</code></pre>
+<p>使用xml配置文件：</p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/code-snapshot%20(2).png" alt="code-snapshot (2)"></p>
+<p>使用注解配置：</p>
+<pre><code class="language-java">package org.mybatis.example;
+public interface BlogMapper {
+  	@Select(&quot;SELECT * FROM blog WHERE id = #{id}&quot;)
+  	Blog selectBlog(int id);
+}
+</code></pre>
+<h2 id="xml-配置">XML 配置</h2>
+<h3 id="属性properties">属性（properties）</h3>
+<p>这些属性可以在外部进行配置，并可以进行动态替换。你既可以在典型的 Java 属性文件中配置这些属性，也可以在 properties 元素的子元素中设置。</p>
+<pre><code class="language-xml">&lt;properties resource=&quot;org/mybatis/example/config.properties&quot;&gt;
+  &lt;property name=&quot;username&quot; value=&quot;dev_user&quot;/&gt;
+  &lt;property name=&quot;password&quot; value=&quot;F2Fa3!33TYyg&quot;/&gt;
+&lt;/properties&gt;
+</code></pre>
+<p>设置好的属性可以在整个配置文件中用来替换需要动态配置的属性值。</p>
+<pre><code class="language-xml">&lt;dataSource type=&quot;POOLED&quot;&gt;
+  &lt;property name=&quot;driver&quot; value=&quot;${driver}&quot;/&gt;
+  &lt;property name=&quot;url&quot; value=&quot;${url}&quot;/&gt;
+  &lt;property name=&quot;username&quot; value=&quot;${username}&quot;/&gt;
+  &lt;property name=&quot;password&quot; value=&quot;${password}&quot;/&gt;
+&lt;/dataSource&gt;
+</code></pre>
+<h3 id="设置settings">设置（settings）</h3>
+<p>可以改变 MyBatis 的运行行为，具体参照文档。</p>
+<h3 id="类型别名typealiases">类型别名（typeAliases）</h3>
+<p>类型别名可为 Java 类型设置一个缩写名字。 它仅用于 XML 配置，意在降低冗余的全限定类名书写。</p>
+<pre><code class="language-xml">&lt;typeAliases&gt;
+  &lt;typeAlias alias=&quot;Author&quot; type=&quot;domain.blog.Author&quot;/&gt;
+  &lt;typeAlias alias=&quot;Blog&quot; type=&quot;domain.blog.Blog&quot;/&gt;
+  &lt;typeAlias alias=&quot;Comment&quot; type=&quot;domain.blog.Comment&quot;/&gt;
+  &lt;typeAlias alias=&quot;Post&quot; type=&quot;domain.blog.Post&quot;/&gt;
+  &lt;typeAlias alias=&quot;Section&quot; type=&quot;domain.blog.Section&quot;/&gt;
+  &lt;typeAlias alias=&quot;Tag&quot; type=&quot;domain.blog.Tag&quot;/&gt;
+&lt;/typeAliases&gt;
+</code></pre>
+<h3 id="环境配置environments">环境配置（environments）</h3>
+<p>MyBatis 可以配置成适应多种环境，这种机制有助于将 SQL 映射应用于多种数据库之中。</p>
+<p>每个 SqlSessionFactory 实例只能选择一种环境。</p>
+<pre><code class="language-xml">&lt;environments default=&quot;development&quot;&gt;
+  &lt;environment id=&quot;development&quot;&gt;
+    &lt;transactionManager type=&quot;JDBC&quot;&gt;
+      &lt;property name=&quot;...&quot; value=&quot;...&quot;/&gt;
+    &lt;/transactionManager&gt;
+    &lt;dataSource type=&quot;POOLED&quot;&gt;
+      &lt;property name=&quot;driver&quot; value=&quot;${driver}&quot;/&gt;
+      &lt;property name=&quot;url&quot; value=&quot;${url}&quot;/&gt;
+      &lt;property name=&quot;username&quot; value=&quot;${username}&quot;/&gt;
+      &lt;property name=&quot;password&quot; value=&quot;${password}&quot;/&gt;
+    &lt;/dataSource&gt;
+  &lt;/environment&gt;
+&lt;/environments&gt;
+</code></pre>
+<h3 id="映射器mappers">映射器（mappers）</h3>
+<p>直接告诉 MyBatis 到哪里去找映射文件。 可以使用相对于类路径的资源引用，或完全限定资源定位符（包括 <code>file:///</code> 形式的 URL），或类名和包名等。</p>
+<pre><code class="language-xml">&lt;mappers&gt;
+  &lt;mapper resource=&quot;org/mybatis/builder/AuthorMapper.xml&quot;/&gt;
+  &lt;mapper resource=&quot;org/mybatis/builder/BlogMapper.xml&quot;/&gt;
+  &lt;mapper resource=&quot;org/mybatis/builder/PostMapper.xml&quot;/&gt;
+&lt;/mappers&gt;
+</code></pre>
+<h2 id="xml-映射文件">XML 映射文件</h2>
+<p>MyBatis 的真正强大在于它的语句映射，这是它的魔力所在。由于它的异常强大，映射器的 XML 文件就显得相对简单。</p>
+<h3 id="select">select</h3>
+<p>查询语句是 MyBatis 中最常用的元素之一——光能把数据存到数据库中价值并不大，还要能重新取出来才有用，多数应用也都是查询比修改要频繁。</p>
+<pre><code class="language-xml">&lt;select id=&quot;selectPerson&quot; parameterType=&quot;int&quot; resultType=&quot;hashmap&quot;&gt;
+  SELECT * FROM PERSON WHERE ID = #{id}
+&lt;/select&gt;
+</code></pre>
+<h3 id="insert-update-和-delete">insert, update 和 delete</h3>
+<pre><code class="language-xml">&lt;insert id=&quot;insertAuthor&quot;&gt;
+  insert into Author (id,username,password,email,bio)
+  values (#{id},#{username},#{password},#{email},#{bio})
+&lt;/insert&gt;
+&lt;update id=&quot;updateAuthor&quot;&gt;
+  update Author set
+    username = #{username},
+    password = #{password},
+    email = #{email},
+    bio = #{bio}
+  where id = #{id}
+&lt;/update&gt;
+&lt;delete id=&quot;deleteAuthor&quot;&gt;
+  delete from Author where id = #{id}
+&lt;/delete&gt;
+</code></pre>
+<h3 id="sql">sql</h3>
+<p>这个元素可以用来定义可重用的 SQL 代码片段，以便在其它语句中使用。 参数可以静态地（在加载的时候）确定下来，并且可以在不同的 include 元素中定义不同的参数值。</p>
+<pre><code class="language-xml">&lt;sql id=&quot;userColumns&quot;&gt; ${alias}.id,${alias}.username,${alias}.password &lt;/sql&gt;
+&lt;select id=&quot;selectUsers&quot; resultType=&quot;map&quot;&gt;
+  select
+    &lt;include refid=&quot;userColumns&quot;&gt;&lt;property name=&quot;alias&quot; value=&quot;t1&quot;/&gt;&lt;/include&gt;,
+    &lt;include refid=&quot;userColumns&quot;&gt;&lt;property name=&quot;alias&quot; value=&quot;t2&quot;/&gt;&lt;/include&gt;
+  from some_table t1
+    cross join some_table t2
+&lt;/select&gt;
+</code></pre>
+<h3 id="结果映射">结果映射</h3>
+<p><code>resultMap</code> 元素是 MyBatis 中最重要最强大的元素。</p>
+<p>没有显式指定 <code>resultMap</code> ，只是简单地将所有的列映射到 <code>HashMap</code> 的键上，这由 <code>resultType</code> 属性指定。</p>
+<pre><code class="language-xml">&lt;select id=&quot;selectUsers&quot; resultType=&quot;map&quot;&gt;
+  select id, username, hashedPassword
+  from some_table
+  where id = #{id}
+&lt;/select&gt;
+</code></pre>
+<p>显式使用外部的 <code>resultMap</code></p>
+<pre><code class="language-xml">&lt;resultMap id=&quot;userResultMap&quot; type=&quot;User&quot;&gt;
+  &lt;id property=&quot;id&quot; column=&quot;user_id&quot; /&gt;
+  &lt;result property=&quot;username&quot; column=&quot;user_name&quot;/&gt;
+  &lt;result property=&quot;password&quot; column=&quot;hashed_password&quot;/&gt;
+&lt;/resultMap&gt;
+&lt;select id=&quot;selectUsers&quot; resultMap=&quot;userResultMap&quot;&gt;
+  select user_id, user_name, hashed_password
+  from some_table
+  where id = #{id}
+&lt;/select&gt;
+</code></pre>
+<h2 id="动态-sql">动态 SQL</h2>
+<p>动态 SQL 是 MyBatis 的强大特性之一。</p>
+<h3 id="if">if</h3>
+<p>通过 “title” 和 “author” 两个参数进行可选搜索</p>
+<pre><code class="language-xml">&lt;select id=&quot;findActiveBlogLike&quot;
+     resultType=&quot;Blog&quot;&gt;
+  SELECT * FROM BLOG WHERE state = ‘ACTIVE’
+  &lt;if test=&quot;title != null&quot;&gt;
+    AND title like #{title}
+  &lt;/if&gt;
+  &lt;if test=&quot;author != null and author.name != null&quot;&gt;
+    AND author_name like #{author.name}
+  &lt;/if&gt;
+&lt;/select&gt;
+</code></pre>
+<h3 id="choose">choose</h3>
+<p>从多个条件中选择一个使用</p>
+<pre><code class="language-xml">&lt;select id=&quot;findActiveBlogLike&quot;
+     resultType=&quot;Blog&quot;&gt;
+  SELECT * FROM BLOG WHERE state = ‘ACTIVE’
+  &lt;choose&gt;
+    &lt;when test=&quot;title != null&quot;&gt;
+      AND title like #{title}
+    &lt;/when&gt;
+    &lt;when test=&quot;author != null and author.name != null&quot;&gt;
+      AND author_name like #{author.name}
+    &lt;/when&gt;
+    &lt;otherwise&gt;
+      AND featured = 1
+    &lt;/otherwise&gt;
+  &lt;/choose&gt;
+&lt;/select&gt;
+</code></pre>
+<h3 id="foreach">foreach</h3>
+<p>对集合进行遍历</p>
+<pre><code class="language-xml">&lt;select id=&quot;selectPostIn&quot; resultType=&quot;domain.blog.Post&quot;&gt;
+  SELECT *
+  FROM POST P
+  WHERE ID in
+  &lt;foreach item=&quot;item&quot; index=&quot;index&quot; collection=&quot;list&quot;
+      open=&quot;(&quot; separator=&quot;,&quot; close=&quot;)&quot;&gt;
+        #{item}
+  &lt;/foreach&gt;
+&lt;/select&gt;
+</code></pre>
+<h2 id="总结">总结</h2>
+<p>在知乎看到一篇回答说 MyBatis 主要是国内用，应该还会再看看 SpringDataJPA</p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210807212543954.png" alt="image-20210807212543954"></p>
+
+        </div>
+        
+        <div class="my-4">
+    
+    <a href="https://blog.wangjialei.xyz/tags/java/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#Java</a>
+    
+    <a href="https://blog.wangjialei.xyz/tags/mybatis/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#MyBatis</a>
+    
+</div>
+        
+        
+        
+
+
+        
+        
+        
+        
+<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
+    <div>
+        
+        <span class="block font-bold">上一页</span>
+        <a href="https://blog.wangjialei.xyz/posts/%E5%90%8E%E7%AB%AF%E6%8E%A5%E5%8F%A3%E8%BF%94%E5%9B%9E%E7%BB%93%E6%9E%9C%E7%BB%9F%E4%B8%80%E5%B0%81%E8%A3%85/" class="block">后端接口返回结果统一封装</a>
+        
+    </div>
+    <div class="md:text-right mt-4 md:mt-0">
+        
+        <span class="block font-bold">下一页</span>
+        <a href="https://blog.wangjialei.xyz/posts/spring-framework-02-spring-mvc/" class="block">Spring Framework 02 Spring MVC</a>
+        
+    </div>
+</div>
+
+        
+
+
+
+    </div>
+    
+    <div class="col-span-2">
+        
+        
+        <div class="sticky top-16 z-10 hidden lg:block px-6 py-4  bg-primary-bg ">
+    <span class="text-lg font-semibold">本页内容</span>
+</div>
+<div class="sticky-toc hidden lg:block px-6 pb-6 ">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#简介">简介</a></li>
+    <li><a href="#入门">入门</a>
+      <ul>
+        <li><a href="#从-xml-中构建-sqlsessionfactory">从 XML 中构建 SqlSessionFactory</a></li>
+        <li><a href="#从-sqlsessionfactory-中获取-sqlsession">从 SqlSessionFactory 中获取 SqlSession</a></li>
+      </ul>
+    </li>
+    <li><a href="#xml-配置">XML 配置</a>
+      <ul>
+        <li><a href="#属性properties">属性（properties）</a></li>
+        <li><a href="#设置settings">设置（settings）</a></li>
+        <li><a href="#类型别名typealiases">类型别名（typeAliases）</a></li>
+        <li><a href="#环境配置environments">环境配置（environments）</a></li>
+        <li><a href="#映射器mappers">映射器（mappers）</a></li>
+      </ul>
+    </li>
+    <li><a href="#xml-映射文件">XML 映射文件</a>
+      <ul>
+        <li><a href="#select">select</a></li>
+        <li><a href="#insert-update-和-delete">insert, update 和 delete</a></li>
+        <li><a href="#sql">sql</a></li>
+        <li><a href="#结果映射">结果映射</a></li>
+      </ul>
+    </li>
+    <li><a href="#动态-sql">动态 SQL</a>
+      <ul>
+        <li><a href="#if">if</a></li>
+        <li><a href="#choose">choose</a></li>
+        <li><a href="#foreach">foreach</a></li>
+      </ul>
+    </li>
+    <li><a href="#总结">总结</a></li>
+  </ul>
+</nav>
+</div>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        enableStickyToc();
+    });
+</script>
+        
+    </div>
+    
+
+    
+    
+    <div
+        class="col-span-2  lg:col-span-6 bg-secondary-bg rounded p-6">
+        <h2 class="text-lg font-semibold mb-4">相关</h2>
+        <div class="content">
+            
+            <a href="https://blog.wangjialei.xyz/posts/java%E5%9F%BA%E7%A1%80%E5%90%88%E9%9B%86/">Java基础（合集）</a>
+            <br />
+            
+            <a href="https://blog.wangjialei.xyz/posts/%E8%AE%B0%E5%BD%95%E4%B8%80%E6%AC%A1%E5%81%9Aweb%E5%BC%80%E5%8F%91%E7%9A%84%E7%BB%8F%E5%8E%86/">记录一次做web开发的经历</a>
+            <br />
+            
+            <a href="https://blog.wangjialei.xyz/posts/%E8%87%AA%E5%B7%B1%E5%86%99%E7%9A%84%E7%AE%80%E5%8D%95java%E7%9F%A9%E9%98%B5%E5%BA%93/">自己写的简单Java矩阵库</a>
+            <br />
+            
+            <a href="https://blog.wangjialei.xyz/posts/java%E8%99%9A%E6%8B%9F%E6%9C%BA-03-%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/">Java虚拟机 03 垃圾收集器</a>
+            <br />
+            
+            <a href="https://blog.wangjialei.xyz/posts/java%E8%99%9A%E6%8B%9F%E6%9C%BA-02-java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F/">Java虚拟机 02 Java内存区域</a>
+            <br />
+            
+            <a href="https://blog.wangjialei.xyz/posts/java%E8%99%9A%E6%8B%9F%E6%9C%BA-01-%E8%B5%B0%E8%BF%91java/">Java虚拟机 01 走近Java</a>
+            <br />
+            
+        </div>
+    </div>
+    
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+        hljs.initHighlightingOnLoad();
+    })
+</script>
+
+      </div>
+    </div>
+    
+  </main>
+  <footer class="pl-scrollbar">
+    <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">&copy; 2021 <a href="https://blog.wangjialei.xyz/">Wang Jialei</a>
+ &middot;  Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div></div>
+  </footer>
+</body>
+
+</html>

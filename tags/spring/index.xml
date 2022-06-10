@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Spring on LoneStar&#39;s blog</title>
+    <link>https://blog.wangjialei.xyz/tags/spring/</link>
+    <description>Recent content in Spring on LoneStar&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <copyright>&amp;copy; 2021 &lt;a href=&#34;https://blog.wangjialei.xyz/&#34;&gt;Wang Jialei&lt;/a&gt;
+</copyright>
+    <lastBuildDate>Tue, 27 Jul 2021 23:43:53 +0800</lastBuildDate><atom:link href="https://blog.wangjialei.xyz/tags/spring/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Spring Framework 02 Spring MVC</title>
+      <link>https://blog.wangjialei.xyz/posts/spring-framework-02-spring-mvc/</link>
+      <pubDate>Tue, 27 Jul 2021 23:43:53 +0800</pubDate>
+      
+      <guid>https://blog.wangjialei.xyz/posts/spring-framework-02-spring-mvc/</guid>
+      <description>现在有了 SpringBoot，配置 SpringMVC 就不需要向以前那样使用繁琐的 xml 文件了，tomcat 也内部集成了，很方便。
+快速构建 Spring MVC 项目 使用官方教程，进入 Spring 官网，点击 Learn-Guides</description>
+    </item>
+    
+    <item>
+      <title>Spring Framework 01 IOC AOP</title>
+      <link>https://blog.wangjialei.xyz/posts/spring-framework-01-ioc-aop/</link>
+      <pubDate>Wed, 21 Jul 2021 20:00:52 +0800</pubDate>
+      
+      <guid>https://blog.wangjialei.xyz/posts/spring-framework-01-ioc-aop/</guid>
+      <description>这一部分涵盖了 Spring 框架绝对不可或缺的所有技术。其中最重要的是 Spring Framework 的控制反转 (Inversion of Control, IoC) 容器，紧随其后的是 Spring 的面向切面编程 (Aspect-Oriented Programming, AOP) 技术的全面覆盖。 Spring Framework 有自己的 AOP 框架，它在概念上易于理解。</description>
+    </item>
+    
+    <item>
+      <title>Spring Framework 00 概述</title>
+      <link>https://blog.wangjialei.xyz/posts/spring-framework-00-%E6%A6%82%E8%BF%B0/</link>
+      <pubDate>Wed, 21 Jul 2021 19:15:28 +0800</pubDate>
+      
+      <guid>https://blog.wangjialei.xyz/posts/spring-framework-00-%E6%A6%82%E8%BF%B0/</guid>
+      <description>Spring 使创建 Java 企业应用程序变得容易。它提供了在企业环境中使用 Java 语言所需的一切。Spring 支持广泛的应用场景。在大型企业中，应用程序往往存在很长时间，并且必须运行在升级周期不受开发人员控制的 JDK 和应用程序服务器上。</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang='zh' ><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+
+<title>Spring Framework 01 IOC AOP | LoneStar&#39;s blog</title>
+
+<meta name="generator" content="Hugo Eureka 0.8.4" />
+<link rel="stylesheet" href="https://blog.wangjialei.xyz/css/eureka.min.css">
+<script defer src="https://blog.wangjialei.xyz/js/eureka.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/styles/stackoverflow-light.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/highlight.min.js"
+   crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/languages/light.min.js"
+     crossorigin></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js"
+   integrity="sha256-uNYoXefWRqv&#43;PsIF/OflNmwtKM4lStn9yrz2gVl6ymo="  crossorigin></script>
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+   integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3&#43;Aro6EYUG4&#43;cU&#43;KJWu/X"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" 
+  integrity="sha384-g7c&#43;Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI&#43;sEnkvrMWph2EDg4"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+   integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC&#43;Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/mermaid@8.9.2/dist/mermaid.min.js" 
+  integrity="sha256-Zmpaaj&#43;GXFsPF5WdPArSrnW3b30dovldeKsW00xBVwE="  crossorigin></script>
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="https://blog.wangjialei.xyz/images/favicon_huce974d41c22b18f52c9ea90a63a4b2a6_21741_32x32_fill_box_center_3.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://blog.wangjialei.xyz/images/favicon_huce974d41c22b18f52c9ea90a63a4b2a6_21741_180x180_fill_box_center_3.png">
+
+<meta name="description"
+  content="spring 学习笔记">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"文章",
+      "item":"https://blog.wangjialei.xyz/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"Spring Framework 01 IOC AOP",
+      "item":"https://blog.wangjialei.xyz/posts/spring-framework-01-ioc-aop/"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://blog.wangjialei.xyz/posts/spring-framework-01-ioc-aop/"
+    },
+    "headline": "Spring Framework 01 IOC AOP | LoneStar\u0027s blog",
+    "image": "https://mypic-1305118058.cos.ap-hongkong.myqcloud.com/img/2021-07-22.jpg",
+    "datePublished": "2021-07-21T20:00:52+08:00",
+    "dateModified": "2021-07-21T20:00:52+08:00",
+    "wordCount":  857 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "lonestar",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://blog.wangjialei.xyz/images/favicon.png"
+        }
+        },
+    "description": "spring 学习笔记"
+}
+</script><meta property="og:title" content="Spring Framework 01 IOC AOP | LoneStar&#39;s blog" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="https://blog.wangjialei.xyz/images/favicon.png">
+
+
+<meta property="og:url" content="https://blog.wangjialei.xyz/posts/spring-framework-01-ioc-aop/" />
+
+
+
+<meta property="og:description" content="spring 学习笔记" />
+
+
+
+<meta property="og:locale" content="zh" />
+
+
+
+
+<meta property="og:site_name" content="LoneStar&#39;s blog" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2021-07-21T20:00:52&#43;08:00" />
+
+
+<meta property="article:modified_time" content="2021-07-21T20:00:52&#43;08:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+<meta property="article:tag" content="Spring" />
+
+
+
+
+
+<meta property="og:see_also" content="https://blog.wangjialei.xyz/posts/spring-framework-00-%E6%A6%82%E8%BF%B0/" />
+
+
+
+<body class="flex flex-col min-h-screen">
+  <header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
+    <div class="w-full max-w-screen-xl mx-auto"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="/" class="mr-6 text-primary-text text-xl font-bold">LoneStar&#39;s blog</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  selected-menu-item  mr-4">文章</a>
+            <a href="/categories/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">分类</a>
+            <a href="/tags/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">标签</a>
+            <a href="/series/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">系列</a>
+            <a href="/#about" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">关于</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">浅色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">深色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">自动</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+</div>
+  </header>
+  <main class="flex-grow pt-16">
+    <div class="pl-scrollbar">
+      <div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
+
+
+<div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12">
+    <div
+        class="col-span-2  lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
+        <h1 class="font-bold text-3xl text-primary-text">Spring Framework 01 IOC AOP</h1>
+        <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2021-07-21</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>5分钟阅读时长</span>
+    </div>
+    
+    
+    <div class="mr-6 my-2">
+        <i class="fas fa-folder mr-1"></i>
+        
+        <a href="https://blog.wangjialei.xyz/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="hover:text-eureka">学习笔记</a>
+        
+    </div>
+    
+
+    
+</div>
+        
+        
+        
+        <div class="my-4">
+            <img src="https://mypic-1305118058.cos.ap-hongkong.myqcloud.com/img/2021-07-22.jpg" class="w-full" alt="Featured Image">
+        </div>
+        
+
+        <div class="content">
+            <blockquote>
+<p>这一部分涵盖了 Spring 框架绝对不可或缺的所有技术。其中最重要的是 Spring Framework 的控制反转 (Inversion of  Control, IoC) 容器，紧随其后的是 Spring 的面向切面编程 (Aspect-Oriented Programming, AOP) 技术的全面覆盖。 Spring Framework 有自己的 AOP 框架，它在概念上易于理解。</p>
+</blockquote>
+<h2 id="控制反转inversion-of-control-ioc">控制反转（Inversion of Control, IoC）</h2>
+<h3 id="spring-ioc-容器和-bean-介绍">Spring IoC 容器和 Bean 介绍</h3>
+<p>IoC 也称为依赖项注入（dependency injection, DI），它是一个过程，对象仅通过构造函数参数、工厂方法的参数，或在对象实例构造或从工厂方法返回后设置的属性。然后容器在创建bean时注入这些依赖项。这个过程基本上是相反的（因此得名，控制反转）。bean 本身通过使用类的直接构造或服务定位器模式等机制来控制其依赖项的实例化或位置。</p>
+<p><code>org.springframework.beans</code> 和 <code>org.springframework.context</code> 包是 Spring Framework 的 IoC 容器的基础。 <code>BeanFactory</code> 接口提供了一种能够管理任何类型对象的高级配置机制，提供了配置框架和基本功能，<code>ApplicationContext</code> 添加了更多企业特定的功能。</p>
+<p>在 Spring 中，构成应用程序主干并由 Spring IoC 容器管理的对象称为 bean。 bean 是由 Spring IoC 容器实例化、组装和管理的对象。否则，bean 只是应用程序中众多对象之一。 Bean 以及它们之间的依赖关系反映在容器使用的配置元数据中。</p>
+<h3 id="容器概述">容器概述</h3>
+<p><code>org.springframework.context.ApplicationContext</code> 接口代表 Spring IoC 容器，负责实例化、配置和组装 bean。容器通过读取配置元数据来获取有关要实例化、配置和组装哪些对象的指令。配置元数据以 XML、Java 注释或 Java 代码表示。它可以让您表达组成应用程序的对象以及这些对象之间丰富的相互依赖关系。</p>
+<p>Spring 提供了 <code>ApplicationContext</code> 接口的几个实现。在独立应用程序中，通常创建 <code>ClassPathXmlApplicationContext</code> 或 <code>FileSystemXmlApplicationContext</code> 的实例。</p>
+<p>下图展示了 Spring 是如何工作的。您的应用程序类与配置元数据相结合，因此在 ApplicationContext 被创建和初始化之后，您就有了一个完全配置且可执行的系统或应用程序。</p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/container-magic.png" alt="container-magic"></p>
+<h4 id="配置元数据configuration-metadata">配置元数据（Configuration Metadata）</h4>
+<p>以下示例显示了基于 XML 的配置元数据的基本结构</p>
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
+    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+    xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd&quot;&gt;
+    &lt;bean id=&quot;...&quot; class=&quot;...&quot;&gt;  
+        &lt;!-- collaborators and configuration for this bean go here --&gt;
+    &lt;/bean&gt;
+    &lt;bean id=&quot;...&quot; class=&quot;...&quot;&gt;
+        &lt;!-- collaborators and configuration for this bean go here --&gt;
+    &lt;/bean&gt;
+    &lt;!-- more bean definitions go here --&gt;
+&lt;/beans&gt;
+</code></pre>
+<ul>
+<li>
+<p><code>id</code> 属性是一个字符串，用于标识单个 bean 定义</p>
+</li>
+<li>
+<p><code>class</code> 属性定义了 bean 的类型并使用了完全合格的类名</p>
+</li>
+</ul>
+<h4 id="实例化一个容器">实例化一个容器</h4>
+<p>提供给 <code>ApplicationContext</code> 构造函数的一个或多个位置路径资源字符串，它允许容器从各种外部资源（例如本地文件系统、Java CLASSPATH 等）加载配置元数据</p>
+<pre><code class="language-java">ApplicationContext context = new ClassPathXmlApplicationContext(&quot;services.xml&quot;, &quot;daos.xml&quot;);
+</code></pre>
+<pre><code class="language-xml">&lt;!--service.xml--&gt;
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
+    xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+    xsi:schemaLocation=&quot;http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd&quot;&gt;
+    &lt;!-- services --&gt;
+    &lt;bean id=&quot;petStore&quot; class=&quot;org.springframework.samples.jpetstore.services.PetStoreServiceImpl&quot;&gt;
+        &lt;property name=&quot;accountDao&quot; ref=&quot;accountDao&quot;/&gt;
+        &lt;property name=&quot;itemDao&quot; ref=&quot;itemDao&quot;/&gt;
+        &lt;!-- additional collaborators and configuration for this bean go here --&gt;
+    &lt;/bean&gt;
+    &lt;!-- more bean definitions for services go here --&gt;
+&lt;/beans&gt;
+</code></pre>
+<h4 id="使用容器">使用容器</h4>
+<p><code>ApplicationContext</code> 是高级工厂的接口，能够维护不同 bean 及其依赖项的注册表。通过使用方法 <code>T getBean(String name, Class&lt;T&gt; requiredType)</code>，可以检索 bean 的实例。</p>
+<pre><code class="language-java">// create and configure beans
+ApplicationContext context = new ClassPathXmlApplicationContext(&quot;services.xml&quot;, &quot;daos.xml&quot;);
+// retrieve configured instance
+PetStoreService service = context.getBean(&quot;petStore&quot;, PetStoreService.class);
+// use configured instance
+List&lt;String&gt; userList = service.getUsernameList();
+</code></pre>
+<h3 id="bean-概述">Bean 概述</h3>
+<p>Spring IoC 容器管理一个或多个 bean。这些 bean 是使用您提供给容器的配置元数据创建的（例如，以 XML <code>&lt;bean/&gt;</code> 定义的形式）。</p>
+<p>在容器本身内，这些 bean 定义表示为 BeanDefinition 对象，其中包含（除其他信息外）以下元数据：</p>
+<ul>
+<li>
+<p>一个包限定的类名：通常是被定义的 bean 的实际实现类</p>
+</li>
+<li>
+<p>Bean 行为配置元素，它说明 Bean 在容器中的行为方式（范围、生命周期回调等）</p>
+</li>
+<li>
+<p>对 bean 执行其工作所需的其他 bean 的引用。这些引用也称为协作者或依赖项</p>
+</li>
+<li>
+<p>要在新创建的对象中设置的其他配置设置</p>
+</li>
+</ul>
+<h4 id="命名-bean">命名 Bean</h4>
+<p>每个 bean 都有一个或多个标识符。这些标识符在承载 bean 的容器中必须是唯一的。一个 bean 通常只有一个标识符。在基于 XML 的配置元数据中，您可以使用 <code>id</code> 属性、<code>name</code> 属性或两者来指定 bean 标识符。 <code>id</code> 属性允许您指定一个 <code>id</code>。bean id 唯一性仍由容器强制执行，但不再由 XML 解析器强制执行。</p>
+<h4 id="实例化-bean">实例化 Bean</h4>
+<p>bean 定义本质上是创建一个或多个对象的方法。当被询问时，容器会查看命名 bean 的方法，并使用该 bean 定义封装的配置元数据来创建（或获取）实际对象。</p>
+<h3 id="依赖注入">依赖注入</h3>
+<p>依赖注入 (DI) 是一个过程，其中对象仅通过构造函数参数、工厂方法的参数或对象实例在构造或构造后设置的属性来定义它们的依赖项（即，与它们一起工作的其他对象），从工厂方法返回。然后容器在创建 bean 时注入这些依赖项。这个过程基本上是 bean 本身的逆过程（因此得名，控制反转），通过使用类的直接构造或服务定位器模式自行控制其依赖项的实例化或位置。</p>
+<h2 id="面向切面编程aspect-oriented-programming-aop">面向切面编程（Aspect Oriented Programming, AOP）</h2>
+<p>面向切面编程（AOP）通过提供另一种思考程序结构的方式来补充面向对象编程（OOP）。 OOP 中模块化的关键单位是类，而 AOP 中模块化的单位是切面。切面能够实现跨越多种类型和对象的关注点（例如事务管理）的模块化。（这种关注点在 AOP 文献中通常被称为“横切”关注点）</p>
+<p>Spring 的关键组件之一是 AOP 框架。尽管 Spring IoC 容器不依赖于 AOP（这意味着如果您不想使用 AOP，则不需要使用 AOP），但 AOP 补充了 Spring IoC 以提供一个非常强大的中间件解决方案。</p>
+<h3 id="aop-概念">AOP 概念</h3>
+<ul>
+<li>切面：跨越多个类的关注点的模块化。事务管理是企业 Java 应用程序中横切关注点的一个很好的例子。在 Spring AOP 中，方面是通过使用常规类（基于模式的方法）或使用 @Aspect 注解注解的常规类来实现的。</li>
+<li>编织：将切面与其他应用程序类型或对象联系起来以创建建议对象。这可以在编译时（例如，使用 AspectJ 编译器）、加载时或运行时完成。 Spring AOP 与其他纯 Java AOP 框架一样，在运行时执行编织。</li>
+</ul>
+<h3 id="spring-aop-能力和目标">Spring AOP 能力和目标</h3>
+<p>Spring AOP 的 AOP 方法不同于大多数其他 AOP 框架。目的不是提供最完整的 AOP 实现（尽管 Spring AOP 非常有能力）。相反，目的是提供 AOP 实现和 Spring IoC 之间的紧密集成，以帮助解决企业应用程序中的常见问题。</p>
+<h2 id="示例">示例</h2>
+<p>参考 <a href="how2j.cn">how2j</a> 的教程，使用 Idea 完成</p>
+<h3 id="构建项目">构建项目</h3>
+<p>新建一个普通 maven 项目，引入依赖</p>
+<pre><code class="language-xml">&lt;!-- pom.xml --&gt;
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;project xmlns=&quot;http://maven.apache.org/POM/4.0.0&quot;
+         xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+         xsi:schemaLocation=&quot;http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd&quot;&gt;
+    &lt;modelVersion&gt;4.0.0&lt;/modelVersion&gt;
+    &lt;groupId&gt;com.wjl&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-how2j&lt;/artifactId&gt;
+    &lt;packaging&gt;pom&lt;/packaging&gt;
+    &lt;version&gt;1.0-SNAPSHOT&lt;/version&gt;
+    &lt;modules&gt;
+        &lt;module&gt;spring-how2j-01-IOC&lt;/module&gt;
+        &lt;module&gt;spring-how2j-02-Inject&lt;/module&gt;
+        &lt;module&gt;spring-how2j-03-annotation-ioc&lt;/module&gt;
+        &lt;module&gt;spring-how2j-04-aop&lt;/module&gt;
+        &lt;module&gt;spring-how2j-05-annotation-aop&lt;/module&gt;
+    &lt;/modules&gt;
+    &lt;properties&gt;
+        &lt;maven.compiler.source&gt;16&lt;/maven.compiler.source&gt;
+        &lt;maven.compiler.target&gt;16&lt;/maven.compiler.target&gt;
+    &lt;/properties&gt;
+    &lt;dependencies&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.hamcrest&lt;/groupId&gt;
+            &lt;artifactId&gt;hamcrest&lt;/artifactId&gt;
+            &lt;version&gt;2.2&lt;/version&gt;
+            &lt;scope&gt;test&lt;/scope&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-test&lt;/artifactId&gt;
+            &lt;version&gt;5.3.9&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;junit&lt;/groupId&gt;
+            &lt;artifactId&gt;junit&lt;/artifactId&gt;
+            &lt;version&gt;4.13.2&lt;/version&gt;
+            &lt;scope&gt;test&lt;/scope&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.projectlombok&lt;/groupId&gt;
+            &lt;artifactId&gt;lombok&lt;/artifactId&gt;
+            &lt;version&gt;1.18.20&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-webmvc&lt;/artifactId&gt;
+            &lt;version&gt;5.3.9&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-jdbc&lt;/artifactId&gt;
+            &lt;version&gt;5.3.9&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;javax.servlet.jsp&lt;/groupId&gt;
+            &lt;artifactId&gt;jsp-api&lt;/artifactId&gt;
+            &lt;version&gt;2.2&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;javax.servlet&lt;/groupId&gt;
+            &lt;artifactId&gt;servlet-api&lt;/artifactId&gt;
+            &lt;version&gt;2.5&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;javax.servlet&lt;/groupId&gt;
+            &lt;artifactId&gt;jstl&lt;/artifactId&gt;
+            &lt;version&gt;1.2&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.aspectj&lt;/groupId&gt;
+            &lt;artifactId&gt;aspectjweaver&lt;/artifactId&gt;
+            &lt;version&gt;1.9.7&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.mybatis&lt;/groupId&gt;
+            &lt;artifactId&gt;mybatis&lt;/artifactId&gt;
+            &lt;version&gt;3.5.7&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.mybatis&lt;/groupId&gt;
+            &lt;artifactId&gt;mybatis-spring&lt;/artifactId&gt;
+            &lt;version&gt;2.0.6&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;mysql&lt;/groupId&gt;
+            &lt;artifactId&gt;mysql-connector-java&lt;/artifactId&gt;
+            &lt;version&gt;8.0.25&lt;/version&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.springframework.batch&lt;/groupId&gt;
+            &lt;artifactId&gt;spring-batch-core&lt;/artifactId&gt;
+            &lt;version&gt;4.3.3&lt;/version&gt;
+        &lt;/dependency&gt;
+    &lt;/dependencies&gt;
+
+&lt;/project&gt;
+</code></pre>
+<p>右键项目，选择新建 Module ，新建一个普通 maven 项目，作为刚才创建项目的一个子项目，无需重复导入依赖。</p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210724203519623.png" alt="image-20210724203519623"></p>
+<h3 id="ioc">IOC</h3>
+<p>新建子项目 <code>spring-how2j-01-IOC</code> ，创建 <code>Category</code> 、 <code>Product</code> 实体类</p>
+<pre><code class="language-java">// Category.java
+public class Category {
+    private int id;
+    private String name;
+}
+// Product.java
+public class Product {
+    private int id;
+    private String name;
+    private Category category;
+}
+</code></pre>
+<p>在 <code>resources</code> 目录下创建 spring 配置文件 <code>applicationContext.xml</code> ，注入两个实体类</p>
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
+       xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+       xsi:schemaLocation=&quot;
+       http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd&quot;&gt;
+    &lt;bean name=&quot;c&quot; class=&quot;com.wjl.pojo.Category&quot;&gt;
+        &lt;property name=&quot;name&quot; value=&quot;category 1&quot;/&gt;
+    &lt;/bean&gt;
+    &lt;bean name=&quot;p&quot; class=&quot;com.wjl.pojo.Product&quot;&gt;
+        &lt;property name=&quot;id&quot; value=&quot;3&quot;/&gt;
+        &lt;property name=&quot;name&quot; value=&quot;Product 1&quot;/&gt;
+        &lt;property name=&quot;category&quot; ref=&quot;c&quot;/&gt;
+    &lt;/bean&gt;
+&lt;/beans&gt;
+</code></pre>
+<p>新建一个测试类，使用 spring 容器创建实体类，并打印出类属性</p>
+<pre><code class="language-java">public class TestSpring {
+    @Test
+    public void test() {
+        ApplicationContext context = new ClassPathXmlApplicationContext(&quot;applicationContext.xml&quot;);
+        Category c = (Category) context.getBean(&quot;c&quot;);
+        System.out.println(c.getName());
+        Product p = (Product) context.getBean(&quot;p&quot;);
+        System.out.println(p.toString());
+    }
+}
+</code></pre>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/spring-01.png" alt="spring-01"></p>
+<h3 id="aop">AOP</h3>
+<p>对 <code>Category</code> 、 <code>Product</code> 实体类使用注解方法注入 spring 容器</p>
+<pre><code class="language-java">@Component(&quot;c&quot;)
+public class Category {
+    private int id;
+    private String name;
+}
+@Component(&quot;p&quot;)
+public class Product {
+    private int id;
+    private String name;
+    private Category category;
+}
+</code></pre>
+<p>为 <code>Product</code> 写一个简单的服务层</p>
+<pre><code class="language-java">// ProductService.java
+public interface ProductService {
+    void addProduct();
+    void deleteProduct();
+    void updateProduct();
+    void searchProduct();
+}
+// ProductServiceImpl.java
+@Component(&quot;s&quot;)
+public class ProductServiceImpl implements ProductService {
+    @Override
+    public void addProduct() { System.out.println(&quot;add a product&quot;); }
+    @Override
+    public void deleteProduct() { System.out.println(&quot;delete a product&quot;); }
+    @Override
+    public void updateProduct() { System.out.println(&quot;update products&quot;); }
+    @Override
+    public void searchProduct() { System.out.println(&quot;search all products&quot;); }
+}
+</code></pre>
+<p>新建一个日志切面 <code>LoggerAspect.java</code> ，用来输出服务调用时间，统计服务运行时间</p>
+<pre><code class="language-Java">package com.wjl.aspect;
+public class LoggerAspect {
+    public Object log(ProceedingJoinPoint joinPoint) throws Throwable {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(&quot;yyyy-MM-dd HH:mm:ss&quot;);
+        Date begin = new Date();
+        System.out.println(&quot;[&quot; + simpleDateFormat.format(begin) + &quot; start log] &quot; + joinPoint.getSignature().getName());
+        long a = System.currentTimeMillis();
+        Object object = joinPoint.proceed();
+        long b = System.currentTimeMillis();
+        Date end = new Date();
+        System.out.println(&quot;[&quot; + simpleDateFormat.format(end) + &quot; end log] &quot; + joinPoint.getSignature().getName());
+        System.out.println(&quot;it costs &quot; + (double)(b - a) / 1000 + &quot; s&quot;);
+        return object;
+    }
+}
+</code></pre>
+<p>配置 spring 配置文件</p>
+<pre><code class="language-xml">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;beans xmlns=&quot;http://www.springframework.org/schema/beans&quot;
+       xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;
+       xmlns:aop=&quot;http://www.springframework.org/schema/aop&quot;
+       xmlns:context=&quot;http://www.springframework.org/schema/context&quot;
+       xsi:schemaLocation=&quot;
+       http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+       http://www.springframework.org/schema/aop
+       http://www.springframework.org/schema/aop/spring-aop-3.0.xsd
+       http://www.springframework.org/schema/context
+       http://www.springframework.org/schema/context/spring-context-3.0.xsd&quot;&gt;
+    &lt;context:component-scan base-package=&quot;com.wjl.pojo&quot;/&gt;
+    &lt;context:component-scan base-package=&quot;com.wjl.service&quot;/&gt;
+    &lt;bean id=&quot;loggerAspect&quot; class=&quot;com.wjl.aspect.LoggerAspect&quot;/&gt;
+    &lt;aop:config&gt;
+        &lt;aop:pointcut id=&quot;loggerCutpoint&quot; expression=&quot;execution(* com.wjl.service.ProductService.*(..))&quot;/&gt;
+        &lt;aop:aspect id=&quot;logAspect&quot; ref=&quot;loggerAspect&quot;&gt;
+            &lt;aop:around pointcut-ref=&quot;loggerCutpoint&quot; method=&quot;log&quot;/&gt;
+        &lt;/aop:aspect&gt;
+    &lt;/aop:config&gt;
+&lt;/beans&gt;
+</code></pre>
+<p>创建测试类</p>
+<pre><code class="language-java">public void test() {
+    ApplicationContext context = new ClassPathXmlApplicationContext(&quot;applicationContext.xml&quot;);
+    ProductService s = (ProductService) context.getBean(&quot;s&quot;);
+    s.addProduct();
+    s.searchProduct();
+}
+</code></pre>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/spring-04.png" alt="spring-04"></p>
+<h3 id="全部运行结果">全部运行结果</h3>
+<ol>
+<li>
+<p>Spring IOC/DI</p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/spring-01.png" alt="spring-01"></p>
+</li>
+<li>
+<p>Spring 注入对象</p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/spring-02.png" alt="spring-02"></p>
+</li>
+<li>
+<p>Spring 注解方式 IOC/DI</p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/spring-03.png" alt="spring-03"></p>
+</li>
+<li>
+<p>Spring AOP</p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/spring-04.png" alt="spring-04"></p>
+</li>
+<li>
+<p>Spring 注解方式 AOP</p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/spring-05.png" alt="spring-05"></p>
+</li>
+<li>
+<p>Spring 注解方式测试</p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/spring-06.png" alt="spring-06"></p>
+</li>
+</ol>
+<h2 id="总结">总结</h2>
+<p>Spring 的 IOC 和 AOP 大大提高了开发的效率，但是程序过分依赖配置文件，配置文件出错又不会像程序写错会有明显的提示，经常会因为配置文件写错导致程序运行不了，是名副其实的配置地狱。</p>
+<p>Spring 凝聚了众多程序员的智慧， how2j 网站上的教程比较简单，没有触及更深层次的内容，还需要硬着头皮看官方文档，才能了解更多。</p>
+
+        </div>
+        
+        <div class="my-4">
+    
+    <a href="https://blog.wangjialei.xyz/tags/spring/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#Spring</a>
+    
+</div>
+        
+        
+        
+
+
+        
+        
+        
+        
+<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
+    <div>
+        
+        <span class="block font-bold">上一页</span>
+        <a href="https://blog.wangjialei.xyz/posts/spring-framework-02-spring-mvc/" class="block">Spring Framework 02 Spring MVC</a>
+        
+    </div>
+    <div class="md:text-right mt-4 md:mt-0">
+        
+        <span class="block font-bold">下一页</span>
+        <a href="https://blog.wangjialei.xyz/posts/spring-framework-00-%E6%A6%82%E8%BF%B0/" class="block">Spring Framework 00 概述</a>
+        
+    </div>
+</div>
+
+        
+
+
+
+    </div>
+    
+    <div class="col-span-2">
+        
+        
+        <div class="sticky top-16 z-10 hidden lg:block px-6 py-4  bg-primary-bg ">
+    <span class="text-lg font-semibold">本页内容</span>
+</div>
+<div class="sticky-toc hidden lg:block px-6 pb-6 ">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#控制反转inversion-of-control-ioc">控制反转（Inversion of Control, IoC）</a>
+      <ul>
+        <li><a href="#spring-ioc-容器和-bean-介绍">Spring IoC 容器和 Bean 介绍</a></li>
+        <li><a href="#容器概述">容器概述</a>
+          <ul>
+            <li><a href="#配置元数据configuration-metadata">配置元数据（Configuration Metadata）</a></li>
+            <li><a href="#实例化一个容器">实例化一个容器</a></li>
+            <li><a href="#使用容器">使用容器</a></li>
+          </ul>
+        </li>
+        <li><a href="#bean-概述">Bean 概述</a>
+          <ul>
+            <li><a href="#命名-bean">命名 Bean</a></li>
+            <li><a href="#实例化-bean">实例化 Bean</a></li>
+          </ul>
+        </li>
+        <li><a href="#依赖注入">依赖注入</a></li>
+      </ul>
+    </li>
+    <li><a href="#面向切面编程aspect-oriented-programming-aop">面向切面编程（Aspect Oriented Programming, AOP）</a>
+      <ul>
+        <li><a href="#aop-概念">AOP 概念</a></li>
+        <li><a href="#spring-aop-能力和目标">Spring AOP 能力和目标</a></li>
+      </ul>
+    </li>
+    <li><a href="#示例">示例</a>
+      <ul>
+        <li><a href="#构建项目">构建项目</a></li>
+        <li><a href="#ioc">IOC</a></li>
+        <li><a href="#aop">AOP</a></li>
+        <li><a href="#全部运行结果">全部运行结果</a></li>
+      </ul>
+    </li>
+    <li><a href="#总结">总结</a></li>
+  </ul>
+</nav>
+</div>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        enableStickyToc();
+    });
+</script>
+        
+    </div>
+    
+
+    
+    
+    <div
+        class="col-span-2  lg:col-span-6 bg-secondary-bg rounded p-6">
+        <h2 class="text-lg font-semibold mb-4">相关</h2>
+        <div class="content">
+            
+            <a href="https://blog.wangjialei.xyz/posts/spring-framework-00-%E6%A6%82%E8%BF%B0/">Spring Framework 00 概述</a>
+            <br />
+            
+        </div>
+    </div>
+    
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+        hljs.initHighlightingOnLoad();
+    })
+</script>
+
+      </div>
+    </div>
+    
+  </main>
+  <footer class="pl-scrollbar">
+    <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">&copy; 2021 <a href="https://blog.wangjialei.xyz/">Wang Jialei</a>
+ &middot;  Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div></div>
+  </footer>
+</body>
+
+</html>

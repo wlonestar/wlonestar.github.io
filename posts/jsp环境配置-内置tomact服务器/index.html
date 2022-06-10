@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang='zh' ><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+
+<title>Jsp环境配置-内置tomact服务器 | LoneStar&#39;s blog</title>
+
+<meta name="generator" content="Hugo Eureka 0.8.4" />
+<link rel="stylesheet" href="https://blog.wangjialei.xyz/css/eureka.min.css">
+<script defer src="https://blog.wangjialei.xyz/js/eureka.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/styles/stackoverflow-light.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/highlight.min.js"
+   crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/languages/light.min.js"
+     crossorigin></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js"
+   integrity="sha256-uNYoXefWRqv&#43;PsIF/OflNmwtKM4lStn9yrz2gVl6ymo="  crossorigin></script>
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+   integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3&#43;Aro6EYUG4&#43;cU&#43;KJWu/X"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" 
+  integrity="sha384-g7c&#43;Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI&#43;sEnkvrMWph2EDg4"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+   integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC&#43;Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/mermaid@8.9.2/dist/mermaid.min.js" 
+  integrity="sha256-Zmpaaj&#43;GXFsPF5WdPArSrnW3b30dovldeKsW00xBVwE="  crossorigin></script>
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="https://blog.wangjialei.xyz/images/favicon_huce974d41c22b18f52c9ea90a63a4b2a6_21741_32x32_fill_box_center_3.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://blog.wangjialei.xyz/images/favicon_huce974d41c22b18f52c9ea90a63a4b2a6_21741_180x180_fill_box_center_3.png">
+
+<meta name="description"
+  content="安装 JDK 和 Maven JDK 下载链接： open-jdk-17
+ 下载压缩包解压到合适路径  添加到环境变量  在系统变量新建变量 JAVA_HOME">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"文章",
+      "item":"https://blog.wangjialei.xyz/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"Jsp环境配置-内置tomact服务器",
+      "item":"https://blog.wangjialei.xyz/posts/jsp%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE-%E5%86%85%E7%BD%AEtomact%E6%9C%8D%E5%8A%A1%E5%99%A8/"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://blog.wangjialei.xyz/posts/jsp%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE-%E5%86%85%E7%BD%AEtomact%E6%9C%8D%E5%8A%A1%E5%99%A8/"
+    },
+    "headline": "Jsp环境配置-内置tomact服务器 | LoneStar\u0027s blog",
+    "image": "https://mypic-1305118058.cos.ap-hongkong.myqcloud.com/img/Snipaste_2022-02-01_20-59-23.png",
+    "datePublished": "2022-03-22T19:15:50+08:00",
+    "dateModified": "2022-03-22T19:15:50+08:00",
+    "wordCount":  192 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "lonestar",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://blog.wangjialei.xyz/images/favicon.png"
+        }
+        },
+    "description": "安装 JDK 和 Maven JDK 下载链接： open-jdk-17\n 下载压缩包解压到合适路径  添加到环境变量  在系统变量新建变量 JAVA_HOME"
+}
+</script><meta property="og:title" content="Jsp环境配置-内置tomact服务器 | LoneStar&#39;s blog" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="https://blog.wangjialei.xyz/images/favicon.png">
+
+
+<meta property="og:url" content="https://blog.wangjialei.xyz/posts/jsp%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE-%E5%86%85%E7%BD%AEtomact%E6%9C%8D%E5%8A%A1%E5%99%A8/" />
+
+
+
+
+<meta property="og:description" content="安装 JDK 和 Maven JDK 下载链接： open-jdk-17
+ 下载压缩包解压到合适路径  添加到环境变量  在系统变量新建变量 JAVA_HOME" />
+
+
+
+
+<meta property="og:locale" content="zh" />
+
+
+
+
+<meta property="og:site_name" content="LoneStar&#39;s blog" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2022-03-22T19:15:50&#43;08:00" />
+
+
+<meta property="article:modified_time" content="2022-03-22T19:15:50&#43;08:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+<meta property="article:tag" content="Java" />
+
+<meta property="article:tag" content="tomcat" />
+
+<meta property="article:tag" content="jsp" />
+
+
+
+
+
+<meta property="og:see_also" content="https://blog.wangjialei.xyz/posts/java%E7%9A%84%E9%9D%99%E6%80%81%E7%B1%BB%E5%9D%97%E6%96%B9%E6%B3%95%E5%92%8C%E5%8F%98%E9%87%8F/" />
+
+<meta property="og:see_also" content="https://blog.wangjialei.xyz/posts/%E7%AE%97%E6%B3%95%E5%87%A0%E7%A7%8D%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E7%9A%84%E6%80%BB%E7%BB%93/" />
+
+<meta property="og:see_also" content="https://blog.wangjialei.xyz/posts/java%E7%BB%86%E7%A2%8E%E7%9F%A5%E8%AF%86%E7%82%B9/" />
+
+<meta property="og:see_also" content="https://blog.wangjialei.xyz/posts/mybatis%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/" />
+
+<meta property="og:see_also" content="https://blog.wangjialei.xyz/posts/java%E5%9F%BA%E7%A1%80%E5%90%88%E9%9B%86/" />
+
+<meta property="og:see_also" content="https://blog.wangjialei.xyz/posts/%E8%AE%B0%E5%BD%95%E4%B8%80%E6%AC%A1%E5%81%9Aweb%E5%BC%80%E5%8F%91%E7%9A%84%E7%BB%8F%E5%8E%86/" />
+
+
+
+<body class="flex flex-col min-h-screen">
+  <header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
+    <div class="w-full max-w-screen-xl mx-auto"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="/" class="mr-6 text-primary-text text-xl font-bold">LoneStar&#39;s blog</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  selected-menu-item  mr-4">文章</a>
+            <a href="/categories/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">分类</a>
+            <a href="/tags/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">标签</a>
+            <a href="/series/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">系列</a>
+            <a href="/#about" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">关于</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">浅色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">深色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">自动</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+</div>
+  </header>
+  <main class="flex-grow pt-16">
+    <div class="pl-scrollbar">
+      <div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
+
+
+<div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12">
+    <div
+        class="col-span-2  lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
+        <h1 class="font-bold text-3xl text-primary-text">Jsp环境配置-内置tomact服务器</h1>
+        <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2022-03-22</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>1分钟阅读时长</span>
+    </div>
+    
+    
+    <div class="mr-6 my-2">
+        <i class="fas fa-folder mr-1"></i>
+        
+        <a href="https://blog.wangjialei.xyz/categories/%E8%BF%87%E7%A8%8B%E8%AE%B0%E5%BD%95/" class="hover:text-eureka">过程记录</a>
+        
+    </div>
+    
+
+    
+</div>
+        
+        
+        
+        <div class="my-4">
+            <img src="https://mypic-1305118058.cos.ap-hongkong.myqcloud.com/img/Snipaste_2022-02-01_20-59-23.png" class="w-full" alt="Featured Image">
+        </div>
+        
+
+        <div class="content">
+            <h2 id="安装-jdk-和-maven">安装 JDK 和 Maven</h2>
+<h3 id="jdk">JDK</h3>
+<p>下载链接： <a href="https://jdk.java.net/17/">open-jdk-17</a></p>
+<ol>
+<li>下载压缩包解压到合适路径</li>
+</ol>
+<p><img src="https://mypic-1305118058.cos.ap-hongkong.myqcloud.com/img/Snipaste_2022-03-22_19-47-22.png" alt=""></p>
+<ol start="2">
+<li>添加到环境变量</li>
+</ol>
+<p>在系统变量新建变量 <code>JAVA_HOME</code></p>
+<p><img src="https://mypic-1305118058.cos.ap-hongkong.myqcloud.com/img/Snipaste_2022-03-22_19-48-38.png" alt=""></p>
+<p>在系统变量 <code>PATH</code> 里添加 <code>%JAVA_HOME%/bin</code></p>
+<ol start="3">
+<li>验证安装</li>
+</ol>
+<p>打开 terminal ，输入命令 <code>java --version</code></p>
+<p><img src="https://mypic-1305118058.cos.ap-hongkong.myqcloud.com/img/Snipaste_2022-03-22_19-52-17.png" alt=""></p>
+<h3 id="maven">Maven</h3>
+<p>下载链接： <a href="https://maven.apache.org/download.cgi">apache-aven-3.8.5</a></p>
+<ol>
+<li>下载压缩包解压到合适路径</li>
+</ol>
+<p><img src="https://mypic-1305118058.cos.ap-hongkong.myqcloud.com/img/Snipaste_2022-03-22_19-56-53.png" alt=""></p>
+<ol start="2">
+<li>添加到环境变量</li>
+</ol>
+<p>在系统变量新建变量 <code>MAVEN_HOME</code></p>
+<p><img src="https://mypic-1305118058.cos.ap-hongkong.myqcloud.com/img/Snipaste_2022-03-22_19-58-31.png" alt=""></p>
+<p>在系统变量 <code>PATH</code> 里添加 <code>%MAVEN_HOME%/bin</code></p>
+<ol start="3">
+<li>验证安装</li>
+</ol>
+<p>打开 terminal ，输入命令 <code>mvn --version</code></p>
+<p><img src="https://mypic-1305118058.cos.ap-hongkong.myqcloud.com/img/Snipaste_2022-03-22_20-00-06.png" alt=""></p>
+<ol start="4">
+<li>修改配置文件和本地仓库地址</li>
+</ol>
+<p>打开 <code>/path/to/maven/conf/settings.xml</code></p>
+<p>修改本地仓库路径：</p>
+<pre><code class="language-xml">&lt;localRepository&gt;D:\wjl\.m2\repository&lt;/localRepository&gt;
+</code></pre>
+<p><img src="https://mypic-1305118058.cos.ap-hongkong.myqcloud.com/img/Snipaste_2022-03-22_20-04-23.png" alt=""></p>
+<p>修改镜像为阿里云：</p>
+<pre><code class="language-xml">&lt;mirror&gt;
+  &lt;id&gt;nexus-aliyun&lt;/id&gt;
+  &lt;mirrorOf&gt;*&lt;/mirrorOf&gt;
+  &lt;name&gt;Nexus aliyun&lt;/name&gt;
+  &lt;url&gt;http://maven.aliyun.com/nexus/content/groups/public&lt;/url&gt;
+&lt;/mirror&gt;
+</code></pre>
+<p><img src="https://mypic-1305118058.cos.ap-hongkong.myqcloud.com/img/Snipaste_2022-03-22_20-07-31.png" alt=""></p>
+<p>执行命令 <code>mvn help:system</code> 下载本地仓库</p>
+<p><img src="https://mypic-1305118058.cos.ap-hongkong.myqcloud.com/img/Snipaste_2022-03-22_20-09-15.png" alt=""></p>
+<h2 id="配置-idea">配置 Idea</h2>
+<p>在 <code>File -&gt; New Projects Setup -&gt; Settings for New Projects...</code> 里找到 <code>Maven</code> 选项</p>
+<p><img src="https://mypic-1305118058.cos.ap-hongkong.myqcloud.com/img/Snipaste_2022-03-22_20-11-49.png" alt=""></p>
+<p><img src="https://mypic-1305118058.cos.ap-hongkong.myqcloud.com/img/Snipaste_2022-03-22_20-13-14.png" alt=""></p>
+<p>修改设置文件路径和本地仓库路径</p>
+<h2 id="创建-maven-项目">创建 Maven 项目</h2>
+<p>由于可能会有多个 jsp 项目，这里选择创建 Maven 多模块工程，方便管理多个项目</p>
+<h3 id="创建父项目">创建父项目</h3>
+<p>这里创建一个普通 maven 项目，删除 idea 自动创建的 <code>src</code> 目录</p>
+<p>然后右键项目，选择新建模块</p>
+<p><img src="https://mypic-1305118058.cos.ap-hongkong.myqcloud.com/img/Snipaste_2022-03-22_20-20-27.png" alt=""></p>
+<p>选择从模板创建，其他选项均改为默认</p>
+<p><img src="https://mypic-1305118058.cos.ap-hongkong.myqcloud.com/img/Snipaste_2022-03-22_20-20-52.png" alt=""></p>
+<p>等待依赖下载完成</p>
+<h3 id="添加-tomcat-embded-依赖">添加 tomcat-embded 依赖</h3>
+<pre><code class="language-xml">&lt;dependency&gt;
+  &lt;groupId&gt;org.apache.tomcat.embed&lt;/groupId&gt;
+  &lt;artifactId&gt;tomcat-embed-core&lt;/artifactId&gt;
+  &lt;version&gt;10.0.14&lt;/version&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+  &lt;groupId&gt;org.apache.tomcat.embed&lt;/groupId&gt;
+  &lt;artifactId&gt;tomcat-embed-jasper&lt;/artifactId&gt;
+  &lt;version&gt;10.0.14&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+<p><img src="https://mypic-1305118058.cos.ap-hongkong.myqcloud.com/img/Snipaste_2022-03-22_21-06-07.png" alt=""></p>
+<p>在 <code>src</code> 目录下新建 <code>java</code> 目录， 标记为 <code>source root</code></p>
+<p><img src="https://mypic-1305118058.cos.ap-hongkong.myqcloud.com/img/Snipaste_2022-03-22_21-08-36.png" alt=""></p>
+<p>创建 <code>tomcat</code> 启动类</p>
+<pre><code class="language-java">public class TomcatStarter {
+
+    public static String module = &quot;hello&quot;;
+
+    public static String contextpath = &quot;/&quot; + module;
+    public static String sourcePath = new File(module + &quot;/src/main/webapp&quot;).getAbsolutePath();
+    public static String targetPath = new File(module + &quot;/target/classes&quot;).getAbsolutePath();
+
+    public static void main(String[] args) throws Exception {
+        Tomcat tomcat = new Tomcat();
+        tomcat.setPort(Integer.getInteger(&quot;port&quot;, 8080));
+        tomcat.getConnector();
+        Context ctx = tomcat.addWebapp(contextpath, sourcePath);
+        WebResourceRoot resources = new StandardRoot(ctx);
+        resources.addPreResources(new DirResourceSet(resources,
+                &quot;/WEB-INF/classes&quot;, targetPath, &quot;/&quot;));
+        ctx.setResources(resources);
+        tomcat.start();
+        tomcat.getServer().await();
+    }
+
+}
+</code></pre>
+<p>这时就可以运行 <code>main</code> 方法就可以启动 <code>tomcat</code> 服务器</p>
+
+        </div>
+        
+        <div class="my-4">
+    
+    <a href="https://blog.wangjialei.xyz/tags/java/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#Java</a>
+    
+    <a href="https://blog.wangjialei.xyz/tags/tomcat/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#tomcat</a>
+    
+    <a href="https://blog.wangjialei.xyz/tags/jsp/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#jsp</a>
+    
+</div>
+        
+        
+        
+
+
+        
+        
+        
+        
+<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
+    <div>
+        
+        <span class="block font-bold">上一页</span>
+        <a href="https://blog.wangjialei.xyz/posts/%E4%BD%BF%E7%94%A8djl%E5%BA%93%E9%83%A8%E7%BD%B2%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%A8%A1%E5%9E%8B/" class="block">使用DJL库部署深度学习模型</a>
+        
+    </div>
+    <div class="md:text-right mt-4 md:mt-0">
+        
+        <span class="block font-bold">下一页</span>
+        <a href="https://blog.wangjialei.xyz/posts/pytorch%E9%83%A8%E7%BD%B2/" class="block">Pytorch 模型部署</a>
+        
+    </div>
+</div>
+
+        
+
+
+
+    </div>
+    
+    <div class="col-span-2">
+        
+        
+        <div class="sticky top-16 z-10 hidden lg:block px-6 py-4  bg-primary-bg ">
+    <span class="text-lg font-semibold">本页内容</span>
+</div>
+<div class="sticky-toc hidden lg:block px-6 pb-6 ">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#安装-jdk-和-maven">安装 JDK 和 Maven</a>
+      <ul>
+        <li><a href="#jdk">JDK</a></li>
+        <li><a href="#maven">Maven</a></li>
+      </ul>
+    </li>
+    <li><a href="#配置-idea">配置 Idea</a></li>
+    <li><a href="#创建-maven-项目">创建 Maven 项目</a>
+      <ul>
+        <li><a href="#创建父项目">创建父项目</a></li>
+        <li><a href="#添加-tomcat-embded-依赖">添加 tomcat-embded 依赖</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        enableStickyToc();
+    });
+</script>
+        
+    </div>
+    
+
+    
+    
+    <div
+        class="col-span-2  lg:col-span-6 bg-secondary-bg rounded p-6">
+        <h2 class="text-lg font-semibold mb-4">相关</h2>
+        <div class="content">
+            
+            <a href="https://blog.wangjialei.xyz/posts/java%E7%9A%84%E9%9D%99%E6%80%81%E7%B1%BB%E5%9D%97%E6%96%B9%E6%B3%95%E5%92%8C%E5%8F%98%E9%87%8F/">Java的静态类、块、方法和变量</a>
+            <br />
+            
+            <a href="https://blog.wangjialei.xyz/posts/%E7%AE%97%E6%B3%95%E5%87%A0%E7%A7%8D%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E7%9A%84%E6%80%BB%E7%BB%93/">『算法』几种排序算法的总结</a>
+            <br />
+            
+            <a href="https://blog.wangjialei.xyz/posts/java%E7%BB%86%E7%A2%8E%E7%9F%A5%E8%AF%86%E7%82%B9/">java细碎知识点</a>
+            <br />
+            
+            <a href="https://blog.wangjialei.xyz/posts/mybatis%E5%AD%A6%E4%B9%A0%E6%80%BB%E7%BB%93/">Mybatis学习总结</a>
+            <br />
+            
+            <a href="https://blog.wangjialei.xyz/posts/java%E5%9F%BA%E7%A1%80%E5%90%88%E9%9B%86/">Java基础（合集）</a>
+            <br />
+            
+            <a href="https://blog.wangjialei.xyz/posts/%E8%AE%B0%E5%BD%95%E4%B8%80%E6%AC%A1%E5%81%9Aweb%E5%BC%80%E5%8F%91%E7%9A%84%E7%BB%8F%E5%8E%86/">记录一次做web开发的经历</a>
+            <br />
+            
+        </div>
+    </div>
+    
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+        hljs.initHighlightingOnLoad();
+    })
+</script>
+
+      </div>
+    </div>
+    
+  </main>
+  <footer class="pl-scrollbar">
+    <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">&copy; 2021 <a href="https://blog.wangjialei.xyz/">Wang Jialei</a>
+ &middot;  Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div></div>
+  </footer>
+</body>
+
+</html>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>hugo-theme-stack on LoneStar&#39;s blog</title>
+    <link>https://blog.wangjialei.xyz/tags/hugo-theme-stack/</link>
+    <description>Recent content in hugo-theme-stack on LoneStar&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <copyright>&amp;copy; 2021 &lt;a href=&#34;https://blog.wangjialei.xyz/&#34;&gt;Wang Jialei&lt;/a&gt;
+</copyright>
+    <lastBuildDate>Mon, 16 Aug 2021 22:03:21 +0800</lastBuildDate><atom:link href="https://blog.wangjialei.xyz/tags/hugo-theme-stack/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>修改的Stack主题</title>
+      <link>https://blog.wangjialei.xyz/posts/%E4%BF%AE%E6%94%B9%E7%9A%84stack%E4%B8%BB%E9%A2%98/</link>
+      <pubDate>Mon, 16 Aug 2021 22:03:21 +0800</pubDate>
+      
+      <guid>https://blog.wangjialei.xyz/posts/%E4%BF%AE%E6%94%B9%E7%9A%84stack%E4%B8%BB%E9%A2%98/</guid>
+      <description>今天看到博客的主题 Stack 更新了，就花了点时间看了一下修复的内容，正好改一下有些我一直看不太顺眼的样式。
+注意，改样式要使用 hugo extened 版本
+添加网站访问量统计 我选择的是 不蒜子 ，极简的计数器，使用也很简单，先在 /layouts/partials/footer/components/script.</description>
+    </item>
+    
+  </channel>
+</rss>

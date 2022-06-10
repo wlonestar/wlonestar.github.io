@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>过程记录 on LoneStar&#39;s blog</title>
+    <link>https://blog.wangjialei.xyz/categories/%E8%BF%87%E7%A8%8B%E8%AE%B0%E5%BD%95/</link>
+    <description>Recent content in 过程记录 on LoneStar&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <copyright>&amp;copy; 2021 &lt;a href=&#34;https://blog.wangjialei.xyz/&#34;&gt;Wang Jialei&lt;/a&gt;
+</copyright>
+    <lastBuildDate>Sun, 10 Apr 2022 11:06:53 +0800</lastBuildDate><atom:link href="https://blog.wangjialei.xyz/categories/%E8%BF%87%E7%A8%8B%E8%AE%B0%E5%BD%95/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>CLion&#43;Visual Studio&#43;CMake配置图形学开发环境</title>
+      <link>https://blog.wangjialei.xyz/posts/clion&#43;visual-studio&#43;cmake%E9%85%8D%E7%BD%AE%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/</link>
+      <pubDate>Sun, 10 Apr 2022 11:06:53 +0800</pubDate>
+      
+      <guid>https://blog.wangjialei.xyz/posts/clion&#43;visual-studio&#43;cmake%E9%85%8D%E7%BD%AE%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/</guid>
+      <description>这学期的计算机图形学需要使用 OpenGL ，我参照 LearnOpenGL CN 配置好了环境，但是在使用 Visual Studio 写代码的过程中，发现很不顺手（是JetBrains的CLion太好用了），就想着用 CLion 再次配置一下。</description>
+    </item>
+    
+    <item>
+      <title>使用DJL库部署深度学习模型</title>
+      <link>https://blog.wangjialei.xyz/posts/%E4%BD%BF%E7%94%A8djl%E5%BA%93%E9%83%A8%E7%BD%B2%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%A8%A1%E5%9E%8B/</link>
+      <pubDate>Thu, 07 Apr 2022 15:37:22 +0800</pubDate>
+      
+      <guid>https://blog.wangjialei.xyz/posts/%E4%BD%BF%E7%94%A8djl%E5%BA%93%E9%83%A8%E7%BD%B2%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%A8%A1%E5%9E%8B/</guid>
+      <description>DJL库 DJL(Deep Java Library) 是一个使用Java API简化模型训练、测试、部署和使用深度学习模型进行推理的开源库深度学习工具包，开源的许可协议是Apache-2.0。
+对于Java开发者而言，可以在Java中开发及应用原生的机器学习和深度学习模型，同时简化了深度学习开发的难度。
+通过DJL提供的直观的、高级的API，Java开发人员可以训练自己的模型，或者利用数据科学家用Python预先训练好的模型来进行推理。
+Spring Boot 微服务集成 DJL 这里选择 Kotlin + Gradle + Spring Boot 搭建项目，引入 sprint-boot-starter-web 依赖</description>
+    </item>
+    
+    <item>
+      <title>Jsp环境配置-内置tomact服务器</title>
+      <link>https://blog.wangjialei.xyz/posts/jsp%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE-%E5%86%85%E7%BD%AEtomact%E6%9C%8D%E5%8A%A1%E5%99%A8/</link>
+      <pubDate>Tue, 22 Mar 2022 19:15:50 +0800</pubDate>
+      
+      <guid>https://blog.wangjialei.xyz/posts/jsp%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE-%E5%86%85%E7%BD%AEtomact%E6%9C%8D%E5%8A%A1%E5%99%A8/</guid>
+      <description>安装 JDK 和 Maven JDK 下载链接： open-jdk-17
+ 下载压缩包解压到合适路径  添加到环境变量  在系统变量新建变量 JAVA_HOME</description>
+    </item>
+    
+    <item>
+      <title>Pytorch 模型部署</title>
+      <link>https://blog.wangjialei.xyz/posts/pytorch%E9%83%A8%E7%BD%B2/</link>
+      <pubDate>Thu, 10 Mar 2022 16:54:04 +0800</pubDate>
+      
+      <guid>https://blog.wangjialei.xyz/posts/pytorch%E9%83%A8%E7%BD%B2/</guid>
+      <description>服务器基本配置 ssh 免密登录 # open authorized_keys vim ~/.ssh/authorized_keys # copy local public key to it  conda 下载安装 # install miniconda bash Miniconda3-py39_4.</description>
+    </item>
+    
+    <item>
+      <title>SpringBoot多模块项目搭建、运行、打包</title>
+      <link>https://blog.wangjialei.xyz/posts/springboot%E5%A4%9A%E6%A8%A1%E5%9D%97%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA%E8%BF%90%E8%A1%8C%E6%89%93%E5%8C%85/</link>
+      <pubDate>Tue, 04 Jan 2022 09:53:50 +0800</pubDate>
+      
+      <guid>https://blog.wangjialei.xyz/posts/springboot%E5%A4%9A%E6%A8%A1%E5%9D%97%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA%E8%BF%90%E8%A1%8C%E6%89%93%E5%8C%85/</guid>
+      <description>最近在学 Spring Cloud，发现 maven 的多模块构建还不会，就先去查了以下资料，记录如下。
+新建 maven 父工程 使用 idea 的 Spring Initializr 创建 Spring Boot 工程，只留下 pom.</description>
+    </item>
+    
+    <item>
+      <title>SpringBoot整合常用组件</title>
+      <link>https://blog.wangjialei.xyz/posts/springboot%E6%95%B4%E5%90%88%E5%B8%B8%E7%94%A8%E7%BB%84%E4%BB%B6/</link>
+      <pubDate>Fri, 31 Dec 2021 16:24:16 +0800</pubDate>
+      
+      <guid>https://blog.wangjialei.xyz/posts/springboot%E6%95%B4%E5%90%88%E5%B8%B8%E7%94%A8%E7%BB%84%E4%BB%B6/</guid>
+      <description>在学spring boot的过程中慢慢整合常用的组件，想着汇总成一个项目，方便下次开发拿来即用。
+示例项目已开源：wjl-lab/spring-boot-example: 学习spring boot过程中逐渐整合各大组件的项目 (github.com)
+创建Spring Boot工程 使用 idea 的 Spring Initializr 创建一个 Spring Boot 工程，这一步全部默认即可。</description>
+    </item>
+    
+    <item>
+      <title>Docker 部署多站点</title>
+      <link>https://blog.wangjialei.xyz/posts/docker%E9%83%A8%E7%BD%B2%E5%A4%9A%E7%AB%99%E7%82%B9/</link>
+      <pubDate>Sun, 03 Oct 2021 14:44:48 +0800</pubDate>
+      
+      <guid>https://blog.wangjialei.xyz/posts/docker%E9%83%A8%E7%BD%B2%E5%A4%9A%E7%AB%99%E7%82%B9/</guid>
+      <description>生命不息，折腾不止hhh。继续捣鼓我的云服务器，再过一个月就到期需要付费了，到时候直接续个一年。
+说回正题，之所以要部署两个网站呢，是因为我的确有这个需求，哪个男孩子不想要好几个自己的网站呢（狗头）。
+&amp;ldquo;碰巧&amp;quot;昨天晚上一不小心 rm /* 了，关键TM我在 root 用户下敲了这个命令，直接把 ls 都给整没了，还能有什么办法了，自己手残呗，直接重装系统了。刚好是在全新的系统上搭环境，敲得命令都很全，直接按照命令来写吧。</description>
+    </item>
+    
+    <item>
+      <title>使用Docker部署SpringBoot&#43;Vue项目</title>
+      <link>https://blog.wangjialei.xyz/posts/%E4%BD%BF%E7%94%A8docker%E9%83%A8%E7%BD%B2springboot&#43;vue%E9%A1%B9%E7%9B%AE/</link>
+      <pubDate>Wed, 29 Sep 2021 13:58:48 +0800</pubDate>
+      
+      <guid>https://blog.wangjialei.xyz/posts/%E4%BD%BF%E7%94%A8docker%E9%83%A8%E7%BD%B2springboot&#43;vue%E9%A1%B9%E7%9B%AE/</guid>
+      <description>之前写好了一个SpringBoot + Vue 的项目，但是还不知道怎么部署上线，于是这几天稍微学了一下 Docker ，还只是会用的阶段，就先把部署过程写下来，防止遗忘。
+测试项目编写 因为是测试使用，就先在本地简单写个前后端分离的小项目：后端向前端返回所有用户信息，前端简单的将信息展示出来，MySQL负责存储用户信息。
+很简单，项目代码： wjl-lab/docker-test</description>
+    </item>
+    
+    <item>
+      <title>解决git提交次数过多</title>
+      <link>https://blog.wangjialei.xyz/posts/%E8%A7%A3%E5%86%B3git%E6%8F%90%E4%BA%A4%E6%AC%A1%E6%95%B0%E8%BF%87%E5%A4%9A.git%E6%96%87%E4%BB%B6%E8%BF%87%E5%A4%A7%E7%9A%84%E9%97%AE%E9%A2%98/</link>
+      <pubDate>Wed, 01 Sep 2021 08:37:57 +0800</pubDate>
+      
+      <guid>https://blog.wangjialei.xyz/posts/%E8%A7%A3%E5%86%B3git%E6%8F%90%E4%BA%A4%E6%AC%A1%E6%95%B0%E8%BF%87%E5%A4%9A.git%E6%96%87%E4%BB%B6%E8%BF%87%E5%A4%A7%E7%9A%84%E9%97%AE%E9%A2%98/</guid>
+      <description>因为我使用 git 将我的博客站点代码上传到云服务器，然后在使用过程中就不可避免地要删除一些不必要的文件，造成.git文件太大，甚至比其他文件都大，每次 push 时间都慢慢变长🤣，就想着能不能删掉一些东西，在知乎找到一个合适的回答，实操了一下，非常有用。
+打开 git bash ，我也试过 Windows Terminal，应该是语法不兼容，有些命令敲不出来。。。</description>
+    </item>
+    
+    <item>
+      <title>使用nginx托管hugo博客</title>
+      <link>https://blog.wangjialei.xyz/posts/%E4%BD%BF%E7%94%A8nginx%E6%89%98%E7%AE%A1hugo%E5%8D%9A%E5%AE%A2/</link>
+      <pubDate>Fri, 09 Jul 2021 21:26:01 +0800</pubDate>
+      
+      <guid>https://blog.wangjialei.xyz/posts/%E4%BD%BF%E7%94%A8nginx%E6%89%98%E7%AE%A1hugo%E5%8D%9A%E5%AE%A2/</guid>
+      <description>这几天一直在折腾云服务器，为了避免备案，我买了一台香港的云服务器。想着把博客转移到服务器上，因为 GitHub Pages 太慢了。
+可能是图片比较多，使用的那个主题比较耗资源，顺便换个主题，哪知道配置nginx就花了我两天时间，现在终于配置好了，博客顺利转移过来了，记录一下，防止忘了。
+本地 hugo 博客生成  生成站点  hugo new site blog  编辑配置文件  --blog |-archetypes |-content |-layouts |-static |-themes |-config.</description>
+    </item>
+    
+    <item>
+      <title>使用Oh My Posh配置Windows Terminal</title>
+      <link>https://blog.wangjialei.xyz/posts/%E4%BD%BF%E7%94%A8oh-my-posh%E9%85%8D%E7%BD%AEwindows-terminal/</link>
+      <pubDate>Tue, 29 Jun 2021 20:59:16 +0800</pubDate>
+      
+      <guid>https://blog.wangjialei.xyz/posts/%E4%BD%BF%E7%94%A8oh-my-posh%E9%85%8D%E7%BD%AEwindows-terminal/</guid>
+      <description>越看越觉得 Windows Terminal 的配置难看，就想着换个主题配色什么的，直接去官网看文档，官方推荐使用 Powerline，就按照文档一步步来，最终效果也还不错，权当记录一下配置过程。
+安装 Powerline 字体  Powerline 使用字形来设置提示符样式。 如果你的字体不包含 Powerline 字形，则在整个提示符中，你可能会看到若干 Unicode 替换字符“&amp;amp;#x25AF”。 尽管 Cascadia Mono 不包括 Powerline 字形，但你可以安装 Cascadia Code PL 或 Cascadia Mono PL，这两者包含 Powerline 字形。 可以从 Cascadia Code GitHub 发布页安装这些字体。</description>
+    </item>
+    
+    <item>
+      <title>一个简单但完整的 spring boot 项目</title>
+      <link>https://blog.wangjialei.xyz/posts/%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E4%BD%86%E5%AE%8C%E6%95%B4%E7%9A%84springboot%E9%A1%B9%E7%9B%AE/</link>
+      <pubDate>Wed, 26 May 2021 19:13:52 +0800</pubDate>
+      
+      <guid>https://blog.wangjialei.xyz/posts/%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E4%BD%86%E5%AE%8C%E6%95%B4%E7%9A%84springboot%E9%A1%B9%E7%9B%AE/</guid>
+      <description>还记得我之前留的坑吧，想想还是今天把它填了吧，可能再过几天就又忘了。
+我就按照我目前学习到的内容写一篇教程，关于创建一个 spring boot web 项目的全过程。
+ 新建数据库 打开MySQL命令行，输入命令新建数据库
+create database demo00;  我这里就用了和项目相同的数据库名。</description>
+    </item>
+    
+    <item>
+      <title>Vscode搭建c&#43;&#43;开发环境</title>
+      <link>https://blog.wangjialei.xyz/posts/vscode%E6%90%AD%E5%BB%BAc&#43;&#43;%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/</link>
+      <pubDate>Wed, 03 Mar 2021 21:41:07 +0800</pubDate>
+      
+      <guid>https://blog.wangjialei.xyz/posts/vscode%E6%90%AD%E5%BB%BAc&#43;&#43;%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/</guid>
+      <description>配置编译器 mingw-w64 下载安装 去官网下载页面，选择 MingW-W64-builds
+点击 Sourceforge 下载
+下载完解压到合适位置，找到文件夹下的 bin 子目录</description>
+    </item>
+    
+    <item>
+      <title>PicGo&#43;Gitee图床搭建</title>
+      <link>https://blog.wangjialei.xyz/posts/picgo&#43;gitee%E5%9B%BE%E5%BA%8A%E6%90%AD%E5%BB%BA/</link>
+      <pubDate>Thu, 25 Feb 2021 13:15:51 +0800</pubDate>
+      
+      <guid>https://blog.wangjialei.xyz/posts/picgo&#43;gitee%E5%9B%BE%E5%BA%8A%E6%90%AD%E5%BB%BA/</guid>
+      <description>本文参考 PICGO+Gitee搭建图床 ，无意间发现宝藏，于是实操，解决图片痛点，万分感谢。
+ 前提  Gitee PicGo Node.js  创建 Gitee 仓库 创建公开仓库，选择单分支模型 生成私人令牌 配置 PicGo 安装 github-plus 插件，预先安装好 node.</description>
+    </item>
+    
+    <item>
+      <title>搭建hugo博客部署到Github</title>
+      <link>https://blog.wangjialei.xyz/posts/%E6%90%AD%E5%BB%BAhugo%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E5%88%B0github/</link>
+      <pubDate>Wed, 24 Feb 2021 13:17:13 +0800</pubDate>
+      
+      <guid>https://blog.wangjialei.xyz/posts/%E6%90%AD%E5%BB%BAhugo%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E5%88%B0github/</guid>
+      <description>前提   一定要配置好git，具体教程见 windows下搭建hexo博客部署到github
+  推荐在Microsoft Store安装Windows Terminal，方便后续操作</description>
+    </item>
+    
+    <item>
+      <title>搭建hexo博客部署到Github</title>
+      <link>https://blog.wangjialei.xyz/posts/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E5%88%B0github/</link>
+      <pubDate>Tue, 23 Feb 2021 15:04:10 +0800</pubDate>
+      
+      <guid>https://blog.wangjialei.xyz/posts/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E5%88%B0github/</guid>
+      <description>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。
+安装前提   git
+  node.</description>
+    </item>
+    
+  </channel>
+</rss>

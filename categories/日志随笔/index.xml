@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>日志随笔 on LoneStar&#39;s blog</title>
+    <link>https://blog.wangjialei.xyz/categories/%E6%97%A5%E5%BF%97%E9%9A%8F%E7%AC%94/</link>
+    <description>Recent content in 日志随笔 on LoneStar&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <copyright>&amp;copy; 2021 &lt;a href=&#34;https://blog.wangjialei.xyz/&#34;&gt;Wang Jialei&lt;/a&gt;
+</copyright>
+    <lastBuildDate>Wed, 26 Jan 2022 00:08:49 +0800</lastBuildDate><atom:link href="https://blog.wangjialei.xyz/categories/%E6%97%A5%E5%BF%97%E9%9A%8F%E7%AC%94/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>一个新的计划</title>
+      <link>https://blog.wangjialei.xyz/posts/%E4%B8%80%E4%B8%AA%E6%96%B0%E7%9A%84%E8%AE%A1%E5%88%92/</link>
+      <pubDate>Wed, 26 Jan 2022 00:08:49 +0800</pubDate>
+      
+      <guid>https://blog.wangjialei.xyz/posts/%E4%B8%80%E4%B8%AA%E6%96%B0%E7%9A%84%E8%AE%A1%E5%88%92/</guid>
+      <description>放假十几天了，本来买了几本书想着回家看的，只翻开了一本，回家就躺平了哈哈哈。
+这两天觉得太闲了，准备再写个类似知乎的问答部分小项目，算是一个问答社区吧，姑且称为 bbs 。因为之前写的个人博客只有一个用户，太玩具了，后端稍微改写了一下，前端不太想改了，就先那样了。
+这个项目才刚刚开始，从数据库实体开始慢慢构思，参照知乎的一些功能，删掉我觉得没必要或者我当前水平不太能做得出的部分，差不多数据库设计如下：
+项目包括用户、话题、问题、回答、评论、用户的动态（关注的话题、问题、用户）、用户的想法，先把这些部分做完。
+最右边的三张表的作用是记录回答的点赞数、评论的点赞数、用户发的想法的点赞数，我在网上稍微查了查，好像是可以用 redis 实现，浏览量、点赞量都可以，那就先放着，把其他部分实现好。
+目前写了一点点代码，不知道什么时候能写完，在家里效率太低了。</description>
+    </item>
+    
+    <item>
+      <title>2021年终总结</title>
+      <link>https://blog.wangjialei.xyz/posts/2021%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/</link>
+      <pubDate>Fri, 31 Dec 2021 19:21:59 +0800</pubDate>
+      
+      <guid>https://blog.wangjialei.xyz/posts/2021%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/</guid>
+      <description>反正也没人看，就在这里随便写写了。
+马上就2022年了，我还是单着（苦笑）。时间过的好快啊，尤其是这学期，感觉没做什么事情就很快结束了，弄完两门考试和一个Java课设，就可以回家了。
+这一年过的感觉挺不好，很多事情不如意，明年继续加油吧。
+关于学习 GitHub 这是今年我的GitHub提交记录，还行吧，有把自己写的代码放到网上的习惯了，虽然代码质量并不高，哈哈。
+项目 今年前前后后写了三个小项目。
+第一个是参加学院物联网创想秀比赛，写了一个很简单的留言板项目
+wjl-lab/spring-board: 基于 springboot 的简单登录注册网站 (github.</description>
+    </item>
+    
+    <item>
+      <title>Jpa or Mybatis</title>
+      <link>https://blog.wangjialei.xyz/posts/jpa-or-mybatis/</link>
+      <pubDate>Sat, 25 Sep 2021 21:52:02 +0800</pubDate>
+      
+      <guid>https://blog.wangjialei.xyz/posts/jpa-or-mybatis/</guid>
+      <description>最近一直在试着优化我的那个博客项目，今天上午差不多把博客前端页面改成了响应式布局了，下午想着再把后端重构一下，因为分页功能有点小问题，影响使用。
+因为我目前的博客主要有文章表、分类表嘛，想着再把标签表加上去，之前因为觉得多对多关系的表 CRUD 有辣么点麻烦，就没做，今天觉得再尝试一下。
+然后开始找 JPA 的教程，因为我一直不想继续用 xml 配置，就没用 Mybatis，现在想想还是太 naive 啊。不得不说 mybatis 有点香。</description>
+    </item>
+    
+    <item>
+      <title>微电影《青芒》幕后故事</title>
+      <link>https://blog.wangjialei.xyz/posts/%E5%BE%AE%E7%94%B5%E5%BD%B1%E9%9D%92%E8%8A%92%E5%B9%95%E5%90%8E%E6%95%85%E4%BA%8B/</link>
+      <pubDate>Sat, 29 May 2021 12:02:08 +0800</pubDate>
+      
+      <guid>https://blog.wangjialei.xyz/posts/%E5%BE%AE%E7%94%B5%E5%BD%B1%E9%9D%92%E8%8A%92%E5%B9%95%E5%90%8E%E6%95%85%E4%BA%8B/</guid>
+      <description>微电影地址：BV1f5411T7h9
+想写点什么，却不知从哪说起。
+这次微电影大赛，历时一个月，虽然过程比较辛苦，还有点小遗憾，但结果还是好的，努力没有白费。
+关于创作背景 拍微电影的想法最初是因为思修实践作业，老师给了微电影这种形式，我和导演两个人就想，要不就拍微电影吧，然后拉了一帮小伙伴一起。又听说学校有个微电影大赛，时间正好赶得上，顺便也参加得了。就这样，我们的编剧开始写剧本，主题源自老师提供的“扣好人生的第一颗扣子”。编剧前前后后改了剧本三次，才满意，属实不容易。
+关于拍摄 按照思修老师的安排，在第六周之前写好剧本，第六周会进行一个预答辩，在正式拍摄之前对剧本做一个评估，提出一点建议。预答辩顺利通过了，可以开始拍摄了，我们才知道微电影初赛作品提交截至日期只有大概两周不到，时间很紧，只能抓紧时间开始拍摄。因为写剧本环节我没有参与，等到开始拍摄的时候，看到剧本我傻了：导演想法很多，剧本比较长，场景比较多，有些台词还比较尬，还需要修改。正好遇上期中考试，我们还要准备考试，只能在周末抽空拍摄，前前后后选景、拍摄、后期剪辑发现拍得不好再重拍、配音大概花了两周时间，过程很艰难，也很有趣。
+因为我们没有相机，就拿手机拍摄，剧本里好多场景都在晚上，噪点就特别多，为了控制噪点，我们想了好多方法，有些画面就是因为噪点太多才被舍弃的，因为我们想给观众最佳的观感。
+关于剪辑 后期是我一个人做的。在第一遍粗剪之前，所有的素材加起来有50G，我要从中筛选出有用的素材，光是选素材就花了很长时间。加上剧本比较长，导演想要的分镜比较多，晒素材的时候发现有些镜头没拍还有赶紧拍摄，不能耽误后期剪辑。因为我们小组里会剪辑的不多，就只能我上了。唉，我那垃圾核显本，有一半的素材是 4K 60FPS，用达芬奇剪起来一卡一卡的，很难受，对笔记本的压力很大。</description>
+    </item>
+    
+    <item>
+      <title>计算机专业学生的笔记本配置</title>
+      <link>https://blog.wangjialei.xyz/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%93%E4%B8%9A%E5%AD%A6%E7%94%9F%E7%9A%84%E7%AC%94%E8%AE%B0%E6%9C%AC%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Mon, 24 May 2021 20:33:33 +0800</pubDate>
+      
+      <guid>https://blog.wangjialei.xyz/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%93%E4%B8%9A%E5%AD%A6%E7%94%9F%E7%9A%84%E7%AC%94%E8%AE%B0%E6%9C%AC%E9%85%8D%E7%BD%AE/</guid>
+      <description>这篇文章来源于我的一个疯狂的想法——重置我用了一年的 Windows 笔记本。
+可能会有人说了，为什么要重置呢？计算机专业的学生笔记本上不都是配置了很多环境嘛，重置一次还要重新配，多麻烦呀。
+但是我最喜欢折腾了(bushi)。
+主要是近一年来在笔记本上装了好多乱七八糟的软件，中间系统还崩溃过几次，今天突发奇想，要不我直接重置吧，正好清理一下硬盘存储啥的，给C盘腾点空间。
+但我又怕重新配置环境的时候有什么东西漏了，就在这里算是给我留个教程什么的，也可以给计算机方向的同学一个参考。
+配置系统偏好 这个因人而异，因为我登录了我的微软账号开启了设备同步，应该重置后再登录就可以直接和现在效果一样。但我怕 Windows 抽风，那就保险一点，记录一下。</description>
+    </item>
+    
+    <item>
+      <title>记录一次做web开发的经历</title>
+      <link>https://blog.wangjialei.xyz/posts/%E8%AE%B0%E5%BD%95%E4%B8%80%E6%AC%A1%E5%81%9Aweb%E5%BC%80%E5%8F%91%E7%9A%84%E7%BB%8F%E5%8E%86/</link>
+      <pubDate>Sat, 22 May 2021 09:42:55 +0800</pubDate>
+      
+      <guid>https://blog.wangjialei.xyz/posts/%E8%AE%B0%E5%BD%95%E4%B8%80%E6%AC%A1%E5%81%9Aweb%E5%BC%80%E5%8F%91%E7%9A%84%E7%BB%8F%E5%8E%86/</guid>
+      <description>现在坐在图书馆写这篇文章时，再回想这一个月做项目的过程，有很多感慨，可能写得比较随意，权当做个总结。
+学期初就听说这学期学院有个小比赛，内容是做个小网站。当时我肯定想参加的，虽然什么都不太懂，虽然寒假在家没有好好学。真正到项目内容公布，开始着手做的时候，又没了那种热情。看到羊哥那个长到夸张的 Java 后端学习路线，我为自己的天真感到好笑。
+我连 Java 的并发多线程都没看完，就想做个小网站出来？本来都不想做了，但算是不能让我的两个队友（一个前端，一个机器学习）失望吧，就硬着头皮做了下去。
+在网上看了好多资料，本来准备用 SSM 框架来构建我们这个项目的，奈何我连 spring 都基本没接触，看到那一堆的xml配置文件更是头大，随便找一个 SSM 的视频教程都有几十集，加上五月份还有很多课，怎么可能全部看完，看完还不一定自己会写。</description>
+    </item>
+    
+    <item>
+      <title>我为什么要写个人博客</title>
+      <link>https://blog.wangjialei.xyz/posts/%E6%88%91%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%86%99%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</link>
+      <pubDate>Wed, 31 Mar 2021 14:22:28 +0800</pubDate>
+      
+      <guid>https://blog.wangjialei.xyz/posts/%E6%88%91%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%86%99%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</guid>
+      <description>今年（2021）寒假在家，刷B站看到个人博客这种东西，想去进一步了解，但看到有些教程还要注册域名什么的，嫌麻烦，不太想折腾。打算放弃这个念头的时候，看到有教程说在 GitHub 上托管个人博客，一时来了精神，开始了我的折腾之路。
+配置过程已经写成了教程，详见 搭建hugo博客部署到github
+到现在博客也写了快一个月了，虽然随着学习步入正轨，博客更新的频率也放缓了，但是那份热情丝毫没有减少。现在想谈谈我建站、写博客的心路历程。
+我的博客地址 wjl-lab.github.io
+在某中产阶级论坛搜索“个人博客”，除了第一个live讲座外，第一个问题就是 2020年了做个人博客还有没有意义？</description>
+    </item>
+    
+    <item>
+      <title>LaTeX简介</title>
+      <link>https://blog.wangjialei.xyz/posts/latex%E7%AE%80%E4%BB%8B/</link>
+      <pubDate>Sat, 27 Mar 2021 10:19:53 +0800</pubDate>
+      
+      <guid>https://blog.wangjialei.xyz/posts/latex%E7%AE%80%E4%BB%8B/</guid>
+      <description>我们平时在word里新建一个doc(x)文件后，输入内容，调整页边距、字体大小、行间距等待，然后交给打印机打印就可以了。
+如果你写了一篇关于新疆棉花的文章，2000字，在word里调整很快就可以得到你想要的效果。
+但如果你想把自己记下的关于矩阵乘法的笔记打印下来，因为你的字太丑了，你就会发现遇到了困难：那些数学符号应该怎么排版才好看，尤其是矩阵这样的大块内容。
+于是你通过找资料知道了怎么在word里插入公式，但每次都要点击插入-公式（或 Alt + =），才能在当前位置插入公式块。
+想要加一个下标还要点击上下标-下标。
+可能你注意到了word有一个墨迹公式的功能，于是你迫不及待地打开，发现，这玩意儿也是个垃圾，手写不适合鼠标，或许对触摸屏好一点。
+最终你通过万能的互联网，发现了LaTeX这个好东西。</description>
+    </item>
+    
+  </channel>
+</rss>

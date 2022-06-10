@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>DJL on LoneStar&#39;s blog</title>
+    <link>https://blog.wangjialei.xyz/tags/djl/</link>
+    <description>Recent content in DJL on LoneStar&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <copyright>&amp;copy; 2021 &lt;a href=&#34;https://blog.wangjialei.xyz/&#34;&gt;Wang Jialei&lt;/a&gt;
+</copyright>
+    <lastBuildDate>Thu, 07 Apr 2022 15:37:22 +0800</lastBuildDate><atom:link href="https://blog.wangjialei.xyz/tags/djl/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>使用DJL库部署深度学习模型</title>
+      <link>https://blog.wangjialei.xyz/posts/%E4%BD%BF%E7%94%A8djl%E5%BA%93%E9%83%A8%E7%BD%B2%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%A8%A1%E5%9E%8B/</link>
+      <pubDate>Thu, 07 Apr 2022 15:37:22 +0800</pubDate>
+      
+      <guid>https://blog.wangjialei.xyz/posts/%E4%BD%BF%E7%94%A8djl%E5%BA%93%E9%83%A8%E7%BD%B2%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0%E6%A8%A1%E5%9E%8B/</guid>
+      <description>DJL库 DJL(Deep Java Library) 是一个使用Java API简化模型训练、测试、部署和使用深度学习模型进行推理的开源库深度学习工具包，开源的许可协议是Apache-2.0。
+对于Java开发者而言，可以在Java中开发及应用原生的机器学习和深度学习模型，同时简化了深度学习开发的难度。
+通过DJL提供的直观的、高级的API，Java开发人员可以训练自己的模型，或者利用数据科学家用Python预先训练好的模型来进行推理。
+Spring Boot 微服务集成 DJL 这里选择 Kotlin + Gradle + Spring Boot 搭建项目，引入 sprint-boot-starter-web 依赖</description>
+    </item>
+    
+  </channel>
+</rss>

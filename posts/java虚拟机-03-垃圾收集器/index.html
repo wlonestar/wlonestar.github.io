@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang='zh' ><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+
+<title>Java虚拟机 03 垃圾收集器 | LoneStar&#39;s blog</title>
+
+<meta name="generator" content="Hugo Eureka 0.8.4" />
+<link rel="stylesheet" href="https://blog.wangjialei.xyz/css/eureka.min.css">
+<script defer src="https://blog.wangjialei.xyz/js/eureka.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/styles/stackoverflow-light.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/highlight.min.js"
+   crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/languages/light.min.js"
+     crossorigin></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js"
+   integrity="sha256-uNYoXefWRqv&#43;PsIF/OflNmwtKM4lStn9yrz2gVl6ymo="  crossorigin></script>
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+   integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3&#43;Aro6EYUG4&#43;cU&#43;KJWu/X"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" 
+  integrity="sha384-g7c&#43;Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI&#43;sEnkvrMWph2EDg4"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+   integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC&#43;Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/mermaid@8.9.2/dist/mermaid.min.js" 
+  integrity="sha256-Zmpaaj&#43;GXFsPF5WdPArSrnW3b30dovldeKsW00xBVwE="  crossorigin></script>
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="https://blog.wangjialei.xyz/images/favicon_huce974d41c22b18f52c9ea90a63a4b2a6_21741_32x32_fill_box_center_3.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://blog.wangjialei.xyz/images/favicon_huce974d41c22b18f52c9ea90a63a4b2a6_21741_180x180_fill_box_center_3.png">
+
+<meta name="description"
+  content="对内存的动态分配与内存回收技术实施必要的监控和调节">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"文章",
+      "item":"https://blog.wangjialei.xyz/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"Java虚拟机 03 垃圾收集器",
+      "item":"https://blog.wangjialei.xyz/posts/java%E8%99%9A%E6%8B%9F%E6%9C%BA-03-%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://blog.wangjialei.xyz/posts/java%E8%99%9A%E6%8B%9F%E6%9C%BA-03-%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/"
+    },
+    "headline": "Java虚拟机 03 垃圾收集器 | LoneStar\u0027s blog",
+    "image": "https://mypic-1305118058.cos.ap-hongkong.myqcloud.com/img/jvm.jpg",
+    "datePublished": "2021-03-20T17:20:52+08:00",
+    "dateModified": "2021-03-20T17:20:52+08:00",
+    "wordCount":  393 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "lonestar",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://blog.wangjialei.xyz/images/favicon.png"
+        }
+        },
+    "description": "对内存的动态分配与内存回收技术实施必要的监控和调节"
+}
+</script><meta property="og:title" content="Java虚拟机 03 垃圾收集器 | LoneStar&#39;s blog" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="https://blog.wangjialei.xyz/images/favicon.png">
+
+
+<meta property="og:url" content="https://blog.wangjialei.xyz/posts/java%E8%99%9A%E6%8B%9F%E6%9C%BA-03-%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/" />
+
+
+
+<meta property="og:description" content="对内存的动态分配与内存回收技术实施必要的监控和调节" />
+
+
+
+<meta property="og:locale" content="zh" />
+
+
+
+
+<meta property="og:site_name" content="LoneStar&#39;s blog" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2021-03-20T17:20:52&#43;08:00" />
+
+
+<meta property="article:modified_time" content="2021-03-20T17:20:52&#43;08:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+<meta property="article:tag" content="Java" />
+
+<meta property="article:tag" content="JVM" />
+
+
+
+
+
+<meta property="og:see_also" content="https://blog.wangjialei.xyz/posts/java%E8%99%9A%E6%8B%9F%E6%9C%BA-02-java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F/" />
+
+<meta property="og:see_also" content="https://blog.wangjialei.xyz/posts/java%E8%99%9A%E6%8B%9F%E6%9C%BA-01-%E8%B5%B0%E8%BF%91java/" />
+
+
+
+<body class="flex flex-col min-h-screen">
+  <header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
+    <div class="w-full max-w-screen-xl mx-auto"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="/" class="mr-6 text-primary-text text-xl font-bold">LoneStar&#39;s blog</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  selected-menu-item  mr-4">文章</a>
+            <a href="/categories/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">分类</a>
+            <a href="/tags/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">标签</a>
+            <a href="/series/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">系列</a>
+            <a href="/#about" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">关于</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">浅色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">深色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">自动</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+</div>
+  </header>
+  <main class="flex-grow pt-16">
+    <div class="pl-scrollbar">
+      <div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
+
+
+<div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12">
+    <div
+        class="col-span-2  lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
+        <h1 class="font-bold text-3xl text-primary-text">Java虚拟机 03 垃圾收集器</h1>
+        <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2021-03-20</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>2分钟阅读时长</span>
+    </div>
+    
+    
+    <div class="mr-6 my-2">
+        <i class="fas fa-folder mr-1"></i>
+        
+        <a href="https://blog.wangjialei.xyz/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="hover:text-eureka">学习笔记</a>
+        
+    </div>
+    
+
+    
+</div>
+        
+        
+        
+        <div class="my-4">
+            <img src="https://mypic-1305118058.cos.ap-hongkong.myqcloud.com/img/jvm.jpg" class="w-full" alt="Featured Image">
+        </div>
+        
+
+        <div class="content">
+            <h2 id="垃圾收集">垃圾收集</h2>
+<p>当需要排查各种内存溢出、内存泄漏问题时，当垃圾收集成为系统达到更高并发量的瓶颈时，就需要对内存的动态分配与内存回收技术实施必要的监控和调节。</p>
+<p>Java堆和方法区不一样，一个接口中的多个实现类需要的内存可能不一样，一个方法中的多个分支需要的内存也可能不一样，只有在程序处于运行期间时才能知道会创建哪些对象，这部分内存的分配和回收都是动态的，垃圾收集器所关注的是这部分内存。</p>
+<h2 id="对象已死">对象已死</h2>
+<p>垃圾收集器在对堆进行回收前，先要确定存放在堆中的对象实例有哪些还“存活着”，哪些已经“死去”。</p>
+<h3 id="引用计数算法">引用计数算法</h3>
+<p>计数算法：给对象中添加一个引用计数器，每当有一个地方引用它时，计数器值就加1；当引用失效时，计数器值就减1；任何时刻计数器都为0的对象就是不可能再被使用的。</p>
+<p>Java语言中没有选用引用计数算法来管理内存，因为它很难解决对象之间的相互循环引用的问题。</p>
+<blockquote>
+<p>引用计数算法的缺陷</p>
+</blockquote>
+<pre><code class="language-java">public class ReferenceCountingGC {
+    public Object instance = null;
+    private static final int _1MB = 1024 * 1024;
+    private final byte[] bigSize = new byte[2 * _1MB];
+    public void testGC() {
+        ReferenceCountingGC objA = new ReferenceCountingGC();
+        ReferenceCountingGC objB = new ReferenceCountingGC();
+        objA.instance = objB;
+        objB.instance = objA;
+        objA = null;
+        objB = null;
+        System.gc();
+    }
+}
+</code></pre>
+<h3 id="根搜索算法">根搜索算法</h3>
+<p>Java、C#、Lisp都是使用根搜索算法判定对象是否存活的。基本思路：通过一系列的名为“GC Roots”的对象作为起始点，从这些节点开始向下搜索，搜索所走过的路径称为引用链（Reference Chain），当一个对象到GC Roots没有任何引用链相连时，则证明此对象是不可用的。</p>
+<p>在Java中，可作为GC Roots的对象包括：</p>
+<ul>
+<li>虚拟机栈（栈帧中的本地变量表）中的引用的对象</li>
+<li>方法区中的类静态属性引用的对象</li>
+<li>方法区中的常量引用的对象</li>
+<li>本地方法栈中JNI（Native方法）的引用的对象</li>
+</ul>
+<h3 id="引用">引用</h3>
+<p>JDK1.2之后，Java对引用的概念进行了扩充，将引用分为四种：</p>
+<ul>
+<li>强引用：在程序代码之中普遍存在的，<code>Object obj = new Object()</code>，只要强引用还存在，垃圾收集器永远不会回收掉被引用的对象。</li>
+<li>软引用：一些还有用，但并非必需的对象，在系统将要发生内存溢出异常之前，将会把软引用关联者的对象列进回收范围之中并进行第二次回收。</li>
+<li>弱引用：被弱引用关联的对象只能生存到下一次垃圾收集发送之前。</li>
+<li>虚引用：一个对象是否有虚引用的存在，完全不会对其生存时间构成影响，也无法通过虚引用来取得一个对象实例。</li>
+</ul>
+<h3 id="生存还是死亡">生存还是死亡</h3>
+<p>在根搜索算法中不可达的对象，至少要经历两次标记过程：如果对象在进行根搜索后发现没有与GC Roots相连接的引用链，那它将会被第一次标记并且进行一次筛选，筛选的条件是此对象是否有必要执行<code>finalize()</code>方法。当对象没有覆盖<code>finalize()</code>方法，或者<code>finalize()</code>方法已经被虚拟机调用过，虚拟机将这两种情况都视为没有必要执行。</p>
+<p>如果对象被判定为有必要执行<code>finalize()</code>方法，那么这个对象将会被放置在一个名为<code>F-Queue</code>的队列中，稍后由一条虚拟机自动创建的、低优先级的<code>Finalizer</code>线程去执行。稍后GC将对<code>F-Queue</code>中的对象进行第二次小规模的标记。</p>
+<blockquote>
+<p>一次对象自我拯救的演示</p>
+</blockquote>
+<pre><code class="language-java">/**
+ * 对象可以在GC时自我拯救
+ * 这种自救机会只有一次，因为一个对象的finalize()方法最多只会被系统自动调用一次
+ */
+public class FinalizeEscapeGC {
+    public static FinalizeEscapeGC SAVE_HOOK = null;
+    public void isAlive() {
+        System.out.println(&quot;yes, i am still alive :)&quot;);
+    }
+    @Override
+    protected void finalize() throws Throwable {
+        super.finalize();
+        System.out.println(&quot;finalize method executed!&quot;);
+        FinalizeEscapeGC.SAVE_HOOK = this;
+    }
+    public static void main(String[] args) throws Throwable {
+        SAVE_HOOK = new FinalizeEscapeGC();
+        SAVE_HOOK = null;
+        System.gc();
+        Thread.sleep(500);
+        if (SAVE_HOOK != null) {
+            SAVE_HOOK.isAlive();
+        } else {
+            System.out.println(&quot;no, i am dead :(&quot;);
+        }
+        SAVE_HOOK = null;
+        System.gc();
+        Thread.sleep(500);
+        if (SAVE_HOOK != null) {
+            SAVE_HOOK.isAlive();
+        } else {
+            System.out.println(&quot;no, i am dead :(&quot;);
+        }
+    }
+}
+</code></pre>
+<p><code>SAVE_HOOK</code>对象的<code>finalize()</code>方法确实被GC收集器触发过，并且在被收集前成功逃脱了。</p>
+<p><code>finalize()</code>能做的所有工作，使用<code>try-finally</code>或其他方式都可以做得更好、更及时。</p>
+<h3 id="回收方法区">回收方法区</h3>
+<p>判定一个常量是否是“废弃常量”比较简单，而要判定一个类是否是“无用的类”的条件则相对苛刻很多。类需要同时满足下面3个条件才能算是“无用的类”：</p>
+<ul>
+<li>该类所有的实例都已经被回收，Java堆中不存在该类的任何实例</li>
+<li>加载该类的ClassLoader已经被回收</li>
+<li>该类对应的java.lang.Class对象没有在任何地方被引用，无法在任何地方通过反射访问该类的方法</li>
+</ul>
+<p>在大量使用反射、动态代理、CGLib等bytecode框架的场景，以及动态生成JSP和OSGi这类频繁自定义ClassLoader的场景都需要虚拟机具备类卸载功能。</p>
+<h2 id="垃圾收集算法">垃圾收集算法</h2>
+<p>几种算法的思想及其发展过程。</p>
+<h3 id="标记-清除算法">标记-清除算法</h3>
+<p>标记出所有需要回收的对象，在标记完成后统一回收掉所有被标记的对象。</p>
+<p>缺点：1. 标记和清除过程的效率都不高；</p>
+<p>​			2. 标记清除之后会产生大量不连续的内存碎片。</p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210324142622709.png" alt="image-20210324142622709"></p>
+<h3 id="复制算法">复制算法</h3>
+<p>将可用内存按容量划分成大小相等的两块，每次只使用其中的一块，当这一块的内存用完了，就将还存活着的对象复制到另外一块上面，然后再把已使用的内存空间一次清理掉。</p>
+<p>优点：不用考虑内存碎片，实现简单，运行高效。</p>
+<p>缺点：内存缩为原来的一半。</p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210324142554442.png" alt="image-20210324142554442"></p>
+<h3 id="标记-整理算法">标记-整理算法</h3>
+<p>标记过程与标记-清除算法一样，后续让所有存活的对象都向一端移动，然后直接清理掉端边界以外的内存。</p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210324143355706.png" alt="image-20210324143355706"></p>
+<h2 id="内存分配与回收策略">内存分配与回收策略</h2>
+<h3 id="对象优先在eden分配">对象优先在Eden分配</h3>
+<p>大多数情况下，对象在新生代Eden区中分配，当Eden区没有足够的空间进行分配时，虚拟机将发起一次Minor GC。</p>
+<p><code>-XX:+PrintGCDetails</code>收集器日志参数告诉虚拟机在发生垃圾收集行为时打印内存回收日志，并且在进程退出的时候输出当前内存各区域的分配情况。</p>
+<pre><code class="language-java">/*VM: -verbose:gc -Xms20M -Xmx20m -Xmn10M -XX:SurvivorRatio=8*/
+public class testAllocation {
+    private static final int _1MB = 1024 * 1024;
+    public void testGC() {
+        byte[] allocation1, allocation2, allocation3, allocation4;
+        allocation1 = new byte[2 * _1MB];
+        allocation2 = new byte[2 * _1MB];
+        allocation3 = new byte[2 * _1MB];
+        allocation4 = new byte[4 * _1MB];
+    }
+}
+</code></pre>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210324145345315.png" alt="image-20210324145345315"></p>
+<h3 id="大对象直接进入老年代">大对象直接进入老年代</h3>
+<p>大对象就是需要连续内存空间的Java对象。</p>
+<p><code>-XX:PretenureSizeThreshol</code>参数让大于这个设置值的对象直接在老年代中分配，避免在Eden区及两个Survivor区之间发生大量的内存拷贝。</p>
+<pre><code class="language-java">/*VM: -verbose:gc -Xms20M -Xmx20m -Xmn10M -XX:SurvivorRatio=8 -XX:PretenureSizeThreshold=31145728*/
+public void testPretenureSizeThreshold() {
+    byte[] allocation;
+    allocation = new byte[4 * _1MB];
+}
+</code></pre>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210324151623836.png" alt="image-20210324151623836"></p>
+<h3 id="长期存活的对象将进入老年代">长期存活的对象将进入老年代</h3>
+<p>虚拟机采用分代收集的思想来管理内存，给每个对象定义了一个对象年龄计数器，如果对象在Eden出生并经过第一次Minor GC后仍然存活，并且能被Survivor容纳，将被移动到Survivor空间中，并将对象年龄设为1。对象在Survivor区中每过一次Minor GC，年龄增加1岁，对象晋升老年代的年龄阈值（默认15岁）可以通过参数<code>-XX:MaxTenuringThreshold</code>设置。</p>
+<pre><code class="language-java">/*VM: -verbose:gc -Xms20M -Xmx20m -Xmn10M -XX:SurvivorRatio=8 -XX:MaxTenuringThreshold=1*/
+public void testTenuringThreshold() {
+    byte[] allocation1, allocation2, allocation3;
+    allocation1 = new byte[_1MB / 4];
+    allocation2 = new byte[4 * _1MB];
+    allocation3 = new byte[4 * _1MB];
+    allocation3 = null;
+    allocation3 = new byte[4 * _1MB];
+}
+</code></pre>
+<p><code>MaxTenuringThreshold=1</code></p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210327081927883.png" alt="image-20210327081927883"></p>
+<p><code>MaxTenuringThreshold=15</code></p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210327082453942.png" alt="image-20210327082453942"></p>
+<h3 id="动态对象年龄判定">动态对象年龄判定</h3>
+<p>如果在Survivor空间中相同年龄所有对象大小的总和大于Survivor空间的一半，年龄大于或等于该年龄的对象就可以直接进入老年代。</p>
+<pre><code class="language-java">/*VM: -verbose:gc -Xms20M -Xmx20m -Xmn10M -XX:SurvivorRatio=8 -XX:MaxTenuringThreshold=15*/
+public void testPretenureSizeThreshold2() {
+    byte[] allocation1, allocation2, allocation3, allocation4;
+    allocation1 = new byte[_1MB / 4];
+    allocation2 = new byte[_1MB / 4];
+    allocation3 = new byte[4 * _1MB];
+    allocation4 = new byte[4 * _1MB];
+    allocation4 = null;
+    allocation4 = new byte[4 * _1MB];
+}
+</code></pre>
+
+        </div>
+        
+        <div class="my-4">
+    
+    <a href="https://blog.wangjialei.xyz/tags/java/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#Java</a>
+    
+    <a href="https://blog.wangjialei.xyz/tags/jvm/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#JVM</a>
+    
+</div>
+        
+        
+        
+
+
+        
+        
+        
+        
+<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
+    <div>
+        
+        <span class="block font-bold">上一页</span>
+        <a href="https://blog.wangjialei.xyz/posts/latex%E7%AE%80%E4%BB%8B/" class="block">LaTeX简介</a>
+        
+    </div>
+    <div class="md:text-right mt-4 md:mt-0">
+        
+        <span class="block font-bold">下一页</span>
+        <a href="https://blog.wangjialei.xyz/posts/java%E8%99%9A%E6%8B%9F%E6%9C%BA-02-java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F/" class="block">Java虚拟机 02 Java内存区域</a>
+        
+    </div>
+</div>
+
+        
+
+
+
+    </div>
+    
+    <div class="col-span-2">
+        
+        
+        <div class="sticky top-16 z-10 hidden lg:block px-6 py-4  bg-primary-bg ">
+    <span class="text-lg font-semibold">本页内容</span>
+</div>
+<div class="sticky-toc hidden lg:block px-6 pb-6 ">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#垃圾收集">垃圾收集</a></li>
+    <li><a href="#对象已死">对象已死</a>
+      <ul>
+        <li><a href="#引用计数算法">引用计数算法</a></li>
+        <li><a href="#根搜索算法">根搜索算法</a></li>
+        <li><a href="#引用">引用</a></li>
+        <li><a href="#生存还是死亡">生存还是死亡</a></li>
+        <li><a href="#回收方法区">回收方法区</a></li>
+      </ul>
+    </li>
+    <li><a href="#垃圾收集算法">垃圾收集算法</a>
+      <ul>
+        <li><a href="#标记-清除算法">标记-清除算法</a></li>
+        <li><a href="#复制算法">复制算法</a></li>
+        <li><a href="#标记-整理算法">标记-整理算法</a></li>
+      </ul>
+    </li>
+    <li><a href="#内存分配与回收策略">内存分配与回收策略</a>
+      <ul>
+        <li><a href="#对象优先在eden分配">对象优先在Eden分配</a></li>
+        <li><a href="#大对象直接进入老年代">大对象直接进入老年代</a></li>
+        <li><a href="#长期存活的对象将进入老年代">长期存活的对象将进入老年代</a></li>
+        <li><a href="#动态对象年龄判定">动态对象年龄判定</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        enableStickyToc();
+    });
+</script>
+        
+    </div>
+    
+
+    
+    
+    <div
+        class="col-span-2  lg:col-span-6 bg-secondary-bg rounded p-6">
+        <h2 class="text-lg font-semibold mb-4">相关</h2>
+        <div class="content">
+            
+            <a href="https://blog.wangjialei.xyz/posts/java%E8%99%9A%E6%8B%9F%E6%9C%BA-02-java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F/">Java虚拟机 02 Java内存区域</a>
+            <br />
+            
+            <a href="https://blog.wangjialei.xyz/posts/java%E8%99%9A%E6%8B%9F%E6%9C%BA-01-%E8%B5%B0%E8%BF%91java/">Java虚拟机 01 走近Java</a>
+            <br />
+            
+        </div>
+    </div>
+    
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+        hljs.initHighlightingOnLoad();
+    })
+</script>
+
+      </div>
+    </div>
+    
+  </main>
+  <footer class="pl-scrollbar">
+    <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">&copy; 2021 <a href="https://blog.wangjialei.xyz/">Wang Jialei</a>
+ &middot;  Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div></div>
+  </footer>
+</body>
+
+</html>

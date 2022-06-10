@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python on LoneStar&#39;s blog</title>
+    <link>https://blog.wangjialei.xyz/tags/python/</link>
+    <description>Recent content in Python on LoneStar&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <copyright>&amp;copy; 2021 &lt;a href=&#34;https://blog.wangjialei.xyz/&#34;&gt;Wang Jialei&lt;/a&gt;
+</copyright>
+    <lastBuildDate>Sun, 16 Jan 2022 12:42:05 +0800</lastBuildDate><atom:link href="https://blog.wangjialei.xyz/tags/python/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>[d2l] 00.环境配置</title>
+      <link>https://blog.wangjialei.xyz/posts/d2l-00.%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</link>
+      <pubDate>Sun, 16 Jan 2022 12:42:05 +0800</pubDate>
+      
+      <guid>https://blog.wangjialei.xyz/posts/d2l-00.%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE/</guid>
+      <description>前言 最近寒假在家想开始学深度学习，准备以李沐大神的这本书《动手学深度学习》开始。这学期对深度学习开始有了一点了解，觉得确实很有用，无论是思维上还是实际应用方面。
+但是难在了第一步：配置环境，差点被劝退。其实官方给的配置很详细了
+安装 — 动手学深度学习 2.0.0-beta0 documentation (d2l.ai)
+安装 Miniconda 官网下载 64 位的 miniconda 即可，Miniconda — Conda documentation</description>
+    </item>
+    
+  </channel>
+</rss>

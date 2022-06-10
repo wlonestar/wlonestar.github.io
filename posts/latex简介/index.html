@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang='zh' ><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+
+<title>LaTeX简介 | LoneStar&#39;s blog</title>
+
+<meta name="generator" content="Hugo Eureka 0.8.4" />
+<link rel="stylesheet" href="https://blog.wangjialei.xyz/css/eureka.min.css">
+<script defer src="https://blog.wangjialei.xyz/js/eureka.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/styles/stackoverflow-light.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/highlight.min.js"
+   crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/languages/light.min.js"
+     crossorigin></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js"
+   integrity="sha256-uNYoXefWRqv&#43;PsIF/OflNmwtKM4lStn9yrz2gVl6ymo="  crossorigin></script>
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+   integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3&#43;Aro6EYUG4&#43;cU&#43;KJWu/X"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" 
+  integrity="sha384-g7c&#43;Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI&#43;sEnkvrMWph2EDg4"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+   integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC&#43;Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/mermaid@8.9.2/dist/mermaid.min.js" 
+  integrity="sha256-Zmpaaj&#43;GXFsPF5WdPArSrnW3b30dovldeKsW00xBVwE="  crossorigin></script>
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="https://blog.wangjialei.xyz/images/favicon_huce974d41c22b18f52c9ea90a63a4b2a6_21741_32x32_fill_box_center_3.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://blog.wangjialei.xyz/images/favicon_huce974d41c22b18f52c9ea90a63a4b2a6_21741_180x180_fill_box_center_3.png">
+
+<meta name="description"
+  content="一篇极简的 LaTeX 介绍文章">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"文章",
+      "item":"https://blog.wangjialei.xyz/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"LaTeX简介",
+      "item":"https://blog.wangjialei.xyz/posts/latex%E7%AE%80%E4%BB%8B/"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://blog.wangjialei.xyz/posts/latex%E7%AE%80%E4%BB%8B/"
+    },
+    "headline": "LaTeX简介 | LoneStar\u0027s blog",
+    "image": "https://mypic-1305118058.cos.ap-hongkong.myqcloud.com/img/2021-03-27.jpg",
+    "datePublished": "2021-03-27T10:19:53+08:00",
+    "dateModified": "2021-03-27T10:19:53+08:00",
+    "wordCount":  207 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "lonestar",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://blog.wangjialei.xyz/images/favicon.png"
+        }
+        },
+    "description": "一篇极简的 LaTeX 介绍文章"
+}
+</script><meta property="og:title" content="LaTeX简介 | LoneStar&#39;s blog" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="https://blog.wangjialei.xyz/images/favicon.png">
+
+
+<meta property="og:url" content="https://blog.wangjialei.xyz/posts/latex%E7%AE%80%E4%BB%8B/" />
+
+
+
+<meta property="og:description" content="一篇极简的 LaTeX 介绍文章" />
+
+
+
+<meta property="og:locale" content="zh" />
+
+
+
+
+<meta property="og:site_name" content="LoneStar&#39;s blog" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2021-03-27T10:19:53&#43;08:00" />
+
+
+<meta property="article:modified_time" content="2021-03-27T10:19:53&#43;08:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+<meta property="article:tag" content="LaTeX" />
+
+
+
+
+
+<body class="flex flex-col min-h-screen">
+  <header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
+    <div class="w-full max-w-screen-xl mx-auto"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="/" class="mr-6 text-primary-text text-xl font-bold">LoneStar&#39;s blog</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  selected-menu-item  mr-4">文章</a>
+            <a href="/categories/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">分类</a>
+            <a href="/tags/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">标签</a>
+            <a href="/series/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">系列</a>
+            <a href="/#about" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">关于</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">浅色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">深色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">自动</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+</div>
+  </header>
+  <main class="flex-grow pt-16">
+    <div class="pl-scrollbar">
+      <div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
+
+
+<div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12">
+    <div
+        class="col-span-2  lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
+        <h1 class="font-bold text-3xl text-primary-text">LaTeX简介</h1>
+        <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2021-03-27</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>1分钟阅读时长</span>
+    </div>
+    
+    
+    <div class="mr-6 my-2">
+        <i class="fas fa-folder mr-1"></i>
+        
+        <a href="https://blog.wangjialei.xyz/categories/%E6%97%A5%E5%BF%97%E9%9A%8F%E7%AC%94/" class="hover:text-eureka">日志随笔</a>
+        
+    </div>
+    
+
+    
+</div>
+        
+        
+        
+        <div class="my-4">
+            <img src="https://mypic-1305118058.cos.ap-hongkong.myqcloud.com/img/2021-03-27.jpg" class="w-full" alt="Featured Image">
+        </div>
+        
+
+        <div class="content">
+            <p>我们平时在word里新建一个doc(x)文件后，输入内容，调整页边距、字体大小、行间距等待，然后交给打印机打印就可以了。</p>
+<p>如果你写了一篇关于新疆棉花的文章，2000字，在word里调整很快就可以得到你想要的效果。</p>
+<p>但如果你想把自己记下的关于矩阵乘法的笔记打印下来，因为你的字太丑了，你就会发现遇到了困难：那些数学符号应该怎么排版才好看，尤其是矩阵这样的大块内容。</p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210331154208560.png" alt="image-20210331154208560"></p>
+<p>于是你通过找资料知道了怎么在word里插入公式，但每次都要点击插入-公式（或 Alt + =），才能在当前位置插入公式块。</p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210327134551400.png" alt="image-20210327134551400"></p>
+<p>想要加一个下标还要点击上下标-下标。</p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210327134643470.png" alt="image-20210327134643470"></p>
+<p>可能你注意到了word有一个墨迹公式的功能，于是你迫不及待地打开，发现，这玩意儿也是个垃圾，手写不适合鼠标，或许对触摸屏好一点。</p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210327135013736.png" alt="image-20210327135013736"></p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210331154254678.png" alt="image-20210331154254678"></p>
+<p>最终你通过万能的互联网，发现了LaTeX这个好东西。</p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210331154310557.png" alt="image-20210331154310557"></p>
+<h1 id="latex诞生背景">LaTeX诞生背景</h1>
+<p><strong>高德纳</strong>，图中的老爷子出生于美国，是著名计算机科学家，斯坦福大学计算机系荣誉退休教授。高德纳教授为现代计算机科学的先驱人物，创造了算法分析的领域，在数个理论计算机科学的分支做出基石一般的贡献。在计算机科学及数学领域发表了多部具广泛影响的论文和著作。1974年图灵奖得主。</p>
+<p>1966年，高德纳的著作达到3000多页，它与出版社商定，编纂一部计算机程序设计巨著《计算机程序设计艺术》，到2018年这本书已经出版了4卷，对计算机领域产生了深远影响。</p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/KnuthAtOpenContentAlliance.jpg" alt="KnuthAtOpenContentAlliance"></p>
+<p>但在当时，电脑排版技术十分粗糙，已经影响到他的著作的印刷质量。他以典型的黑客思维模式，决定自行编写一个排版软件：TeX。他计划在1978年的学术休假时完成这项工作，但事实上，直到十多年之后的1989年，TeX语言才可以使用。</p>
+<h1 id="tex和latex">TeX和LaTeX</h1>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210331154347835.png" alt="image-20210331154347835"></p>
+<p><strong>TeX</strong>（音译“泰赫”，“泰克”，写作“TeX”），是一个由美国计算机教授高德纳（Donald Ervin Knuth）编写的排版软件。它在学术界特别是数学、物理学和计算机科学界十分流行。TeX被普遍认为是一个优秀的排版工具，尤其是对于复杂数学公式的处理。利用LaTeX等终端软件，TeX就能够排版出精美的文本以帮助人们辨认和查找。</p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210331154356881.png" alt="image-20210331154356881"></p>
+<p><strong>LaTeX</strong>（拉泰克，写作“LATEX”），是一种基于TEX的排版系统，由美国计算机科学家莱斯利·兰伯特在20世纪80年代初期开发，利用这种格式系统的处理，即使用户没有排版和程序设计的知识也可以充分发挥由TEX所提供的强大功能，不必一一亲自去设计或校对，能在几天，甚至几小时内生成很多具有书籍质量的印刷品。对于生成复杂表格和数学公式，这一点表现得尤为突出。</p>
+<h1 id="latex主要功能">LaTeX主要功能</h1>
+<p>TeX本质上是一门宏语言。而LaTeX是基于这门宏语言，经过后人不断的完善形成的一种排版格式。</p>
+<p>LaTex文件扩展名为<code>.tex</code>。创建文件后，输入代码，保存文件，通过编辑器提供的工具编译为LaTeX，如果运行正常则可看到导出的PDF文件。</p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210331154417707.png" alt="image-20210331154417707"></p>
+<h2 id="文档结构">文档结构</h2>
+<p>以article（文章）模板为例：</p>
+<pre><code class="language-latex">\documentclass[UTF8]{ctexart} %模板类型为中文article
+\title{title} %标题
+\author{author} %作者
+\date{} %时间
+\begin{document} %开始正文
+\maketitle
+\tableofcontents
+
+\section{section1}
+\subsection{subsection1}
+这是文章第一节第一小节
+\subsection{subsection2}
+这是文章第一节第二小节
+
+\section{section2}
+\subsection{subsection1}
+这是文章第二节第一小节
+\subsection{subsection2}
+这是文章第二节第二小节
+
+\end{document}
+</code></pre>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210327145536868.png" alt="image-20210327145536868"></p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210331154443723.png" alt=""></p>
+<h2 id="数学公式">数学公式</h2>
+<p>latex编辑公式相对于word而言，可以调整公式字母的大小选择合适的行距，使排版看上去更加整洁。而且虽然是输代码，但效率却是远高于鼠标点击的。</p>
+<p>latex公式有两种，分别为行内公式和行间公式（行间公式有两种插入方式）：</p>
+<pre><code class="language-latex">一元二次方程 $ax^2+bx+c=0 (b^2-4ac \geqslant 0) $ 的解为：
+\[x=\dfrac{-b\pm \sqrt{b^2-4ac}}{2a}\] 
+</code></pre>
+<p>输出结果：</p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210327150500862.png" alt="image-20210327150500862"></p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210331154443723.png" alt=""></p>
+<h2 id="公式块">公式块</h2>
+<p>输入数学公式一般都需要两个宏包：mathtools和amsmath。</p>
+<p>通过查找官方文档或者借助编辑器插件，只需要鼠标点击就可以得到符号对应的代码。</p>
+<pre><code class="language-latex">定义：设 $A$ 是一个 $m \times n$ 矩阵，$B$ 是一个 $n \times s$ 矩阵，即
+\[
+A = \begin{pmatrix}
+    a_{11} &amp; a_{12} &amp; \dots &amp; a_{1n} \\
+    a_{21} &amp; a_{22} &amp; \dots &amp; a_{2n} \\
+    \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+    a_{m1} &amp; a_{m2} &amp; \dots &amp; a_{mn} \\
+\end{pmatrix}
+,
+B = \begin{pmatrix}
+    b_{11} &amp; b_{12} &amp; \dots &amp; b_{1s} \\
+    b_{21} &amp; b_{22} &amp; \dots &amp; b_{2s} \\
+    \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\
+    b_{n1} &amp; b_{n2} &amp; \dots &amp; b_{ns} \\
+\end{pmatrix}
+.
+\]
+则 $A$ 与 $B$ 之乘积 $AB$ （记作 $C=(c_{ij})$ ）是一个 $m \times n$ 矩阵，且
+\[
+    c_{ij} = a_{i1}b_{1j} + a_{i2}b_{2j} + \dots + a_{im}b_{nj} = \sum_{k = 1}^{n} a_{ik}b_{kj}
+\]
+即矩阵 $C=AB$ 的第 $i$ 行第 $j$ 列元素 $c_{ij}$ ，是 $A$ 的第 $i$ 行 $n$ 个元素与 $B$ 的第 $j$ 列相应的 $n$ 个元素分别相乘的乘积之和。
+</code></pre>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210327162421218.png" alt="image-20210327162421218"></p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210331154521069.png" alt="image-20210331154521069"></p>
+<p>可以对比一下，第一个是word插入公式，第二个是LaTeX生成的。</p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210331154535316.png" alt="image-20210331154535316"></p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210331154542310.png" alt="image-20210331154542310"></p>
+<p>看到这里，应该感受到了LaTeX的强大之处了吧？</p>
+<p>word入门及其简单，但学习更高级的功能很难；LaTeX入门阶段的学习曲线就及其陡峭，可一旦熟练就很得心应手，能排版出自己想要的格式。</p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210331203203852.png" alt="image-20210331203203852"></p>
+<p>日常还是markdown用得多一点，比较公式的需求不大，而且便于互联网传播。</p>
+<p>本篇文章只是做了一个很简单的介绍，想要了解更多内容，请自行查找资料。</p>
+<p>最后还是要来一句：LaTeX牛逼！！！</p>
+
+        </div>
+        
+        <div class="my-4">
+    
+    <a href="https://blog.wangjialei.xyz/tags/latex/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#LaTeX</a>
+    
+</div>
+        
+        
+        
+
+
+        
+        
+        
+        
+<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
+    <div>
+        
+        <span class="block font-bold">上一页</span>
+        <a href="https://blog.wangjialei.xyz/posts/%E8%87%AA%E5%B7%B1%E5%86%99%E7%9A%84%E7%AE%80%E5%8D%95java%E7%9F%A9%E9%98%B5%E5%BA%93/" class="block">自己写的简单Java矩阵库</a>
+        
+    </div>
+    <div class="md:text-right mt-4 md:mt-0">
+        
+        <span class="block font-bold">下一页</span>
+        <a href="https://blog.wangjialei.xyz/posts/java%E8%99%9A%E6%8B%9F%E6%9C%BA-03-%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/" class="block">Java虚拟机 03 垃圾收集器</a>
+        
+    </div>
+</div>
+
+        
+
+
+
+    </div>
+    
+    <div class="col-span-2">
+        
+        
+        <div class="sticky top-16 z-10 hidden lg:block px-6 py-4  bg-primary-bg ">
+    <span class="text-lg font-semibold">本页内容</span>
+</div>
+<div class="sticky-toc hidden lg:block px-6 pb-6 ">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#文档结构">文档结构</a></li>
+    <li><a href="#数学公式">数学公式</a></li>
+    <li><a href="#公式块">公式块</a></li>
+  </ul>
+</nav>
+</div>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        enableStickyToc();
+    });
+</script>
+        
+    </div>
+    
+
+    
+    
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+        hljs.initHighlightingOnLoad();
+    })
+</script>
+
+      </div>
+    </div>
+    
+  </main>
+  <footer class="pl-scrollbar">
+    <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">&copy; 2021 <a href="https://blog.wangjialei.xyz/">Wang Jialei</a>
+ &middot;  Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div></div>
+  </footer>
+</body>
+
+</html>

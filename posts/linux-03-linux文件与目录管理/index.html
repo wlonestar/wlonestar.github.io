@@ -1,0 +1,733 @@
+<!DOCTYPE html>
+<html lang='zh' ><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+
+<title>Linux 03 Linux文件与目录管理 | LoneStar&#39;s blog</title>
+
+<meta name="generator" content="Hugo Eureka 0.8.4" />
+<link rel="stylesheet" href="https://blog.wangjialei.xyz/css/eureka.min.css">
+<script defer src="https://blog.wangjialei.xyz/js/eureka.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/styles/stackoverflow-light.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/highlight.min.js"
+   crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/languages/light.min.js"
+     crossorigin></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js"
+   integrity="sha256-uNYoXefWRqv&#43;PsIF/OflNmwtKM4lStn9yrz2gVl6ymo="  crossorigin></script>
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+   integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3&#43;Aro6EYUG4&#43;cU&#43;KJWu/X"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" 
+  integrity="sha384-g7c&#43;Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI&#43;sEnkvrMWph2EDg4"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+   integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC&#43;Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/mermaid@8.9.2/dist/mermaid.min.js" 
+  integrity="sha256-Zmpaaj&#43;GXFsPF5WdPArSrnW3b30dovldeKsW00xBVwE="  crossorigin></script>
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="https://blog.wangjialei.xyz/images/favicon_huce974d41c22b18f52c9ea90a63a4b2a6_21741_32x32_fill_box_center_3.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://blog.wangjialei.xyz/images/favicon_huce974d41c22b18f52c9ea90a63a4b2a6_21741_180x180_fill_box_center_3.png">
+
+<meta name="description"
+  content="Linux 文件与目录管理">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"文章",
+      "item":"https://blog.wangjialei.xyz/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"Linux 03 Linux文件与目录管理",
+      "item":"https://blog.wangjialei.xyz/posts/linux-03-linux%E6%96%87%E4%BB%B6%E4%B8%8E%E7%9B%AE%E5%BD%95%E7%AE%A1%E7%90%86/"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://blog.wangjialei.xyz/posts/linux-03-linux%E6%96%87%E4%BB%B6%E4%B8%8E%E7%9B%AE%E5%BD%95%E7%AE%A1%E7%90%86/"
+    },
+    "headline": "Linux 03 Linux文件与目录管理 | LoneStar\u0027s blog",
+    "image": "https://mypic-1305118058.cos.ap-hongkong.myqcloud.com/img/linux.jpg",
+    "datePublished": "2021-02-28T09:30:03+08:00",
+    "dateModified": "2021-02-28T09:30:03+08:00",
+    "wordCount":  1086 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "lonestar",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://blog.wangjialei.xyz/images/favicon.png"
+        }
+        },
+    "description": "Linux 文件与目录管理"
+}
+</script><meta property="og:title" content="Linux 03 Linux文件与目录管理 | LoneStar&#39;s blog" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="https://blog.wangjialei.xyz/images/favicon.png">
+
+
+<meta property="og:url" content="https://blog.wangjialei.xyz/posts/linux-03-linux%E6%96%87%E4%BB%B6%E4%B8%8E%E7%9B%AE%E5%BD%95%E7%AE%A1%E7%90%86/" />
+
+
+
+<meta property="og:description" content="Linux 文件与目录管理" />
+
+
+
+<meta property="og:locale" content="zh" />
+
+
+
+
+<meta property="og:site_name" content="LoneStar&#39;s blog" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2021-02-28T09:30:03&#43;08:00" />
+
+
+<meta property="article:modified_time" content="2021-02-28T09:30:03&#43;08:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+<meta property="article:tag" content="Linux" />
+
+
+
+
+
+<meta property="og:see_also" content="https://blog.wangjialei.xyz/posts/linux-02-linux%E7%9A%84%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90%E4%B8%8E%E7%9B%AE%E5%BD%95%E9%85%8D%E7%BD%AE/" />
+
+<meta property="og:see_also" content="https://blog.wangjialei.xyz/posts/linux-01-%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AE%89%E8%A3%85ubuntu20.04/" />
+
+
+
+<body class="flex flex-col min-h-screen">
+  <header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
+    <div class="w-full max-w-screen-xl mx-auto"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="/" class="mr-6 text-primary-text text-xl font-bold">LoneStar&#39;s blog</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  selected-menu-item  mr-4">文章</a>
+            <a href="/categories/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">分类</a>
+            <a href="/tags/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">标签</a>
+            <a href="/series/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">系列</a>
+            <a href="/#about" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">关于</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">浅色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">深色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">自动</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+</div>
+  </header>
+  <main class="flex-grow pt-16">
+    <div class="pl-scrollbar">
+      <div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
+
+
+<div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12">
+    <div
+        class="col-span-2  lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
+        <h1 class="font-bold text-3xl text-primary-text">Linux 03 Linux文件与目录管理</h1>
+        <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2021-02-28</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>6分钟阅读时长</span>
+    </div>
+    
+    
+    <div class="mr-6 my-2">
+        <i class="fas fa-folder mr-1"></i>
+        
+        <a href="https://blog.wangjialei.xyz/categories/%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" class="hover:text-eureka">学习笔记</a>
+        
+    </div>
+    
+
+    
+</div>
+        
+        
+        
+        <div class="my-4">
+            <img src="https://mypic-1305118058.cos.ap-hongkong.myqcloud.com/img/linux.jpg" class="w-full" alt="Featured Image">
+        </div>
+        
+
+        <div class="content">
+            <hr>
+<p>在这一节中， 我们来进一步的操作与管理文件及目录。包括在不同的目录间变换、 创建与删除目录、创建与删除文件、寻找文件、查阅文件内容等。</p>
+<hr>
+<h2 id="目录与路径">目录与路径</h2>
+<h3 id="相对路径与绝对路径">相对路径与绝对路径</h3>
+<ul>
+<li>
+<p>相对路径的用途：</p>
+<p>假设你写了一个软件， 这个软件共需要三个目录，分别是 <code>etc</code>, <code>bin</code>, <code>man</code> 这三个目录， 然而由于不同的人喜欢安装在不同的目录之下，假设甲安装的目录是 <code>/usr/local/packages/etc</code>, <code>/usr/local/packages/bin</code>及 <code>/usr/local/packages/man</code> ， 不过乙却喜欢安装在 <code>/home/packages/etc</code>, <code>/home/packages/bin</code>, <code>/home/packages/man</code> 这三个目录中，如果用绝对路径，每个目录下的东西就很难对应的起来，这个时候相对路径的写法就显的特别的重要。</p>
+</li>
+<li>
+<p>绝对路径的用途：</p>
+<p>如果是在写程序（<code>shell scripts</code>）来管理系统的条件下， 务必使用绝对路径的写法。因为绝对路径的写法虽然比较麻烦， 但是写法绝对不会有问题。 如果使用相对路径在程序当中， 则可能由于执行的工作环境不同， 导致一些问题的发生。</p>
+</li>
+</ul>
+<h3 id="目录的相关操作">目录的相关操作</h3>
+<p>一些比较特殊的目录：</p>
+<ul>
+<li><code>.</code> ：此层目录</li>
+<li><code>..</code> ：上一层目录</li>
+<li><code>-</code> ：前一个工作目录</li>
+<li><code>~</code> ：目前使用者身份所在的主文件夹</li>
+<li><code>~account</code> ：account 这个使用者的主文件夹（account 是账号名称）</li>
+</ul>
+<p>常见的处理目录的指令：</p>
+<ul>
+<li><code>cd</code> ：变换目录</li>
+<li><code>pwd</code> ：显示目前目录</li>
+<li><code>mkdir</code> ：创建新目录</li>
+<li><code>rmdir</code> ：删除空目录</li>
+</ul>
+<h4 id="cd-变换目录"><code>cd</code> （变换目录）</h4>
+<pre><code>su - # 切换成 root 用户
+cd ~lonestar # 去到 lonestar 使用者的主文件夹，即 /home/lonestar
+cd ~ # 回到自己的主文件夹，即 /root 
+cd # 没有添加任何路径，也是代表回到自己的主文件夹
+cd - # 去到上层目录
+cd /var/spool/mail # 绝对路径
+cd ../cron # 相对路径
+</code></pre>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210228100218542.png" alt="image-20210228100218542"></p>
+<p><strong>tips：命令行按 <code>Tab</code> 有文件名自动补全的功能</strong></p>
+<h4 id="pwd-显示当前所在目录"><code>pwd</code> （显示当前所在目录）</h4>
+<pre><code>pwd -P # 显示确实的路径，而不是链接路径
+pwd # 显示路径
+cd /var/lock # lock 是个链接文件
+pwd # 显示路径
+pwd -P # 显示真正的路径
+ls -ld /var/lock # /var/lock 是 /run/lock 链接过来的 
+</code></pre>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210228100917544.png" alt="image-20210228100917544"></p>
+<h4 id="mkdir-创建新目录"><code>mkdir</code> （创建新目录）</h4>
+<pre><code>cd /tmp
+mkdir test # 创建 test 目录
+mkdir test1/test2/test3/test4 
+mkdir -p test1/test2/test3/test4 # 加上 -p 选项，自动创建多层目录
+mkdir -m 711 test2 # 创建权限为 rwx--x--x 的目录
+ls -ld test*
+</code></pre>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210228103941467.png" alt="image-20210228103941467"></p>
+<h4 id="rmdir-删除空目录"><code>rmdir</code> （删除空目录）</h4>
+<pre><code>ls -ls test* # 查看目录
+rmdir test # 空目录，直接删除
+rmdir test1 # 非空，不能删除
+rmdir -p test1/test2/test3/test4 # 加上 -p ,删除所有目录
+ls -ls test*
+</code></pre>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210228104512153.png" alt="image-20210228104512153"></p>
+<h3 id="可执行文件路径的变量path">可执行文件路径的变量：$PATH</h3>
+<p>经过前一章FHS的说明后，我们知道查阅文件属性的指令 <code>ls</code> 完整文件名为： <code>/bin/ls</code>（ 绝对路径），因为环境变量 PATH 的帮助，可以在任何地方执行 <code>/bin/ls</code> 这个指令。当我们在执行一个指令的时候， 如 <code>ls</code>，系统会依照 <code>PATH</code> 的设置去每个 <code>PATH</code> 定义的目录下搜寻文件名为 <code>ls</code> 的可可执行文件， 如果在 <code>PATH</code> 定义的目录中含有多个文件名为 <code>ls</code> 的可执行文件， 那么先搜寻到的同名指令先被执行。
+现在， 请输入 <code>echo $PATH</code> ，来看看到底有哪些目录被定义出来了。 <code>echo</code> 有“显示、 印出”的意
+思， 而 <code>PATH</code> 前面加的 <code>$</code> 表示后面接的是变量， 所以会显示出目前的 <code>PATH</code> 。</p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210228105607251.png" alt="image-20210228105607251"></p>
+<h2 id="文件与目录管理">文件与目录管理</h2>
+<h3 id="查看文件与目录ls">查看文件与目录：<code>ls</code></h3>
+<p>选项与参数：</p>
+<ul>
+<li><code>-a</code> ：全部的文件， 连同隐藏文件（ 开头为 . 的文件） 一起列出来（ 常用）</li>
+<li><code>-A</code> ：全部的文件， 连同隐藏文件， 但不包括 . 与 .. 这两个目录</li>
+<li><code>-d</code> ：仅列出目录本身， 而不是列出目录内的文件数据（ 常用）</li>
+<li><code>-f</code> ：直接列出结果， 而不进行排序 （ <code>ls</code> 默认会以文件名排序）</li>
+<li><code>-F</code> ：根据文件、 目录等信息， 给予附加数据结构</li>
+<li><code>-h</code> ：将文件大小以人类较易读的方式（GB, KB 等） 列出来</li>
+<li><code>-i</code> ：列出 inode 号码</li>
+<li><code>-l</code> ：长数据串行出， 包含文件的属性与权限等等数据（常用）</li>
+<li><code>-n</code> ：列出 UID 与 GID 而非使用者与群组的名称</li>
+<li><code>-r</code> ：将排序结果反向输出</li>
+<li><code>-R</code> ：连同子目录内容一起列出来， 等于该目录下的所有文件都会显示出来</li>
+<li><code>-S</code> ：以文件大小大小排序， 而不是用文件名排序</li>
+<li><code>-t</code> ：依时间排序， 而不是用文件名</li>
+<li><code>--color=never</code> ：不要依据文件特性给予颜色显示</li>
+<li><code>--color=always</code> ：显示颜色</li>
+<li><code>--color=auto</code> ：让系统自行依据设置来判断是否给予颜色</li>
+<li><code>--full-time</code> ：以完整时间模式 （ 包含年、 月、 日、 时、 分） 输出</li>
+<li><code>time={atime,ctime}</code> ：输出 access 时间或改变权限属性时间 （ ctime），而非内容变更时间 （ modification time）</li>
+</ul>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210228110810862.png" alt="image-20210228110810862"></p>
+<h3 id="复制删除与移动cp--rm--mv">复制、删除与移动：<code>cp</code> 、 <code>rm</code> 、 <code>mv</code></h3>
+<h4 id="cp"><code>cp</code></h4>
+<p>选项与参数：</p>
+<ul>
+<li><code>-a</code> ：相当于 <code>-dr --preserve=all</code> 的意思（ 常用）</li>
+<li><code>-d</code> ：若来源文件为链接文件的属性（link file），则复制链接文件属性而非文件本身</li>
+<li><code>-f</code> ：为强制（force）的意思， 若目标文件已经存在且无法打开， 则移除后再尝试一次</li>
+<li><code>-i</code> ：若目标文件（destination）已经存在时， 在覆盖时会先询问动作的进行（ 常用）</li>
+<li><code>-l</code> ：进行硬式链接（hard link） 的链接文件创建，而非复制文件本身</li>
+<li><code>-p</code> ：连同文件的属性（ 权限、 用户、 时间） 一起复制过去， 而非使用默认属性（ 备份常用）</li>
+<li><code>-r</code> ：递回持续复制， 用于目录的复制行为（ 常用）</li>
+<li><code>-s</code> ：复制成为符号链接文件 （symbolic link）， 即快捷方式</li>
+<li><code>-u</code> ：<code>destination</code> 比 <code>source</code> 旧才更新 <code>destination</code></li>
+<li><code>--preserve=all</code> ：除了 <code>-p</code> 的权限相关参数外， 还加入 <code>SELinux</code> 的属性, <code>links</code>, <code>xattr</code> 等也复制。</li>
+<li>最后需要注意的， 如果来源文件有两个以上， 则最后一个目的文件一定要是 “目录” 才行</li>
+</ul>
+<hr>
+<pre><code># 用root身份，将主文件夹下的 .bashrc 复制到 /tmp 下， 并更名为 bashrc
+cp ~/.bashrc /tmp/bashrc 
+cp -i ~/.bashrc /tmp/bashrc # 重复作两次动作， 由于 /tmp 下面已经存在 bashrc 了， 加上 -i 选项后，则在覆盖前会询问使用者是否确定，按下 n 或者 y 来二次确认
+</code></pre>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210228112945190.png" alt="image-20210228112945190"></p>
+<hr>
+<pre><code># 变换目录到/tmp， 并将/var/log/wtmp复制到/tmp且观察属性
+cd /tmp
+cp /var/log/wtmp . # 想要复制到目前的目录， 最后的 . 不要忘
+ls -l /var/log/wtmp wtmp
+# 在不加任何选项的情况下，文件的某些属性/权限会改变，连文件创建的时间也不一样
+# 如果想要将文件的所有特性都一起复制过来，可以加上 -a ：
+cp -a /var/log/wtmp wtmp_2
+ls -l /var/log/wtmp wtmp_2
+# 整个数据特性完全一模一样
+</code></pre>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210228113356801.png" alt="image-20210228113356801"></p>
+<hr>
+<pre><code># 复制 /etc/ 这个目录下的所有内容到 /tmp 下面
+cp /etc/ /tmp # 如果是目录则不能直接复制， 要加上 -r 的选项
+cp -r /etc/ /tmp
+#  -r 是可以复制目录， 但是， 文件与目录的权限可能会被改变
+# 也可以利用“ cp -a /etc /tmp ”来下达指令，尤其是在备份的情况下
+</code></pre>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210228123257035.png" alt="image-20210228123257035"></p>
+<hr>
+<pre><code># 将复制的 bashrc 创建一个链接文件（symbolic link）
+ls -l bashrc # 观察文件情况
+cp -s bashrc bashrc_slink
+cp -l bashrc bashrc_hlink
+ls -l bashrc* # 与原始文件不太一样
+</code></pre>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210228123629457.png" alt="image-20210228123629457"></p>
+<hr>
+<pre><code># 将 bashrc_slink 复制成为 bashrc_slink_1 与bashrc_slink_2cp bashrc_slink bashrc_slink_1cp -d bashrc_slink bashrc_slink_2ls -l bashrc bashrc_slink*
+</code></pre>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210228123945650.png" alt="image-20210228123945650"></p>
+<hr>
+<pre><code># 将主文件夹的 .bashrc 及 .bash_history 复制到 /tmp 下面cp ~/.bashrc ~/.bash_history /tmp
+</code></pre>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210228124132801.png" alt="image-20210228124132801"></p>
+<h4 id="rm"><code>rm</code></h4>
+<p>选项与参数：</p>
+<ul>
+<li><code>-f</code> ：force ，忽略不存在的文件， 不会出现警告</li>
+<li><code>-i</code> ：互动模式， 在删除前会询问使用者是否动作</li>
+<li><code>-r</code> ：最常用在目录的删除，非常危险的选项</li>
+</ul>
+<pre><code># 将刚刚在 cp 的范例中创建的 bashrc 删除掉cd /tmprm -i bashrc # 如果加上 -i 的选项就会主动询问，避免删除到错误的文件名# 通过万用字符 * 的帮忙， 将/tmp下面开头为 bashrc 的文件名通通删除rm -i bashrc* # 注意那个星号，代表的是 0 到无穷多个任意字符# 将 cp 范例中所创建的 /tmp/etc/ 这个目录删除掉rmdir /tmp/etc # 删不掉，因为这不是空的目录rm -r /tmp/etc # 因为身份是 root ， 默认已经加入了 -i 的选项， 所以要一直按 y 才会删除# 如果不想要继续按 y ， 可以按下“ [ctrl]-c ”来结束 rm 的工作。# 如果确定要删除掉此目录而不要询问， 可以这样做：\rm -r /tmp/etc # 在指令前加上反斜线， 可以忽略掉 alias 的指定选项# 你不要删错了，删除 /etc 系统是会挂掉的# 删除一个带有 - 开头的文件touch ./-aaa- # 这个指令可以创建空文件ls -l # 文件大小为0，所以是空文件rm -aaa- # &quot;-&quot; 是选项，系统误判了rm ./-aaa-
+</code></pre>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210228124951531.png" alt="image-20210228124951531"></p>
+<h4 id="mv"><code>mv</code></h4>
+<p>选项与参数：</p>
+<ul>
+<li><code>-f</code> ： 如果目标文件已经存在，不会询问而直接覆盖</li>
+<li><code>-i</code> ： 若目标文件 （ destination） 已经存在时，就会询问是否覆盖</li>
+<li><code>-u</code> ： 若目标文件已经存在，且 source 比较新，才会更新（update）</li>
+</ul>
+<pre><code># 复制一文件，创建一目录，将文件移动到目录中cd /tmpcp ~/.bashrc bashrcmkdir mvtest# mv bashrc mvtest# 将刚刚的目录名称更名为 mvtest2mv mvtest mvtest2 # Linux 下面还有个指令 rename# 该指令专门进行多个文件名的同时更名， 并非针对单一文件名变更， 与mv不同# 再创建两个文件， 再全部移动到 /tmp/mvtest2 当中cp ~/.bashrc bashrc1cp ~/.bashrc bashrc2mv bashrc1 bashrc2 mvtest2# 注意到这边，如果有多个来源文件或目录，则最后一个目标文件一定是“目录”，将所有的数据移动到该目录的意思！
+</code></pre>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210228125905881.png" alt="image-20210228125905881"></p>
+<h3 id="取得路径的文件名称与目录名称">取得路径的文件名称与目录名称</h3>
+<pre><code>basename /etc/sysconfig/networkdirname /etc/sysconfig/network
+</code></pre>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210228130121336.png" alt="image-20210228130121336"></p>
+<h2 id="文件内容查阅">文件内容查阅</h2>
+<p>常用命令：</p>
+<ul>
+<li><code>cat</code> ：由第一行开始显示文件内容</li>
+<li><code>tac</code> ：从最后一行开始显示文件内容</li>
+<li><code>nl</code> ：显示的时候，输出行号</li>
+<li><code>more</code> ：一页一页的显示文件内容</li>
+<li><code>less</code> ：与 more 类似，但可以往前翻页</li>
+<li><code>head</code> ：只看开头几行</li>
+<li><code>tail</code> ：只看最后几行</li>
+<li><code>od</code> ：以二进制的方式读取文件内容</li>
+</ul>
+<h3 id="直接查看文件内容">直接查看文件内容</h3>
+<h4 id="cat-"><code>cat</code> ：</h4>
+<p>选项与参数：</p>
+<ul>
+<li><code>-A</code> ： 相当于 <code>-vET</code> 的整合选项， 可列出一些特殊字符而不是空白</li>
+<li><code>-b</code> ： 列出行号， 仅针对非空白行做行号显示， 空白行不标行号</li>
+<li><code>-E</code> ： 将结尾的断行字符 <code>$</code> 显示出来</li>
+<li><code>-n</code> ： 打印出行号， 连同空白行也会有行号， 与 <code>-b</code> 的选项不同</li>
+<li><code>-T</code> ： 将 <code>[tab]</code> 按键以 <code>^I</code> 显示出来</li>
+<li><code>-v</code> ： 列出一些看不出来的特殊字符</li>
+</ul>
+<pre><code># 查看 /etc/issue 这个文件的内容cat /etc/issue# 打印行号cat -n /etc/issue# 将 /etc/man_db.conf 的内容完整的显示出来（包含特殊字符）cat -A /etc/man_db.conf
+</code></pre>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210228131111756.png" alt="image-20210228131111756"></p>
+<h4 id="tac-"><code>tac</code> :</h4>
+<p>功能就跟 cat 相反</p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210228131250266.png" alt="image-20210228131250266"></p>
+<h4 id="nl-"><code>nl</code> ：</h4>
+<p>选项与参数：</p>
+<ul>
+<li>
+<p><code>-b</code> ： 指定行号指定的方式， 主要有两种：</p>
+<ul>
+<li><code>-b a</code> ： 表示不论是否为空行， 也同样列出行号（ 类似 cat -n）</li>
+<li><code>-b t</code> ： 如果有空行， 空的那一行不列出行号（ 默认值）</li>
+</ul>
+</li>
+<li>
+<p><code>-n</code> ： 列出行号表示的方法， 主要有三种：</p>
+<ul>
+<li><code>-n ln</code> ： 行号在屏幕的最左方显示</li>
+<li><code>-n rn</code> ： 行号在自己字段的最右方显示， 且不加 0</li>
+<li><code>-n rz</code> ： 行号在自己字段的最右方显示， 且加 0</li>
+</ul>
+</li>
+<li>
+<p>-w ： 行号字段的占用的字符数</p>
+<pre><code># 用 nl 列出 /etc/issue 的内容nl /etc/issue# 注意看， 这个文件其实有三行， 第三行为空白（ 没有任何字符），# 因为他是空白行，所以 nl 不会加上行号，如果要加上行号， 可以这样做：nl -b a /etc/issue# 如果要让行号前面自动补上 0 nl -b a -n rz /etc/issue# 自动在自己字段的地方补上 0 ，默认字段是六位数， 如果改成 3 位数nl -b a -n rz -w 3 /etc/issue    
+</code></pre>
+</li>
+</ul>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210228132245432.png" alt="image-20210228132245432"></p>
+<h3 id="可翻页查看">可翻页查看</h3>
+<h4 id="more--一页一页翻动"><code>more</code> ：（ 一页一页翻动）</h4>
+<pre><code>more /etc/man_db.conf
+</code></pre>
+<p>在 more 这个程序的运行过程中， 有几个按键的功能：</p>
+<ul>
+<li><code>空白键（space）</code>：代表向下翻一页</li>
+<li><code>Enter</code>：代表向下翻“一行”</li>
+<li><code>/字串</code> ：代表在这个显示的内容当中， 向下搜寻“字串”这个关键字</li>
+<li><code>:f</code> ：立刻显示出文件名以及目前显示的行数</li>
+<li><code>q</code> ：立刻离开 <code>more</code> ， 不再显示该文件内容</li>
+<li><code>b</code> 或 <code>[ctrl]-b</code> ：代表往回翻页， 只对文件有用</li>
+</ul>
+<h4 id="less--一页一页翻动"><code>less</code> ：（ 一页一页翻动）</h4>
+<pre><code>less /etc/man_db.conf
+</code></pre>
+<p><code>less</code> 拥有更多的查找功能，可以向下查找，也可以向上查找，基本上，可以输入的指令有：</p>
+<ul>
+<li><code>空白键</code> ： 向下翻动一页</li>
+<li><code>[pagedown]</code>： 向下翻动一页</li>
+<li><code>[pageup]</code> ： 向上翻动一页</li>
+<li><code>/字串</code> ： 向下查找“字串”的功能</li>
+<li><code>?字串</code> ： 向上查找“字串”的功能</li>
+<li><code>n</code> ： 重复前一个查找（与 / 或 ? 有关）</li>
+<li><code>N</code> ： 反向的重复前一个查找（与 / 或 ? 有关）</li>
+<li><code>g</code> ： 前进到这个数据的第一行去</li>
+<li><code>G</code> ： 前进到这个数据的最后一行去（ 注意大小写）</li>
+<li><code>q</code> ： 离开 less 这个程序</li>
+</ul>
+<h3 id="数据获取">数据获取</h3>
+<h4 id="head--取出前面几行"><code>head</code> ：（ 取出前面几行）</h4>
+<pre><code>head [-n number] 文件
+</code></pre>
+<h4 id="tail--取出前面几行"><code>tail</code> ：（ 取出前面几行）</h4>
+<pre><code>tail [-n number] 文件
+</code></pre>
+<h3 id="非纯文本文件-od">非纯文本文件： <code>od</code></h3>
+<p>选项或参数：</p>
+<ul>
+<li><code>-t</code> ： 后面可以接各种“类型 （ TYPE） ”的输出</li>
+<li><code>a</code> ： 利用默认的字符来输出
+<ul>
+<li><code>c</code> ： 使用 ASCII 字符来输出</li>
+<li><code>d[size]</code> ： 利用十进制（ decimal） 来输出数据， 每个整数占用 size Bytes</li>
+<li><code>f[size]</code> ： 利用浮点数值（ floating） 来输出数据， 每个数占用 size Bytes</li>
+<li><code>o[size]</code> ： 利用八进位（ octal） 来输出数据， 每个整数占用 size Bytes</li>
+<li><code>x[size]</code> ： 利用十六进制（ hexadecimal） 来输出数据， 每个整数占用 size Bytes</li>
+</ul>
+</li>
+</ul>
+<pre><code># 将/etc/issue这个文件的内容以8进位列出储存值与ASCII的对照表od -t oCc /etc/issue
+</code></pre>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210228134304575.png" alt="image-20210228134304575"></p>
+<h3 id="修改文件时间或创建新文件touch">修改文件时间或创建新文件：<code>touch</code></h3>
+<p>在 <code>ls</code> 这个指令的介绍时，提到每个文件在 Linux 下面都会记录许多的时间参数，有三个主要的变动时间：</p>
+<ul>
+<li>
+<p>modification time（<code>mtime</code>）：当该文件的“内容数据”变更时，就会更新这个时间。内容数据指的是文件的内容，而不是文件的属性或权限</p>
+</li>
+<li>
+<p>status time（<code>ctime</code>）：当该文件的“状态（status）”改变时，就会更新这个时间，权限与属性被更改了，都会更新这个时间</p>
+</li>
+<li>
+<p>access time（<code>atime</code>）：当“该文件的内容被取用”时， 就会更新这个读取时间（access），我们使用 <code>cat</code> 去读取 <code>/etc/man_db.conf</code> ， 就会更新该文件的 <code>atime</code></p>
+</li>
+</ul>
+<p>选项与参数：</p>
+<ul>
+<li><code>-a</code> ： 仅修订 <code>atime</code></li>
+<li><code>-c</code> ： 仅修改文件的时间，若该文件不存在则不创建新文件</li>
+<li><code>-d</code> ： 后面可以接欲修订的日期而不用目前的日期，也可以使用 <code>--date=&quot;日期或时间&quot;</code></li>
+<li><code>-m</code> ： 仅修改 <code>mtime</code></li>
+<li><code>-t</code> ： 后面可以接欲修订的时间而不用目前的时间，格式为<code>[YYYYMMDDhhmm]</code></li>
+</ul>
+<pre><code># 将上个的 bashrc 日期改为 2014/06/15 2:02touch -t 201406150202 bashrcdate; ll bashrc; ll --time=atime bashrc; ll --time=ctime bashrc
+</code></pre>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210228135830550.png" alt="image-20210228135830550"></p>
+<hr>
+<p>总结：</p>
+<ul>
+<li>绝对路径：由根目录 / 写起；相对路径：由相对当前目录写起</li>
+<li>特殊目录有： <code>.</code> 、 <code>..</code>、<code>-</code>、 <code>~</code>、 <code>~account</code> 需要注意</li>
+<li>与目录相关的指令有： <code>cd</code>, <code>mkdir</code>, <code>rmdir</code>, <code>pwd</code></li>
+<li><code>rmdir</code> 仅能删除空目录， 要删除非空目录需使用 <code>rm -r</code> 指令</li>
+<li>使用者能使用的指令是依据 <code>PATH</code> 变量所规定的目录去搜寻的</li>
+<li><code>ls</code> 可以检视文件的属性， 尤其 <code>-d</code>, <code>-a</code>, <code>-l</code> 等选项特别重要</li>
+<li>文件的复制、 删除、 移动分别使用： <code>cp</code>, <code>rm</code> , <code>mv</code> 等指令</li>
+<li>检查文件的内容（ 读档） 可使用的指令包括有： <code>cat</code>, <code>tac</code>, <code>nl</code>, <code>more</code>, <code>less</code>, <code>head</code>, <code>tail</code>, <code>od</code> 等</li>
+<li><code>cat -n</code> 与 <code>nl</code> 均可显示行号， 但默认的情况下， 空白行会不会编号并不相同</li>
+<li><code>touch</code> 的目的在修改文件的时间参数， 但也可用来创建空文件</li>
+<li>一个文件记录的时间参数有三种， 分别是 <code>atime</code> , <code>ctime</code> , <code>mtime</code> ， <code>ls</code> 默认显示的是 <code>mtime</code></li>
+<li>新建文件/目录时， 新文件的默认权限使用 <code>umask</code> 来规范。 默认目录完全权限为 <code>drwxrwxrwx</code>，文件则 <code>-rw-rw-rw-</code></li>
+</ul>
+<hr>
+
+        </div>
+        
+        <div class="my-4">
+    
+    <a href="https://blog.wangjialei.xyz/tags/linux/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#Linux</a>
+    
+</div>
+        
+        
+        
+
+
+        
+        
+        
+        
+<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
+    <div>
+        
+        <span class="block font-bold">上一页</span>
+        <a href="https://blog.wangjialei.xyz/posts/linux-04-linux%E7%A3%81%E7%9B%98%E4%B8%8E%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/" class="block">Linux 04 Linux磁盘与文件系统管理</a>
+        
+    </div>
+    <div class="md:text-right mt-4 md:mt-0">
+        
+        <span class="block font-bold">下一页</span>
+        <a href="https://blog.wangjialei.xyz/posts/%E5%9F%BA%E4%BA%8Eeasyx%E5%9B%BE%E5%BD%A2%E5%BA%93%E7%9A%84c%E8%AF%AD%E8%A8%80%E6%B8%B8%E6%88%8F%E5%BC%80%E5%8F%91/" class="block">基于Easyx图形库的C语言游戏开发</a>
+        
+    </div>
+</div>
+
+        
+
+
+
+    </div>
+    
+    <div class="col-span-2">
+        
+        
+        <div class="sticky top-16 z-10 hidden lg:block px-6 py-4  bg-primary-bg ">
+    <span class="text-lg font-semibold">本页内容</span>
+</div>
+<div class="sticky-toc hidden lg:block px-6 pb-6 ">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#目录与路径">目录与路径</a>
+      <ul>
+        <li><a href="#相对路径与绝对路径">相对路径与绝对路径</a></li>
+        <li><a href="#目录的相关操作">目录的相关操作</a>
+          <ul>
+            <li><a href="#cd-变换目录"><code>cd</code> （变换目录）</a></li>
+            <li><a href="#pwd-显示当前所在目录"><code>pwd</code> （显示当前所在目录）</a></li>
+            <li><a href="#mkdir-创建新目录"><code>mkdir</code> （创建新目录）</a></li>
+            <li><a href="#rmdir-删除空目录"><code>rmdir</code> （删除空目录）</a></li>
+          </ul>
+        </li>
+        <li><a href="#可执行文件路径的变量path">可执行文件路径的变量：$PATH</a></li>
+      </ul>
+    </li>
+    <li><a href="#文件与目录管理">文件与目录管理</a>
+      <ul>
+        <li><a href="#查看文件与目录ls">查看文件与目录：<code>ls</code></a></li>
+        <li><a href="#复制删除与移动cp--rm--mv">复制、删除与移动：<code>cp</code> 、 <code>rm</code> 、 <code>mv</code></a>
+          <ul>
+            <li><a href="#cp"><code>cp</code></a></li>
+            <li><a href="#rm"><code>rm</code></a></li>
+            <li><a href="#mv"><code>mv</code></a></li>
+          </ul>
+        </li>
+        <li><a href="#取得路径的文件名称与目录名称">取得路径的文件名称与目录名称</a></li>
+      </ul>
+    </li>
+    <li><a href="#文件内容查阅">文件内容查阅</a>
+      <ul>
+        <li><a href="#直接查看文件内容">直接查看文件内容</a>
+          <ul>
+            <li><a href="#cat-"><code>cat</code> ：</a></li>
+            <li><a href="#tac-"><code>tac</code> :</a></li>
+            <li><a href="#nl-"><code>nl</code> ：</a></li>
+          </ul>
+        </li>
+        <li><a href="#可翻页查看">可翻页查看</a>
+          <ul>
+            <li><a href="#more--一页一页翻动"><code>more</code> ：（ 一页一页翻动）</a></li>
+            <li><a href="#less--一页一页翻动"><code>less</code> ：（ 一页一页翻动）</a></li>
+          </ul>
+        </li>
+        <li><a href="#数据获取">数据获取</a>
+          <ul>
+            <li><a href="#head--取出前面几行"><code>head</code> ：（ 取出前面几行）</a></li>
+            <li><a href="#tail--取出前面几行"><code>tail</code> ：（ 取出前面几行）</a></li>
+          </ul>
+        </li>
+        <li><a href="#非纯文本文件-od">非纯文本文件： <code>od</code></a></li>
+        <li><a href="#修改文件时间或创建新文件touch">修改文件时间或创建新文件：<code>touch</code></a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+</div>
+<script>
+    window.addEventListener('DOMContentLoaded', () => {
+        enableStickyToc();
+    });
+</script>
+        
+    </div>
+    
+
+    
+    
+    <div
+        class="col-span-2  lg:col-span-6 bg-secondary-bg rounded p-6">
+        <h2 class="text-lg font-semibold mb-4">相关</h2>
+        <div class="content">
+            
+            <a href="https://blog.wangjialei.xyz/posts/linux-02-linux%E7%9A%84%E6%96%87%E4%BB%B6%E6%9D%83%E9%99%90%E4%B8%8E%E7%9B%AE%E5%BD%95%E9%85%8D%E7%BD%AE/">Linux 02 Linux的文件权限与目录配置</a>
+            <br />
+            
+            <a href="https://blog.wangjialei.xyz/posts/linux-01-%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AE%89%E8%A3%85ubuntu20.04/">Linux 01 虚拟机安装Ubuntu20.04</a>
+            <br />
+            
+        </div>
+    </div>
+    
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+        hljs.initHighlightingOnLoad();
+    })
+</script>
+
+      </div>
+    </div>
+    
+  </main>
+  <footer class="pl-scrollbar">
+    <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">&copy; 2021 <a href="https://blog.wangjialei.xyz/">Wang Jialei</a>
+ &middot;  Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div></div>
+  </footer>
+</body>
+
+</html>

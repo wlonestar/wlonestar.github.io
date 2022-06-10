@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>OpenGL on LoneStar&#39;s blog</title>
+    <link>https://blog.wangjialei.xyz/tags/opengl/</link>
+    <description>Recent content in OpenGL on LoneStar&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <copyright>&amp;copy; 2021 &lt;a href=&#34;https://blog.wangjialei.xyz/&#34;&gt;Wang Jialei&lt;/a&gt;
+</copyright>
+    <lastBuildDate>Mon, 18 Apr 2022 21:47:10 +0800</lastBuildDate><atom:link href="https://blog.wangjialei.xyz/tags/opengl/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>OpenGL 心脏线</title>
+      <link>https://blog.wangjialei.xyz/posts/opengl-%E5%BF%83%E8%84%8F%E7%BA%BF/</link>
+      <pubDate>Mon, 18 Apr 2022 21:47:10 +0800</pubDate>
+      
+      <guid>https://blog.wangjialei.xyz/posts/opengl-%E5%BF%83%E8%84%8F%E7%BA%BF/</guid>
+      <description>最近在学 OpenGL ，但是 OpenGL 只支持点、线、三角形，所以想着把基本图形的绘制封装成头文件，方便后续调用
+心脏线类 这里是绘制心脏线的头文件，尽量使用面向对象的方法进行封装，绘制时只需要调用 draw() 函数即可
+// heart.</description>
+    </item>
+    
+    <item>
+      <title>CLion&#43;Visual Studio&#43;CMake配置图形学开发环境</title>
+      <link>https://blog.wangjialei.xyz/posts/clion&#43;visual-studio&#43;cmake%E9%85%8D%E7%BD%AE%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/</link>
+      <pubDate>Sun, 10 Apr 2022 11:06:53 +0800</pubDate>
+      
+      <guid>https://blog.wangjialei.xyz/posts/clion&#43;visual-studio&#43;cmake%E9%85%8D%E7%BD%AE%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/</guid>
+      <description>这学期的计算机图形学需要使用 OpenGL ，我参照 LearnOpenGL CN 配置好了环境，但是在使用 Visual Studio 写代码的过程中，发现很不顺手（是JetBrains的CLion太好用了），就想着用 CLion 再次配置一下。</description>
+    </item>
+    
+  </channel>
+</rss>

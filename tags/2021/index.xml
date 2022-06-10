@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>2021 on LoneStar&#39;s blog</title>
+    <link>https://blog.wangjialei.xyz/tags/2021/</link>
+    <description>Recent content in 2021 on LoneStar&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <copyright>&amp;copy; 2021 &lt;a href=&#34;https://blog.wangjialei.xyz/&#34;&gt;Wang Jialei&lt;/a&gt;
+</copyright>
+    <lastBuildDate>Fri, 31 Dec 2021 19:21:59 +0800</lastBuildDate><atom:link href="https://blog.wangjialei.xyz/tags/2021/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>2021年终总结</title>
+      <link>https://blog.wangjialei.xyz/posts/2021%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/</link>
+      <pubDate>Fri, 31 Dec 2021 19:21:59 +0800</pubDate>
+      
+      <guid>https://blog.wangjialei.xyz/posts/2021%E5%B9%B4%E7%BB%88%E6%80%BB%E7%BB%93/</guid>
+      <description>反正也没人看，就在这里随便写写了。
+马上就2022年了，我还是单着（苦笑）。时间过的好快啊，尤其是这学期，感觉没做什么事情就很快结束了，弄完两门考试和一个Java课设，就可以回家了。
+这一年过的感觉挺不好，很多事情不如意，明年继续加油吧。
+关于学习 GitHub 这是今年我的GitHub提交记录，还行吧，有把自己写的代码放到网上的习惯了，虽然代码质量并不高，哈哈。
+项目 今年前前后后写了三个小项目。
+第一个是参加学院物联网创想秀比赛，写了一个很简单的留言板项目
+wjl-lab/spring-board: 基于 springboot 的简单登录注册网站 (github.</description>
+    </item>
+    
+  </channel>
+</rss>

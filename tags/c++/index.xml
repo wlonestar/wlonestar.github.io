@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>C&#43;&#43; on LoneStar&#39;s blog</title>
+    <link>https://blog.wangjialei.xyz/tags/c&#43;&#43;/</link>
+    <description>Recent content in C&#43;&#43; on LoneStar&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <copyright>&amp;copy; 2021 &lt;a href=&#34;https://blog.wangjialei.xyz/&#34;&gt;Wang Jialei&lt;/a&gt;
+</copyright>
+    <lastBuildDate>Wed, 03 Mar 2021 21:41:07 +0800</lastBuildDate><atom:link href="https://blog.wangjialei.xyz/tags/c++/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Vscode搭建c&#43;&#43;开发环境</title>
+      <link>https://blog.wangjialei.xyz/posts/vscode%E6%90%AD%E5%BB%BAc&#43;&#43;%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/</link>
+      <pubDate>Wed, 03 Mar 2021 21:41:07 +0800</pubDate>
+      
+      <guid>https://blog.wangjialei.xyz/posts/vscode%E6%90%AD%E5%BB%BAc&#43;&#43;%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/</guid>
+      <description>配置编译器 mingw-w64 下载安装 去官网下载页面，选择 MingW-W64-builds
+点击 Sourceforge 下载
+下载完解压到合适位置，找到文件夹下的 bin 子目录</description>
+    </item>
+    
+  </channel>
+</rss>

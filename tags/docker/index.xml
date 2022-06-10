@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Docker on LoneStar&#39;s blog</title>
+    <link>https://blog.wangjialei.xyz/tags/docker/</link>
+    <description>Recent content in Docker on LoneStar&#39;s blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>zh</language>
+    <copyright>&amp;copy; 2021 &lt;a href=&#34;https://blog.wangjialei.xyz/&#34;&gt;Wang Jialei&lt;/a&gt;
+</copyright>
+    <lastBuildDate>Sun, 03 Oct 2021 14:44:48 +0800</lastBuildDate><atom:link href="https://blog.wangjialei.xyz/tags/docker/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Docker 部署多站点</title>
+      <link>https://blog.wangjialei.xyz/posts/docker%E9%83%A8%E7%BD%B2%E5%A4%9A%E7%AB%99%E7%82%B9/</link>
+      <pubDate>Sun, 03 Oct 2021 14:44:48 +0800</pubDate>
+      
+      <guid>https://blog.wangjialei.xyz/posts/docker%E9%83%A8%E7%BD%B2%E5%A4%9A%E7%AB%99%E7%82%B9/</guid>
+      <description>生命不息，折腾不止hhh。继续捣鼓我的云服务器，再过一个月就到期需要付费了，到时候直接续个一年。
+说回正题，之所以要部署两个网站呢，是因为我的确有这个需求，哪个男孩子不想要好几个自己的网站呢（狗头）。
+&amp;ldquo;碰巧&amp;quot;昨天晚上一不小心 rm /* 了，关键TM我在 root 用户下敲了这个命令，直接把 ls 都给整没了，还能有什么办法了，自己手残呗，直接重装系统了。刚好是在全新的系统上搭环境，敲得命令都很全，直接按照命令来写吧。</description>
+    </item>
+    
+    <item>
+      <title>使用Docker部署SpringBoot&#43;Vue项目</title>
+      <link>https://blog.wangjialei.xyz/posts/%E4%BD%BF%E7%94%A8docker%E9%83%A8%E7%BD%B2springboot&#43;vue%E9%A1%B9%E7%9B%AE/</link>
+      <pubDate>Wed, 29 Sep 2021 13:58:48 +0800</pubDate>
+      
+      <guid>https://blog.wangjialei.xyz/posts/%E4%BD%BF%E7%94%A8docker%E9%83%A8%E7%BD%B2springboot&#43;vue%E9%A1%B9%E7%9B%AE/</guid>
+      <description>之前写好了一个SpringBoot + Vue 的项目，但是还不知道怎么部署上线，于是这几天稍微学了一下 Docker ，还只是会用的阶段，就先把部署过程写下来，防止遗忘。
+测试项目编写 因为是测试使用，就先在本地简单写个前后端分离的小项目：后端向前端返回所有用户信息，前端简单的将信息展示出来，MySQL负责存储用户信息。
+很简单，项目代码： wjl-lab/docker-test</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang='zh' ><meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+
+<title>记录一次做web开发的经历 | LoneStar&#39;s blog</title>
+
+<meta name="generator" content="Hugo Eureka 0.8.4" />
+<link rel="stylesheet" href="https://blog.wangjialei.xyz/css/eureka.min.css">
+<script defer src="https://blog.wangjialei.xyz/js/eureka.min.js"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+  as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/styles/stackoverflow-light.min.css"
+   media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/highlight.min.js"
+   crossorigin></script>
+
+  <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/languages/light.min.js"
+     crossorigin></script>
+
+<script defer src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js"
+   integrity="sha256-uNYoXefWRqv&#43;PsIF/OflNmwtKM4lStn9yrz2gVl6ymo="  crossorigin></script>
+
+
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
+   integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3&#43;Aro6EYUG4&#43;cU&#43;KJWu/X"  media="print"
+  onload="this.media='all';this.onload=null" crossorigin>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" 
+  integrity="sha384-g7c&#43;Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI&#43;sEnkvrMWph2EDg4"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
+   integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC&#43;Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"  crossorigin></script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    renderMathInElement(document.body, {
+      delimiters: [
+        { left: "$$", right: "$$", display: true },
+        { left: "$", right: "$", display: false },
+        { left: "\\(", right: "\\)", display: false },
+        { left: "\\[", right: "\\]", display: true }
+      ],
+    });
+  });
+</script>
+
+
+<script defer src="https://cdn.jsdelivr.net/npm/mermaid@8.9.2/dist/mermaid.min.js" 
+  integrity="sha256-Zmpaaj&#43;GXFsPF5WdPArSrnW3b30dovldeKsW00xBVwE="  crossorigin></script>
+
+
+<link rel="icon" type="image/png" sizes="32x32" href="https://blog.wangjialei.xyz/images/favicon_huce974d41c22b18f52c9ea90a63a4b2a6_21741_32x32_fill_box_center_3.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://blog.wangjialei.xyz/images/favicon_huce974d41c22b18f52c9ea90a63a4b2a6_21741_180x180_fill_box_center_3.png">
+
+<meta name="description"
+  content="大一参加web开发比赛？">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [{
+      "@type": "ListItem",
+      "position": 1 ,
+      "name":"文章",
+      "item":"https://blog.wangjialei.xyz/posts/"},{
+      "@type": "ListItem",
+      "position": 2 ,
+      "name":"记录一次做web开发的经历",
+      "item":"https://blog.wangjialei.xyz/posts/%E8%AE%B0%E5%BD%95%E4%B8%80%E6%AC%A1%E5%81%9Aweb%E5%BC%80%E5%8F%91%E7%9A%84%E7%BB%8F%E5%8E%86/"}]
+}
+</script>
+
+
+
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://blog.wangjialei.xyz/posts/%E8%AE%B0%E5%BD%95%E4%B8%80%E6%AC%A1%E5%81%9Aweb%E5%BC%80%E5%8F%91%E7%9A%84%E7%BB%8F%E5%8E%86/"
+    },
+    "headline": "记录一次做web开发的经历 | LoneStar\u0027s blog",
+    "image": "https://mypic-1305118058.cos.ap-hongkong.myqcloud.com/img/2021-05-22.jpg",
+    "datePublished": "2021-05-22T09:42:55+08:00",
+    "dateModified": "2021-05-22T09:42:55+08:00",
+    "wordCount":  66 ,
+    "publisher": {
+        "@type": "Person",
+        "name": "lonestar",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://blog.wangjialei.xyz/images/favicon.png"
+        }
+        },
+    "description": "大一参加web开发比赛？"
+}
+</script><meta property="og:title" content="记录一次做web开发的经历 | LoneStar&#39;s blog" />
+<meta property="og:type" content="article" />
+
+
+<meta property="og:image" content="https://blog.wangjialei.xyz/images/favicon.png">
+
+
+<meta property="og:url" content="https://blog.wangjialei.xyz/posts/%E8%AE%B0%E5%BD%95%E4%B8%80%E6%AC%A1%E5%81%9Aweb%E5%BC%80%E5%8F%91%E7%9A%84%E7%BB%8F%E5%8E%86/" />
+
+
+
+<meta property="og:description" content="大一参加web开发比赛？" />
+
+
+
+<meta property="og:locale" content="zh" />
+
+
+
+
+<meta property="og:site_name" content="LoneStar&#39;s blog" />
+
+
+
+
+
+
+<meta property="article:published_time" content="2021-05-22T09:42:55&#43;08:00" />
+
+
+<meta property="article:modified_time" content="2021-05-22T09:42:55&#43;08:00" />
+
+
+
+<meta property="article:section" content="posts" />
+
+
+<meta property="article:tag" content="Spring Boot" />
+
+<meta property="article:tag" content="Java" />
+
+
+
+
+
+<meta property="og:see_also" content="https://blog.wangjialei.xyz/posts/%E8%87%AA%E5%B7%B1%E5%86%99%E7%9A%84%E7%AE%80%E5%8D%95java%E7%9F%A9%E9%98%B5%E5%BA%93/" />
+
+<meta property="og:see_also" content="https://blog.wangjialei.xyz/posts/java%E8%99%9A%E6%8B%9F%E6%9C%BA-03-%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/" />
+
+<meta property="og:see_also" content="https://blog.wangjialei.xyz/posts/java%E8%99%9A%E6%8B%9F%E6%9C%BA-02-java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F/" />
+
+<meta property="og:see_also" content="https://blog.wangjialei.xyz/posts/java%E8%99%9A%E6%8B%9F%E6%9C%BA-01-%E8%B5%B0%E8%BF%91java/" />
+
+
+
+<body class="flex flex-col min-h-screen">
+  <header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
+    <div class="w-full max-w-screen-xl mx-auto"><script>
+    let storageColorScheme = localStorage.getItem("lightDarkMode")
+    if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
+        document.getElementsByTagName('html')[0].classList.add('dark')
+    }
+</script>
+<nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
+    <a href="/" class="mr-6 text-primary-text text-xl font-bold">LoneStar&#39;s blog</a>
+    <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
+        <i class="fas fa-bars"></i>
+    </button>
+
+    <div id="target"
+        class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  selected-menu-item  mr-4">文章</a>
+            <a href="/categories/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">分类</a>
+            <a href="/tags/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">标签</a>
+            <a href="/series/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">系列</a>
+            <a href="/#about" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">关于</a>
+        </div>
+
+        <div class="flex">
+            <div class="relative pt-4 md:pt-0">
+                <div class="cursor-pointer hover:text-eureka" id="lightDarkMode">
+                    <i class="fas fa-adjust"></i>
+                </div>
+                <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
+                </div>
+                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                    id='lightDarkOptions'>
+                    <span class="px-4 py-1 hover:text-eureka" name="Light">浅色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Dark">深色</span>
+                    <span class="px-4 py-1 hover:text-eureka" name="Auto">自动</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-0" id="is-open-mobile">
+    </div>
+
+</nav>
+<script>
+    
+    let element = document.getElementById('lightDarkMode')
+    if (storageColorScheme == null || storageColorScheme == 'Auto') {
+        document.addEventListener('DOMContentLoaded', () => {
+            window.matchMedia("(prefers-color-scheme: dark)").addEventListener('change', switchDarkMode)
+        })
+    } else if (storageColorScheme == "Light") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'sun')
+        element.firstElementChild.classList.add('fa-sun')
+    } else if (storageColorScheme == "Dark") {
+        element.firstElementChild.classList.remove('fa-adjust')
+        element.firstElementChild.setAttribute("data-icon", 'moon')
+        element.firstElementChild.classList.add('fa-moon')
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        getcolorscheme();
+        switchBurger();
+    });
+</script>
+</div>
+  </header>
+  <main class="flex-grow pt-16">
+    <div class="pl-scrollbar">
+      <div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
+
+
+<div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12">
+    <div
+        class="col-span-2 lg:col-start-2 lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
+        <h1 class="font-bold text-3xl text-primary-text">记录一次做web开发的经历</h1>
+        <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
+    <div class="mr-6 my-2">
+        <i class="fas fa-calendar mr-1"></i>
+        <span>2021-05-22</span>
+    </div>
+    <div class="mr-6 my-2">
+        <i class="fas fa-clock mr-1"></i>
+        <span>1分钟阅读时长</span>
+    </div>
+    
+    
+    <div class="mr-6 my-2">
+        <i class="fas fa-folder mr-1"></i>
+        
+        <a href="https://blog.wangjialei.xyz/categories/%E6%97%A5%E5%BF%97%E9%9A%8F%E7%AC%94/" class="hover:text-eureka">日志随笔</a>
+        
+    </div>
+    
+
+    
+</div>
+        
+        
+        
+        <div class="my-4">
+            <img src="https://mypic-1305118058.cos.ap-hongkong.myqcloud.com/img/2021-05-22.jpg" class="w-full" alt="Featured Image">
+        </div>
+        
+
+        <div class="content">
+            <p>现在坐在图书馆写这篇文章时，再回想这一个月做项目的过程，有很多感慨，可能写得比较随意，权当做个总结。</p>
+<p>学期初就听说这学期学院有个小比赛，内容是做个小网站。当时我肯定想参加的，虽然什么都不太懂，虽然寒假在家没有好好学。真正到项目内容公布，开始着手做的时候，又没了那种热情。看到<a href="https://github.com/hansonwang99/JavaCollection">羊哥</a>那个长到夸张的 Java 后端学习路线，我为自己的天真感到好笑。</p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/v2-43156cca0de1619a56b7589c82961b76_720w.jpg" alt="v2-43156cca0de1619a56b7589c82961b76_720w"></p>
+<p>我连 Java 的并发多线程都没看完，就想做个小网站出来？本来都不想做了，但算是不能让我的两个队友（一个前端，一个机器学习）失望吧，就硬着头皮做了下去。</p>
+<p>在网上看了好多资料，本来准备用 SSM 框架来构建我们这个项目的，奈何我连 spring 都基本没接触，看到那一堆的xml配置文件更是头大，随便找一个 SSM 的视频教程都有几十集，加上五月份还有很多课，怎么可能全部看完，看完还不一定自己会写。</p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210331154310557.png" alt=""></p>
+<p>其实这时我是真的想放弃了，感觉自己太不自量力了，加上同时我还参加了学校的一个微电影大赛，作为后期，花了大量时间在剪辑上（这个可以再单独写一篇文章hhh），项目基本没做。那段时间真的挺黑暗的，算是一直熬夜剪片子，白天上课没精神，没时间学习，项目又不想做。</p>
+<p>终于微电影大赛作品交上去了，我可以做项目了。算是因为某个契机转变了心态吧，我想着时间也不多了，要不就以做出来为目标，选择当前比较容易构建 web 项目的 spring boot 框架，直接学习 spring boot 算了。我找了一个比较完整的视频教程，跟着做，遇到讲源码什么的地方就直接跳过，因为时间不够了，没必要去了解底层是怎么实现的，先把项目搭起来再说。因为有之前学 SSM 的一点点基础吧，说到 MVC 三层模型的时候不会陌生，入门算是差不多了（至少知道一个 spring boot web 项目需要哪些部件）。</p>
+<p>这次比赛要我们做一个用户登录注册发布留言的小网站，那我就先看人家的登录注册是怎么写的，反正我什么也不会（唉）。就登录注册我就看了三四个开源项目，发现他们写的或多或少和我想要的有点出入，不是这里不对，就是那里出了点小问题，只能再找有详细教程的项目，但可惜的是基本没有这样的项目，或者教程很简略。这段时间我也很焦虑，拍给我的队友拖后腿，毕竟他们已经做的差不多了，前端的页面基本上写好了，机器学习部分的算法也写好了，就我这个后端框架都没搭起来（唉）。</p>
+<p>那几天我也就是反复地看那几个开源项目的源码，试图从中获得一些灵感，唉，还真有一点灵感了，大概是离最后的汇报阶段还有两天的时候，我新建了一个工程，按照我认为正确的顺序配置好，连接数据库，写代码，大概就半个下午，还真的可以跑了！</p>
+<p><img src="https://gitee.com/wjl-lab/mypic/raw/master/image-20210331154521069.png" alt=""></p>
+<p>当时我的表情和这个差不多哈哈哈，不敢相信我可以做到，心情顿时好了不少，也没那么慌了。</p>
+<p>然后就是和前端撕逼，不是，整合前端页面了，因为我用的是 spring boot 官方推荐的 thyme leaf 模板引擎，和前端沟通过程比较曲折，就不细说了，反正最终对接上了，我也是在和前端进行亲切而友好的沟通的过程中了解到 JavaScript 和后端控制器什么的能相互影响（怪不得 node.js 能写全栈，那要我这个 Java 后端干什么，前端一个人就能把活干了哈哈哈）。</p>
+<p>然后算是这次这个项目比较遗憾的一个地方了，我们还要实现对留言中的高频词进行词云那种形式展现出来，但是我们的机器学习的队友对 Java 不熟，只能用 python 写，用 Java 调用 python 脚本，但是这个脚本用到了一些第三方库，调用的时候有点小问题，我也查阅了好多资料，没有找到合适的解决方案，只能放弃了。</p>
+<p>向六位评委（其实就是大三大四的学长学姐）汇报的时候，我太紧张了，说话都说不顺，还是见识的少了，没办法，可能因为这个给评委留下了不好的印象（唉）。最终评委的提问也都回答上了，算还行吧，结果也只能算还行，二等奖（九组八个奖）😂</p>
+<p>现在项目已经开源，地址 <a href="https://github.com/wjl-lab/spring-board">wjl-lab/spring-board: 基于 springboot 的简单登录注册网站</a></p>
+<p>不指望有人看，有需要的可以作为参考，其实还有很多小问题，但基本触及我的知识盲点。</p>
+<p>如果有时间的话，可以再写个教程，最近应该没时间了，马上就期末考试了，这学期过的太快了，事情也很多，博客四月都没写。</p>
+<p>以上。</p>
+
+        </div>
+        
+        <div class="my-4">
+    
+    <a href="https://blog.wangjialei.xyz/tags/spring-boot/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#Spring Boot</a>
+    
+    <a href="https://blog.wangjialei.xyz/tags/java/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#Java</a>
+    
+</div>
+        
+        
+        
+
+
+        
+        
+        
+        
+<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
+    <div>
+        
+        <span class="block font-bold">上一页</span>
+        <a href="https://blog.wangjialei.xyz/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%93%E4%B8%9A%E5%AD%A6%E7%94%9F%E7%9A%84%E7%AC%94%E8%AE%B0%E6%9C%AC%E9%85%8D%E7%BD%AE/" class="block">计算机专业学生的笔记本配置</a>
+        
+    </div>
+    <div class="md:text-right mt-4 md:mt-0">
+        
+        <span class="block font-bold">下一页</span>
+        <a href="https://blog.wangjialei.xyz/posts/%E6%88%91%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%86%99%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/" class="block">我为什么要写个人博客</a>
+        
+    </div>
+</div>
+
+        
+
+
+
+    </div>
+    
+
+    
+    
+    <div
+        class="col-span-2 lg:col-start-2 lg:col-span-6 bg-secondary-bg rounded p-6">
+        <h2 class="text-lg font-semibold mb-4">相关</h2>
+        <div class="content">
+            
+            <a href="https://blog.wangjialei.xyz/posts/%E8%87%AA%E5%B7%B1%E5%86%99%E7%9A%84%E7%AE%80%E5%8D%95java%E7%9F%A9%E9%98%B5%E5%BA%93/">自己写的简单Java矩阵库</a>
+            <br />
+            
+            <a href="https://blog.wangjialei.xyz/posts/java%E8%99%9A%E6%8B%9F%E6%9C%BA-03-%E5%9E%83%E5%9C%BE%E6%94%B6%E9%9B%86%E5%99%A8/">Java虚拟机 03 垃圾收集器</a>
+            <br />
+            
+            <a href="https://blog.wangjialei.xyz/posts/java%E8%99%9A%E6%8B%9F%E6%9C%BA-02-java%E5%86%85%E5%AD%98%E5%8C%BA%E5%9F%9F/">Java虚拟机 02 Java内存区域</a>
+            <br />
+            
+            <a href="https://blog.wangjialei.xyz/posts/java%E8%99%9A%E6%8B%9F%E6%9C%BA-01-%E8%B5%B0%E8%BF%91java/">Java虚拟机 01 走近Java</a>
+            <br />
+            
+        </div>
+    </div>
+    
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', ()=>{
+        hljs.initHighlightingOnLoad();
+    })
+</script>
+
+      </div>
+    </div>
+    
+  </main>
+  <footer class="pl-scrollbar">
+    <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
+    <p class="text-sm text-tertiary-text">&copy; 2021 <a href="https://blog.wangjialei.xyz/">Wang Jialei</a>
+ &middot;  Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
+</div></div>
+  </footer>
+</body>
+
+</html>

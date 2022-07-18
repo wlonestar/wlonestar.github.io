@@ -15,8 +15,10 @@
       <pubDate>Wed, 24 Feb 2021 13:17:13 +0800</pubDate>
       
       <guid>https://blog.wangjialei.xyz/posts/%E6%90%AD%E5%BB%BAhugo%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E5%88%B0github/</guid>
-      <description>前提   一定要配置好git，具体教程见 windows下搭建hexo博客部署到github
-  推荐在Microsoft Store安装Windows Terminal，方便后续操作</description>
+      <description>前提 一定要配置好git，具体教程见 windows下搭建hexo博客部署到github
+推荐在Microsoft Store安装Windows Terminal，方便后续操作
+安装 下载：去GitHub主页下载 https://github.com/gohugoio/hugo/releases
+下载完解压得到</description>
     </item>
     
     <item>
@@ -26,8 +28,9 @@
       
       <guid>https://blog.wangjialei.xyz/posts/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E5%88%B0github/</guid>
       <description>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。
-安装前提   git
-  node.</description>
+安装前提 git
+node.js
+git 下载安装：点击链接下载 git-scm.com</description>
     </item>
     
   </channel>

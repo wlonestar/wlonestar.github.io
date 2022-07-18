@@ -16,7 +16,7 @@
       
       <guid>https://blog.wangjialei.xyz/posts/jsp%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE-%E5%86%85%E7%BD%AEtomact%E6%9C%8D%E5%8A%A1%E5%99%A8/</guid>
       <description>安装 JDK 和 Maven JDK 下载链接： open-jdk-17
- 下载压缩包解压到合适路径  添加到环境变量  在系统变量新建变量 JAVA_HOME</description>
+下载压缩包解压到合适路径 添加到环境变量 在系统变量新建变量 JAVA_HOME</description>
     </item>
     
   </channel>

@@ -37,7 +37,7 @@ Spring Boot 微服务集成 DJL 这里选择 Kotlin + Gradle + Spring Boot 搭�
       
       <guid>https://blog.wangjialei.xyz/posts/jsp%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE-%E5%86%85%E7%BD%AEtomact%E6%9C%8D%E5%8A%A1%E5%99%A8/</guid>
       <description>安装 JDK 和 Maven JDK 下载链接： open-jdk-17
- 下载压缩包解压到合适路径  添加到环境变量  在系统变量新建变量 JAVA_HOME</description>
+下载压缩包解压到合适路径 添加到环境变量 在系统变量新建变量 JAVA_HOME</description>
     </item>
     
     <item>
@@ -46,7 +46,7 @@ Spring Boot 微服务集成 DJL 这里选择 Kotlin + Gradle + Spring Boot 搭�
       <pubDate>Thu, 10 Mar 2022 16:54:04 +0800</pubDate>
       
       <guid>https://blog.wangjialei.xyz/posts/pytorch%E9%83%A8%E7%BD%B2/</guid>
-      <description>服务器基本配置 ssh 免密登录 # open authorized_keys vim ~/.ssh/authorized_keys # copy local public key to it  conda 下载安装 # install miniconda bash Miniconda3-py39_4.</description>
+      <description>服务器基本配置 ssh 免密登录 # open authorized_keysvim ~/.ssh/authorized_keys# copy local public key to itconda 下载安装 # install minicondabash Miniconda3-py39_4.</description>
     </item>
     
     <item>
@@ -110,7 +110,7 @@ Spring Boot 微服务集成 DJL 这里选择 Kotlin + Gradle + Spring Boot 搭�
       <guid>https://blog.wangjialei.xyz/posts/%E4%BD%BF%E7%94%A8nginx%E6%89%98%E7%AE%A1hugo%E5%8D%9A%E5%AE%A2/</guid>
       <description>这几天一直在折腾云服务器，为了避免备案，我买了一台香港的云服务器。想着把博客转移到服务器上，因为 GitHub Pages 太慢了。
 可能是图片比较多，使用的那个主题比较耗资源，顺便换个主题，哪知道配置nginx就花了我两天时间，现在终于配置好了，博客顺利转移过来了，记录一下，防止忘了。
-本地 hugo 博客生成  生成站点  hugo new site blog  编辑配置文件  --blog |-archetypes |-content |-layouts |-static |-themes |-config.</description>
+本地 hugo 博客生成 生成站点 hugo new site blog编辑配置文件 --blog|-archetypes|-content|-layouts|-static|-themes|-config.</description>
     </item>
     
     <item>
@@ -120,7 +120,7 @@ Spring Boot 微服务集成 DJL 这里选择 Kotlin + Gradle + Spring Boot 搭�
       
       <guid>https://blog.wangjialei.xyz/posts/%E4%BD%BF%E7%94%A8oh-my-posh%E9%85%8D%E7%BD%AEwindows-terminal/</guid>
       <description>越看越觉得 Windows Terminal 的配置难看，就想着换个主题配色什么的，直接去官网看文档，官方推荐使用 Powerline，就按照文档一步步来，最终效果也还不错，权当记录一下配置过程。
-安装 Powerline 字体  Powerline 使用字形来设置提示符样式。 如果你的字体不包含 Powerline 字形，则在整个提示符中，你可能会看到若干 Unicode 替换字符“&amp;amp;#x25AF”。 尽管 Cascadia Mono 不包括 Powerline 字形，但你可以安装 Cascadia Code PL 或 Cascadia Mono PL，这两者包含 Powerline 字形。 可以从 Cascadia Code GitHub 发布页安装这些字体。</description>
+安装 Powerline 字体 Powerline 使用字形来设置提示符样式。 如果你的字体不包含 Powerline 字形，则在整个提示符中，你可能会看到若干 Unicode 替换字符“&amp;amp;#x25AF”。 尽管 Cascadia Mono 不包括 Powerline 字形，但你可以安装 Cascadia Code PL 或 Cascadia Mono PL，这两者包含 Powerline 字形。 可以从 Cascadia Code GitHub 发布页安装这些字体。</description>
     </item>
     
     <item>
@@ -131,8 +131,8 @@ Spring Boot 微服务集成 DJL 这里选择 Kotlin + Gradle + Spring Boot 搭�
       <guid>https://blog.wangjialei.xyz/posts/%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E4%BD%86%E5%AE%8C%E6%95%B4%E7%9A%84springboot%E9%A1%B9%E7%9B%AE/</guid>
       <description>还记得我之前留的坑吧，想想还是今天把它填了吧，可能再过几天就又忘了。
 我就按照我目前学习到的内容写一篇教程，关于创建一个 spring boot web 项目的全过程。
- 新建数据库 打开MySQL命令行，输入命令新建数据库
-create database demo00;  我这里就用了和项目相同的数据库名。</description>
+新建数据库 打开MySQL命令行，输入命令新建数据库
+create database demo00;我这里就用了和项目相同的数据库名。</description>
     </item>
     
     <item>
@@ -153,7 +153,7 @@ create database demo00;  我这里就用了和项目相同的数据库名。</de
       
       <guid>https://blog.wangjialei.xyz/posts/picgo&#43;gitee%E5%9B%BE%E5%BA%8A%E6%90%AD%E5%BB%BA/</guid>
       <description>本文参考 PICGO+Gitee搭建图床 ，无意间发现宝藏，于是实操，解决图片痛点，万分感谢。
- 前提  Gitee PicGo Node.js  创建 Gitee 仓库 创建公开仓库，选择单分支模型 生成私人令牌 配置 PicGo 安装 github-plus 插件，预先安装好 node.</description>
+前提 Gitee PicGo Node.js 创建 Gitee 仓库 创建公开仓库，选择单分支模型 生成私人令牌 配置 PicGo 安装 github-plus 插件，预先安装好 node.</description>
     </item>
     
     <item>
@@ -162,8 +162,10 @@ create database demo00;  我这里就用了和项目相同的数据库名。</de
       <pubDate>Wed, 24 Feb 2021 13:17:13 +0800</pubDate>
       
       <guid>https://blog.wangjialei.xyz/posts/%E6%90%AD%E5%BB%BAhugo%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E5%88%B0github/</guid>
-      <description>前提   一定要配置好git，具体教程见 windows下搭建hexo博客部署到github
-  推荐在Microsoft Store安装Windows Terminal，方便后续操作</description>
+      <description>前提 一定要配置好git，具体教程见 windows下搭建hexo博客部署到github
+推荐在Microsoft Store安装Windows Terminal，方便后续操作
+安装 下载：去GitHub主页下载 https://github.com/gohugoio/hugo/releases
+下载完解压得到</description>
     </item>
     
     <item>
@@ -173,8 +175,9 @@ create database demo00;  我这里就用了和项目相同的数据库名。</de
       
       <guid>https://blog.wangjialei.xyz/posts/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E5%88%B0github/</guid>
       <description>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。
-安装前提   git
-  node.</description>
+安装前提 git
+node.js
+git 下载安装：点击链接下载 git-scm.com</description>
     </item>
     
   </channel>

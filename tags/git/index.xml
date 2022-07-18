@@ -26,7 +26,7 @@
       
       <guid>https://blog.wangjialei.xyz/posts/%E4%BD%BF%E7%94%A8git%E5%88%9B%E5%BB%BA%E7%89%88%E6%9C%AC%E5%BA%93/</guid>
       <description>使用 Git 创建版本库 初始化 输入命令：
-mkdir &amp;lt;项目名称&amp;gt; cd &amp;lt;项目名称&amp;gt; #进入目录 git init #初始仓库，新建一个 .</description>
+mkdir &amp;lt;项目名称&amp;gt;cd &amp;lt;项目名称&amp;gt; #进入目录git init #初始仓库，新建一个 .</description>
     </item>
     
   </channel>

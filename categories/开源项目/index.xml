@@ -19,7 +19,7 @@
 演示视频：BV1oQ4y1r7tQ
 Lblog Springboot + Vue 前后端分离个人博客项目
 后端技术：
- SpringBoot Spring Data JPA sa-token hu-tool smart-doc  前端技术：</description>
+SpringBoot Spring Data JPA sa-token hu-tool smart-doc 前端技术：</description>
     </item>
     
     <item>
@@ -41,7 +41,7 @@ Lblog Springboot + Vue 前后端分离个人博客项目
       <guid>https://blog.wangjialei.xyz/posts/%E8%87%AA%E5%B7%B1%E5%86%99%E7%9A%84%E7%AE%80%E5%8D%95java%E7%9F%A9%E9%98%B5%E5%BA%93/</guid>
       <description>最近正好在学线性代数，就想着能不能用Java写个计算矩阵运算的类库，花了几个小时，简单实现了一个计算向量点乘、矩阵乘法、转置的库。
 突然想到行列式的值还没写进去，等有时间再说吧。
-/** * a class solves Matrix multiply and transpose * @version 1.</description>
+/*** a class solves Matrix multiply and transpose* @version 1.</description>
     </item>
     
     <item>
@@ -54,7 +54,7 @@ Lblog Springboot + Vue 前后端分离个人博客项目
 游戏演示视频已上传B站 BV1Cy4y127Th
 设计思路 本游戏在老师提供的代码框架下，通过调用easyx图形库、Windows API 以及查阅资料获得的能替代easyx的函数实现相应效果。
 设计思路如下：
-  实现人物行走</description>
+实现人物行走</description>
     </item>
     
   </channel>

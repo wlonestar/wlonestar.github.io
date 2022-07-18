@@ -42,7 +42,7 @@ MVC （Model–view–controller） 模式，即模型-视图-控制器。模型
       <guid>https://blog.wangjialei.xyz/posts/%E5%90%8E%E7%AB%AF%E6%8E%A5%E5%8F%A3%E8%BF%94%E5%9B%9E%E7%BB%93%E6%9E%9C%E7%BB%9F%E4%B8%80%E5%B0%81%E8%A3%85/</guid>
       <description>最近在尝试使用前后端分离的模式写一个简单的个人博客，遇到接口数据返回结构的问题，在网上查了一圈，发现了一个很好用的方法，在复现的过程中也遇到了不少坑点，特意在这记录下。
 创建 SpringBoot 项目，导入下面依赖
-&amp;lt;dependencies&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.projectlombok&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;lombok&amp;lt;/artifactId&amp;gt; &amp;lt;optional&amp;gt;true&amp;lt;/optional&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.</description>
+&amp;lt;dependencies&amp;gt;&amp;lt;dependency&amp;gt;&amp;lt;groupId&amp;gt;org.projectlombok&amp;lt;/groupId&amp;gt;&amp;lt;artifactId&amp;gt;lombok&amp;lt;/artifactId&amp;gt;&amp;lt;optional&amp;gt;true&amp;lt;/optional&amp;gt;&amp;lt;/dependency&amp;gt;&amp;lt;dependency&amp;gt;&amp;lt;groupId&amp;gt;org.</description>
     </item>
     
   </channel>

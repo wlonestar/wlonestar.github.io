@@ -16,7 +16,7 @@
       
       <guid>https://blog.wangjialei.xyz/posts/linux-04-linux%E7%A3%81%E7%9B%98%E4%B8%8E%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/</guid>
       <description>系统管理员很重要的任务之一就是管理好自己的磁盘文件系统， 每个分区不可太大也不能太小， 太大会造成磁盘容量的浪费， 太小则会产生文件无法储存的困扰。本节我们的重点在于如何制作文件系统， 包括分区、 格式化与挂载等 。
- 认识 Linux 文件系统 1.</description>
+认识 Linux 文件系统 1.</description>
     </item>
     
     <item>
@@ -26,7 +26,8 @@
       
       <guid>https://blog.wangjialei.xyz/posts/linux-03-linux%E6%96%87%E4%BB%B6%E4%B8%8E%E7%9B%AE%E5%BD%95%E7%AE%A1%E7%90%86/</guid>
       <description>在这一节中， 我们来进一步的操作与管理文件及目录。包括在不同的目录间变换、 创建与删除目录、创建与删除文件、寻找文件、查阅文件内容等。
- 目录与路径 相对路径与绝对路径   相对路径的用途：</description>
+目录与路径 相对路径与绝对路径 相对路径的用途：
+假设你写了一个软件， 这个软件共需要三个目录，分别是 etc, bin, man 这三个目录， 然而由于不同的人喜欢安装在不同的目录之下，假设甲安装的目录是 /usr/local/packages/etc, /usr/local/packages/bin及 /usr/local/packages/man ， 不过乙却喜欢安装在 /home/packages/etc, /home/packages/bin, /home/packages/man 这三个目录中，如果用绝对路径，每个目录下的东西就很难对应的起来，这个时候相对路径的写法就显的特别的重要。</description>
     </item>
     
     <item>
@@ -44,8 +45,8 @@
       <pubDate>Thu, 25 Feb 2021 21:41:52 +0800</pubDate>
       
       <guid>https://blog.wangjialei.xyz/posts/linux-01-%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AE%89%E8%A3%85ubuntu20.04/</guid>
-      <description>前提   Ubuntu20.04 系统镜像 ubuntu20.04.2.0LTS
-  VMware workstation 虚拟机 VMware Workstation 16 Pro</description>
+      <description>前提 Ubuntu20.04 系统镜像 ubuntu20.04.2.0LTS
+VMware workstation 虚拟机 VMware Workstation 16 Pro</description>
     </item>
     
   </channel>

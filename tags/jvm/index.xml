@@ -20,7 +20,8 @@ Java堆和方法区不一样，一个接口中的多个实现类需要的内存�
 对象已死 垃圾收集器在对堆进行回收前，先要确定存放在堆中的对象实例有哪些还“存活着”，哪些已经“死去”。
 引用计数算法 计数算法：给对象中添加一个引用计数器，每当有一个地方引用它时，计数器值就加1；当引用失效时，计数器值就减1；任何时刻计数器都为0的对象就是不可能再被使用的。
 Java语言中没有选用引用计数算法来管理内存，因为它很难解决对象之间的相互循环引用的问题。
- 引用计数算法的缺陷</description>
+引用计数算法的缺陷
+public class ReferenceCountingGC {public Object instance = null;private static final int _1MB = 1024 * 1024;private final byte[] bigSize = new byte[2 * _1MB];public void testGC() {ReferenceCountingGC objA = new ReferenceCountingGC();ReferenceCountingGC objB = new ReferenceCountingGC();objA.</description>
     </item>
     
     <item>
@@ -44,7 +45,7 @@ Java虚拟机栈 虚拟机栈描述的是Java方法执行的内存模型：每�
       
       <guid>https://blog.wangjialei.xyz/posts/java%E8%99%9A%E6%8B%9F%E6%9C%BA-01-%E8%B5%B0%E8%BF%91java/</guid>
       <description>Java技术体系 Sun官方定义的Java技术体系包括：
- Java程序设计语言 各种硬件平台上的Java虚拟机 Class文件格式 Java API类库 来自商业机构和开源社区的第三方Java类库  JDK（Java Development Kit）包括Java程序设计语言、Java虚拟机、Java API类库三部分，JDK是用于支持Java程序开发的最小环境。</description>
+Java程序设计语言 各种硬件平台上的Java虚拟机 Class文件格式 Java API类库 来自商业机构和开源社区的第三方Java类库 JDK（Java Development Kit）包括Java程序设计语言、Java虚拟机、Java API类库三部分，JDK是用于支持Java程序开发的最小环境。</description>
     </item>
     
   </channel>

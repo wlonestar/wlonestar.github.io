@@ -19,7 +19,7 @@
 游戏演示视频已上传B站 BV1Cy4y127Th
 设计思路 本游戏在老师提供的代码框架下，通过调用easyx图形库、Windows API 以及查阅资料获得的能替代easyx的函数实现相应效果。
 设计思路如下：
-  实现人物行走</description>
+实现人物行走</description>
     </item>
     
   </channel>

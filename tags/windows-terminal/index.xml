@@ -16,7 +16,7 @@
       
       <guid>https://blog.wangjialei.xyz/posts/%E4%BD%BF%E7%94%A8oh-my-posh%E9%85%8D%E7%BD%AEwindows-terminal/</guid>
       <description>越看越觉得 Windows Terminal 的配置难看，就想着换个主题配色什么的，直接去官网看文档，官方推荐使用 Powerline，就按照文档一步步来，最终效果也还不错，权当记录一下配置过程。
-安装 Powerline 字体  Powerline 使用字形来设置提示符样式。 如果你的字体不包含 Powerline 字形，则在整个提示符中，你可能会看到若干 Unicode 替换字符“&amp;amp;#x25AF”。 尽管 Cascadia Mono 不包括 Powerline 字形，但你可以安装 Cascadia Code PL 或 Cascadia Mono PL，这两者包含 Powerline 字形。 可以从 Cascadia Code GitHub 发布页安装这些字体。</description>
+安装 Powerline 字体 Powerline 使用字形来设置提示符样式。 如果你的字体不包含 Powerline 字形，则在整个提示符中，你可能会看到若干 Unicode 替换字符“&amp;amp;#x25AF”。 尽管 Cascadia Mono 不包括 Powerline 字形，但你可以安装 Cascadia Code PL 或 Cascadia Mono PL，这两者包含 Powerline 字形。 可以从 Cascadia Code GitHub 发布页安装这些字体。</description>
     </item>
     
   </channel>

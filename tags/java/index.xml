@@ -16,7 +16,7 @@
       
       <guid>https://blog.wangjialei.xyz/posts/jsp%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE-%E5%86%85%E7%BD%AEtomact%E6%9C%8D%E5%8A%A1%E5%99%A8/</guid>
       <description>安装 JDK 和 Maven JDK 下载链接： open-jdk-17
- 下载压缩包解压到合适路径  添加到环境变量  在系统变量新建变量 JAVA_HOME</description>
+下载压缩包解压到合适路径 添加到环境变量 在系统变量新建变量 JAVA_HOME</description>
     </item>
     
     <item>
@@ -37,7 +37,7 @@ Java - Static Class, Block, Methods and Variables (beginnersbook.</description>
       <guid>https://blog.wangjialei.xyz/posts/%E7%AE%97%E6%B3%95%E5%87%A0%E7%A7%8D%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E7%9A%84%E6%80%BB%E7%BB%93/</guid>
       <description>在线可视化算法演示：VisuAlgo - 排序
 对插入排序、选择排序、希尔排序、归并排序、快速排序这五种排序算法的总结
-选择排序  选定数组第一个元素为最小，遍历整个数组，如果有比第一个元素小且是最小的，将二者交换 选定第二个元素为最小，对余下的数组遍历，如果有更小的，将其与第二个元素交换 重复2，直至到达最后一个元素  Java 代码实现：</description>
+选择排序 选定数组第一个元素为最小，遍历整个数组，如果有比第一个元素小且是最小的，将二者交换 选定第二个元素为最小，对余下的数组遍历，如果有更小的，将其与第二个元素交换 重复2，直至到达最后一个元素 Java 代码实现：</description>
     </item>
     
     <item>
@@ -46,8 +46,8 @@ Java - Static Class, Block, Methods and Variables (beginnersbook.</description>
       <pubDate>Tue, 31 Aug 2021 14:42:35 +0800</pubDate>
       
       <guid>https://blog.wangjialei.xyz/posts/java%E7%BB%86%E7%A2%8E%E7%9F%A5%E8%AF%86%E7%82%B9/</guid>
-      <description>tips:    Math.abs(-2147483648)  返回 -2147483648 ，因为整数溢出
-  Double.</description>
+      <description>tips: Math.abs(-2147483648)返回 -2147483648 ，因为整数溢出
+Double.POSITIVE_INFINITYDouble.NEGATIVE_INFINITY将 double 变量初始化为无穷大</description>
     </item>
     
     <item>
@@ -65,7 +65,8 @@ Java - Static Class, Block, Methods and Variables (beginnersbook.</description>
       <pubDate>Sat, 10 Jul 2021 23:16:27 +0800</pubDate>
       
       <guid>https://blog.wangjialei.xyz/posts/java%E5%9F%BA%E7%A1%80%E5%90%88%E9%9B%86/</guid>
-      <description>Java 程序设计概述 Java 的关键词：   简单性：“ Java 语法是 C++ 语法的一个‘纯净’版本”，没有头文件、指针运算、结构、联合、操作符重载、虚基类等。</description>
+      <description>Java 程序设计概述 Java 的关键词： 简单性：“ Java 语法是 C++ 语法的一个‘纯净’版本”，没有头文件、指针运算、结构、联合、操作符重载、虚基类等。
+面向对象：将对象视为奇特的变量，可以存储数据、在自身上执行操作。</description>
     </item>
     
     <item>
@@ -88,7 +89,7 @@ Java - Static Class, Block, Methods and Variables (beginnersbook.</description>
       <guid>https://blog.wangjialei.xyz/posts/%E8%87%AA%E5%B7%B1%E5%86%99%E7%9A%84%E7%AE%80%E5%8D%95java%E7%9F%A9%E9%98%B5%E5%BA%93/</guid>
       <description>最近正好在学线性代数，就想着能不能用Java写个计算矩阵运算的类库，花了几个小时，简单实现了一个计算向量点乘、矩阵乘法、转置的库。
 突然想到行列式的值还没写进去，等有时间再说吧。
-/** * a class solves Matrix multiply and transpose * @version 1.</description>
+/*** a class solves Matrix multiply and transpose* @version 1.</description>
     </item>
     
     <item>
@@ -102,7 +103,8 @@ Java堆和方法区不一样，一个接口中的多个实现类需要的内存�
 对象已死 垃圾收集器在对堆进行回收前，先要确定存放在堆中的对象实例有哪些还“存活着”，哪些已经“死去”。
 引用计数算法 计数算法：给对象中添加一个引用计数器，每当有一个地方引用它时，计数器值就加1；当引用失效时，计数器值就减1；任何时刻计数器都为0的对象就是不可能再被使用的。
 Java语言中没有选用引用计数算法来管理内存，因为它很难解决对象之间的相互循环引用的问题。
- 引用计数算法的缺陷</description>
+引用计数算法的缺陷
+public class ReferenceCountingGC {public Object instance = null;private static final int _1MB = 1024 * 1024;private final byte[] bigSize = new byte[2 * _1MB];public void testGC() {ReferenceCountingGC objA = new ReferenceCountingGC();ReferenceCountingGC objB = new ReferenceCountingGC();objA.</description>
     </item>
     
     <item>
@@ -126,7 +128,7 @@ Java虚拟机栈 虚拟机栈描述的是Java方法执行的内存模型：每�
       
       <guid>https://blog.wangjialei.xyz/posts/java%E8%99%9A%E6%8B%9F%E6%9C%BA-01-%E8%B5%B0%E8%BF%91java/</guid>
       <description>Java技术体系 Sun官方定义的Java技术体系包括：
- Java程序设计语言 各种硬件平台上的Java虚拟机 Class文件格式 Java API类库 来自商业机构和开源社区的第三方Java类库  JDK（Java Development Kit）包括Java程序设计语言、Java虚拟机、Java API类库三部分，JDK是用于支持Java程序开发的最小环境。</description>
+Java程序设计语言 各种硬件平台上的Java虚拟机 Class文件格式 Java API类库 来自商业机构和开源社区的第三方Java类库 JDK（Java Development Kit）包括Java程序设计语言、Java虚拟机、Java API类库三部分，JDK是用于支持Java程序开发的最小环境。</description>
     </item>
     
   </channel>

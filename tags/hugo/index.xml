@@ -28,7 +28,7 @@
       <guid>https://blog.wangjialei.xyz/posts/%E4%BD%BF%E7%94%A8nginx%E6%89%98%E7%AE%A1hugo%E5%8D%9A%E5%AE%A2/</guid>
       <description>这几天一直在折腾云服务器，为了避免备案，我买了一台香港的云服务器。想着把博客转移到服务器上，因为 GitHub Pages 太慢了。
 可能是图片比较多，使用的那个主题比较耗资源，顺便换个主题，哪知道配置nginx就花了我两天时间，现在终于配置好了，博客顺利转移过来了，记录一下，防止忘了。
-本地 hugo 博客生成  生成站点  hugo new site blog  编辑配置文件  --blog |-archetypes |-content |-layouts |-static |-themes |-config.</description>
+本地 hugo 博客生成 生成站点 hugo new site blog编辑配置文件 --blog|-archetypes|-content|-layouts|-static|-themes|-config.</description>
     </item>
     
     <item>
@@ -50,8 +50,10 @@
       <pubDate>Wed, 24 Feb 2021 13:17:13 +0800</pubDate>
       
       <guid>https://blog.wangjialei.xyz/posts/%E6%90%AD%E5%BB%BAhugo%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E5%88%B0github/</guid>
-      <description>前提   一定要配置好git，具体教程见 windows下搭建hexo博客部署到github
-  推荐在Microsoft Store安装Windows Terminal，方便后续操作</description>
+      <description>前提 一定要配置好git，具体教程见 windows下搭建hexo博客部署到github
+推荐在Microsoft Store安装Windows Terminal，方便后续操作
+安装 下载：去GitHub主页下载 https://github.com/gohugoio/hugo/releases
+下载完解压得到</description>
     </item>
     
   </channel>

@@ -48,7 +48,7 @@ Spring Boot 微服务集成 DJL 这里选择 Kotlin + Gradle + Spring Boot 搭�
       
       <guid>https://blog.wangjialei.xyz/posts/jsp%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE-%E5%86%85%E7%BD%AEtomact%E6%9C%8D%E5%8A%A1%E5%99%A8/</guid>
       <description>安装 JDK 和 Maven JDK 下载链接： open-jdk-17
- 下载压缩包解压到合适路径  添加到环境变量  在系统变量新建变量 JAVA_HOME</description>
+下载压缩包解压到合适路径 添加到环境变量 在系统变量新建变量 JAVA_HOME</description>
     </item>
     
     <item>
@@ -57,7 +57,7 @@ Spring Boot 微服务集成 DJL 这里选择 Kotlin + Gradle + Spring Boot 搭�
       <pubDate>Thu, 10 Mar 2022 16:54:04 +0800</pubDate>
       
       <guid>https://blog.wangjialei.xyz/posts/pytorch%E9%83%A8%E7%BD%B2/</guid>
-      <description>服务器基本配置 ssh 免密登录 # open authorized_keys vim ~/.ssh/authorized_keys # copy local public key to it  conda 下载安装 # install miniconda bash Miniconda3-py39_4.</description>
+      <description>服务器基本配置 ssh 免密登录 # open authorized_keysvim ~/.ssh/authorized_keys# copy local public key to itconda 下载安装 # install minicondabash Miniconda3-py39_4.</description>
     </item>
     
     <item>
@@ -163,7 +163,7 @@ wjl-lab/spring-board: 基于 springboot 的简单登录注册网站 (github.</de
 演示视频：BV1oQ4y1r7tQ
 Lblog Springboot + Vue 前后端分离个人博客项目
 后端技术：
- SpringBoot Spring Data JPA sa-token hu-tool smart-doc  前端技术：</description>
+SpringBoot Spring Data JPA sa-token hu-tool smart-doc 前端技术：</description>
     </item>
     
     <item>
@@ -174,7 +174,7 @@ Lblog Springboot + Vue 前后端分离个人博客项目
       <guid>https://blog.wangjialei.xyz/posts/%E7%AE%97%E6%B3%95%E5%87%A0%E7%A7%8D%E6%8E%92%E5%BA%8F%E7%AE%97%E6%B3%95%E7%9A%84%E6%80%BB%E7%BB%93/</guid>
       <description>在线可视化算法演示：VisuAlgo - 排序
 对插入排序、选择排序、希尔排序、归并排序、快速排序这五种排序算法的总结
-选择排序  选定数组第一个元素为最小，遍历整个数组，如果有比第一个元素小且是最小的，将二者交换 选定第二个元素为最小，对余下的数组遍历，如果有更小的，将其与第二个元素交换 重复2，直至到达最后一个元素  Java 代码实现：</description>
+选择排序 选定数组第一个元素为最小，遍历整个数组，如果有比第一个元素小且是最小的，将二者交换 选定第二个元素为最小，对余下的数组遍历，如果有更小的，将其与第二个元素交换 重复2，直至到达最后一个元素 Java 代码实现：</description>
     </item>
     
     <item>
@@ -193,8 +193,8 @@ Lblog Springboot + Vue 前后端分离个人博客项目
       <pubDate>Tue, 31 Aug 2021 14:42:35 +0800</pubDate>
       
       <guid>https://blog.wangjialei.xyz/posts/java%E7%BB%86%E7%A2%8E%E7%9F%A5%E8%AF%86%E7%82%B9/</guid>
-      <description>tips:    Math.abs(-2147483648)  返回 -2147483648 ，因为整数溢出
-  Double.</description>
+      <description>tips: Math.abs(-2147483648)返回 -2147483648 ，因为整数溢出
+Double.POSITIVE_INFINITYDouble.NEGATIVE_INFINITY将 double 变量初始化为无穷大</description>
     </item>
     
     <item>
@@ -227,7 +227,7 @@ MVC （Model–view–controller） 模式，即模型-视图-控制器。模型
       <guid>https://blog.wangjialei.xyz/posts/%E5%90%8E%E7%AB%AF%E6%8E%A5%E5%8F%A3%E8%BF%94%E5%9B%9E%E7%BB%93%E6%9E%9C%E7%BB%9F%E4%B8%80%E5%B0%81%E8%A3%85/</guid>
       <description>最近在尝试使用前后端分离的模式写一个简单的个人博客，遇到接口数据返回结构的问题，在网上查了一圈，发现了一个很好用的方法，在复现的过程中也遇到了不少坑点，特意在这记录下。
 创建 SpringBoot 项目，导入下面依赖
-&amp;lt;dependencies&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.projectlombok&amp;lt;/groupId&amp;gt; &amp;lt;artifactId&amp;gt;lombok&amp;lt;/artifactId&amp;gt; &amp;lt;optional&amp;gt;true&amp;lt;/optional&amp;gt; &amp;lt;/dependency&amp;gt; &amp;lt;dependency&amp;gt; &amp;lt;groupId&amp;gt;org.</description>
+&amp;lt;dependencies&amp;gt;&amp;lt;dependency&amp;gt;&amp;lt;groupId&amp;gt;org.projectlombok&amp;lt;/groupId&amp;gt;&amp;lt;artifactId&amp;gt;lombok&amp;lt;/artifactId&amp;gt;&amp;lt;optional&amp;gt;true&amp;lt;/optional&amp;gt;&amp;lt;/dependency&amp;gt;&amp;lt;dependency&amp;gt;&amp;lt;groupId&amp;gt;org.</description>
     </item>
     
     <item>
@@ -273,7 +273,8 @@ MVC （Model–view–controller） 模式，即模型-视图-控制器。模型
       <pubDate>Sat, 10 Jul 2021 23:16:27 +0800</pubDate>
       
       <guid>https://blog.wangjialei.xyz/posts/java%E5%9F%BA%E7%A1%80%E5%90%88%E9%9B%86/</guid>
-      <description>Java 程序设计概述 Java 的关键词：   简单性：“ Java 语法是 C++ 语法的一个‘纯净’版本”，没有头文件、指针运算、结构、联合、操作符重载、虚基类等。</description>
+      <description>Java 程序设计概述 Java 的关键词： 简单性：“ Java 语法是 C++ 语法的一个‘纯净’版本”，没有头文件、指针运算、结构、联合、操作符重载、虚基类等。
+面向对象：将对象视为奇特的变量，可以存储数据、在自身上执行操作。</description>
     </item>
     
     <item>
@@ -284,7 +285,7 @@ MVC （Model–view–controller） 模式，即模型-视图-控制器。模型
       <guid>https://blog.wangjialei.xyz/posts/%E4%BD%BF%E7%94%A8nginx%E6%89%98%E7%AE%A1hugo%E5%8D%9A%E5%AE%A2/</guid>
       <description>这几天一直在折腾云服务器，为了避免备案，我买了一台香港的云服务器。想着把博客转移到服务器上，因为 GitHub Pages 太慢了。
 可能是图片比较多，使用的那个主题比较耗资源，顺便换个主题，哪知道配置nginx就花了我两天时间，现在终于配置好了，博客顺利转移过来了，记录一下，防止忘了。
-本地 hugo 博客生成  生成站点  hugo new site blog  编辑配置文件  --blog |-archetypes |-content |-layouts |-static |-themes |-config.</description>
+本地 hugo 博客生成 生成站点 hugo new site blog编辑配置文件 --blog|-archetypes|-content|-layouts|-static|-themes|-config.</description>
     </item>
     
     <item>
@@ -294,7 +295,7 @@ MVC （Model–view–controller） 模式，即模型-视图-控制器。模型
       
       <guid>https://blog.wangjialei.xyz/posts/%E4%BD%BF%E7%94%A8oh-my-posh%E9%85%8D%E7%BD%AEwindows-terminal/</guid>
       <description>越看越觉得 Windows Terminal 的配置难看，就想着换个主题配色什么的，直接去官网看文档，官方推荐使用 Powerline，就按照文档一步步来，最终效果也还不错，权当记录一下配置过程。
-安装 Powerline 字体  Powerline 使用字形来设置提示符样式。 如果你的字体不包含 Powerline 字形，则在整个提示符中，你可能会看到若干 Unicode 替换字符“&amp;amp;#x25AF”。 尽管 Cascadia Mono 不包括 Powerline 字形，但你可以安装 Cascadia Code PL 或 Cascadia Mono PL，这两者包含 Powerline 字形。 可以从 Cascadia Code GitHub 发布页安装这些字体。</description>
+安装 Powerline 字体 Powerline 使用字形来设置提示符样式。 如果你的字体不包含 Powerline 字形，则在整个提示符中，你可能会看到若干 Unicode 替换字符“&amp;amp;#x25AF”。 尽管 Cascadia Mono 不包括 Powerline 字形，但你可以安装 Cascadia Code PL 或 Cascadia Mono PL，这两者包含 Powerline 字形。 可以从 Cascadia Code GitHub 发布页安装这些字体。</description>
     </item>
     
     <item>
@@ -330,9 +331,10 @@ MVC （Model–view–controller） 模式，即模型-视图-控制器。模型
       <pubDate>Thu, 27 May 2021 14:19:52 +0800</pubDate>
       
       <guid>https://blog.wangjialei.xyz/posts/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C-00-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C%E6%A6%82%E8%BF%B0/</guid>
-      <description>计算机网络概述 计算机网络   计算机网络是通信技术与计算机技术紧密结合的产物
-  计算机网络就是一种通信网络
-  定义：计算机网络就是互连的、自治的计算机集合。</description>
+      <description>计算机网络概述 计算机网络 计算机网络是通信技术与计算机技术紧密结合的产物
+计算机网络就是一种通信网络
+定义：计算机网络就是互连的、自治的计算机集合。
+自治：无主从关系 互联：互联互通 Internet ISP(Internet Service Provider) 网络互联的“网络之网络”</description>
     </item>
     
     <item>
@@ -343,8 +345,8 @@ MVC （Model–view–controller） 模式，即模型-视图-控制器。模型
       <guid>https://blog.wangjialei.xyz/posts/%E4%B8%80%E4%B8%AA%E7%AE%80%E5%8D%95%E4%BD%86%E5%AE%8C%E6%95%B4%E7%9A%84springboot%E9%A1%B9%E7%9B%AE/</guid>
       <description>还记得我之前留的坑吧，想想还是今天把它填了吧，可能再过几天就又忘了。
 我就按照我目前学习到的内容写一篇教程，关于创建一个 spring boot web 项目的全过程。
- 新建数据库 打开MySQL命令行，输入命令新建数据库
-create database demo00;  我这里就用了和项目相同的数据库名。</description>
+新建数据库 打开MySQL命令行，输入命令新建数据库
+create database demo00;我这里就用了和项目相同的数据库名。</description>
     </item>
     
     <item>
@@ -394,7 +396,7 @@ create database demo00;  我这里就用了和项目相同的数据库名。</de
       <guid>https://blog.wangjialei.xyz/posts/%E8%87%AA%E5%B7%B1%E5%86%99%E7%9A%84%E7%AE%80%E5%8D%95java%E7%9F%A9%E9%98%B5%E5%BA%93/</guid>
       <description>最近正好在学线性代数，就想着能不能用Java写个计算矩阵运算的类库，花了几个小时，简单实现了一个计算向量点乘、矩阵乘法、转置的库。
 突然想到行列式的值还没写进去，等有时间再说吧。
-/** * a class solves Matrix multiply and transpose * @version 1.</description>
+/*** a class solves Matrix multiply and transpose* @version 1.</description>
     </item>
     
     <item>
@@ -423,7 +425,8 @@ Java堆和方法区不一样，一个接口中的多个实现类需要的内存�
 对象已死 垃圾收集器在对堆进行回收前，先要确定存放在堆中的对象实例有哪些还“存活着”，哪些已经“死去”。
 引用计数算法 计数算法：给对象中添加一个引用计数器，每当有一个地方引用它时，计数器值就加1；当引用失效时，计数器值就减1；任何时刻计数器都为0的对象就是不可能再被使用的。
 Java语言中没有选用引用计数算法来管理内存，因为它很难解决对象之间的相互循环引用的问题。
- 引用计数算法的缺陷</description>
+引用计数算法的缺陷
+public class ReferenceCountingGC {public Object instance = null;private static final int _1MB = 1024 * 1024;private final byte[] bigSize = new byte[2 * _1MB];public void testGC() {ReferenceCountingGC objA = new ReferenceCountingGC();ReferenceCountingGC objB = new ReferenceCountingGC();objA.</description>
     </item>
     
     <item>
@@ -447,7 +450,7 @@ Java虚拟机栈 虚拟机栈描述的是Java方法执行的内存模型：每�
       
       <guid>https://blog.wangjialei.xyz/posts/java%E8%99%9A%E6%8B%9F%E6%9C%BA-01-%E8%B5%B0%E8%BF%91java/</guid>
       <description>Java技术体系 Sun官方定义的Java技术体系包括：
- Java程序设计语言 各种硬件平台上的Java虚拟机 Class文件格式 Java API类库 来自商业机构和开源社区的第三方Java类库  JDK（Java Development Kit）包括Java程序设计语言、Java虚拟机、Java API类库三部分，JDK是用于支持Java程序开发的最小环境。</description>
+Java程序设计语言 各种硬件平台上的Java虚拟机 Class文件格式 Java API类库 来自商业机构和开源社区的第三方Java类库 JDK（Java Development Kit）包括Java程序设计语言、Java虚拟机、Java API类库三部分，JDK是用于支持Java程序开发的最小环境。</description>
     </item>
     
     <item>
@@ -468,7 +471,7 @@ Java虚拟机栈 虚拟机栈描述的是Java方法执行的内存模型：每�
       
       <guid>https://blog.wangjialei.xyz/posts/linux-04-linux%E7%A3%81%E7%9B%98%E4%B8%8E%E6%96%87%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86/</guid>
       <description>系统管理员很重要的任务之一就是管理好自己的磁盘文件系统， 每个分区不可太大也不能太小， 太大会造成磁盘容量的浪费， 太小则会产生文件无法储存的困扰。本节我们的重点在于如何制作文件系统， 包括分区、 格式化与挂载等 。
- 认识 Linux 文件系统 1.</description>
+认识 Linux 文件系统 1.</description>
     </item>
     
     <item>
@@ -478,7 +481,8 @@ Java虚拟机栈 虚拟机栈描述的是Java方法执行的内存模型：每�
       
       <guid>https://blog.wangjialei.xyz/posts/linux-03-linux%E6%96%87%E4%BB%B6%E4%B8%8E%E7%9B%AE%E5%BD%95%E7%AE%A1%E7%90%86/</guid>
       <description>在这一节中， 我们来进一步的操作与管理文件及目录。包括在不同的目录间变换、 创建与删除目录、创建与删除文件、寻找文件、查阅文件内容等。
- 目录与路径 相对路径与绝对路径   相对路径的用途：</description>
+目录与路径 相对路径与绝对路径 相对路径的用途：
+假设你写了一个软件， 这个软件共需要三个目录，分别是 etc, bin, man 这三个目录， 然而由于不同的人喜欢安装在不同的目录之下，假设甲安装的目录是 /usr/local/packages/etc, /usr/local/packages/bin及 /usr/local/packages/man ， 不过乙却喜欢安装在 /home/packages/etc, /home/packages/bin, /home/packages/man 这三个目录中，如果用绝对路径，每个目录下的东西就很难对应的起来，这个时候相对路径的写法就显的特别的重要。</description>
     </item>
     
     <item>
@@ -491,7 +495,7 @@ Java虚拟机栈 虚拟机栈描述的是Java方法执行的内存模型：每�
 游戏演示视频已上传B站 BV1Cy4y127Th
 设计思路 本游戏在老师提供的代码框架下，通过调用easyx图形库、Windows API 以及查阅资料获得的能替代easyx的函数实现相应效果。
 设计思路如下：
-  实现人物行走</description>
+实现人物行走</description>
     </item>
     
     <item>
@@ -510,7 +514,7 @@ Java虚拟机栈 虚拟机栈描述的是Java方法执行的内存模型：每�
       
       <guid>https://blog.wangjialei.xyz/posts/%E4%BD%BF%E7%94%A8git%E5%88%9B%E5%BB%BA%E7%89%88%E6%9C%AC%E5%BA%93/</guid>
       <description>使用 Git 创建版本库 初始化 输入命令：
-mkdir &amp;lt;项目名称&amp;gt; cd &amp;lt;项目名称&amp;gt; #进入目录 git init #初始仓库，新建一个 .</description>
+mkdir &amp;lt;项目名称&amp;gt;cd &amp;lt;项目名称&amp;gt; #进入目录git init #初始仓库，新建一个 .</description>
     </item>
     
     <item>
@@ -519,8 +523,8 @@ mkdir &amp;lt;项目名称&amp;gt; cd &amp;lt;项目名称&amp;gt; #进入目录
       <pubDate>Thu, 25 Feb 2021 21:41:52 +0800</pubDate>
       
       <guid>https://blog.wangjialei.xyz/posts/linux-01-%E8%99%9A%E6%8B%9F%E6%9C%BA%E5%AE%89%E8%A3%85ubuntu20.04/</guid>
-      <description>前提   Ubuntu20.04 系统镜像 ubuntu20.04.2.0LTS
-  VMware workstation 虚拟机 VMware Workstation 16 Pro</description>
+      <description>前提 Ubuntu20.04 系统镜像 ubuntu20.04.2.0LTS
+VMware workstation 虚拟机 VMware Workstation 16 Pro</description>
     </item>
     
     <item>
@@ -530,7 +534,7 @@ mkdir &amp;lt;项目名称&amp;gt; cd &amp;lt;项目名称&amp;gt; #进入目录
       
       <guid>https://blog.wangjialei.xyz/posts/picgo&#43;gitee%E5%9B%BE%E5%BA%8A%E6%90%AD%E5%BB%BA/</guid>
       <description>本文参考 PICGO+Gitee搭建图床 ，无意间发现宝藏，于是实操，解决图片痛点，万分感谢。
- 前提  Gitee PicGo Node.js  创建 Gitee 仓库 创建公开仓库，选择单分支模型 生成私人令牌 配置 PicGo 安装 github-plus 插件，预先安装好 node.</description>
+前提 Gitee PicGo Node.js 创建 Gitee 仓库 创建公开仓库，选择单分支模型 生成私人令牌 配置 PicGo 安装 github-plus 插件，预先安装好 node.</description>
     </item>
     
     <item>
@@ -539,8 +543,10 @@ mkdir &amp;lt;项目名称&amp;gt; cd &amp;lt;项目名称&amp;gt; #进入目录
       <pubDate>Wed, 24 Feb 2021 13:17:13 +0800</pubDate>
       
       <guid>https://blog.wangjialei.xyz/posts/%E6%90%AD%E5%BB%BAhugo%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E5%88%B0github/</guid>
-      <description>前提   一定要配置好git，具体教程见 windows下搭建hexo博客部署到github
-  推荐在Microsoft Store安装Windows Terminal，方便后续操作</description>
+      <description>前提 一定要配置好git，具体教程见 windows下搭建hexo博客部署到github
+推荐在Microsoft Store安装Windows Terminal，方便后续操作
+安装 下载：去GitHub主页下载 https://github.com/gohugoio/hugo/releases
+下载完解压得到</description>
     </item>
     
     <item>
@@ -550,8 +556,9 @@ mkdir &amp;lt;项目名称&amp;gt; cd &amp;lt;项目名称&amp;gt; #进入目录
       
       <guid>https://blog.wangjialei.xyz/posts/%E6%90%AD%E5%BB%BAhexo%E5%8D%9A%E5%AE%A2%E9%83%A8%E7%BD%B2%E5%88%B0github/</guid>
       <description>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页。
-安装前提   git
-  node.</description>
+安装前提 git
+node.js
+git 下载安装：点击链接下载 git-scm.com</description>
     </item>
     
     <item>

@@ -27,7 +27,7 @@ Spring Boot 微服务集成 DJL 这里选择 Kotlin + Gradle + Spring Boot 搭�
       <pubDate>Thu, 10 Mar 2022 16:54:04 +0800</pubDate>
       
       <guid>https://blog.wangjialei.xyz/posts/pytorch%E9%83%A8%E7%BD%B2/</guid>
-      <description>服务器基本配置 ssh 免密登录 # open authorized_keys vim ~/.ssh/authorized_keys # copy local public key to it  conda 下载安装 # install miniconda bash Miniconda3-py39_4.</description>
+      <description>服务器基本配置 ssh 免密登录 # open authorized_keysvim ~/.ssh/authorized_keys# copy local public key to itconda 下载安装 # install minicondabash Miniconda3-py39_4.</description>
     </item>
     
   </channel>

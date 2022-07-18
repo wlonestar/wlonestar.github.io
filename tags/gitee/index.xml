@@ -16,7 +16,7 @@
       
       <guid>https://blog.wangjialei.xyz/posts/picgo&#43;gitee%E5%9B%BE%E5%BA%8A%E6%90%AD%E5%BB%BA/</guid>
       <description>本文参考 PICGO+Gitee搭建图床 ，无意间发现宝藏，于是实操，解决图片痛点，万分感谢。
- 前提  Gitee PicGo Node.js  创建 Gitee 仓库 创建公开仓库，选择单分支模型 生成私人令牌 配置 PicGo 安装 github-plus 插件，预先安装好 node.</description>
+前提 Gitee PicGo Node.js 创建 Gitee 仓库 创建公开仓库，选择单分支模型 生成私人令牌 配置 PicGo 安装 github-plus 插件，预先安装好 node.</description>
     </item>
     
   </channel>

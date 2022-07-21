@@ -1,41 +1,58 @@
 <!DOCTYPE html>
-<html lang='zh' ><meta charset="utf-8">
-<meta name="viewport" content="width=device-width">
+<html
+  lang="zh"
+  dir="ltr"
+  
+><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 
 
 <title>使用DJL库部署深度学习模型 | LoneStar&#39;s blog</title>
 
-<meta name="generator" content="Hugo Eureka 0.8.4" />
-<link rel="stylesheet" href="https://blog.wangjialei.xyz/css/eureka.css">
-<script defer src="https://blog.wangjialei.xyz/js/eureka.min.js"></script>
+<meta name="generator" content="Hugo Eureka 0.9.3" />
+<link rel="stylesheet" href="https://blog.wangjialei.xyz/css/eureka.min.9cec6350e37e534b0338fa9a085bf06855de3b0f2dcf857e792e5e97b07ea905d4d5513db554cbc26a9c3da622bae92d.css">
+<script defer src="https://blog.wangjialei.xyz/js/eureka.min.fa9a6bf6d7a50bb635b4cca7d2ba5cf3dfb095ae3798773f1328f7950028b48c17d06276594e1b5f244a25a6c969a705.js"></script>
 
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preload"
-  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&family=Noto+Serif+SC:wght@400;600;700&display=swap"
+  href="https://fonts.googleapis.com/css2?family=Lora:wght@400;600;700&amp;family=Noto&#43;Serif&#43;SC:wght@400;600;700&amp;display=swap"
   as="style" onload="this.onload=null;this.rel='stylesheet'">
+
+
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/styles/stackoverflow-light.min.css"
    media="print"
   onload="this.media='all';this.onload=null" crossorigin>
 <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/highlight.min.js"
    crossorigin></script>
-
   <script defer src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.4.0/build/languages/light.min.js"
      crossorigin></script>
-
-<script defer src="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.14.0/js/all.min.js"
-   integrity="sha256-uNYoXefWRqv&#43;PsIF/OflNmwtKM4lStn9yrz2gVl6ymo="  crossorigin></script>
+<link rel="stylesheet" href="https://blog.wangjialei.xyz/css/highlightjs.min.2958991528e43eb6fc9b8c4f2b8e052f79c4010718e1d1e888a777620e9ee63021c2c57ec7417a3108019bb8c41943e6.css" media="print" onload="this.media='all';this.onload=null">
 
 
+<script defer type="text/javascript" src="https://blog.wangjialei.xyz/js/fontawesome.min.d9ba21a4e7c7dbe0ba1f8b62ea1dda063fb92d88bd994ccb206ced4f4c9081fe517f9b61b57efd649e9edbdff33a2114.js"></script>
 
 
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css"
-   integrity="sha384-AfEj0r4/OFrOo5t7NnNe46zW/tFgW6x/bCJG8FqQCEo3&#43;Aro6EYUG4&#43;cU&#43;KJWu/X"  media="print"
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.css"
+   integrity="sha384-MlJdn/WNKDGXveldHDdyRP1R4CTHr3FeuDNfhsLPYrq2t0UBkUdK2jyTnXPEK1NQ"  media="print"
   onload="this.media='all';this.onload=null" crossorigin>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.js" 
-  integrity="sha384-g7c&#43;Jr9ZivxKLnZTDUhnkOnsh30B4H0rpLUpJ4jAIKs4fnJI&#43;sEnkvrMWph2EDg4"  crossorigin></script>
-<script defer src="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/contrib/auto-render.min.js"
-   integrity="sha384-mll67QQFJfxn0IYznZYonOWZ644AWYC&#43;Pt2cHqMaRhXVrursRwvLnLaebdGIlYNa"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/katex.min.js" 
+  integrity="sha384-VQ8d8WVFw0yHhCk5E8I86oOhv48xLpnDZx5T9GogA/Y84DcCKWXDmSDfn13bzFZY"  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.15.2/dist/contrib/auto-render.min.js"
+   integrity="sha384-&#43;XBljXPPiv&#43;OzfbB3cVmLHf4hdUFHlWNZN5spNQ7rmHTXpd7WvJum6fIACpNNfIR"  crossorigin></script>
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     renderMathInElement(document.body, {
@@ -50,8 +67,8 @@
 </script>
 
 
-<script defer src="https://cdn.jsdelivr.net/npm/mermaid@8.9.2/dist/mermaid.min.js" 
-  integrity="sha256-Zmpaaj&#43;GXFsPF5WdPArSrnW3b30dovldeKsW00xBVwE="  crossorigin></script>
+<script defer src="https://cdn.jsdelivr.net/npm/mermaid@8.14.0/dist/mermaid.min.js" 
+  integrity="sha384-atOyb0FxAgN9LyAc6PEf9BjgwLISyansgdH8/VXQH8p2o5vfrRgmGIJ2Sg22L0A0"  crossorigin></script>
 
 
 <link rel="icon" type="image/png" sizes="32x32" href="https://blog.wangjialei.xyz/images/favicon_huce974d41c22b18f52c9ea90a63a4b2a6_21741_32x32_fill_box_center_3.png">
@@ -161,28 +178,31 @@
 
 
 
-<body class="flex flex-col min-h-screen">
-  <header class="fixed flex items-center w-full min-h-16 pl-scrollbar z-50 bg-secondary-bg shadow-sm">
-    <div class="w-full max-w-screen-xl mx-auto"><script>
+
+  <body class="flex min-h-screen flex-col">
+    <header
+      class="min-h-16 pl-scrollbar bg-secondary-bg fixed z-50 flex w-full items-center shadow-sm"
+    >
+      <div class="mx-auto w-full max-w-screen-xl"><script>
     let storageColorScheme = localStorage.getItem("lightDarkMode")
     if (((storageColorScheme == 'Auto' || storageColorScheme == null) && window.matchMedia("(prefers-color-scheme: dark)").matches) || storageColorScheme == "Dark") {
         document.getElementsByTagName('html')[0].classList.add('dark')
     }
 </script>
 <nav class="flex items-center justify-between flex-wrap px-4 py-4 md:py-0">
-    <a href="/" class="mr-6 text-primary-text text-xl font-bold">LoneStar&#39;s blog</a>
+    <a href="/" class="me-6 text-primary-text text-xl font-bold">LoneStar&#39;s blog</a>
     <button id="navbar-btn" class="md:hidden flex items-center px-3 py-2" aria-label="Open Navbar">
         <i class="fas fa-bars"></i>
     </button>
 
     <div id="target"
-        class="hidden block md:flex md:flex-grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
-        <div class="md:flex md:h-16 text-sm md:flex-grow pb-4 md:pb-0 border-b md:border-b-0">
-            <a href="/posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  selected-menu-item  mr-4">文章</a>
-            <a href="/categories/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">分类</a>
-            <a href="/tags/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">标签</a>
-            <a href="/series/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">系列</a>
-            <a href="/#about" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  mr-4">关于</a>
+        class="hidden block md:flex md:grow md:justify-between md:items-center w-full md:w-auto text-primary-text z-20">
+        <div class="md:flex md:h-16 text-sm md:grow pb-4 md:pb-0 border-b md:border-b-0">
+            <a href="/posts/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  selected-menu-item  me-4">文章</a>
+            <a href="/categories/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">分类</a>
+            <a href="/tags/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">标签</a>
+            <a href="/series/" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">系列</a>
+            <a href="/#about" class="block mt-4 md:inline-block md:mt-0 md:h-(16-4px) md:leading-(16-4px) box-border md:border-t-2 md:border-b-2  border-transparent  me-4">关于</a>
         </div>
 
         <div class="flex">
@@ -192,7 +212,7 @@
                 </div>
                 <div class="fixed hidden inset-0 opacity-0 h-full w-full cursor-default z-30" id="is-open">
                 </div>
-                <div class="absolute flex flex-col left-0 md:left-auto right-auto md:right-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
+                <div class="absolute flex flex-col start-0 md:start-auto end-auto md:end-0 hidden bg-secondary-bg w-48 rounded py-2 border border-tertiary-bg cursor-pointer z-40"
                     id='lightDarkOptions'>
                     <span class="px-4 py-1 hover:text-eureka" name="Light">浅色</span>
                     <span class="px-4 py-1 hover:text-eureka" name="Dark">深色</span>
@@ -229,47 +249,54 @@
     });
 </script>
 </div>
-  </header>
-  <main class="flex-grow pt-16">
-    <div class="pl-scrollbar">
-      <div class="w-full max-w-screen-xl lg:px-4 xl:px-8 mx-auto">
-
-
-<div class="grid grid-cols-2 lg:grid-cols-8 gap-4 lg:pt-12">
+    </header>
+    <main class="grow pt-16">
+        <div class="pl-scrollbar">
+          <div class="mx-auto w-full max-w-screen-xl lg:px-4 xl:px-8">
+  
+  
+  <div class="grid grid-cols-2 gap-4 lg:grid-cols-8 lg:pt-12">
     <div
-        class="col-span-2  lg:col-span-6 bg-secondary-bg rounded px-6 py-8">
-        <h1 class="font-bold text-3xl text-primary-text">使用DJL库部署深度学习模型</h1>
-        <div class="flex flex-wrap flex-row items-center mt-2 text-tertiary-text">
-    <div class="mr-6 my-2">
-        <i class="fas fa-calendar mr-1"></i>
-        <span>2022-04-07</span>
-    </div>
-    <div class="mr-6 my-2">
-        <i class="fas fa-clock mr-1"></i>
-        <span>1分钟阅读时长</span>
-    </div>
-    
-    
-    <div class="mr-6 my-2">
-        <i class="fas fa-folder mr-1"></i>
-        
-        <a href="https://blog.wangjialei.xyz/categories/%E8%BF%87%E7%A8%8B%E8%AE%B0%E5%BD%95/" class="hover:text-eureka">过程记录</a>
-        
-    </div>
-    
+      class=" bg-secondary-bg col-span-2 rounded px-6 py-8 lg:col-span-6"
+    >
+      <article class="prose">
+  <h1 class="mb-4">使用DJL库部署深度学习模型</h1>
 
-    
+  <div
+  class="text-tertiary-text not-prose mt-2 flex flex-row flex-wrap items-center"
+>
+  <div class="me-6 my-2">
+    <i class="fas fa-calendar me-1"></i>
+    <span
+      >2022-04-07</span
+    >
+  </div>
+  <div class="me-6 my-2">
+    <i class="fas fa-clock me-1"></i>
+    <span>1分钟阅读时长</span>
+  </div>
+
+  
+    <div class="me-6 my-2">
+      <i class="fas fa-folder me-1"></i>
+      
+        <a href="https://blog.wangjialei.xyz/categories/%E8%BF%87%E7%A8%8B%E8%AE%B0%E5%BD%95/" class="hover:text-eureka"
+          >过程记录</a
+        >
+      
+    </div>
+  
+
+  
 </div>
-        
-        
-        
-        <div class="my-4">
-            <img src="https://mypic-1305118058.cos.ap-hongkong.myqcloud.com/img/starforest.jpg" class="w-full" alt="Featured Image">
-        </div>
-        
 
-        <div class="content">
-            <h2 id="djl库">DJL库</h2>
+
+  
+  
+    <img src="https://mypic-1305118058.cos.ap-hongkong.myqcloud.com/img/starforest.jpg" class="w-full" alt="Featured Image">
+  
+
+  <h2 id="djl库">DJL库</h2>
 <p>DJL(Deep Java Library) 是一个使用Java API简化模型训练、测试、部署和使用深度学习模型进行推理的开源库深度学习工具包，开源的许可协议是Apache-2.0。</p>
 <p>对于Java开发者而言，可以在Java中开发及应用原生的机器学习和深度学习模型，同时简化了深度学习开发的难度。</p>
 <p>通过DJL提供的直观的、高级的API，Java开发人员可以训练自己的模型，或者利用数据科学家用Python预先训练好的模型来进行推理。</p>
@@ -371,55 +398,68 @@ class PredictController {
 <p><img src="https://mypic-1305118058.cos.ap-hongkong.myqcloud.com/img/Snipaste_2022-04-07_16-00-00.png" alt=""></p>
 <p>成功运行</p>
 
-        </div>
-        
+</article>
+
+
+      
         <div class="my-4">
     
-    <a href="https://blog.wangjialei.xyz/tags/pytorch/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#Pytorch</a>
+    <a href="https://blog.wangjialei.xyz/tags/pytorch/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 me-2 hover:text-eureka">#Pytorch</a>
     
-    <a href="https://blog.wangjialei.xyz/tags/djl/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#DJL</a>
+    <a href="https://blog.wangjialei.xyz/tags/djl/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 me-2 hover:text-eureka">#DJL</a>
     
-    <a href="https://blog.wangjialei.xyz/tags/spring-boot/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 mr-2 hover:text-eureka">#Spring Boot</a>
+    <a href="https://blog.wangjialei.xyz/tags/spring-boot/" class="inline-block bg-tertiary-bg text-sm rounded px-3 py-1 my-1 me-2 hover:text-eureka">#Spring Boot</a>
     
 </div>
-        
-        
-        
+      
+
+      
 
 
-        
-        
-        
-        
-<div class="flex flex-col md:flex-row md:justify-between -mx-2 mt-4 px-2 pt-4 border-t">
+
+      
+
+      
+  <div
+    class="-mx-2 mt-4 flex flex-col border-t px-2 pt-4 md:flex-row md:justify-between"
+  >
     <div>
-        
-        <span class="block font-bold">上一页</span>
+      
+        <span class="text-primary-text block font-bold"
+          >上一页</span
+        >
         <a href="https://blog.wangjialei.xyz/posts/clion&#43;visual-studio&#43;cmake%E9%85%8D%E7%BD%AE%E5%9B%BE%E5%BD%A2%E5%AD%A6%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83/" class="block">CLion&#43;Visual Studio&#43;CMake配置图形学开发环境</a>
-        
+      
     </div>
-    <div class="md:text-right mt-4 md:mt-0">
-        
-        <span class="block font-bold">下一页</span>
+    <div class="mt-4 md:mt-0 md:text-right">
+      
+        <span class="text-primary-text block font-bold">下一页</span>
         <a href="https://blog.wangjialei.xyz/posts/jsp%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE-%E5%86%85%E7%BD%AEtomact%E6%9C%8D%E5%8A%A1%E5%99%A8/" class="block">Jsp环境配置-内置tomact服务器</a>
-        
+      
     </div>
-</div>
+  </div>
 
-        
+
+      
 
 
 
     </div>
     
-    <div class="col-span-2">
+      <div class="col-span-2">
         
         
-        <div class="sticky top-16 z-10 hidden lg:block px-6 py-4  bg-primary-bg ">
-    <span class="text-lg font-semibold">本页内容</span>
+          <div
+  class="
+    bg-primary-bg
+   prose sticky top-16 z-10 hidden px-6 py-4 lg:block"
+>
+  <h3>本页内容</h3>
 </div>
-<div class="sticky-toc hidden lg:block px-6 pb-6 ">
-    <nav id="TableOfContents">
+<div
+  class="sticky-toc  hidden px-6 pb-6 lg:block"
+>
+  <nav id="TableOfContents">
   <ul>
     <li><a href="#djl库">DJL库</a></li>
     <li><a href="#spring-boot-微服务集成-djl">Spring Boot 微服务集成 DJL</a>
@@ -435,59 +475,60 @@ class PredictController {
 </nav>
 </div>
 <script>
-    window.addEventListener('DOMContentLoaded', () => {
-        enableStickyToc();
-    });
+  window.addEventListener("DOMContentLoaded", () => {
+    enableStickyToc();
+  });
 </script>
+
         
-    </div>
-    
-
-    
-    
-    <div
-        class="col-span-2  lg:col-span-6 bg-secondary-bg rounded p-6">
-        <h2 class="text-lg font-semibold mb-4">相关</h2>
-        <div class="content">
-            
-            <a href="https://blog.wangjialei.xyz/posts/pytorch%E9%83%A8%E7%BD%B2/">Pytorch 模型部署</a>
-            <br />
-            
-            <a href="https://blog.wangjialei.xyz/posts/springboot%E5%A4%9A%E6%A8%A1%E5%9D%97%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA%E8%BF%90%E8%A1%8C%E6%89%93%E5%8C%85/">SpringBoot多模块项目搭建、运行、打包</a>
-            <br />
-            
-            <a href="https://blog.wangjialei.xyz/posts/springboot%E6%95%B4%E5%90%88%E5%B8%B8%E7%94%A8%E7%BB%84%E4%BB%B6/">SpringBoot整合常用组件</a>
-            <br />
-            
-            <a href="https://blog.wangjialei.xyz/posts/%E4%BD%BF%E7%94%A8docker%E9%83%A8%E7%BD%B2springboot&#43;vue%E9%A1%B9%E7%9B%AE/">使用Docker部署SpringBoot&#43;Vue项目</a>
-            <br />
-            
-            <a href="https://blog.wangjialei.xyz/posts/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91%E5%AE%8C%E6%88%90/">个人博客项目开发完成！</a>
-            <br />
-            
-            <a href="https://blog.wangjialei.xyz/posts/%E6%88%91%E5%AF%B9%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E5%BC%80%E5%8F%91%E7%9A%84%E4%B8%80%E4%BA%9B%E7%90%86%E8%A7%A3/">我对前后端分离开发的一些理解</a>
-            <br />
-            
-        </div>
-    </div>
-    
-</div>
-<script>
-    document.addEventListener('DOMContentLoaded', ()=>{
-        hljs.initHighlightingOnLoad();
-    })
-</script>
-
       </div>
-    </div>
     
-  </main>
-  <footer class="pl-scrollbar">
-    <div class="w-full max-w-screen-xl mx-auto"><div class="text-center p-6 pin-b">
+
+    
+    
+      <div
+        class=" bg-secondary-bg prose col-span-2 rounded p-6 lg:col-span-6"
+      >
+        <h3>相关</h3>
+        
+          <a href="https://blog.wangjialei.xyz/posts/pytorch%E9%83%A8%E7%BD%B2/" class="no-underline">Pytorch 模型部署</a>
+          <br />
+        
+          <a href="https://blog.wangjialei.xyz/posts/springboot%E5%A4%9A%E6%A8%A1%E5%9D%97%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA%E8%BF%90%E8%A1%8C%E6%89%93%E5%8C%85/" class="no-underline">SpringBoot多模块项目搭建、运行、打包</a>
+          <br />
+        
+          <a href="https://blog.wangjialei.xyz/posts/springboot%E6%95%B4%E5%90%88%E5%B8%B8%E7%94%A8%E7%BB%84%E4%BB%B6/" class="no-underline">SpringBoot整合常用组件</a>
+          <br />
+        
+          <a href="https://blog.wangjialei.xyz/posts/%E4%BD%BF%E7%94%A8docker%E9%83%A8%E7%BD%B2springboot&#43;vue%E9%A1%B9%E7%9B%AE/" class="no-underline">使用Docker部署SpringBoot&#43;Vue项目</a>
+          <br />
+        
+          <a href="https://blog.wangjialei.xyz/posts/%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E9%A1%B9%E7%9B%AE%E5%BC%80%E5%8F%91%E5%AE%8C%E6%88%90/" class="no-underline">个人博客项目开发完成！</a>
+          <br />
+        
+          <a href="https://blog.wangjialei.xyz/posts/%E6%88%91%E5%AF%B9%E5%89%8D%E5%90%8E%E7%AB%AF%E5%88%86%E7%A6%BB%E5%BC%80%E5%8F%91%E7%9A%84%E4%B8%80%E4%BA%9B%E7%90%86%E8%A7%A3/" class="no-underline">我对前后端分离开发的一些理解</a>
+          <br />
+        
+      </div>
+    
+  </div>
+
+  
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        hljs.highlightAll();
+      });
+    </script>
+
+          </div>
+        </div>
+      
+    </main>
+    <footer class="pl-scrollbar">
+      <div class="mx-auto w-full max-w-screen-xl"><div class="text-center p-6 pin-b">
     <p class="text-sm text-tertiary-text">&copy; 2021 <a href="https://blog.wangjialei.xyz/">Wang Jialei</a>
  &middot;  Powered by the <a href="https://github.com/wangchucheng/hugo-eureka" class="hover:text-eureka">Eureka</a> theme for <a href="https://gohugo.io" class="hover:text-eureka">Hugo</a></p>
 </div></div>
-  </footer>
-</body>
-
+    </footer>
+  </body>
 </html>
